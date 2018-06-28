@@ -1,0 +1,141 @@
+<!--pages/loginRegisterPage/loginRegisterPage.wxml-->
+
+<view>
+<!--<modal titile="温馨提示" confirm-text="注册" cancel-text="登录"> test</modal>-->
+<dialog 
+  id='dialog'
+  isShow="{{dialogShow}}"
+  title='温馨提示' 
+  content='查看平台详情，请先注册登录' 
+  cancelText='注册' 
+  confirmText='登录'
+  bind:clickCancel="clickCancel"  
+  bind:clickConfirm="clickConfirm">
+</dialog>
+
+</view>
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!--资讯 -> 基金资讯-->
+
+<view hidden="{{currentTab!==0}}">
+  <div class="img-box-0">
+    <view class="container-0">
+      <view class="picture-0">
+        <image class="img" src="/pages/image/0.jpg" mode='widthFix'>
+        </image>
+      </view>
+      <view class="newsContents0">
+        <view class="newsTitle0">
+          【严重缺陷】！
+        </view>
+        <view class="newsTitle0-1">
+          非交易过户清算与转托管处理重复
+        </view>
+      </view>
+    </view>
+  </div>
+
+  <view class="splitline1">
+  </view>
+  <view class="splitline1">
+  </view>
+
+  <view class="splitline2">
+  </view>
+  <view class="splitline2">
+  </view>
+
+
+  <view style='width:100%;height:100%;text-align:center;' class="picture-2">
+    <image style='width:94.5%;' class="infoImage" src="/pages/image/2.jpg" mode='widthFix'>
+    </image>
+  </view>
+
+  <view class="splitline3">
+  </view>
+  <view class="splitline3">
+  </view>
+
+  <div class="img-box-3">
+    <view class="container-3">
+      <view class="picture-3">
+
+        <navigator url="../../pages/reportExchaning/reportExchaning">
+          <image class="img" src="/pages/image/5.jpg" mode='widthFix'>
+          </image>
+        </navigator>
+
+      </view>
+
+      <view class="newsContents3">
+
+        <view class="newsTitle3">
+          【统一测试】
+        </view>
+
+        <navigator url="../../pages/reportExchaning/reportExchaning">
+          <view class="newsTitle3-1">
+            广深地区项目一季度汇报交流会
+          </view>
+        </navigator>
+
+      </view>
+    </view>
+  </div>
+
+  <view class="splitline4">
+  </view>
+
+  <view class="splitline4">
+  </view>
+
+  <div class="img-box-4">
+    <view class="container-4">
+
+      <view class="picture-4">
+        <image class="img" src="/pages/image/4.jpg" mode='widthFix'>
+        </image>
+      </view>
+
+      <view class="newsContents4">
+
+        <view class="newsTitle4">
+          【严重缺陷】！
+        </view>
+
+        <view class="newsTitle4-1">
+          银行间债券公允价更新不同步
+        </view>
+
+      </view>
+    </view>
+  </div>
+
+  <view class="splitline5">
+  </view>
+
+  <view class="splitline5">
+  </view>
+
+
+</view>
+
+
+
+
+<!--资讯 -> 证券资讯-->
+<view hidden="{{currentTab!==1}}">
+  <image class="img" src="/pages/image/4.jpg" mode='widthFix'>
+  </image>
+
+  <image class="img" src="/pages/image/5.jpg" mode='widthFix'>
+  </image>
+
+  <image class="img" src="/pages/image/6.jpg" mode='widthFix'>
+  </image>
+
+</view>

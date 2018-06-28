@@ -1,0 +1,437 @@
+
+page{  
+  display: flex;  
+  flex-direction: column;  
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: darkred;
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;
+  color: grey;
+  font-size: 30rpx;
+
+}  
+.navbar .item.active{  
+  color: white;
+  font-size: 30rpx;
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;   
+  bottom: 5rpx;  
+  left: 128rpx;  
+  right: 128rpx;  
+  height: 3rpx;  
+  background: white; 
+}  
+
+.pickerGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: center;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.section {
+  text-align: center;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  size: 16rpx;
+  text-align: center;
+  margin-top: 56rpx;
+  color: white;
+}
+.attachementButton{
+  color: white;
+}
+
+.textAreaContainer{
+    text-align: left;
+    vertical-align:center;
+}
+
+.inputPromptArea{
+  text-align: center;  
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  background-color: darkred;
+  color: white;
+}
+.debugDescribing{
+  text-align: left;
+  vertical-align: center;
+  height:120rpx;
+  border: 1px darkred solid;
+  margin-left: 25rpx;
+  margin-right: 20rpx;
+
+}
+.preCondition{
+  text-align: left;
+  height:120rpx;
+}
+
+.textAreaContainer{
+  text-align: left;
+  vertical-align: middle;
+}
+
+textarea{
+  border: 2rpx darkred solid;
+  width:93%;
+  height: 50rpx;
+  margin-top:0rpx;
+  margin-bottom: 0rpx;
+  margin-left: 25rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+}
+
+.preConditionAndReoccurSteps{
+  height: 200rpx;
+  vertical-align: middle
+}
+
+.expectedAndActualResult{
+  height: 150rpx;
+  vertical-align: middle;
+}
+
+.solutionDescription{
+  height: 140rpx;
+
+  vertical-align: center;
+}
+
+.anonymousSubmit{
+  font-size:30rpx;
+
+  margin-left:500rpx;
+
+}
+.radioButton{
+  margin-top: 5rpx; 
+  font-size: 30rpx;
+}
+
+
+.widget {
+  /* position: relative; */
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border: #ddd 1px solid;
+}
+
+.container {
+  height: 100%;
+  display: table;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  text-align: center;
+}
+
+.column {
+  width: 22rem;
+  display: table-cell;
+  line-height: 48rpx;
+  
+}
+
+.link-column {
+    font-size: 30rpx;
+  width: 6rem;
+  display: table-cell;
+}
+
+.link {
+  color: blue;
+  display: inline-table;
+}
+
+
+
+/**---------搜索页面的显示控制wxss-----start **/
+
+
+.container{
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 2rpx;
+}
+
+.layoutContainer{
+  height: 300rpx;
+  display: flex;
+  margin-top: 25rpx;
+  line-height: 2rpx;
+  flex-direction: column;  
+}
+.row{
+     margin-top: 5 rpx;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+}
+.row text{
+    flex-grow: 1;
+    text-align: right;
+}
+
+.radioController{
+    display: flex;
+    font-size: 30rpx;
+    margin-left: 60rpx;
+    margin-top:30rpx;
+}
+
+/* 按版本和 按关键字 */
+.accordingToVersionAndKeyword{
+  margin-left: 40rpx;
+}
+/* .row input{
+    width: 216rpx;
+    text-align: left;
+    font-size: 0.7rem;
+    flex-grow: 1;
+    border: 1px solid #0099CC;
+    display: inline-block;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.15rem #aaa;
+    padding: 0.3rem;
+} */
+
+.row input{
+
+    width: 216rpx;
+    font-size: 0.7rem;
+    flex-grow: 3;
+    border: 1px solid #0099CC;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.15rem #aaa;
+    padding: 0.5rem;
+}
+.row button{
+    padding: 0 2rem;
+    margin: 3rem 1rem;
+}
+
+
+.searchBtn{
+  margin: 1 rpx;
+  padding-top:1 rpx;  
+  font-size:14px;  
+  width: 20 rpx;
+  height: 40 rpx;
+}
+.resetBtn{
+  margin: 1 rpx;
+  padding-top:1 rpx;  
+  font-size:14px;  
+  width: 20 rpx;
+  height: 40 rpx;
+}
+
+
+/**---------搜索页面的显示控制wxss-----end **/
+
+
+/** 整个区域 */
+.wxSearch{
+  position: absolute;
+  top: 43px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px #eee solid;
+  background-color: rgba(200, 200, 200, 0.1);
+  z-index: 9999;
+}
+
+/** 框下面的提示区域 */
+.wxSearchInner{
+  background-color: #fff;
+}
+
+/** 热点标题 */
+.wxSearchTitle{
+  display: block;
+  padding: 10px 5px 5px 10px;
+  font-size: 13px;
+  text-align: left;
+}
+
+/** 提示样式 */
+.wxSearchMindKeyItem{
+  padding: 10px 5px 10px 15px;
+  margin-left: 10px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  font-size: 13px;
+}
+
+/** 标签样式 */
+.wxSearchKeyList{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #eee;
+}
+
+/** 标签样式 */
+.wxSearchKeyItem{
+  flex: 0 0 18%;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #eee;
+  margin: 5px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 0px;
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+/** 搜索记录标题栏 */
+.wxSearchHistoryItem{
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+/** 记录标题 */
+.wxSearchHistoryItemTitle{
+  flex: 8;
+  font-size: 13px;
+}
+
+/** 记录删除按钮 */
+.wxSearchHistoryItemDel{
+  flex: 1;
+  font-size: 13px;
+  text-align: center;
+  padding-top:2px;
+  padding-bottom: 2px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+/** ---------------------- 以下是搜索框的 we-ui 样式--------------------------------*/
+
+/*!
+ * WeUI v1.1.1 (https://github.com/weui/weui-wxss)
+ * Copyright 2017 Tencent, Inc.
+ * Licensed under the MIT license
+ */
+
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #efeff4;
+  border-top: 1rpx solid #d7d6dc;
+  border-bottom: 1rpx solid #d7d6dc;
+}
+
+.weui-icon-search {
+  margin-right: 8px;
+  font-size: inherit;
+}
+
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+.weui-search-bar__text {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  background: #fff;
+  border: 1rpx solid #e6e6ea;
+}
+
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+.weui-icon-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 8px;
+  font-size: 0;
+}
+
+.weui-search-bar__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: #9b9b9b;
+  background: #fff;
+  line-height: 28px;
+}
+
+.weui-search-bar__cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color: #09bb07;
+  white-space: nowrap;
+}
+
+.searchBtn{
+  margin-left: 18rpx;
+}
+
+

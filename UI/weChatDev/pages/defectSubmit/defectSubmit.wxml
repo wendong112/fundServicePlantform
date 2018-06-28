@@ -1,0 +1,53 @@
+<!--pages/defectSubmit/defectSubmit.wxml-->
+
+<view class="section section_gap">
+
+
+<view class="section_title"></view>
+
+  <view class="pickerGroup">
+    <picker bindchange="bindPickerChooseVersion" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        请选择版本：{{array[index]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseModule" value="{{indexOfModule}}" range="{{arrayOfModule}}">
+      <view class="picker">
+        请选择模块：{{arrayOfModule[indexOfModule]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseBugLevel" value="{{indexOfLevel}}" range="{{arrayOfLevel}}">
+      <view class="picker">
+        请选择程度：{{arrayOfLevel[indexOfLevel]}}
+      </view>
+    </picker>
+  </view>
+
+    <view class="section">
+      <form bindsubmit="bindFormSubmit">
+        <textarea placeholder="缺陷现象描述(跟踪回访)" name="textarea"  maxlength="200"/>
+        
+        <view class="buttonGroup">
+          <button type="primary" bindtap="choosingOrTakingPhoto">选择或拍摄图片</button>
+          <button type="primary" bindtap="clickDefectDetailButton">请详细描述缺陷</button>
+        </view>
+
+
+        <view class="section" wx:for="{{sources}}" wx:key="{{index}}">
+          <image src="{{item}}"></image>
+        </view>
+        
+        <view class="submitButton">
+        <button form-type="submit" bindtap="clickingSubmitButton">提交</button>
+        </view>
+
+
+      </form>
+    </view>
+
+  
+
+</view>
+

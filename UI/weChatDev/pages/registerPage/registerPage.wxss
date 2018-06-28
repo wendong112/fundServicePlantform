@@ -1,0 +1,71 @@
+/* pages/registerPage/registerPage.wxss */
+
+.nameContainer{
+  display: flex;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.nameLabel{
+  font-size: 30rpx;
+}
+.nameInput{
+  font-size: 30rpx;
+  border-style: none none solid none;
+  border-bottom-color: #C0C0C0;
+  text-align: center;
+}
+
+.sRegisterButn{
+  margin-top:10%;
+  margin-left: 5%;
+}
+
+.companyContainer{
+  display: flex;
+  margin-left: 20%;
+  margin-top: 10%;
+}
+
+.companyLabel{
+  font-size: 30rpx;
+}
+
+.companyInput{
+  font-size: 30rpx;
+  border-style: solid solid solid solid;
+  border-color: #C0C0C0;
+  text-align: center;
+}
+
+.companyMailboxContainer{
+  display: flex;
+  margin-left: 12%;
+  margin-top: 10%;
+}
+
+.companyMailboxLabel{
+  font-size: 30rpx;
+}
+.companyMailboxInput{
+  font-size: 30rpx;
+  border-style: none none solid none;
+  border-bottom-color: #C0C0C0;
+  text-align: center;
+}
+
+.telNumberContainer{
+  display: flex;
+  margin-left: 12%;
+  margin-top: 10%;
+}
+
+.telNumberLabel{
+  font-size: 30rpx;
+}
+.telNumberInput{
+  font-size: 30rpx;
+  border-style: none none solid none;
+  border-bottom-color: #C0C0C0;
+  text-align: center;
+}

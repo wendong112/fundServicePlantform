@@ -1,0 +1,198 @@
+/* pages/indexOldOneInformation/indexOldOneInformation.wxss */
+
+page{  
+  display: flex;  
+  flex-direction: column;  
+  /* height: 100%;   */
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: darkred;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+  color: grey;
+  font-size: 30rpx;
+}  
+.navbar .item.active{  
+  color: white;
+  font-size: 30rpx;
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;   
+  bottom: 5rpx;  
+  left: 135rpx;  
+  right: 135rpx;  
+  height: 3rpx;  
+  background: white; 
+}
+ 
+
+ .img{
+  width: 220rpx;
+  height: 280rpx;
+  margin-top: 22rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+} 
+
+ .picture-2{
+  width: 90%;
+  align-self: center;
+  margin-top: 22rpx;
+  margin-bottom: 20rpx;
+
+}
+  
+
+/* 严重缺陷 */
+
+ .container-0{
+  display: flex
+}
+ .newsTitle0{
+   margin-top: 26rpx;
+   margin-left: 1rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+  .newsTitle0-1{
+   margin-top: 26rpx;
+   margin-left: 10rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+ }
+
+.splitline1{
+  height: 0.25rpx;
+  background: gray;
+  margin: 0 20rpx;
+}
+
+.splitline2{
+  height: 0.5rpx;
+  background: gray;
+  margin: 0 20rpx;
+}
+
+.splitline3{
+  height: 0.25rpx;
+  background: gray;
+  margin: 0 20rpx;
+}
+.splitline4{
+  height: 0.25rpx;
+  background: gray;
+  margin: 0 20rpx;
+}
+.splitline5{
+  height: 0.25rpx;
+  background: gray;
+  margin: 0 20rpx;
+}
+
+/* 培训通知 */
+ .container-1{
+  display: flex
+}
+
+  .video-1{
+  margin-top: 26rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}  
+
+ .newsTitle1{
+   margin-top: 32rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+  .newsTitle1-1{
+   margin-top: 23rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   margin-left: 10rpx;
+ }
+
+/* 资讯 */
+
+ .container-2{
+  display: flex
+}
+ .newsTitle2{
+   margin-top: 26rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+  .newsTitle2-1{
+   margin-top: 23rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   margin-left: 10rpx;
+ }
+
+ /* 【统一测试】 */
+ /* 广深地区-项目一季度汇报交流会 */
+ .container-3{
+  display: flex
+}
+ .newsTitle3{
+   margin-top: 26rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+  .newsTitle3-1{
+   margin-top: 23rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   margin-left: 10rpx;
+
+ }
+
+  .container-4{
+  display: flex
+}
+
+ .newsTitle4{
+   margin-top: 26rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+
+ .newsTitle4-1{
+   margin-top: 23rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   margin-left: 10rpx;
+ }
+
+.container-5{
+  display: flex
+}
+
+ .newsTitle5{
+   margin-top: 26rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   color: darkred;
+ }
+
+ .newsTitle5-1{
+   margin-top: 23rpx;
+   flex: 1rpx;
+   font-size: 30rpx;
+   margin-left: 10rpx;
+ }

@@ -1,0 +1,50 @@
+<!--pages/index_backup/index_backup.wxml-->
+<!--index.wxml-->
+
+<image class="imgOfComLogo" src="../image/companyLogo.jpg" 
+mode='widthFix' 
+style="width: 750rpx; height: 50rpx;margin-right=2rpx;margin-left=2rpx;margin-top:10rpx;">
+</image>
+
+<view class="label_Title" font-size='120'>基金行业故障平台</view>
+
+<view class="label_1">二期第二次验收测试-20180103</view>
+<view class="label_2">11月27日-12月28日</view>
+<view class="fundList" animation="{{animPlus}}" bindtap="plus">基金列表 >
+</view>
+<view class="container">
+  <view class="label_container">
+
+    <!-- <view class="funds-list">基金列表：
+    </view>
+    <!-- <view class="lableOf adding a bug" bindtap='bindViewOfBugAdding'>缺陷提交
+    </view>
+    <view class="lableOfTracing a Bug" bindtap='bindViewOfBugTracing'>缺陷跟踪
+    </view>
+
+    <view class="lableOfSearchingBugs" bindtap='bindViewOfSearchingBugs'>缺陷搜索
+    </view>
+
+    <view class="lableOfProjectProgress" bindtap='bindViewOfProjectProgress'>项目进展
+    </view> -->
+
+    <!-- <image class="img-plus-style" src="../image/fundList.jpg" animation="{{animPlus}}" bindtap="plus"></image> -->
+
+    <!-- <view class="img-style_bugSubmit"  animation="{{animInput}}" bindtap="bindViewOfBugAdding">缺陷提交</view>
+
+  <view class="img-style_bugTrace"  animation="{{animTranspond}}" bindtap="bindViewOfBugTracing">缺陷跟踪</view> -->
+  </view>
+
+  <view>
+    <image src="/pages/image/projctPrgressButton.jpg" class="img-style" animation="{{animPrjctProgress}}" bindtap="bindViewOfProjectProgress">
+    </image>
+  </view>
+
+  <view>
+    <image src="/pages/image/bugSearching.jpg" class="img-style" animation="{{animCollect}}" bindtap="bindViewOfSearchingBugs"></image>
+
+    <image src="/pages/image/bugTracing.jpg" class="img-style" animation="{{animTranspond}}" bindtap="bindViewOfBugTracing"></image>
+
+    <image src="/pages/image/debugSubmit.jpg" class="img-style" animation="{{animInput}}" bindtap="bindViewOfBugAdding"></image>
+  </view>
+</view>

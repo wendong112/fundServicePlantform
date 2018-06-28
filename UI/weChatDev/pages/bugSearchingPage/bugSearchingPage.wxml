@@ -1,0 +1,101 @@
+<!--pages/bugSearchingPage/bugSearchingPage.wxml-->
+<form bindsubmit="searchFormSubmit">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" name="searchKeyWord" value="{{searchKeyWord}}"/>
+    </view>
+  </view>
+
+  <button class="searchBtn" type="primary" style="background: darkred;" form-type="submit">搜索</button>
+
+
+
+
+</view>
+ <!-- <view class="searchContent">
+ <text class="searchSpecifiedContent">请选择搜索范围</text> 
+</view>  -->
+
+<view class="radioController">
+<view>
+  <!-- 仅查看本司 -->
+  <label class="onlyLookingSelfCompanyBug" wx:for-items="{{itemsOfOnlyLookingSelfC}}">
+  <radio name="searchScope" color="darkred" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+ </view>
+
+
+<view>
+<!-- 按版本和按关键字 -->
+ <radio-group class="radio-group" bindchange="radioChangeByVersionIdOrKeyword">
+ <label class="accordingToVersionAndKeyword" wx:for-items="{{items}}">
+ <radio name="searchScope" color="darkred" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+ </label>
+</radio-group> 
+</view>
+
+</view>
+
+</form>
+
+
+<view class="container">
+  <view class="widget">
+    <text class="link-column">序号</text>
+    <text class="column">缺陷概述</text>
+     <!-- <text class="column">提交人</text> -->
+     <text class="column">程度</text> 
+     <text class="link-column">状态</text>  
+   
+     <!-- <text class="link-column">操作</text>    -->
+  </view>
+  <scroll-view scroll-y="true">
+
+    <view>
+      <block wx:for="{{defectList}}">
+        <view class="widget">
+          <view>
+          <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.id}}</navigator> 
+          </view>
+             <text class="column">{{item.title}}</text> 
+              <text class="column">{{item.severity}}</text> 
+
+
+             <!-- <text class="column">{{item.createdUserIdName}}</text>  -->
+
+
+             <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.statusIdName}}</navigator>  
+          </view> 
+             <!-- <view class="link-column">
+                <navigator class="link" url="../operation/operation?areaId={{item.id}}">详情</navigator>   -->
+               <!-- |  -->
+               <!-- <text class="link" bindtap="deleteArea" data-areaid="{{item.areaId}}" data-areaname="{{item.areaName}}" data-index="{{index}}">删除</text>  -->
+            <!-- </view>  -->
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+
+    <view>
+      <block wx:for="{{defectList}}">
+        <view class="widget">
+        
+             <!-- <text class="column">{{item.createdUserIdName}}</text>  -->
+
+              <text class="column">{{item.severity}}</text> 
+
+        </view>
+      </block>
+    </view>
+
+
+
+  </scroll-view>
+</view>
+

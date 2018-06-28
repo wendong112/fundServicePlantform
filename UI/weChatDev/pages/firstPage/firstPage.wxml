@@ -1,0 +1,43 @@
+<!--pages/firstPage/firstPage.wxml-->
+<!--导航条-->  
+<view class="navbar">  
+
+    <image class="img-logonPic"    src="/pages/image/logonPic.png" mode='widthFix'>
+  </image> 
+
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+
+
+
+  <image class="img-moreInfo"    src="/pages/image/moreInfoListPic.png" mode='widthFix'>
+  </image>  
+
+</view>  
+
+
+  
+<!--首页-->  
+
+<view hidden="{{currentTab!==0}}">
+
+<image class="img"    src="/pages/image/firstPageChartDisplaying.jpg" mode='widthFix'>
+  </image>
+
+</view>
+  
+<!--缺陷提交页面-->  
+<view hidden="{{currentTab!==1}}">  
+ 缺陷提交页面
+</view>  
+  
+<!--缺陷跟踪页面-->  
+<view hidden="{{currentTab!==2}}">  
+  缺陷跟踪页面
+</view>  
+
+<!--缺陷搜索页面-->  
+<view hidden="{{currentTab!==3}}">  
+  缺陷搜索页面
+</view>  
+
+  

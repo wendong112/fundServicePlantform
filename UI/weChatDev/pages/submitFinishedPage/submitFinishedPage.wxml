@@ -1,0 +1,10 @@
+<!--pages/submitFinishedPage/submitFinishedPage.wxml-->
+
+
+<view class="successIcon">
+  <block wx:for="{{iconSize}}">
+    <icon type="success" size="{{item}}"/>
+  </block>
+</view>
+
+

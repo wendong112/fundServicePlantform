@@ -1,0 +1,254 @@
+<!--pages/bugPlatform/bugPlatform.wxml-->
+
+
+<!-- <include src="pages/wxSearchView/wxSearchView.wxml"/> -->
+
+<!--导航条-->  
+<view class="navbar">  
+
+    <!-- <image class="img-logonPic"    src="/pages/image/logonPic.png" mode='widthFix'>
+  </image>  -->
+
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+
+
+
+  <!-- <image class="img-moreInfo"    src="/pages/image/moreInfoListPic.png" mode='widthFix'>
+  </image>   -->
+
+</view>  
+
+
+  
+<!--首页-->  
+
+<!-- <view hidden="{{currentTab!==0}}">
+
+ <image class="img"    src="/pages/image/firstPageChartDisplaying.jpg" mode='widthFix'>
+  </image> 
+
+</view> -->
+  
+<!--缺陷提交页面-->  
+<view hidden="{{currentTab!==0}}">  
+
+<view class="section_title"></view>
+
+    <view class="section">
+
+      <form bindsubmit="bindFormSubmit">
+ <view class="pickerGroup">
+    <picker bindchange="bindPickerChooseVersion" name="findVersion" value="{{array[indexOfVersion]}}" range="{{array}}">
+      <view class="picker">
+        请选择版本：{{array[indexOfVersion]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseModule" name="firstLevelModulePriorityIdName" value="{{arrayOfModule[indexOfModule]}}" range="{{arrayOfModule}}">
+      <view class="picker">
+        请选择模块：{{arrayOfModule[indexOfModule]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseBugLevel" name="severity" value="{{arrayOfLevel[indexOfLevel]}}" range="{{arrayOfLevel}}">
+      <view class="picker">
+        请选择程度：{{arrayOfLevel[indexOfLevel]}}
+      </view>
+    </picker>
+  </view>
+
+      <view class="textAreaContainer">
+
+         <textarea class="inputPromptArea"  style="height: 40rpx;" placeholder="缺陷现象描述(跟踪回访)" disabled='true' /> 
+
+        <textarea class="debugDescribing" placeholder="缺陷概述（必填项）" placeholder-style=" auto-focus"
+         name="title" value="{{title}}"/>
+        <textarea class="preConditionAndReoccurSteps" placeholder="前提条件/重现步骤" name="preConditionAndReoccurSteps" value="{{preConditionAndReoccurSteps}}"/>
+        <!-- <textarea class="reoccurSteps" placeholder="重现步骤"  name="reoccurSteps" value="{{reoccurSteps}}" maxlength='1008'/> -->
+        <textarea class="expectedAndActualResult" placeholder="期望结果/实际结果"  name="expectedAndActualResult" value="{{expectedAndActualResult}}" />
+        <!-- <textarea placeholder="实际结果" auto-height name="actualResult" value="{{actualResult}}"/> -->
+
+        <textarea class="solutionDescription" placeholder="解决方案描述" name="solutionDescription" value="{{solutionDescription}}"/>
+
+        <!-- <textarea class="note" placeholder="备注" auto-height name="defectNote" value="{{defectNote}}"/> -->
+      </view>  
+
+      <radio-group class="radio-group" bindchange="radioChangeOfAnonymousButton">
+    <label class="anonymousSubmit" wx:for="{{itemsOfAnonymousSubmit}}">
+
+        <radio class="radioButton" color="darkred" style="" value="{{item.name}}" checked="{{item.checked}}"/>
+        {{item.value}}
+    </label>
+</radio-group>
+
+      <!-- <radio-group class="radio-group" bindchange="radioChange">
+    <label class="anonymousSubmit" wx:for="{{itemsOfAnonymousSubmit}}">
+        <radio class="radioButton" color="darkred" style="" value="{{item.name}}" checked="{{item.checked}}"/>
+        {{item.value}}
+    </label>
+</radio-group> -->
+
+
+        <view class="buttonGroup">
+          <button class="attachementButton" style="background: darkred;width:210rpx;color:white;" size="mini" type="default" bindtap="choosingOrTakingPhoto">照片留痕</button>
+          <button class="submitButton" style="background: darkred;color:white;" size="mini" form-type="submit">提交缺陷</button>
+
+
+<!-- <button class="sbmButn" style="background: darkred;" size="mini" type="primary" form-type="submit">保存</button> -->
+
+
+        </view>
+
+        <view class="section" wx:for="{{sources}}" wx:key="{{index}}">
+          <image src="{{item}}"></image>
+        </view>
+
+      </form>
+    </view>
+
+</view>  
+  
+<!--缺陷跟踪页面-->  
+<!-- <view hidden="{{currentTab!==2}}">  
+<view class="container">
+  <view class="widget">
+    <text class="link-column">序号</text>
+    <text class="column">概述</text>
+    <text class="column">程度</text>
+     <text class="link-column">状态</text>  
+      <text class="link-column">操作</text>    
+  </view>
+  <scroll-view scroll-y="true">
+    <view>
+      <block wx:for="{{defectList}}">
+        <view class="widget">
+          <view>
+          <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.id}}</navigator> 
+          </view>
+             <text class="column">{{item.title}}</text> 
+             <text class="column">{{item.severity}}</text> 
+             <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.statusIdName}}</navigator>  
+          </view> 
+              <view class="link-column">
+                <navigator class="link" url="../operation/operation?areaId={{item.id}}">详情</navigator>   
+                |  
+                <text class="link" bindtap="deleteArea" data-areaid="{{item.areaId}}" data-areaname="{{item.areaName}}" data-index="{{index}}">删除</text>  
+             </view>  
+
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+</view>   -->
+
+ 
+<!--缺陷搜索页面-->  
+<view hidden="{{currentTab!==1}}">
+
+<form bindsubmit="searchFormSubmit">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容" name="searchKeyWord" value="{{searchKeyWord}}"/>
+    </view>
+  </view>
+
+  <button class="searchBtn" type="primary" style="background: darkred;" form-type="submit">搜索</button>
+
+
+
+
+</view>
+ <!-- <view class="searchContent">
+ <text class="searchSpecifiedContent">请选择搜索范围</text> 
+</view>  -->
+
+<view class="radioController">
+<view>
+  <!-- 仅查看本司 -->
+  <label class="onlyLookingSelfCompanyBug" wx:for-items="{{itemsOfOnlyLookingSelfC}}">
+  <radio name="searchScope" color="darkred" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+ </view>
+
+
+<view>
+<!-- 按版本和按关键字 -->
+ <radio-group class="radio-group" bindchange="radioChangeByVersionIdOrKeyword">
+ <label class="accordingToVersionAndKeyword" wx:for-items="{{items}}">
+ <radio name="searchScope" color="darkred" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+ </label>
+</radio-group> 
+</view>
+
+</view>
+
+</form>
+
+
+<view class="container">
+  <view class="widget">
+    <text class="link-column">序号</text>
+    <text class="column">缺陷概述</text>
+     <!-- <text class="column">提交人</text> -->
+     <text class="column">程度</text> 
+     <text class="link-column">状态</text>  
+   
+     <!-- <text class="link-column">操作</text>    -->
+  </view>
+  <scroll-view scroll-y="true">
+
+    <view>
+      <block wx:for="{{defectList}}">
+        <view class="widget">
+          <view>
+          <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.id}}</navigator> 
+          </view>
+             <text class="column">{{item.title}}</text> 
+              <text class="column">{{item.severity}}</text> 
+
+
+             <!-- <text class="column">{{item.createdUserIdName}}</text>  -->
+
+
+             <view class="link-column">
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.statusIdName}}</navigator>  
+          </view> 
+             <!-- <view class="link-column">
+                <navigator class="link" url="../operation/operation?areaId={{item.id}}">详情</navigator>   -->
+               <!-- |  -->
+               <!-- <text class="link" bindtap="deleteArea" data-areaid="{{item.areaId}}" data-areaname="{{item.areaName}}" data-index="{{index}}">删除</text>  -->
+            <!-- </view>  -->
+          </view>
+        </view>
+      </block>
+    </view>
+
+
+
+    <view>
+      <block wx:for="{{defectList}}">
+        <view class="widget">
+        
+             <!-- <text class="column">{{item.createdUserIdName}}</text>  -->
+
+              <text class="column">{{item.severity}}</text> 
+
+        </view>
+      </block>
+    </view>
+
+
+
+  </scroll-view>
+</view>
+
+  
+</view>  
+
