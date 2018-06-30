@@ -30,16 +30,6 @@ Page({
     indexOfVersion: 0
   },
 
-  //历次质量报表，版本选择对应的处理函数
-  bindPickerChooseVersion: function (e) {
-    console.log('bindPickerChooseVersion版本选择，发送选择改变，携带值为', e.detail.value)
-    console.log("新页面图片为: ", this.data.array[e.detail.value].imageURL)
-
-    this.setData({
-      indexOfVersion: e.detail.value,
-      imgSrc: this.data.array[e.detail.value].imageURL
-    })
-  },
 
   /**
     * 生命周期函数--监听页面加载
@@ -53,11 +43,6 @@ Page({
     )
   },
 
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
-  },
 
 
   /**
@@ -109,4 +94,20 @@ Page({
 
   },
 
+  //历次质量报表，版本选择对应的处理函数
+  bindPickerChooseVersion: function (e) {
+    console.log('bindPickerChooseVersion版本选择，发送选择改变，携带值为', e.detail.value)
+    console.log("新页面图片为: ", this.data.array[e.detail.value].imageURL)
+
+    this.setData({
+      indexOfVersion: e.detail.value,
+      imgSrc: this.data.array[e.detail.value].imageURL
+    })
+  },
+
+  navbarTap: function (e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
+  }
 })

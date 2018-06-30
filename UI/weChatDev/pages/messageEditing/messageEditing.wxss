@@ -1,0 +1,26 @@
+
+
+.bugDescription{
+  font-size: 30rpx;
+
+}
+
+.bugDescriptionView{
+  background-color: gainsboro;
+  font-size: 30rpx;
+}
+
+.messageContentText{
+  font-size: 30rpx;
+}
+.submitBtnView{
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.sbmButn{
+  font-size:28rpx;  
+  width: 90%;
+  height: 6%;
+  margin:0 auto
+}

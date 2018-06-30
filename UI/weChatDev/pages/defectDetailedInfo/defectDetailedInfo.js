@@ -1,4 +1,3 @@
-// pages/defectDetailedInfo/defectDetailedInfo.js
 
 Page({
 

@@ -1,63 +1,32 @@
 /* pages/uniformTest/uniformTest.wxss */
 /**index.wxss**/
-page{  
-  display: flex;  
-  flex-direction: column;  
-  /* height: 100%;   */
-}  
-.navbar{  
-  flex: none;  
-  display: flex;  
-  background: darkred;  
-}  
-.navbar .item{  
-  position: relative;  
-  flex: auto;  
-  text-align: center;  
-  line-height: 80rpx;  
-  color: grey;
-  font-size: 30rpx;
-  
-}  
-.navbar .item.active{  
-  color: white;
-  font-size: 30rpx;
-}  
-.navbar .item.active:after{  
-  content: "";  
-  display: block;  
-  position: absolute;   
-  bottom: 5rpx;  
-  left: 115rpx;  
-  right: 115rpx;  
-  height: 3rpx;  
-  background: white; 
-}
+@import "/common/navbarStyle.wxss";
 
 .projectProgressView{
-  width:100%;
-  height:100%;
-  text-align:center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .projectProgressImage {
-  width:94.5%;
+  width: 94.5%;
 }
 
 .pickerContent{
-  padding: 30rpx 50rpx 80rpx;
-  font-size: 30rpx;
+  padding: 5% 5% 5% 5%;
+  font-size: 75%;
   margin: 0 auto;
   text-align:center;
   height: 2rpx;
 }
 
 .qualityView{
-  margin-left: 50rpx;
-  margin-right: 50rpx;
+  padding: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .qualityImage {
-  width:100%; 
-  text-align:center;
+  width: 100%; 
+  text-align: center;
 }

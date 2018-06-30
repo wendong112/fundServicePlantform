@@ -114,14 +114,26 @@
 
 <view calss="commentPanel" style="border:3rpx solid darkred;height:150rpx;width:92%;margin-left:25rpx; border-radius: 15rpx;min-height:10rpx;">
 
- <view class="writingComment" style="" >
-             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">写留言</navigator> 
-          </view>
+
+        <view class="writingComment" style="" >
+
+             <navigator class="link" url="../messageEditing/messageEditing?defectId={{id}}">写留言</navigator> 
+
+              <text class="messageContentDisplayingText" type="text" name="messageContentDisplaying" value="{{messageContentDisplaying}}">
+ </text>
+
+
+          </view> 
 
 </view>
 
+ <view class="messageContentView">
+ <textarea class="messageContentTextarea" auto-focus='' style="border:3rpx solid darkred; height:160rpx; width: 680rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="写留言" type="text" name="messageContent" value="{{messageContent}}">
+ </textarea>
+ </view>
+
  <view class="lookingBugPicture" style="" >
-             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">查看缺陷留痕</navigator> 
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{id}}">查看缺陷留痕</navigator> 
           </view>
 
       <view class="row">  

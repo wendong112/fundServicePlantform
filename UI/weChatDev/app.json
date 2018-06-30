@@ -5,10 +5,16 @@
     "pages/loginPage/loginPage",
 
     "pages/ringFirstPage/ringFirstPage",
+    "pages/bugSearchingPage/bugSearchingPage",
 
+    "pages/testInformationShare/testInformationShare",
     "pages/businessRequSubmit/businessRequSubmit",
 
+    "pages/uniformTest/uniformTest",
     "pages/logs/logs",
+
+
+
 
     "pages/defectSubmit/defectSubmit",
     "pages/saveSuccessPage/saveSuccessPage",
@@ -21,13 +27,12 @@
     "pages/defectDetailedInfo/defectDetailedInfo",
     "pages/bugPlatform/bugPlatform",
 
-    "pages/uniformTest/uniformTest",
     "pages/rankList/rankList",
     "pages/indexOldOneInformation/indexOldOneInformation",
 
-    "pages/bugSubmittingPage/bugSubmittingPage",
-    "pages/bugSearchingPage/bugSearchingPage",
-    "pages/testInformationShare/testInformationShare"
+    "pages/bugSubmittingPage/bugSubmittingPage"
+    
+    
   ],
   "tabBar": {
     "color": "#808080",
@@ -54,7 +59,7 @@
       {
         "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
         "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
-        "pagePath": "pages/businessRequSubmit/businessRequSubmit",
+        "pagePath": "pages/rankList/rankList",
         "text": "我的"
       }
     ]

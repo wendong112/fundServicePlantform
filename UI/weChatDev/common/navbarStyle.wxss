@@ -1,0 +1,33 @@
+page{  
+  display: flex;  
+  flex-direction: column;  
+  /* height: 100%;   */
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: darkred;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+  color: grey;
+  font-size: 30rpx;
+  
+}  
+.navbar .item.active{  
+  color: white;
+  font-size: 30rpx;
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;   
+  bottom: 5rpx;  
+  left: 115rpx;  
+  right: 115rpx;  
+  height: 3rpx;  
+  background: white; 
+}

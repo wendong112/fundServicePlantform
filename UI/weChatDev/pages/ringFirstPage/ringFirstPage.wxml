@@ -1,82 +1,89 @@
 <!--pages/ringFirstPage/ringFirstPage.wxml-->
 
- <view class="containerController" style='background:darkred; width:100%;height:300rpx;'> 
+<view class="containerController">
 
-  <view class="versionDisplayingLabel">
-  您的版本20180630B
+  <view class="versionDisplay">
+    您当前生产版本{{currentVersion}}缺陷数据
   </view>
 
-  <view class="linkLableContainer">
-
-     
-    <view class="bugSubmittingLinkLable">
-    缺陷提交
-    </view>
-    
-
-
-   <view class="bugSearchingLinkLable">
-    缺陷搜索
+  <view class="canvasContainer">
+    <view class="circleContainer">
+      <canvas class="circle"  canvas-id="leftCanvas">
+      </canvas>
+      <view class="circleDesc"><label class='redValue'>40</label> Numbers</view>
     </view>
 
-
-  </view>
-
-</view> 
-
-  <view class="heavyBugsDisplayingAccBugVersion_1">
-
-    <view class="redTitle1">
-      主流版本20170630B严重缺陷集锦
-    </view>
-    <view class="title1_item1">
-      【TOP1】证券买入指令成交时，资金未扣除费用
-    </view>
-    <view class="title1_item2">
-      【TOP2】撤销债券买入指令后，可用资金未解冻
-    </view>
-    <view class="title1_item3">
-      【TOP3】现货自动拆分，可用扣减计算错误
-    </view>
-
-    <view class="title1_item4">
-      >>> 更多
+    <view class="circleContainer">
+      <canvas class="circle"  canvas-id="rightCanvas">
+      </canvas>
+      <view class="circleDesc"><label class='redValue'>28</label> Numbers</view>
     </view>
   </view>
 
-
-    <view class="heavyBugsDisplayingAccBugVersion_2">
-    <view class="redTitle2">
-      主流版本20170630C严重缺陷集锦
+  <view class="bugContainer">
+    <view class="bugGroup">
+      <image src="/image/tabBar/secondMenuPicture.jpg"></image>
+      <view>缺陷提交</view>
     </view>
-    <view class="title2_item1">
-      【TOP1】证券买入指令成交时，资金未扣除费用
-    </view>
-    <view class="title2_item2">
-      【TOP2】撤销债券买入指令后，可用资金未解冻
-    </view>
-    <view class="title2_item3">
-      【TOP3】现货自动拆分，可用扣减计算错误
-    </view>
-    <view class="title2_item4">
-      >>> 更多
+    <view class="bugGroup rightIcon">
+      <image src="/image/tabBar/secondMenuPicture.jpg"></image>
+      <view>缺陷搜索</view>
     </view>
   </view>
+</view>
 
-    <view class="heavyBugsDisplayingAccBugVersion_3">
-    <view class="redTitle3">
-      主流版本20170630E严重缺陷集锦
-    </view>
-    <view class="title3_item1">
-      【TOP1】证券买入指令成交时，资金未扣除费用
-    </view>
-    <view class="title3_item2">
-      【TOP2】撤销债券买入指令后，可用资金未解冻
-    </view>
-    <view class="title3_item3">
-      【TOP3】现货自动拆分，可用扣减计算错误
-    </view>
-    <view class="title3_item4">
-      >>> 更多
-    </view>
+<view class="heavyBugDiaplay">
+  <view class="redTitle">
+    主流版本20170630B严重缺陷集锦
   </view>
+  <view class="topBug">
+    【TOP1】证券买入指令成交时，资金未扣除费用
+  </view>
+  <view class="topBug">
+    【TOP2】撤销债券买入指令后，可用资金未解冻
+  </view>
+  <view class="topBug">
+    【TOP3】现货自动拆分，可用扣减计算错误
+  </view>
+  <view class="more">
+    >>> 更多
+  </view>
+</view>
+
+
+<view class="heavyBugDiaplay">
+  <view class="redTitle">
+    主流版本20170630C严重缺陷集锦
+  </view>
+  <view class="topBug">
+    【TOP1】证券买入指令成交时，资金未扣除费用
+  </view>
+  <view class="topBug">
+    【TOP2】撤销债券买入指令后，可用资金未解冻
+  </view>
+  <view class="topBug">
+    【TOP3】现货自动拆分，可用扣减计算错误
+  </view>
+  <view class="more">
+    >>> 更多
+  </view>
+</view>
+
+<view class="heavyBugDiaplay">
+  <view class="redTitle">
+    主流版本20170630E严重缺陷集锦
+  </view>
+  <view class="topBug">
+    【TOP1】证券买入指令成交时，资金未扣除费用
+  </view>
+  <view class="topBug">
+    【TOP2】撤销债券买入指令后，可用资金未解冻
+  </view>
+  <view class="topBug">
+    【TOP3】现货自动拆分，可用扣减计算错误
+  </view>
+  <view class="more">
+    >>> 更多
+  </view>
+</view>
+

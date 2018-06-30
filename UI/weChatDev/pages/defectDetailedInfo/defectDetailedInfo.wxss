@@ -1,4 +1,3 @@
-/* pages/defectDetailedInfo/defectDetailedInfo.wxss */
 
 /* 详情 label */
 .detailedInfo{
@@ -46,7 +45,7 @@
   margin-right: 15rpx;
   margin-left: 15rpx; 
   font-size: 30rpx; 
-}
+} 
 
 
 .commentPanelLabel{
@@ -70,6 +69,17 @@
   margin-right: 15rpx;
   margin-left: 15rpx; 
   font-size: 30rpx; 
+}
+
+.messageContentView{
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx; 
+}
+
+.messageContentTextarea{
+  margin-left: 30rpx;
+  margin-right:1rpx;
 }
 
 

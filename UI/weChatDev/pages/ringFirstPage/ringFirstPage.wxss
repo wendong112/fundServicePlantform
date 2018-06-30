@@ -1,151 +1,91 @@
 
-.versionDisplayingLabel{
-  color: white;
-  font-size: 28rpx;
-  
-  margin-left: 20rpx;
-  padding-top: 10rpx;
+.containerController {
+  background: darkred;
+  width: 100%;
+
 }
 
-/* .circleViewPicsContainer{
+.versionDisplay{
+  color: white;
+  font-size: 60%;
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+.bugContainer{
   display: flex;
-  flex-wrap: nowrap;  
-  display: float 50%;
-} */
-
-.linkLableContainer{
-  display: flex;
+  margin-left: 18%;
+  margin-top: 3%;
 }
 
-.bugSubmittingLinkLable{
+.bugGroup {
+  margin-bottom: 5%;
   color: white;
-  font-size: 32rpx;
-  margin-left: 20%;
-  margin-top: 180rpx;
+  font-size: 80%;
 }
 
-.bugSearchingLinkLable{
-  color: white;
-  font-size: 32rpx;
+image {
   margin-left: 25%;
-  margin-top: 180rpx;
+  width: 50%;
+  height: 60%;
 }
 
-.heavyBugsDisplayingAccBugVersion_1{
+.rightIcon {
+  margin-left: 40%
+}
+/*圆圈部分*/
+.canvasContainer {
+  display: flex;
+}
+
+.circleContainer{
+  background-color: white;
+  text-align: center;
+  width: 47%;
+  margin-top: 2%;
+  margin-left: 2%;
+  border-radius: 32rpx;
+}
+
+.circleDesc{
+  margin-top: -20%;
+  margin-bottom: 4%;
+  font-weight: 600;
+  font-size: 80%;
+}
+
+.redValue{
+  color: darkred;
+}
+/* 具体缺陷展示 */
+.heavyBugDiaplay{
   background-color:  gainsboro;
   border-radius: 35rpx;
   border: 2rpx gainsboro solid;
 
   width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
+  margin-top: 1%;
+  margin-left: 1%;
 
 }
 
-.redTitle1{
+.redTitle{
   color: darkred;
-  margin-left: 25rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
+  margin-left: 3%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  font-size: 80%;
   font-weight: 600;
 }
 
-.title1_item1{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
+.topBug {
+  font-size: 70%;
+  margin-left: 3%;
+  margin-top: 2%;
 }
-.title1_item2{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title1_item3{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title1_item4{
-  font-size: 28rpx;
+
+.more{
+  font-size: 60%;
   margin-left: 78%;
-  margin-top: 12rpx;
-}
-
-
-.heavyBugsDisplayingAccBugVersion_2{
-  background-color:  gainsboro;
-  border-radius: 35rpx;
-  border: 2rpx gainsboro solid;
-
-  width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-}
-.redTitle2{
-  color: darkred;
-  margin-left: 25rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
-  font-weight: 600;
-}
-.title2_item1{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title2_item2{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title2_item3{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title2_item4{
-  font-size: 28rpx;
-  margin-left: 78%;
-  margin-top: 12rpx;
-}
-
-
-.heavyBugsDisplayingAccBugVersion_3{
-  background-color:  gainsboro;
-  border-radius: 35rpx;
-  border: 2rpx gainsboro solid;
-
-  width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-}
-.redTitle3{
-  color: darkred;
-  margin-left: 25rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
-  font-weight: 600;
-}
-.title3_item1{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title3_item2{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title3_item3{
-  font-size: 31rpx;
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-}
-.title3_item4{
-  font-size: 28rpx;
-  margin-left: 78%;
-  margin-top: 12rpx;
+  margin-top: 2%;
 }

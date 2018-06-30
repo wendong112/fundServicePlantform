@@ -28,21 +28,21 @@ Page({
 
     ],
 
+    //需求号
+    requirementId: '',
 
-    findVersion: '',
-    firstLevelModulePriorityIdName: '',
-    severity: '',
+    //需求概述
+    requirementBriefDescription: '',
 
-    title: '',
-    preCondition: '',
-    reoccurSteps: '',
-    expectedResult: '',
-    actualResult: '',
-    defectNote: '',
+    //完成状态/阶段
+    processStatus:'',
+
+    //共建伙伴(company)
+    company: '',
 
 
-    //缺陷列表
-    defectList: [],
+    //业务需求列表
+    businessRequList: [],
   },
 
 
@@ -99,11 +99,13 @@ Page({
         // var severityName = sKeyWord.trim();
 
         wx.request({
-          url: "http://172.27.228.136:8080/defectplatform/superadmin/getdefectbyseverityid",
-          data: { "severityId": severityId },
+
+          url: "http://127.0.0.1:8080/defectplatform/superadmin/getdefectbyseverityid",
+
+          data: { "requirementId": requirementId },
           method: 'GET',
           success: function (res) {
-            var list = res.data.defectList;
+            var list = res.data.businessRequList;
             if (list == null) {
               var toastText = '获取数据失败' + res.data.errMsg;
               wx.showToast({
@@ -113,7 +115,7 @@ Page({
               });
             } else {
               that.setData({
-                defectList: list
+                businessRequList: list
               });
               wx.navigateTo({
                 url: '../searchResultPage/searchResultPage?severityId=' + severityId,

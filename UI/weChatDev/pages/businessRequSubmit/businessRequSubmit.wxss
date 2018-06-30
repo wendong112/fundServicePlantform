@@ -15,7 +15,7 @@
 }
 
 .inputPromptView {
-  padding: 10rpx;
+  padding: 3%;
   text-align: center;
   color: white;
 }
@@ -23,12 +23,7 @@
 textarea{
   border: 2rpx darkred solid;
   width: 99%;
-  height: 50rpx;
-  margin-top:0rpx;
-  margin-bottom: 0rpx;
-  margin-left: 2rpx;
-  margin-right: 20rpx;
-  font-size: 30rpx;
+  font-size: 75%;
 }
 
 .reqBriefDescTextArea{
@@ -36,8 +31,6 @@ textarea{
   text-align: left;
   height: 120rpx;
   border: 1rpx darkred solid;
-  margin-left: 3rpx;
-  margin-right: 20rpx; 
   align-items: center;  
 }
 
@@ -52,8 +45,8 @@ textarea{
 }
 
 .submitButtonView{
+  padding-top: 5%;
   align-items: center;
-  margin-top: 50rpx;
 }
 
 .sbmButn{

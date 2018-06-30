@@ -1,4 +1,3 @@
-<!--pages/testInformationShare/testInformationShare.wxml-->
 
 <view class="containerController" style='background:darkred; width:100%;height:300rpx;'> 
 
@@ -21,13 +20,15 @@
     
 
     <view class="requirementSubmittingLinkLable">
-    提交需求
-    </view>
+
+     <navigator class="link" url="../businessRequSubmit/businessRequSubmit">提交需求</navigator> 
     
+    </view>
 
 
    <view class="reviewingTestScenariosLibLinkLable">
-    查看测试场景库
+    <navigator class="link" url="../businessRequLibLooking/businessRequLibLooking">查看测试场景库</navigator> 
+    
     </view>
 
 

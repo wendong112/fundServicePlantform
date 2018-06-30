@@ -12,10 +12,10 @@
 }
 
 .telNumberLabel{
-  font-size: 30rpx;
+  font-size: 80%;
 }
 .telNumberInput{
-  font-size: 30rpx;
+  font-size: 70%;
   border-style: none none solid none;
   border-bottom-color: #C0C0C0;
   text-align: center;

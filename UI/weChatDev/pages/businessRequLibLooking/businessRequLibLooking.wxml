@@ -48,17 +48,17 @@
   </view>
   <scroll-view scroll-y="true">
     <view>
-      <block wx:for="{{defectList}}">
+      <block wx:for="{{businessRequList}}">
         <view class="widget">
           <view>
           <view class="link-column">
-             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.id}}</navigator> 
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.requirement_id}}">{{item.requirement_id}}</navigator> 
           </view>
-             <text class="column">{{item.title}}</text> 
-              <text class="column">{{item.severity}}</text> 
+             <text class="column">{{item.requirement_brief_description}}</text> 
+              <text class="column">{{item.process_status}}</text> 
 
              <view class="link-column">
-             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.statusIdName}}</navigator>  
+             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.company}}</navigator>  
           </view> 
              
           </view>
@@ -66,14 +66,6 @@
       </block>
     </view>
 
-    <view>
-      <block wx:for="{{defectList}}">
-        <view class="widget">
-              <text class="column">{{item.severity}}</text> 
-
-        </view>
-      </block>
-    </view>
   </scroll-view>
 </view>
 
