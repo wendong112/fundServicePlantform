@@ -7,15 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ['行业资讯', '排行榜'],
-    currentTab: 0,
-    dialogShow: true
+    dialogShow: true,
+    searchImage: app.globalData.searchImage,
+    commitImage: app.globalData.commitImage,
   },
 
   /**
     * 生命周期函数--监听页面加载
     */
   onLoad: function () {
+    var leftCavArray = {
+      canvasName: "leftCanvas"
+    }
+    this.drawCircle(leftCavArray);
+
+    var rightCavArray = {
+      canvasName: "rightCanvas"
+
+    }
+    this.drawCircle(rightCavArray);
+
+    // 判断逻辑
     var storeTelNum = wx.getStorageSync("telNum");
 
     console.log("缓存手机号为: ", storeTelNum);
@@ -91,6 +103,48 @@ Page({
     wx.navigateTo({
       url: app.globalData.loginPage,
     })
+  },
+
+  drawCircle: function (cavArray) {
+    console.log("准备进行绘图")
+    var height = wx.getSystemInfoSync().windowHeight;
+    var width = wx.getSystemInfoSync().windowWidth
+    console.log("屏幕高度:", height)
+    console.log("屏幕宽度:", width)
+
+    // 获取参数
+    var position = cavArray.position;
+    var canvasName = cavArray.canvasName;
+    var title = cavArray.title;
+    var percent = cavArray.percent;
+
+    var x = width * 0.24
+    var y = height * 0.11
+    var radius = width * 0.13
+
+    if (height < 600) {
+      y = height * 0.15
+    }
+
+    // 页面渲染完成
+    var cxt_arc = wx.createCanvasContext(canvasName);//创建并返回绘图上下文context对象
+    // 外层圆圈
+    cxt_arc.setLineWidth(16);
+    cxt_arc.setStrokeStyle('#d2d2d2');
+    cxt_arc.setLineCap('round')
+    cxt_arc.beginPath();//开始一个新的路径
+    cxt_arc.arc(x, y, radius, 0, 2 * Math.PI, false);//设置一个原点(106,106)，半径为100的圆的路径到当前路径
+    cxt_arc.stroke();//对当前路径进行描边
+
+    //内层圆圈
+    cxt_arc.setLineWidth(16);
+    cxt_arc.setStrokeStyle('#8b0000');
+    cxt_arc.setLineCap('round')
+    cxt_arc.beginPath();//开始一个新的路径
+    cxt_arc.arc(x, y, radius, 0, 2 * Math.PI, false);
+    cxt_arc.stroke();//对当前路径进行描边
+
+    cxt_arc.draw();
   }
 
 })

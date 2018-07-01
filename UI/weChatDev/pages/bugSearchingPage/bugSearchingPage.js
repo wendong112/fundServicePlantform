@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    searchContent: "",
     companyChecked: false,
     versionChecked: false,
     keywordChecked: false,
@@ -23,7 +24,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.version == null) {
+    var version = options.version;
+    if (version == null) {
       console.log("没有入参传入", options);
       console.log("获取所有的缺陷进行展示: ", this.data.allBugURL);
 
@@ -56,7 +58,26 @@ Page({
         }
       })
     } else {
-      
+      console.log("搜索指定version: ", version)
+      //
+      //
+      // 从数据库中获取指定数据
+      //
+      var list = [{
+        "id": 1,
+        "createdUserId_Name": "test",
+        "title": "仅跳转版本",
+        "statusIdName": "新建"
+      }]
+
+      this.setData({
+        searchContent: version,
+        companyChecked: false,
+        versionChecked: true,
+        keywordChecked: false,
+        //缺陷列表
+        defectList: list,        
+      })
     } 
   },
 

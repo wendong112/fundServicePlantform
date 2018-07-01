@@ -6,14 +6,16 @@
 
     "pages/ringFirstPage/ringFirstPage",
     "pages/bugSearchingPage/bugSearchingPage",
+    "pages/bugSubmittingPage/bugSubmittingPage",
+    "pages/defectDetailedInfo/defectDetailedInfo",
 
     "pages/testInformationShare/testInformationShare",
     "pages/businessRequSubmit/businessRequSubmit",
+    "pages/businessRequLibLooking/businessRequLibLooking",
 
     "pages/uniformTest/uniformTest",
+
     "pages/logs/logs",
-
-
 
 
     "pages/defectSubmit/defectSubmit",
@@ -24,13 +26,13 @@
     "pages/projectProgressDisplaying/projectProgressDisplaying",
     "pages/firstPage/firstPage",
     "pages/index_backup/index_backup",
-    "pages/defectDetailedInfo/defectDetailedInfo",
+    
     "pages/bugPlatform/bugPlatform",
 
     "pages/rankList/rankList",
-    "pages/indexOldOneInformation/indexOldOneInformation",
+    "pages/indexOldOneInformation/indexOldOneInformation"
 
-    "pages/bugSubmittingPage/bugSubmittingPage"
+    
     
     
   ],
@@ -47,8 +49,8 @@
       {
         "selectedIconPath": "/image/tabBar/secondMenuPictureSelected.jpg",
         "iconPath": "/image/tabBar/secondMenuPicture.jpg",
-        "pagePath": "pages/bugPlatform/bugPlatform",
-        "text": "故障平台"
+        "pagePath": "pages/testInformationShare/testInformationShare",
+        "text": "测试场景共建"
       },
       {
         "selectedIconPath": "/image/tabBar/thirdMenuPictureSelected.jpg",

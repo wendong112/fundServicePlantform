@@ -8,7 +8,7 @@
 
 <view hidden="{{currentTab!==0}}" >
   <view class="projectProgressView">
-    <image class="projectProgressImage" src="/image/uniformTest/projectProgress.jpg" mode='widthFix'>
+    <image class="projectProgressImage" src="/image/uniformTest/projectProgress.jpg" bindtap='clickProjectProcess' mode='widthFix'>
     </image>
   </view>
 

@@ -43,8 +43,6 @@ Page({
     )
   },
 
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -94,6 +92,14 @@ Page({
 
   },
 
+  clickProjectProcess: function(e) {
+    console.log(e.target);
+    
+    console.log(wx.getImageInfo({
+      src: "/image/uniformTest/projectProgress.jpg",
+    }))
+  },
+
   //历次质量报表，版本选择对应的处理函数
   bindPickerChooseVersion: function (e) {
     console.log('bindPickerChooseVersion版本选择，发送选择改变，携带值为', e.detail.value)
@@ -105,6 +111,7 @@ Page({
     })
   },
 
+  // 点击标签页进行切换
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx

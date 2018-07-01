@@ -19,21 +19,21 @@
 }
 
 .bugGroup {
-  margin-bottom: 5%;
+  margin-bottom: 8%;
   color: white;
   font-size: 80%;
 }
 
 image {
-  margin-left: 25%;
-  width: 50%;
-  height: 60%;
+  margin-left: 15%;
+  width: 70%;
+  height: 85%;
 }
 
 .rightIcon {
   margin-left: 40%
 }
-/*圆圈部分*/
+/*鍦嗗湀閮ㄥ垎*/
 .canvasContainer {
   display: flex;
 }
@@ -48,8 +48,7 @@ image {
 }
 
 .circleDesc{
-  margin-top: -20%;
-  margin-bottom: 4%;
+  margin-bottom: 5%;
   font-weight: 600;
   font-size: 80%;
 }
@@ -57,7 +56,7 @@ image {
 .redValue{
   color: darkred;
 }
-/* 具体缺陷展示 */
+/* 鍏蜂綋缂洪櫡灞曠ず */
 .heavyBugDiaplay{
   background-color:  gainsboro;
   border-radius: 35rpx;

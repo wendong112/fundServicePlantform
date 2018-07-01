@@ -10,23 +10,23 @@
     <view class="circleContainer">
       <canvas class="circle"  canvas-id="leftCanvas">
       </canvas>
-      <view class="circleDesc"><label class='redValue'>40</label> Numbers</view>
+      <view class="circleDesc"><label class='redValue'>{{bugTotalNum}}</label> Numbers</view>
     </view>
 
     <view class="circleContainer">
       <canvas class="circle"  canvas-id="rightCanvas">
       </canvas>
-      <view class="circleDesc"><label class='redValue'>28</label> Numbers</view>
+      <view class="circleDesc"><label class='redValue'>{{bugFixNum}}</label> Numbers</view>
     </view>
   </view>
 
   <view class="bugContainer">
-    <view class="bugGroup">
-      <image src="/image/tabBar/secondMenuPicture.jpg"></image>
+    <view class="bugGroup" bindtap="clickBugCommit">
+      <image src="{{commitImage}}"></image>
       <view>缺陷提交</view>
     </view>
-    <view class="bugGroup rightIcon">
-      <image src="/image/tabBar/secondMenuPicture.jpg"></image>
+    <view class="bugGroup rightIcon" bindtap="clickBugSearch">
+      <image src="{{searchImage}}"></image>
       <view>缺陷搜索</view>
     </view>
   </view>
@@ -36,20 +36,19 @@
   <view class="redTitle">
     主流版本20170630B严重缺陷集锦
   </view>
-  <view class="topBug">
-    【TOP1】证券买入指令成交时，资金未扣除费用
+  <view class="topBug" id="{{bugArray.top1Id}}" bindtap='clickBugDetail'>
+    【TOP1】{{bugArray.top1}}
   </view>
-  <view class="topBug">
-    【TOP2】撤销债券买入指令后，可用资金未解冻
+  <view class="topBug" id="{{bugArray.top2Id}}" bindtap='clickBugDetail'>
+    【TOP2】{{bugArray.top2}}
   </view>
-  <view class="topBug">
-    【TOP3】现货自动拆分，可用扣减计算错误
+  <view class="topBug" id="{{bugArray.top3Id}}" bindtap='clickBugDetail'>
+    【TOP3】{{bugArray.top3}}
   </view>
-  <view class="more">
+  <view class="more" id='20170630B' bindtap='clickMore'>
     >>> 更多
   </view>
 </view>
-
 
 <view class="heavyBugDiaplay">
   <view class="redTitle">
