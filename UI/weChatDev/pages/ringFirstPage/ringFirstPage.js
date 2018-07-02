@@ -14,7 +14,7 @@ Page({
     bugTotalNum: "",
     bugFixNum: "",
 
-    bugArray: {},
+    bugArray: [],
 
     searchImage: app.globalData.searchImage,
     commitImage: app.globalData.commitImage,
@@ -32,15 +32,21 @@ Page({
       currentVersion: "20170630B",
       bugTotalNum: 40,
       bugFixNum: 28,
-      bugArray: {
-        "top1":"证券买入指令成交时，资金未扣除费用",
-        "top1Id": 1,
-        "top2":"撤销债券买入指令后，可用资金未解冻",
-        "top2Id": 2,
-        "top3": "现货自动拆分，可用扣减计算错误",
-        "top3Id": 3,
-      }
+      bugArray: [{
+        topFlag: "1",
+        id: "2",
+        title: "证券买入指令成交时，资金未扣除费用"
+      }, {
+        topFlag: "2",
+        id: "3",
+        title: "撤销债券买入指令后，可用资金未解冻" 
+      }, {
+        topFlag: "3",
+        id: "4",
+        title: "现货自动拆分，可用扣减计算错误"
+      }]
     })
+
     // 画图
     var leftCavArray = {
       canvasName: "leftCanvas",

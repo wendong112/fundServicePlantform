@@ -36,20 +36,15 @@
   <view class="redTitle">
     主流版本20170630B严重缺陷集锦
   </view>
-  <view class="topBug" id="{{bugArray.top1Id}}" bindtap='clickBugDetail'>
-    【TOP1】{{bugArray.top1}}
-  </view>
-  <view class="topBug" id="{{bugArray.top2Id}}" bindtap='clickBugDetail'>
-    【TOP2】{{bugArray.top2}}
-  </view>
-  <view class="topBug" id="{{bugArray.top3Id}}" bindtap='clickBugDetail'>
-    【TOP3】{{bugArray.top3}}
+  <view class="topBug" id="{{item.id}}" bindtap='clickBugDetail' wx:for="{{bugArray}}" wx:key="topFlag">
+    【TOP{{item.topFlag}}】{{item.title}}
   </view>
   <view class="more" id='20170630B' bindtap='clickMore'>
     >>> 更多
   </view>
 </view>
 
+<!--需要修改替换的部分-->
 <view class="heavyBugDiaplay">
   <view class="redTitle">
     主流版本20170630C严重缺陷集锦

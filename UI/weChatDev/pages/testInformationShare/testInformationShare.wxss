@@ -1,384 +1,60 @@
 /* pages/testInformationShare/testInformationShare.wxss */
 
-.picsViewContainer{
+/* 图标部分 */
+.containerController {
+  background: darkred;
+  width: 100%;
+}
+.reqContainer{
   display: flex;
-}
-.requireSubmitPicView{
-  margin-left: 22%;
-  /* margin-top: 3%; */
-}
-.scenarioLibPicView{
-  margin-left: 27%;
-  /* margin-top: 80rpx; */
-}
-.imgOfRequSubmit{
-  
-  height:100rpx;
-  width: 100rpx;
-  margin-top: 80rpx;
-}
-.imgOfSceLibPic{
-  /* margin-left: 18%; */
-  height:100rpx;
-  width: 100rpx;
-  margin-top: 80rpx;
-}
-
-
-.linkLableContainer{
-  display: flex;
-}
-.requirementSubmittingLinkLable{
-  color: white;
-  font-size: 32rpx;
-  margin-left: 20%;
-  margin-top: 20rpx;
-}
-.reviewingTestScenariosLibLinkLable{
-  color: white;
-  font-size: 32rpx;
   margin-left: 18%;
-  margin-top: 20rpx;
 }
 
+.reqGroup {
+  margin-top: 10%;
+  margin-bottom: 15%;
 
-.top1{
+}
+
+image {
+  margin-left: 15%;
+  width: 65%;
+  height: 80%;
+}
+
+.rightIcon {
+  margin-left: 20%
+}
+
+.reqContent {
+  padding-top: 15%;
+  color: white;
+  font-size: 80%;
+  font-weight: 550;
+}
+
+/* 内容部分 */
+.heavyReqDiaplay{
   background-color:  gainsboro;
   border-radius: 35rpx;
   border: 2rpx gainsboro solid;
 
   width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-
+  margin-top: 1%;
+  margin-left: 1%;
 }
 
-.redTitle1{
+.redTitle{
   color: darkred;
-  margin-left: 15rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
+  margin: 3% 0% 2% 3%;
+  font-size: 80%;
   font-weight: 600;
 }
 
-.title1_itemsDateContainer{
-  display: flex;
-}
-
-.title1_item1_dateLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 20rpx;
-}
-
-.title1_item1_dateInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 20rpx;
-}
-
-.title1_itemsCoCompanyContainer{
-  display: flex;
-}
-
-.title1_item1_CoCompanyLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title1_item1_CoCompanyInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title1_itemsBusinessNameContainer{
-  display: flex;
-}
-
-.title1_item1_BusinessNameLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title1_item1_BusinessNameInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-
-
-.title1_itemsSubmitTypeContainer{
-  display: flex;
-}
-
-.title1_item1_SubmitTypeLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title1_item1_SubmitTypeInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-
-
-.title1_itemsDetailedInfoContainer{
-  display: flex;
-}
-.title1_item1_DetailedInfoLabel{
-  
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-.title1_item1_DetailedInfoInfo{
-
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  /* 超出一行文字自动隐藏 */
-  overflow:hidden;
-
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-/* for top2 */
-
-.top2{
-  background-color:  gainsboro;
-  border-radius: 35rpx;
-  border: 2rpx gainsboro solid;
-  width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-}
-
-.redTitle2{
-  color: darkred;
-  margin-left: 15rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
-  font-weight: 600;
-}
-
-.title2_itemsDateContainer{
-  display: flex;
-}
-
-.title2_item1_dateLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 20rpx;
-}
-
-.title2_item1_dateInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 20rpx;
-}
-
-.title2_itemsCoCompanyContainer{
-  display: flex;
-}
-
-.title2_item1_CoCompanyLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title2_item1_CoCompanyInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title2_itemsBusinessNameContainer{
-  display: flex;
-}
-
-.title2_item1_BusinessNameLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title2_item1_BusinessNameInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title2_itemsSubmitTypeContainer{
-  display: flex;
-}
-
-.title2_item1_SubmitTypeLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title2_item1_SubmitTypeInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title2_itemsDetailedInfoContainer{
-  display: flex;
-}
-.title2_item1_DetailedInfoLabel{
-  
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-.title2_item1_DetailedInfoInfo{
-
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  /* 超出一行文字自动隐藏 */
-  overflow:hidden;
-
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.top3{
-  background-color:  gainsboro;
-  border-radius: 35rpx;
-  border: 2rpx gainsboro solid;
-
-  width: 97.5%;
-  height: 280rpx;
-  margin-top: 10rpx;
-  margin-left: 10rpx;
-}
-
-.redTitle3{
-  color: darkred;
-  margin-left: 15rpx;
-  margin-top: 20rpx;
-  font-size: 31rpx;
-  font-weight: 600;
-}
-
-.title3_itemsDateContainer{
-  display: flex;
-}
-
-.title3_item1_dateLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 20rpx;
-}
-
-.title3_item1_dateInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 20rpx;
-}
-
-.title3_itemsCoCompanyContainer{
-  display: flex;
-}
-
-.title3_item1_CoCompanyLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title3_item1_CoCompanyInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title3_itemsBusinessNameContainer{
-  display: flex;
-}
-
-.title3_item1_BusinessNameLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title3_item1_BusinessNameInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title3_itemsSubmitTypeContainer{
-  display: flex;
-}
-
-.title3_item1_SubmitTypeLabel{
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-
-.title3_item1_SubmitTypeInfo{
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
-}
-
-.title3_itemsDetailedInfoContainer{
-  display: flex;
-}
-.title3_item1_DetailedInfoLabel{
-  
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  font-size: 28rpx;
-  margin-left: 40rpx;
-  margin-top: 5rpx;
-}
-.title3_item1_DetailedInfoInfo{
-
-  /* 强制不换行 */
-  white-space:nowrap;
-
-  /* 超出一行文字自动隐藏 */
-  overflow:hidden;
-
-  font-size: 28rpx;
-  margin-left: 6rpx;
-  margin-top: 5rpx;
+.reqDesc {
+  font-size: 70%;
+  margin: 0% 0% 3% 5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

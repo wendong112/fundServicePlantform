@@ -288,7 +288,7 @@ Page({
     if (error2) {
       console.log("版本关键字不勾选，本公司也为空")
       wx.showToast({
-        title: '单选框必选',
+        title: '勾选框必选',
         icon: "loading",
         duration: 2000,
       })
@@ -297,5 +297,15 @@ Page({
     }
 
     return true;
+  },
+
+  // 跳转到缺陷详情中
+  clickDetail: function(e) {
+    var id = e.target.id;
+    console.log("跳转到缺陷详情中", id)
+
+    //
+    // 待完善
+    //
   }
 })

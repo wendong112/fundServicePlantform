@@ -14,6 +14,7 @@
     "pages/businessRequLibLooking/businessRequLibLooking",
 
     "pages/uniformTest/uniformTest",
+    "pages/projectProgressDetail/projectProgressDetail",
 
     "pages/logs/logs",
 
@@ -23,18 +24,9 @@
     "pages/submitFinishedPage/submitFinishedPage",
 
     "pages/searchResultPage/searchResultPage",
-    "pages/projectProgressDisplaying/projectProgressDisplaying",
     "pages/firstPage/firstPage",
-    "pages/index_backup/index_backup",
-    
-    "pages/bugPlatform/bugPlatform",
 
-    "pages/rankList/rankList",
-    "pages/indexOldOneInformation/indexOldOneInformation"
-
-    
-    
-    
+    "pages/rankList/rankList"
   ],
   "tabBar": {
     "color": "#808080",

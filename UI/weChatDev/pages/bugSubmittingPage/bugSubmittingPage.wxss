@@ -1,4 +1,3 @@
-/* pages/bugSubmittingPage/bugSubmittingPage.wxss */
 
 .pickerGroup {
   display: flex;

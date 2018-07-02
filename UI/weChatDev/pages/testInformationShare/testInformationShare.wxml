@@ -1,221 +1,23 @@
+<view class="containerController">
 
-<view class="containerController" style='background:darkred; width:100%;height:300rpx;'> 
-
-
-  <view class="picsViewContainer">
-    <view class="requireSubmitPicView">
-        <image class="imgOfRequSubmit" src="/pages/image/testInformationShare/requirementSubmit.jpg" mode='widthFix'>
-        </image>
+  <view class="reqContainer">
+    <view class="reqGroup" bindtap="clickReqCommit">
+      <image src="{{reqImg}}"></image>
+      <view class="reqContent">提交测试需求</view>
     </view>
-
-    <view class="scenarioLibPicView">
-        <image class="imgOfSceLibPic" src="/pages/image/testInformationShare/scenarioLibPic.jpg" mode='widthFix'>
-        </image>
-    </view>
-
-
-  </view>
-
-  <view class="linkLableContainer">
-    
-
-    <view class="requirementSubmittingLinkLable">
-
-     <navigator class="link" url="../businessRequSubmit/businessRequSubmit">提交需求</navigator> 
-    
-    </view>
-
-
-   <view class="reviewingTestScenariosLibLinkLable">
-    <navigator class="link" url="../businessRequLibLooking/businessRequLibLooking">查看测试场景库</navigator> 
-    
-    </view>
-
-
-  </view>
-
-</view> 
-
-  <view class="top1">
-
-    <view class="redTitle1">
-    【TOP1】ETF发行端业务测试场景库
-    </view>
-
-    <view class="title1_itemsDateContainer">
-      <view class="title1_item1_dateLabel">
-        日期：
-      </view>
-
-      <view class="title1_item1_dateInfo">
-        2018年5月30日
-      </view>
-    </view>
-
-
-    <view class="title1_itemsCoCompanyContainer">
-      <view class="title1_item1_CoCompanyLabel">
-        共建伙伴：
-      </view>
-
-      <view class="title1_item1_CoCompanyInfo">
-        南方基金
-      </view>
-    </view>
-
-
-        <view class="title1_itemsBusinessNameContainer">
-      <view class="title1_item1_BusinessNameLabel">
-        业务名称：
-      </view>
-
-      <view class="title1_item1_BusinessNameInfo">
-        ETF发行端业务
-      </view>
-    </view>
-
-
-    <view class="title1_itemsSubmitTypeContainer">
-      <view class="title1_item1_SubmitTypeLabel">
-        提交类型：
-      </view>
-      <view class="title1_item1_SubmitTypeInfo">
-        业务场景
-      </view>
-    </view>
-
-        <view class="title1_itemsDetailedInfoContainer">
-      <view class="title1_item1_DetailedInfoLabel">
-        详情：
-      </view>
-      <view class="title1_item1_DetailedInfoInfo" >
-        基于跨市场债券ETF，分别对上交所深交所发行端的......
-      </view>
+    <view class="reqGroup rightIcon" bindtap="clickSceneView">
+      <image src="{{sceneImg}}"></image>
+      <view class="reqContent">查看测试场景</view>
     </view>
   </view>
+</view>
 
+<view class="heavyReqDiaplay" wx:for="{{reqArray}}" wx:key="topFlag">
 
-
-
-
-
-  <view class="top2">
-   <view class="redTitle2">
-    【TOP2】银行间债券借贷业务场景库
-    </view>
-
-    <view class="title2_itemsDateContainer">
-      <view class="title2_item1_dateLabel">
-        日期：
-      </view>
-
-      <view class="title2_item1_dateInfo">
-        2018年5月30日
-      </view>
-    </view>
-
-
-    <view class="title2_itemsCoCompanyContainer">
-      <view class="title2_item1_CoCompanyLabel">
-        共建伙伴：
-      </view>
-
-      <view class="title2_item1_CoCompanyInfo">
-        南方基金
-      </view>
-    </view>
-
-
-        <view class="title2_itemsBusinessNameContainer">
-      <view class="title2_item1_BusinessNameLabel">
-        业务名称：
-      </view>
-
-      <view class="title2_item1_BusinessNameInfo">
-        ETF发行端业务
-      </view>
-    </view>
-
-
-    <view class="title2_itemsSubmitTypeContainer">
-      <view class="title2_item1_SubmitTypeLabel">
-        提交类型：
-      </view>
-      <view class="title2_item1_SubmitTypeInfo">
-        业务场景
-      </view>
-    </view>
-
-        <view class="title2_itemsDetailedInfoContainer">
-      <view class="title2_item1_DetailedInfoLabel">
-        详情：
-      </view>
-      <view class="title2_item1_DetailedInfoInfo" >
-        基于跨市场债券ETF，分别对上交所深交所发行端的......
-      </view>
-    </view>
-
+  <view class="redTitle" id="{{item.requirementId}}" bindtap='clickSpecScene'>
+    【TOP{{item.topFlag}}】{{item.requirementBriefDescription}}
   </view>
-
-
-
-
-
-    <view class="top3">
-
-       <view class="redTitle3">
-    【TOP3】银行间债券借贷业务场景库
-    </view>
-
-    <view class="title3_itemsDateContainer">
-      <view class="title3_item1_dateLabel">
-        日期：
-      </view>
-
-      <view class="title3_item1_dateInfo">
-        2018年5月30日
-      </view>
-    </view>
-
-
-    <view class="title3_itemsCoCompanyContainer">
-      <view class="title3_item1_CoCompanyLabel">
-        共建伙伴：
-      </view>
-
-      <view class="title3_item1_CoCompanyInfo">
-        南方基金
-      </view>
-    </view>
-
-
-        <view class="title3_itemsBusinessNameContainer">
-      <view class="title3_item1_BusinessNameLabel">
-        业务名称：
-      </view>
-
-      <view class="title3_item1_BusinessNameInfo">
-        ETF发行端业务
-      </view>
-    </view>
-
-
-    <view class="title3_itemsSubmitTypeContainer">
-      <view class="title3_item1_SubmitTypeLabel">
-        提交类型：
-      </view>
-      <view class="title3_item1_SubmitTypeInfo">
-        业务场景
-      </view>
-    </view>
-
-        <view class="title3_itemsDetailedInfoContainer">
-      <view class="title3_item1_DetailedInfoLabel">
-        详情：
-      </view>
-      <view class="title3_item1_DetailedInfoInfo" >
-        基于跨市场债券ETF，分别对上交所深交所发行端的......
-      </view>
-    </view>
-    
+  <view class="reqDesc">
+    <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.createDate}}\n共建伙伴：{{item.company}}\n详情：{{item.requirementDescription}}</text>
   </view>
+</view>

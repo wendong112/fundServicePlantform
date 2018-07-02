@@ -1,0 +1,29 @@
+<!--pages/projectProgressDetail/projectProgressDetail.wxml-->
+
+<view class="titleContainer">
+  <picker class="pickerImage" bindchange="selectProject" value="{{projectArray[index].projectName}}" range="{{projectArray}}" range-key='projectName'>
+    <view>
+      <image src="{{threeLineIcon}}"></image>
+    </view>
+  </picker>
+
+  <view class="titleContent">{{projectArray[index].projectName}}</view>
+</view>
+
+
+<view class="briefBox">
+  <icon type="info_circle" size="20" color="#8B0000"></icon>
+  <view class="brefContent">点击上方图标选择索要查询的项目进展详情</view>
+</view>
+
+
+<view class="contentContainer">
+  <view class="projectDetail">
+    <text>{{projectArray[index].projectDetail}}</text>
+  </view>
+  
+</view>
+
+
+
+  

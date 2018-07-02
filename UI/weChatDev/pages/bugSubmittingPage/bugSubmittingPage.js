@@ -40,7 +40,7 @@ Page({
 
     addUrl: "http://127.0.0.1:8080/defectplatform/superadmin/adddefect",
 
-    //缺陷列表，为跟踪页面准备的数据
+    //缺陷列表，
     defectList: [],
 
     //缺陷提交的版本选择，版本数据
@@ -142,7 +142,16 @@ Page({
 
     var temAnonyRadioCheckOrNotStringValue = anonyRadioCheckOrNotStringValue;
 
-    formData.anonyRadioCheckOrNotStringValue = temAnonyRadioCheckOrNotStringValue
+
+    //如果用户选择了匿名提交，那么将更新defect_detailed表的第30个预留字段（PREPARE_PROPERTY_30）的值为1。如果没有选择匿名提交那么这个字段不更新，数据库中还是默认的值。
+    if (temAnonyRadioCheckOrNotStringValue=="anonymousSubmitting"){
+
+      formData.anonyRadioCheckOrNotStringValue ="1";
+
+    }
+
+
+    // formData.anonyRadioCheckOrNotStringValue = temAnonyRadioCheckOrNotStringValue
 
     wx.request({
       url: url,
@@ -160,10 +169,43 @@ Page({
         wx.showToast({
           title: toastText,
           icon: '',
-          duration: 2000
+          duration: 2500
         });
 
         if (result == true) {
+
+          // wx.request({
+          //   url: url,
+          //   data: JSON.stringify(formData),
+          //   method: 'POST',
+          //   header: {
+          //     'Content-Type': 'application/json'
+          //   },
+          //   success: function (res) {
+          //     var result = res.data.success
+          //     var toastText = "操作成功！";
+          //     if (result != true) {
+          //       toastText = "操作失败" + res.data.errMsg;
+          //     }
+          //     wx.showToast({
+          //       title: toastText,
+          //       icon: '',
+          //       duration: 2000
+          //     });
+          //     if (result == true) {
+          //       wx.navigateTo({
+          //         //点击提交按钮，提交完成后，跳转到'保存完成'页面
+          //         url: '/pages/submitFinishedPage/submitFinishedPage',
+
+          //       })
+          //     }
+          //   }
+          // })
+
+
+
+
+
           wx.navigateTo({
 
             //点击提交按钮，提交完成后，跳转到'保存完成'页面

@@ -49,7 +49,7 @@
 
 
         <view class="buttonGroup">
-          <button class="attachementButton" style="background: darkred;width:210rpx;color:white;" size="mini" type="default" bindtap="choosingOrTakingPhoto">照片留痕</button>
+          <button class="attachementButton" bindtap="choosingOrTakingPhoto" style="background: darkred;width:210rpx;color:white;" size="mini" type="default" >照片留痕</button>
           <button class="submitButton" style="background: darkred;color:white;" size="mini" form-type="submit">提交缺陷</button>
 
 

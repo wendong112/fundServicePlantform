@@ -1,5 +1,5 @@
 // pages/businessRequSubmit/businessRequSubmit.js
-
+var util = require("../../utils/util.js");
 const app = getApp();
 
 Page({
@@ -16,8 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
   },
 
   /**
@@ -73,6 +72,9 @@ Page({
     var formData = e.detail.value;
     var that = this;
 
+    var currentDate = util.formatTime(new Date).replace(new RegExp("/",'g'), "-");
+    console.log("提交缺陷的时间为", currentDate);
+
     if (this.checkBriefNotEmpty(formData)) {
       //提交需求到数据库中
       console.log("提交数据到数据库中: ", formData)
@@ -86,6 +88,7 @@ Page({
         reqDetailDesc: '',
         remark: ''    
       })
+
       // 弹出提示信息
       console.log("弹出提示信息")
       wx.showModal({
@@ -94,11 +97,12 @@ Page({
         showCancel: false,
         confrimText: "确定",
         confirmColor: "#8B0000",
+        /*
         success: function (res) {
           wx.reLaunch({
             url: app.globalData.startPage,
           })
-        }
+        }*/
       })
     }
   },

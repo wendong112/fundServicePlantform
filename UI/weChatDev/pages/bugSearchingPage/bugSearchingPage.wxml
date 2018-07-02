@@ -46,46 +46,18 @@
       </view>
       <block wx:for="{{defectList}}" wx:key="{{id}}">
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
-            <view class="td td1">{{item.id}}</view>
-            <view class="td td2 td-brief">{{item.title}}</view>
-            <view class="td td3">{{item.statusIdName}}</view>
-            <view class="td td4">{{item.createdUserId_Name}}</view>
+            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
+            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
         </view>
         <view class="tr" wx:else>
-            <view class="td td1">{{item.id}}</view>
-            <view class="td td2 td-brief">{{item.title}}</view>
-            <view class="td td3">{{item.statusIdName}}</view>
-            <view class="td td4">{{item.createdUserId_Name}}</view>
+            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
+            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
         </view>
       </block>
 
     </view>
-    <!--
-  <view class="widget">
-    <text class="link-column">序号</text>
-    <text class="column">缺陷概述</text>
-    <text class="column">程度</text>
-    <text class="link-column">状态</text>
-  </view>
-
-
-   
-      <view wx:for="{{defectList}}">
-        <view class="widget">
-          <view>
-            <view class="link-column">
-              <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.id}}</navigator>
-            </view>
-            <text class="column">{{item.title}}</text>
-            <text class="column">{{item.severity}}</text>
-            <view class="link-column">
-              <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{item.id}}">{{item.statusIdName}}</navigator>
-            </view>
-
-          </view>
-        </view>
-      </view>
--->
-
-
 </view>
