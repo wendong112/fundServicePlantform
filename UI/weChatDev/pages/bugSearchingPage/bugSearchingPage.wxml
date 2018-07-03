@@ -1,0 +1,63 @@
+<!--pages/bugSearchingPage/bugSearchingPage.wxml-->
+<form bindsubmit="searchFormSubmit">
+  <!-- 搜索框和搜索按钮部分 -->
+  <view class="searchInputPart">
+    <view class="searchForm">
+      <view class="searchBox">
+        <icon class="searchIcon" type="search" ></icon>
+        <input type="text" class="searchInput" placeholder="请输入搜索内容" name="searchContent" value="{{searchContent}}" />
+      </view>
+    </view>
+    <button class="searchBtn" style="background: darkred;" form-type="submit">搜索</button>
+  </view>
+
+  <!-- 勾选框部分 -->
+  <view class="radioController">
+    <!-- 仅查看本司 -->
+    <radio-group class="groupRadio" name="searchCompany">
+    <label>
+      <radio bindtap='clickCompany' class="singleGroupRadio" color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
+    </label>
+    </radio-group>
+
+    <radio-group  class="groupRadio"  name="searchVersion">
+    <!-- 按版本 -->
+    <label>
+      <radio bindtap='clickVersion' class="singleGroupRadio" color="darkred" value="2" checked="{{versionChecked}}" />按版本
+    </label>
+    </radio-group>
+    <radio-group  class="groupRadio"  name="searchKeyword">
+    <!-- 按关键字 -->
+    <label>
+      <radio bindtap='clickKeyword' class="singleGroupRadio" color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
+    </label>
+    </radio-group>
+  </view>
+</form>
+
+<!-- 表格显示部分 -->
+<view class="history-table-wrap">
+    <view class="table">
+      <view class="tr">
+          <view class="th th1">序号</view>
+          <view class="th th2">缺陷概述</view>
+          <view class="th th3">状态</view>
+          <view class="th th4">提交人</view>
+      </view>
+      <block wx:for="{{defectList}}" wx:key="{{id}}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
+            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
+        </view>
+        <view class="tr" wx:else>
+            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
+            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
+        </view>
+      </block>
+
+    </view>
+</view>

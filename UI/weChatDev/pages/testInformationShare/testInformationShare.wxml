@@ -1,0 +1,23 @@
+<view class="containerController">
+
+  <view class="reqContainer">
+    <view class="reqGroup" bindtap="clickReqCommit">
+      <image src="{{reqImg}}"></image>
+      <view class="reqContent">提交测试需求</view>
+    </view>
+    <view class="reqGroup rightIcon" bindtap="clickSceneView">
+      <image src="{{sceneImg}}"></image>
+      <view class="reqContent">查看测试场景</view>
+    </view>
+  </view>
+</view>
+
+<view class="heavyReqDiaplay" wx:for="{{reqArray}}" wx:key="topFlag">
+
+  <view class="redTitle" id="{{item.requirementId}}" bindtap='clickSpecScene'>
+    【TOP{{item.topFlag}}】{{item.requirementBriefDescription}}
+  </view>
+  <view class="reqDesc">
+    <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.createDate}}\n共建伙伴：{{item.company}}\n详情：{{item.requirementDescription}}</text>
+  </view>
+</view>

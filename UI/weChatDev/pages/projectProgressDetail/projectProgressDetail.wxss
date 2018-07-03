@@ -1,0 +1,49 @@
+/* pages/projectProgressDetail/projectProgressDetail.wxss */
+.titleContainer{
+  display: flex;
+  background-color: darkred;
+}
+
+.pickerImage {
+  margin: 1%
+}
+
+image {
+  margin-left: 15%;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.titleContent{
+  width: 90%;
+  padding-top: 1%;
+  text-align: center;
+  color: white;
+  margin: 1%;
+  font-size: 75%;
+  font-weight: 600;
+}
+
+.briefBox{
+  display: flex;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.brefContent{
+  font-size: 60%;
+  padding-left: 1%;
+  color: gray;
+}
+
+.contentContainer {
+  border-radius: 20rpx;
+  border: 2rpx lightgray solid;
+  margin: 5% 10%;
+  align-items: center;
+  min-height: 500rpx;
+}
+.projectDetail {
+  margin: 3% 5%;
+  font-size: 70%;
+}

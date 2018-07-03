@@ -1,0 +1,60 @@
+/* pages/testInformationShare/testInformationShare.wxss */
+
+/* 图标部分 */
+.containerController {
+  background: darkred;
+  width: 100%;
+}
+.reqContainer{
+  display: flex;
+  margin-left: 18%;
+}
+
+.reqGroup {
+  margin-top: 10%;
+  margin-bottom: 15%;
+
+}
+
+image {
+  margin-left: 15%;
+  width: 65%;
+  height: 80%;
+}
+
+.rightIcon {
+  margin-left: 20%
+}
+
+.reqContent {
+  padding-top: 15%;
+  color: white;
+  font-size: 80%;
+  font-weight: 550;
+}
+
+/* 内容部分 */
+.heavyReqDiaplay{
+  background-color:  gainsboro;
+  border-radius: 35rpx;
+  border: 2rpx gainsboro solid;
+
+  width: 97.5%;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+.redTitle{
+  color: darkred;
+  margin: 3% 0% 2% 3%;
+  font-size: 80%;
+  font-weight: 600;
+}
+
+.reqDesc {
+  font-size: 70%;
+  margin: 0% 0% 3% 5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

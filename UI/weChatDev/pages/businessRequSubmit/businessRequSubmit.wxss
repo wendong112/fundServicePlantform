@@ -1,0 +1,59 @@
+/* pages/businessRequSubmit/businessRequSubmit.wxss */
+
+.textAreaContainer{
+    text-align: left;
+    vertical-align:center;
+}
+
+.inputPromptArea{
+  height: auto;
+  text-align: center;  
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  background-color: darkred;
+}
+
+.inputPromptView {
+  padding: 3%;
+  text-align: center;
+  color: white;
+}
+
+textarea{
+  border: 2rpx darkred solid;
+  width: 99%;
+  font-size: 75%;
+}
+
+.reqBriefDescTextArea{
+  justify-content: center; 
+  text-align: left;
+  height: 120rpx;
+  border: 1rpx darkred solid;
+  align-items: center;  
+}
+
+.reqDescTextarea{
+  height: 560rpx;
+  vertical-align: middle
+}
+
+.remarkTextarea{
+  height: 80rpx;
+  vertical-align: center;
+}
+
+.submitButtonView{
+  padding-top: 5%;
+  align-items: center;
+}
+
+.sbmButn{
+  background-color: darkred;
+  color: white;
+  font-size: 80%;  
+  width: 40%;
+  height: 10%;
+  margin: 0 auto;
+}

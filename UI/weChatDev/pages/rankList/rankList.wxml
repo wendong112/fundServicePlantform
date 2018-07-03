@@ -1,0 +1,40 @@
+<!--pages/rankList/rankList.wxml-->
+
+<!-- <view class="firstLineContent">
+    <view class="rankOfCurrentUser">18</view>
+    <view class="username">小明（南方基金）</view>
+    <view calss="totalScore">1324</view>
+    <view calss="pointOfPraise">12</view>
+</view>
+<view class="widget">
+    <text class="column">排名</text>
+    <text class="column">用户名</text>
+    <text class="column">积分</text>
+    <text class="column">点赞量</text>  
+</view> -->
+
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th1">排名</view> 
+    <view class="th2">用户名</view>
+    <view class="th3">总积分</view>
+    <view class="th4">点赞量</view>
+  </view>
+
+
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+       <view class="td1">{{item.code}}</view> 
+      <view class="td2">{{item.text}}</view>
+      <view class="td3">{{item.type}}</view>
+      <view class="td4">{{item.point}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td1">{{item.code}}</view>
+      <view class="td2">{{item.text}}</view>
+      <view class="td3">{{item.type}}</view>
+      <view class="td4">{{item.point}}</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,53 @@
+<!--pages/registerPage/registerPage.wxml-->
+
+<form bindsubmit="formRegister">
+
+  <view class="nameContainer">
+    <view class="nameLabel">
+      <text>姓名：</text>
+    </view>
+    <view class="nameInputView">
+      <input class="nameInput" style="" placeholder="请输入真实姓名" type="text" name="name" value="{{name}}" />
+    </view>
+  </view>
+
+  <view class="companyContainer">
+    <view class="companyLabel">
+      <text>公司：</text>
+    </view>
+    <view class="companyInputView">
+      <!--<input class="companyInput" disabled='disabled' style="" placeholder="" type="text" name="companyName" value="{{companyName}}" />-->
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <input class="companyInput" disabled='disabled' style="" placeholder="" type="text" name="companyName" value="{{array[index]}}" />
+        </picker>
+
+      <!--<<picker class="pickerView" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="companyInput">{{array[index]}}</view>
+      </picker>-->
+    </view>
+  </view>
+
+  <view class="companyMailboxContainer">
+    <view class="companyMailboxLabel">
+      <text>工作邮箱：</text>
+    </view>
+    <view class="companyMailboxInputView">
+      <input class="companyMailboxInput" style="" placeholder="请输入工作邮箱" type="text" name="companyMailboxName" value="{{companyMailboxName}}" />
+    </view>
+  </view>
+
+
+  <view class="telNumberContainer">
+    <view class="telNumberLabel">
+      <text>联系电话：</text>
+    </view>
+    <view class="telNumberInputView">
+      <input class="telNumberInput" style="" placeholder="请输入联系电话" type="text" name="telNumberName" value="{{telNumberName}}" />
+    </view>
+  </view>
+
+
+
+  <button class="sRegisterButn" style="background: darkred;width: 90%;" size="mini" type="primary" form-type="submit">注册</button>
+
+</form>

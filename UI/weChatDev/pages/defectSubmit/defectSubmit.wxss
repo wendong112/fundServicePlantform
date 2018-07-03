@@ -1,0 +1,30 @@
+/* pages/defectSubmit/defectSubmit.wxss */
+
+.pickerGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 150rpx;
+  margin-bottom: 150rpx;
+  text-decoration-style: wavy
+}
+
+.section {
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin: 30rpx;
+}
+
+.submitButton {
+  display: flex;
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}

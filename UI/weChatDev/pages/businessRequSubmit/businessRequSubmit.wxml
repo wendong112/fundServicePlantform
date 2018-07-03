@@ -1,0 +1,19 @@
+<!--pages/businessRequSubmit/businessRequSubmit.wxml-->
+
+<form bindsubmit="bindBusiRequSubmitForm">
+
+  <view class="textAreaContainer">
+    <textarea class="inputPromptArea" disabled='true'>
+      <view class='inputPromptView'>业务需求描述</view>
+    </textarea>
+
+    <textarea class="reqBriefDescTextArea" placeholder="需求概述（必填项）" placeholder-style="auto-focus" name="reqBriefDesc" value="{{reqBriefDesc}}" />
+    <textarea class="reqDescTextarea" placeholder="需求详细描述" name="reqDetailDesc" value="{{reqDetailDesc}}" />
+    <textarea class="remarkTextarea" placeholder="备注" name="remark" value="{{remark}}" />
+  </view>
+
+  <view class="submitButtonView">
+    <button class="sbmButn" form-type="submit" bindtap='submitReq'>提交</button>
+  </view>
+
+</form>

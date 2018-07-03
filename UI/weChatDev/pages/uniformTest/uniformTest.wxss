@@ -1,0 +1,57 @@
+/* pages/uniformTest/uniformTest.wxss */
+/**index.wxss**/
+@import "/common/navbarStyle.wxss";
+
+/* 查看报告 */
+.newsUpdate {
+  font-size: 65%;
+  padding: 2% 10%;
+  border-bottom: 1rpx lightgrey solid;
+}
+
+.strong {
+  font-weight: 800;
+}
+
+.briefContent {
+  font-size: 60%;
+  color: lightgray;
+}
+
+.projectProgressView{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.projectProgressImage {
+  width: 94.5%;
+}
+
+/* 查看历次质量报表 */
+.pickerContainer {
+  display: flex;
+  align-items: center;
+  margin: 2%
+}
+
+.pickerContent{
+  font-size: 70%;
+  width: 100%;
+  padding-left: 2%;
+}
+
+.bottomLine {
+  border-bottom: 5rpx lightgray solid;
+}
+
+.qualityView{
+  padding: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.qualityImage {
+  width: 100%; 
+  text-align: center;
+}

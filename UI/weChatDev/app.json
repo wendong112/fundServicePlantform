@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/loginRegisterPage/loginRegisterPage",
+    "pages/registerPage/registerPage",
+    "pages/loginPage/loginPage",
+
+    "pages/ringFirstPage/ringFirstPage",
+    "pages/bugSearchingPage/bugSearchingPage",
+    "pages/bugSubmittingPage/bugSubmittingPage",
+    "pages/defectDetailedInfo/defectDetailedInfo",
+
+    "pages/testInformationShare/testInformationShare",
+    "pages/businessRequSubmit/businessRequSubmit",
+    "pages/businessRequLibLooking/businessRequLibLooking",
+
+    "pages/uniformTest/uniformTest",
+    "pages/projectProgressDetail/projectProgressDetail",
+
+    "pages/logs/logs",
+
+
+    "pages/defectSubmit/defectSubmit",
+    "pages/saveSuccessPage/saveSuccessPage",
+    "pages/submitFinishedPage/submitFinishedPage",
+
+    "pages/searchResultPage/searchResultPage",
+    "pages/firstPage/firstPage",
+
+    "pages/rankList/rankList"
+  ],
+  "tabBar": {
+    "color": "#808080",
+    "selectedColor": "#8B0000",
+    "list": [
+      {
+        "selectedIconPath": "/image/tabBar/firstMenuPicture.jpg",
+        "iconPath": "/image/tabBar/firstMenuPictureGray.jpg",
+        "text": "故障信息中心",
+        "pagePath": "pages/ringFirstPage/ringFirstPage"
+      },
+      {
+        "selectedIconPath": "/image/tabBar/secondMenuPictureSelected.jpg",
+        "iconPath": "/image/tabBar/secondMenuPicture.jpg",
+        "pagePath": "pages/testInformationShare/testInformationShare",
+        "text": "测试场景共建"
+      },
+      {
+        "selectedIconPath": "/image/tabBar/thirdMenuPictureSelected.jpg",
+        "iconPath": "/image/tabBar/thirdMenuPicture.jpg",
+        "pagePath": "pages/uniformTest/uniformTest",
+        "text": "项目信息中心"
+      },
+      {
+        "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
+        "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
+        "pagePath": "pages/rankList/rankList",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat2018",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

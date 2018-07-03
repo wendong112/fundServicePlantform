@@ -1,0 +1,22 @@
+/* pages/loginPage/loginPage.wxss */
+
+.sLoginBtn{
+  margin-top: 10%;
+  margin-left: 5%;
+}
+
+.telNumberContainer{
+  display: flex;
+  margin-left: 12%;
+  margin-top: 10%;
+}
+
+.telNumberLabel{
+  font-size: 80%;
+}
+.telNumberInput{
+  font-size: 70%;
+  border-style: none none solid none;
+  border-bottom-color: #C0C0C0;
+  text-align: center;
+}

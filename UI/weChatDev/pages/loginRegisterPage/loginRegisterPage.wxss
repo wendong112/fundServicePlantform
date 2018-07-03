@@ -1,0 +1,71 @@
+
+.containerController {
+  background: darkred;
+  width: 100%;
+
+}
+
+.bugContainer{
+  display: flex;
+  margin-left: 18%;
+  margin-top: 3%;
+}
+
+.bugGroup {
+  margin-bottom: 8%;
+  color: white;
+  font-size: 80%;
+}
+
+image {
+  margin-left: 15%;
+  width: 70%;
+  height: 85%;
+}
+
+.rightIcon {
+  margin-left: 40%
+}
+/*圆圈部分*/
+.canvasContainer {
+  display: flex;
+}
+
+.circleContainer{
+  background-color: white;
+  text-align: center;
+  width: 47%;
+  margin-top: 2%;
+  margin-left: 2%;
+  border-radius: 32rpx;
+}
+
+.circleDesc{
+  margin-bottom: 5%;
+  font-weight: 600;
+  font-size: 80%;
+}
+
+.redValue{
+  color: darkred;
+}
+/* 具体缺陷展示 */
+.heavyBugDiaplay{
+  background-color:  white;
+  border-radius: 35rpx;
+  border: 2rpx darkred solid;
+
+  width: 97.5%;
+  margin-top: 1%;
+  margin-left: 1%;
+  padding-bottom: 50%;
+}
+
+.redTitle{
+  color: darkred;
+  margin-left: 3%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  font-size: 80%;
+  font-weight: 600;
+}

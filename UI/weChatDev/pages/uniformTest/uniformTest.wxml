@@ -1,0 +1,33 @@
+<!--pages/uniformTest/uniformTest.wxml-->
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>
+</view>
+
+<!--项目进展-->
+<view hidden="{{currentTab!==0}}">
+  <view class="newsUpdate"><label class="strong">最新动态： </label>{{newsContent}}</view>
+  <view class="projectProgressView">
+    <view class="briefContent">点击图片查看项目详细信息</view>
+    <image class="projectProgressImage" src="{{projectProgressImage}}" bindtap='clickProjectProcess' mode='widthFix'>
+    </image>
+  </view>
+</view>
+
+<!--历次质量报表-->
+<view hidden="{{currentTab!==1}}">
+  <view class="pickerContainer">
+    <icon type="info_circle" size="20" color="#8B0000"></icon>
+    <picker bindchange="selectVersion" value="{{array[indexOfVersion].version}}" range="{{array}}" range-key='version'>
+      <view class="pickerContent">
+        点此选择版本：<label class='bottomLine'>{{array[indexOfVersion].version}}</label>
+      </view>
+    </picker> 
+  </view>
+
+
+  <view class="qualityView">
+    <image class="qualityImage" src="{{array[indexOfVersion].imageURL}}" mode='widthFix'>
+    </image>
+  </view>
+</view>

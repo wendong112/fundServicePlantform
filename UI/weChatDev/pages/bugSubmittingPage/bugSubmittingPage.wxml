@@ -1,0 +1,63 @@
+<!--pages/bugSubmittingPage/bugSubmittingPage.wxml-->
+
+
+<view class="section_title"></view>
+    <view class="section">
+
+      <form bindsubmit="bindFormSubmit">
+      
+ <view class="pickerGroup">
+    <picker bindchange="bindPickerChooseVersion" name="findVersion" value="{{array[indexOfVersion]}}" range="{{array}}">
+      <view class="picker">
+        请选择版本：{{array[indexOfVersion]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseModule" name="firstLevelModulePriorityIdName" value="{{arrayOfModule[indexOfModule]}}" range="{{arrayOfModule}}">
+      <view class="picker">
+        请选择模块：{{arrayOfModule[indexOfModule]}}
+      </view>
+    </picker>
+
+    <picker bindchange="bindPickerChooseBugLevel" name="severity" value="{{arrayOfLevel[indexOfLevel]}}" range="{{arrayOfLevel}}">
+      <view class="picker">
+        请选择程度：{{arrayOfLevel[indexOfLevel]}}
+      </view>
+    </picker>
+  </view>
+
+      <view class="textAreaContainer">
+         <textarea class="inputPromptArea"  style="height: 40rpx;" placeholder="缺陷现象描述(跟踪回访)" disabled='true' /> 
+
+        <textarea class="debugDescribing" placeholder="缺陷概述（必填项）" placeholder-style=" auto-focus"
+         name="title" value="{{title}}"/>
+        <textarea class="preConditionAndReoccurSteps" placeholder="前提条件/重现步骤" name="preConditionAndReoccurSteps" value="{{preConditionAndReoccurSteps}}"/>
+
+        <textarea class="expectedAndActualResult" placeholder="期望结果/实际结果"  name="expectedAndActualResult" value="{{expectedAndActualResult}}" />
+
+        <textarea class="solutionDescription" placeholder="解决方案描述" name="solutionDescription" value="{{solutionDescription}}"/>
+ 
+      </view>  
+
+      <radio-group class="radio-group" bindchange="radioChangeOfAnonymousButton">
+    <label class="anonymousSubmit" wx:for="{{itemsOfAnonymousSubmit}}">
+
+        <radio class="radioButton" color="darkred" style="" value="{{item.name}}" checked="{{item.checked}}"/>
+        {{item.value}}
+    </label>
+</radio-group>
+
+
+        <view class="buttonGroup">
+          <button class="attachementButton" bindtap="choosingOrTakingPhoto" style="background: darkred;width:210rpx;color:white;" size="mini" type="default" >照片留痕</button>
+          <button class="submitButton" style="background: darkred;color:white;" size="mini" form-type="submit">提交缺陷</button>
+
+
+        </view>
+
+        <view class="section" wx:for="{{sources}}" wx:key="{{index}}">
+          <image src="{{item}}"></image>
+        </view>
+
+      </form>
+    </view>

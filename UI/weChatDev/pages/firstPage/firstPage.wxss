@@ -1,0 +1,54 @@
+/* pages/firstPage/firstPage.wxss */
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+}  
+.navbar .item.active{  
+  color: #FFCC00;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background: #FFCC00;  
+}  
+
+.img{
+  width: 604rpx;
+  height: 636rpx;
+  margin-top: 2rpx;
+  margin-bottom: 2rpx;
+  margin-left: 60rpx;
+  margin-right: 3rpx;
+}
+
+.img-moreInfo{
+  width: 44rpx;
+  height: 44rpx;
+
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.img-logonPic{
+  width: 44rpx;
+  height: 44rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}
