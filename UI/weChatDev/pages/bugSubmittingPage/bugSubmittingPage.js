@@ -164,7 +164,7 @@ Page({
         var result = res.data.success
         var toastText = "操作成功！";
         if (result != true) {
-          toastText = "操作失败" + res.data.errMsg;
+          toastText = "操作失败!" + res.data.errMsg;
         }
         wx.showToast({
           title: toastText,

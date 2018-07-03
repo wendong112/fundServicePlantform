@@ -2,7 +2,7 @@
 /**index.wxss**/
 @import "/common/navbarStyle.wxss";
 
-/* 查看报告 */
+/* 鏌ョ湅鎶ュ憡 */
 .newsUpdate {
   font-size: 65%;
   padding: 2% 10%;
@@ -28,7 +28,7 @@
   width: 94.5%;
 }
 
-/* 查看历次质量报表 */
+/* 鏌ョ湅鍘嗘璐ㄩ噺鎶ヨ〃 */
 .pickerContainer {
   display: flex;
   align-items: center;

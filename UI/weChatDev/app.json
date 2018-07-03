@@ -12,6 +12,7 @@
     "pages/testInformationShare/testInformationShare",
     "pages/businessRequSubmit/businessRequSubmit",
     "pages/businessRequLibLooking/businessRequLibLooking",
+    "pages/sceneDetailedInfo/sceneDetailedInfo",
 
     "pages/uniformTest/uniformTest",
     "pages/projectProgressDetail/projectProgressDetail",
@@ -53,7 +54,7 @@
       {
         "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
         "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
-        "pagePath": "pages/rankList/rankList",
+        "pagePath": "pages/sceneDetailedInfo/sceneDetailedInfo",
         "text": "我的"
       }
     ]

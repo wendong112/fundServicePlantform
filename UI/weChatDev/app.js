@@ -38,12 +38,11 @@ App({
     sceneImg: "/image/testInformationShare/scenarioLibPic.ico",
     //故障信息中心 - 查看测试场景页面使用的链接
     allReqURL: "",
+    downloadServerURL: "http://www.runoob.com/images/",
 
     // 项目信息中心使用
     progressImg: "/image/uniformTest/projectProgress.jpg",
     threeLineIcon: "/image/common/threeline.ico",
     imgServerURL: "http://www.runoob.com/images/",
-
-
   }
 })

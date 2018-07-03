@@ -71,16 +71,16 @@
   font-size: 30rpx; 
 }
 
-.messageContentView{
+/* .messageContentView{
   margin-top:20rpx;
   margin-bottom: 20rpx;
   font-size: 30rpx; 
-}
+} */
 
-.messageContentTextarea{
+/* .messageContentTextarea{
   margin-left: 30rpx;
   margin-right:1rpx;
-}
+} */
 
 
 .detailedInformationTextarea{
@@ -286,7 +286,7 @@
 }
 
 /* 写留言 */
-.writingComment{
+.writingCommentLink{
   margin-left: 82%;
   font-size: 30rpx;
 }
@@ -294,6 +294,26 @@
 .link {
   color: blue;
   display: inline-table;
+}
+
+.messageGiverOneDisplaying{
+  font-size: 30rpx;
+  color: grey;
+}
+.messageOneContentDisplaying{
+  font-size: 30rpx;
+}
+
+.messageGiverTwoView{
+  margin-top:18rpx;
+}
+
+.messageGiverTwoDisplaying{
+  font-size: 30rpx;
+  color: grey;
+}
+.messageTwoContentDisplaying{
+  font-size: 30rpx;
 }
 
 /* 管理 缺陷状态label和缺陷状态的Input框 */

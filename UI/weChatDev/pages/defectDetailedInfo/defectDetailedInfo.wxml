@@ -112,25 +112,38 @@
 <!-- 评论面板 -->
  <input class="commentPanelLabel" style="border:3rpx solid darkred; height:35rpx; width:190rpx;min-height:10rpx;border-radius: 15rpx;"  disabled='true' placeholder="评论面板" auto-height/>  
 
-<view calss="commentPanel" style="border:3rpx solid darkred;height:150rpx;width:92%;margin-left:25rpx; border-radius: 15rpx;min-height:10rpx;">
+<view calss="commentPanel" style="border:3rpx solid darkred;height:auto;width:92%;margin-left:25rpx; border-radius: 15rpx;min-height:10rpx;">
 
+    <view class="writingCommentLink" style="" >
+          <navigator class="link" url="../messageEditing/messageEditing?defectId={{id}}">写留言</navigator> 
+        </view> 
 
-        <view class="writingComment" style="" >
+    <view class="messageGiverOneView">
+    <text class="messageGiverOneDisplaying" type="text" name="messageGiverOne" value="{{messageGiverOne}}">小明（南方基金）:
+    </text>
+    </view>
+    
+    <view class="messageOneView">
+    <text class="messageOneContentDisplaying" type="text" name="messageOne" value="{{messageOne}}">很赞！该缺陷反应了目前系统的在头寸计算的出入.
+    </text>
+    </view>
 
-             <navigator class="link" url="../messageEditing/messageEditing?defectId={{id}}">写留言</navigator> 
-
-              <text class="messageContentDisplayingText" type="text" name="messageContentDisplaying" value="{{messageContentDisplaying}}">
- </text>
-
-
-          </view> 
+    <view class="messageGiverTwoView">
+    <text class="messageGiverTwoDisplaying" type="text" name="messageGiverTwo" value="{{messageGiverTwo}}">小红（华夏基金）:
+    </text>
+    </view>
+    
+    <view class="messageTwoView">
+    <text class="messageTwoContentDisplaying" type="text" name="messageTwo" value="{{messageTwo}}">666~ 牛牛牛！
+    </text>
+    </view>
 
 </view>
 
- <view class="messageContentView">
+ <!-- <view class="messageContentView">
  <textarea class="messageContentTextarea" auto-focus='' style="border:3rpx solid darkred; height:160rpx; width: 680rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="写留言" type="text" name="messageContent" value="{{messageContent}}">
  </textarea>
- </view>
+ </view> -->
 
  <view class="lookingBugPicture" style="" >
              <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{id}}">查看缺陷留痕</navigator> 
