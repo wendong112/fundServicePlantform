@@ -238,10 +238,11 @@ Page({
 
   // 跳转到需求详情界面
   clickDetail: function(e) {
-    var id = e.target.id;
-    console.log("跳转到需求详情界面", id)
-    //
-    // 待完善
-    //
+    var reqId = e.target.id;
+    console.log("跳转到需求详情界面", reqId)
+
+    wx.navigateTo({
+      url: app.globalData.sceneDetail + "?id=" + reqId,
+    })
   }
 })

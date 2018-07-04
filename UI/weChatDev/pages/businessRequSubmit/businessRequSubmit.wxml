@@ -7,9 +7,9 @@
       <view class='inputPromptView'>业务需求描述</view>
     </textarea>
 
-    <textarea class="reqBriefDescTextArea" placeholder="需求概述（必填项）" placeholder-style="auto-focus" name="reqBriefDesc" value="{{reqBriefDesc}}" />
-    <textarea class="reqDescTextarea" placeholder="需求详细描述" name="reqDetailDesc" value="{{reqDetailDesc}}" />
-    <textarea class="remarkTextarea" placeholder="备注" name="remark" value="{{remark}}" />
+    <textarea class="reqBriefDescTextArea" maxlength='-1' placeholder="需求概述（必填项）" placeholder-style="auto-focus" name="reqBriefDesc" value="{{reqBriefDesc}}" />
+    <textarea class="reqDescTextarea" maxlength='-1' placeholder="需求详细描述" name="reqDetailDesc" value="{{reqDetailDesc}}" />
+    <textarea class="remarkTextarea" maxlength='-1' placeholder="备注" name="remark" value="{{remark}}" />
   </view>
 
   <view class="submitButtonView">

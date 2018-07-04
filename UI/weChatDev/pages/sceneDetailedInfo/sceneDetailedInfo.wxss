@@ -1,6 +1,6 @@
 
 /* title样式 */
-.shortTitle{
+.redTitle{
   text-align: center;
   align-items: center;
   align-content: center;
@@ -13,18 +13,7 @@
   padding: 1%;
 }
 
-.longTitle{
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  background-color: darkred;
-  color: white;
-  border-radius: 15rpx;
-  font-size: 75%;
-  margin: 3%;
-  padding: 1%;
-}
-
+/* 详情样式 */
 .detailContainer{
   display: flex;
   font-size: 70%;
@@ -41,6 +30,7 @@
   border-radius: 15rpx;
   padding-top: 1%;
   padding-bottom: 1%;
+  font-size: 85%;
 }
 
 .startTitle {

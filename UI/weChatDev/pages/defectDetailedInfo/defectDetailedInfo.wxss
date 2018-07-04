@@ -1,327 +1,114 @@
-
-/* 详情 label */
-.detailedInfo{
-  text-align: center;  
+/* title样式 */
+.redTitle{
+  text-align: center;
   align-items: center;
   align-content: center;
   background-color: darkred;
   color: white;
-  width: 80rpx;
+
   border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 15rpx;
-  margin-left: 15rpx; 
-  font-size: 30rpx; 
+  font-size: 75%;
+  margin: 3%;
+  padding: 1%;
 }
 
-/* 具体问题描述 label */
-.detailedInformationDisplaying{
-  text-align: center;  
-  align-items: center;
-  align-content: center;
-  background-color: darkred;
-  color: white;
-  width: 80rpx;
-  border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 15rpx;
-  margin-left: 15rpx; 
-  font-size: 30rpx; 
-}
-
-/* 解决方案描述 label */
-.solutionDescriptionLabel{
-  text-align: center;  
-  align-items: center;
-  align-content: center;
-  background-color: darkred;
-  color: white;
-  width: 80rpx;
-  border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 15rpx;
-  margin-left: 15rpx; 
-  font-size: 30rpx; 
-} 
-
-
-.commentPanelLabel{
-  text-align: center;  
-  align-items: center;
-  align-content: center;
-  background-color: darkred;
-  color: white;
-  width: 80rpx;
-  border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 15rpx;
-  margin-left: 15rpx; 
-  font-size: 30rpx; 
-}
-
-.commentPanel{
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 15rpx;
-  margin-left: 15rpx; 
-  font-size: 30rpx; 
-}
-
-/* .messageContentView{
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  font-size: 30rpx; 
-} */
-
-/* .messageContentTextarea{
-  margin-left: 30rpx;
-  margin-right:1rpx;
-} */
-
-
-.detailedInformationTextarea{
-  text-align: top;  
-  /* align-items: left; */
-  align-content: left ;
-  border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 20rpx;
-  margin-left: 30rpx; 
-  font-size: 30rpx; 
-}
-
-.solutionDescriptionTextarea{
-  text-align: top;  
-  /* align-items: left; */
-  align-content: left ;
-  border-radius: 15rpx;
-  margin-top:20rpx;
-  margin-bottom: 20rpx;
-  margin-right: 20rpx;
-  margin-left: 30rpx; 
-  font-size: 30rpx; 
-}
-
-/* .container{
-    font-size: 28rpx; 
-} */
-.row{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20rpx;
-    margin-left: 10rpx;
-    margin-right: 10rpx;
-}
-.row text{
-    /* flex-grow: 1; */
-    text-align: center;
-}
-.row input{
-    font-size: 26rpx;
-    flex-grow: 3;
-    border: 1px solid darkred;
-    border-radius: 15rpx;
-}
-
-.row button{
-    align-items: center;
-}
-
-.sbmButn{
-  padding-top:1 rpx;  
-  font-size:14px;  
-  width: 20 rpx;
-  height: 25 rpx;
-  margin:0 auto
-}
-
-/* 管理 缺陷序号和缺陷序号的输入框还有缺陷状态的 */
-.bugID{
-    display: flex;
-    margin-left:10rpx;
-    font-size: 28rpx;
-}
-
-/* 管理 提交人员和提交时间的Label和Input框 */
-.submitPersonAndTime{
-    display: flex;
-    margin-left:20rpx;
-    font-size: 28rpx;
-    margin-bottom: 20rpx;
-}
-.bugSubmitterInput{
-  margin-left:20rpx;
-  background: gainsboro;
-}
-.bugSubmitterLabel{
-  margin-left:20rpx; 
-}
-
-.submitDateInput{
-  margin-left:30rpx;
-  background: gainsboro;
-}
-.submitDateLabel{
-  margin-left:100rpx;
-}
-
-/* 管理第一模块和严重程度的Label和Input框 */
-.firstLevelModuleAndSeverity{
-    display: flex;
-    margin-left:20rpx;
-    font-size: 28rpx;
-    margin-bottom: 20rpx;
-}
-
-.firstLevelModuleLabel{
-  margin-left:20rpx; 
-}
-.fistLevelModuleInput{
-  margin-left:20rpx; 
-  background: gainsboro;
-}
-
-.severityLabel {
-  margin-left:68rpx; 
-}
-
-.severityInput{
-  margin-left:30rpx; 
-  background: gainsboro;
-}
-
-/* 管理发现版本和计划修复版本的Label和Input框 */
-.bugFoundAndPlanFixingVersion{
-    display: flex;
-    margin-left:20rpx;
-    font-size: 28rpx;
-    margin-bottom: 20rpx;
-}
-
-.bugFoundVersionLabel{
-  margin-left:20rpx; 
-}
-.bugFoundVersionInput{
-  margin-left:20rpx;
-  background: gainsboro;
-}
-
-.planFixingVersionLabel {
-  margin-left:20rpx; 
-}
-
-.planFixingVersionInput{
-  margin-left:30rpx;
-  background: gainsboro; 
-}
-
-
-/* 管理 缺陷描述和缺陷描述的输入框 */
-.bugDescripContainer{
-    display: flex;
-    margin-left:10rpx;
-    font-size: 28rpx;
-}
-
-.bugDescriptionLable{
-   margin-left:30rpx; 
-}
-
-.bugDescriptionInput{
-   margin-left:20rpx;
-   margin-bottom: 20rpx;
-   background: gainsboro;
-}
-
-.bugIdLabel{
-  margin-left:30rpx; 
-}
-
-/* 缺陷序号输入框背景色和背景显示区域 */
-.inputOfBugId{
-    margin-left:20rpx;
-    margin-bottom: 20rpx;
-
-    /* 输入框背景颜色 */
-    background: gainsboro;
-    border-radius: 15rpx;
-
-}
-
-
-/* 缺陷状态输入框 */
-.bugStatusIdNameInput{
-  text-align: left;  
-  width: 100rpx;
-  border-radius: 15rpx;
-  margin-left:30rpx;
-  background: gainsboro;
-}
-
-
-.bugStatusLabel{
-    margin-left:120rpx; 
-}
-
-.bugSubmitterInput{
-    margin-left:20rpx;
-   border-radius: 15rpx;
-}
-/* 缺陷序号的输入框，用于显示缺陷序号 */
-.id{
-  text-align: left;  
-  width: 100rpx;
-  border-radius: 15rpx;
-}
-
-/* 查看缺陷留痕 */
-.lookingBugPicture{
-  margin-left: 20rpx;
-  font-size: 30rpx;
-}
-
-/* 写留言 */
-.writingCommentLink{
-  margin-left: 82%;
-  font-size: 30rpx;
-}
-
-.link {
-  color: blue;
-  display: inline-table;
-}
-
-.messageGiverOneDisplaying{
-  font-size: 30rpx;
-  color: grey;
-}
-.messageOneContentDisplaying{
-  font-size: 30rpx;
-}
-
-.messageGiverTwoView{
-  margin-top:18rpx;
-}
-
-.messageGiverTwoDisplaying{
-  font-size: 30rpx;
-  color: grey;
-}
-.messageTwoContentDisplaying{
-  font-size: 30rpx;
-}
-
-/* 管理 缺陷状态label和缺陷状态的Input框 */
-.bugStatus{
+/* 详情部分 */
+.detailContainer{
   display: flex;
-} 
+  font-size: 70%;
+  margin-bottom: 3%;
+}
 
-.bugTitle{
-    margin-left: 10rpx;
-    font-size: 28rpx;
+.title {
+  margin: 1% 1% 1% 2%;
+}
+
+.startTitle {
+  margin-left: 3%;
+}
+
+.rightTitle {
+  margin-left: 5%;
+}
+
+.content {
+  border:3rpx solid darkred;
+  border-radius: 15rpx;
+
+  max-width: 25%;
+  min-width: 20%;
+}
+
+.disableColor {
+  background-color: lightgray;
+}
+
+.longContent {
+  border:3rpx solid darkred;
+  border-radius: 15rpx;
+
+  max-width: 80%;
+  min-width: 70%;
+}
+
+/* 问题部分 */
+textarea {
+  margin: 1% 1% 1% 4%;
+  font-size: 70%;
+  padding: 2%;
+  border:3rpx solid darkred; 
+  border-radius: 15rpx;
+  min-width: 88%;
+  max-width: 88%;
+}
+
+.shortArea {
+  height: 100rpx;
+}
+
+/* 评论部分 */
+.commentContainer {
+  margin: 1% 4% 1% 4%;
+  font-size: 70%;
+  padding: 2%;
+  border:3rpx solid darkred; 
+  border-radius: 15rpx;
+  height: 300rpx;
+  min-width: 88%;
+  max-width: 88%;
+}
+
+.blueLink {
+  color: blue;
+  text-align: right;
+}
+
+.personComment {
+  border-bottom:2rpx gray solid;
+  margin-bottom:3%;
+  padding-bottom:1%
+}
+
+.personTitle {
+  color: gray;
+}
+
+.viewImageLink {
+  color: blue;
+  margin-left: 5%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  font-size: 75%;
+}
+
+.line {
+  border-bottom: 2rpx blue solid;
+}
+
+/* 提交 */
+.submitButton {
+  background-color: darkred;
+  color: white;
+  font-size: 90%;
+  margin-left: 40%;
 }

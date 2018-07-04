@@ -8,6 +8,7 @@
     "pages/bugSearchingPage/bugSearchingPage",
     "pages/bugSubmittingPage/bugSubmittingPage",
     "pages/defectDetailedInfo/defectDetailedInfo",
+    "pages/messageEditing/messageEditing",
 
     "pages/testInformationShare/testInformationShare",
     "pages/businessRequSubmit/businessRequSubmit",
@@ -54,7 +55,7 @@
       {
         "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
         "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
-        "pagePath": "pages/sceneDetailedInfo/sceneDetailedInfo",
+        "pagePath": "pages/rankList/rankList",
         "text": "我的"
       }
     ]
