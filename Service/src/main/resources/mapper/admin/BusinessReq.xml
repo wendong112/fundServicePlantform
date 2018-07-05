@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.BusinessReqMapper">
+    <select id="getAllBusinessReq" resultType="com.tc.fundService.entity.admin.BusinessReq">
+        SELECT *
+        FROM business_requirement
+    </select>
+    <insert id="addBusinessReq" useGeneratedKeys="true" keyProperty="requirement_id" parameterType="com.tc.fundService.entity.admin.BusinessReq">
+        INSERT INTO
+        business_requirement(requirement_brief_description, requirement_description, remark, telephone, company, process_status, top_flag, create_date)
+        VALUES
+        (#{requirementBriefDescription}, #{requirementDescription}, #{remark}, #{telephone}, #{company}, #{processStatus}, #{topFlag}, #{createDate})
+    </insert>
+    <update id="modifyBusinessReq" parameterType="com.tc.fundService.entity.admin.BusinessReq">
+        UPDATE business_requirement
+        SET remark = #{remark}
+        WHERE requirement_id = #{requirementId}
+    </update>
+</mapper>
