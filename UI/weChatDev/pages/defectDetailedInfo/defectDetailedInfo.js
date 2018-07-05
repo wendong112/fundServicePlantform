@@ -57,6 +57,21 @@ Page({
       userName: "小哄",
       company: "华夏基金",
       messageContent: "666"
+    }, {
+      messageId: "1",
+      userName: "小哄",
+      company: "华夏基金",
+      messageContent: "666"
+    }, {
+      messageId: "1",
+      userName: "小哄",
+      company: "华夏基金",
+      messageContent: "666"
+    }, {
+      messageId: "1",
+      userName: "小哄",
+      company: "华夏基金",
+      messageContent: "666"
     }]
 
     this.setData({
@@ -102,11 +117,11 @@ Page({
   // 点击写留言
   clickMessage: function(e) {
     var id = e.target.id;
-    var url = app.globalData.messageEdit;
+    var url = app.globalData.messageEdit + "?defectId=" + id;
     console.log("跳转到", url)
   
     wx.navigateTo({
-      url: url + "?defectId=" + id
+      url: url
     })
   },
 

@@ -1,71 +1,35 @@
 /* pages/registerPage/registerPage.wxss */
 
-.nameContainer{
+.registerContainer{
   display: flex;
-  margin-left: 20%;
+  font-size: 80%;
   margin-top: 10%;
 }
 
-.nameLabel{
-  font-size: 80%;
-}
-.nameInput{
-  font-size: 70%;
-  border-style: none none solid none;
-  border-bottom-color: #C0C0C0;
-  text-align: center;
+.title{
+  width: 35%;
+  text-align: right;
+  padding-right: 4%;
 }
 
-.sRegisterButn{
+.content{
+  border-bottom: 1rpx lightgray solid;
+  text-align: left;
+  padding-left: 5%;
+  min-width: 40%;
+}
+
+.pickerContent {
+  border: 2rpx lightgray solid;
+  min-width: 40%;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.sRegisterBtn{
+  background-color: darkred;
+  color: white;
+  width: 90%;
   margin-top: 10%;
   margin-left: 5%;
-}
-
-.companyContainer{
-  display: flex;
-  margin-left: 20%;
-  margin-top: 10%;
-}
-
-.companyLabel{
-  font-size: 80%;
-}
-
-.companyInput{
-  font-size: 70%;
-  border-style: solid solid solid solid;
-  border-color: #C0C0C0;
-  text-align: center;
-}
-
-.companyMailboxContainer{
-  display: flex;
-  margin-left: 12%;
-  margin-top: 10%;
-}
-
-.companyMailboxLabel{
-  font-size: 80%;
-}
-.companyMailboxInput{
-  font-size: 70%;
-  border-style: none none solid none;
-  border-bottom-color: #C0C0C0;
-  text-align: center;
-}
-
-.telNumberContainer{
-  display: flex;
-  margin-left: 12%;
-  margin-top: 10%;
-}
-
-.telNumberLabel{
-  font-size: 90%;
-}
-.telNumberInput{
-  font-size: 80%;
-  border-style: none none solid none;
-  border-bottom-color: #C0C0C0;
-  text-align: center;
 }

@@ -1,20 +1,19 @@
 <!--pages/ringFirstPage/ringFirstPage.wxml-->
 
 <view class="containerController">
-
   <view class="versionDisplay">
     您当前生产版本{{currentVersion}}缺陷数据
   </view>
 
   <view class="canvasContainer">
     <view class="circleContainer">
-      <canvas class="circle"  canvas-id="leftCanvas">
+      <canvas class="circle" canvas-id="leftCanvas">
       </canvas>
       <view class="circleDesc"><label class='redValue'>{{bugTotalNum}}</label> Numbers</view>
     </view>
 
     <view class="circleContainer">
-      <canvas class="circle"  canvas-id="rightCanvas">
+      <canvas class="circle" canvas-id="rightCanvas">
       </canvas>
       <view class="circleDesc"><label class='redValue'>{{bugFixNum}}</label> Numbers</view>
     </view>

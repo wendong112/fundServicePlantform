@@ -1,105 +1,33 @@
-
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-
-    defectId: '',
-    
-    //缺陷概述
-    title: '',
-
-  },
-
-
-  //点击“留言按钮”，进行后台处理
-  bindMessageSubmitForm: function (e) {
-    var that = this;
-    var formData = e.detail.value;
-
-    wx.request({
-      url: "http://127.0.0.1:8080/defectplatform/superadmin/detailedServiceName",
-
-      data: JSON.stringify(formData),
-      method: 'POST',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        var result = res.data.success
-        var toastText = "操作成功！";
-        if (result != true) {
-          toastText = "操作失败" + res.data.errMsg;
-        }
-        wx.showToast({
-          title: toastText,
-          icon: '',
-          duration: 2000
-        });
-
-        if (result == true) {
-          wx.navigateTo({
-
-            //点击留言按钮，后台操作完成后，跳转页面
-            url: '/pages/defectDetailedInfo/defectDetailedInfo',
-
-          })
-        }
-      }
-    })
+    title: "",
+    id: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    var that = this;
+    var id = options.defectId;
 
-    // 页面初始化 options为页面跳转所带来的参数
-    this.setData({
+    if (id == undefined) {
+      console.log("没有找到id")
+    } else {
+      //
+      // 根据id从数据库中取信息
+      //
+      //
 
-      defectId: options.defectId
-
-    });
-
-    if (options.defectId == undefined) {
-      return;
-    }
-
-      wx.request({
-        url: "http://127.0.0.1:8080/defectplatform/superadmin/getdefectbyid",
-        data: { "id": options.defectId },
-        method: 'GET',
-        success: function (res) {
-
-          var defect = res.data.defect;
-
-         
-          if (defect == undefined) {
-            var toastText = '获取数据失败' + res.data.errMsg;
-            wx.showToast({
-              title: toastText,
-              icon: '',
-              duration: 2000
-            });
-          } else {
-
-            that.setData({
-              //缺陷序号
-              id: defect.id,
-            
-              //缺陷描述
-              title: defect.title,
-
-            });
-          }
-        }
+      this.setData({
+        title: "测试填报title",
+        id: id
       })
-
+    }
   },
 
   /**
@@ -149,5 +77,27 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  // 点击提交按钮
+  messageSubmit: function(e) {
+    // 根据id更新留言界面
+
+    //
+    // 根据缺陷id将数值插入留言
+    //
+    console.log("更新留言");
+    wx.showModal({
+      title: '温馨提示',
+      content: '留言插入成功！',
+      showCancel: false,
+      confrimText: "确定",
+      confirmColor: "#8B0000",
+      success: function(res) {
+        console.log("跳转回上一页")
+
+        wx.navigateBack({});
+      }
+    })
   }
 })

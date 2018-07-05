@@ -1,15 +1,13 @@
 <!--pages/loginPage/loginPage.wxml-->
 
 <form bindsubmit="loginSubmit">
-  <view class="telNumberContainer">
-    <view class="telNumberLabel">
-      <text>联系电话：</text>
+  <view class="loginContainer">
+    <view class="title">
+      联系电话
     </view>
-    <view class="telNumberInputView">
-      <input class="telNumberInput" style="" placeholder="请输入联系电话" type="text" name="telNumberName" value="{{telNumberName}}" />
-    </view>
+    <input class="content" placeholder="请输入联系电话" type="number" name="telNumberName" value="{{telNumberName}}" />
   </view>
 
-  <button class="sLoginBtn" style="background: darkred;width: 90%;" size="mini" type="primary" form-type="submit">登录</button>
+  <button class="sLoginBtn" size="mini" form-type="submit">登录</button>
 
 </form>

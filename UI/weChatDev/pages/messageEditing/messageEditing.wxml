@@ -1,23 +1,11 @@
+<!--标题部分-->
+<view class="title">{{title}}</view>
 
-<form bindsubmit="bindMessageSubmitForm">
+<form id="{{id}}" bindsubmit="messageSubmit">
+  <view class="contentContainer">
+    <textarea class="messageContent" cursor-spacing="180" maxlength="-1" placeholder="请在此编辑留言，留言会对所有人可见！" type="text" name="messageContent" value="{{messageContent}}">
+    </textarea>
+  </view>
 
-    <view class="bugDescriptionView" style='height:60rpx;width:100%'>
-      <input class="bugDescription" style="height:40rpx;width:100%; min-height:10rpx;" type="text" name="title" value="{{title}}" />
-    </view>
-
-     <view class="messageInputView">
- <textarea class="messageContentText" style="border:2rpx solid grey; height:260rpx; width: 99.3%;min-height:10rpx;" placeholder="请在此编辑留言，留言会对所有人可见！" type="text" name="messageContent" value="{{messageContent}}">
- </textarea>
- </view>
-
-
-      <view class="submitBtnView">  
-      <button class="sbmButn" style="background: darkred;" type="primary" form-type="submit">留言</button>
-      </view>
-
+  <button class="submitBtn" form-type="submit">留言</button>
 </form>
-
-
-
-
-

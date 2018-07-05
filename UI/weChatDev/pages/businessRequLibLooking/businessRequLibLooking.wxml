@@ -15,13 +15,13 @@
     <!-- 仅查看本司 -->
     <radio-group class="groupRadio" name="searchCompany">
     <label>
-      <radio bindtap='clickCompany' class="singleGroupRadio" color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
+      <radio bindtap='clickCompany' color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
     </label>
     </radio-group>
     <!-- 按关键字 -->
     <radio-group class="groupRadio" name="searchKeyword">
     <label>
-      <radio bindtap='clickKeyword' class="singleGroupRadio" color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
+      <radio bindtap='clickKeyword' color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
     </label>
     </radio-group>
   </view>

@@ -2,7 +2,6 @@
 .containerController {
   background: darkred;
   width: 100%;
-
 }
 
 .versionDisplay{
@@ -33,6 +32,7 @@ image {
 .rightIcon {
   margin-left: 40%
 }
+
 /*圆圈部分*/
 .canvasContainer {
   display: flex;
@@ -56,16 +56,16 @@ image {
 .redValue{
   color: darkred;
 }
+
 /* 具体缺陷展示 */
 .heavyBugDiaplay{
-  background-color:  gainsboro;
+  background-color: gainsboro;
   border-radius: 35rpx;
   border: 2rpx gainsboro solid;
 
   width: 97.5%;
   margin-top: 1%;
   margin-left: 1%;
-
 }
 
 .redTitle{

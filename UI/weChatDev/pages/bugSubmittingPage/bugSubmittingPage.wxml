@@ -1,63 +1,48 @@
 <!--pages/bugSubmittingPage/bugSubmittingPage.wxml-->
 
-
-<view class="section_title"></view>
-    <view class="section">
-
-      <form bindsubmit="bindFormSubmit">
-      
- <view class="pickerGroup">
-    <picker bindchange="bindPickerChooseVersion" name="findVersion" value="{{array[indexOfVersion]}}" range="{{array}}">
-      <view class="picker">
-        请选择版本：{{array[indexOfVersion]}}
-      </view>
-    </picker>
-
-    <picker bindchange="bindPickerChooseModule" name="firstLevelModulePriorityIdName" value="{{arrayOfModule[indexOfModule]}}" range="{{arrayOfModule}}">
-      <view class="picker">
-        请选择模块：{{arrayOfModule[indexOfModule]}}
-      </view>
-    </picker>
-
-    <picker bindchange="bindPickerChooseBugLevel" name="severity" value="{{arrayOfLevel[indexOfLevel]}}" range="{{arrayOfLevel}}">
-      <view class="picker">
-        请选择程度：{{arrayOfLevel[indexOfLevel]}}
+<form bindsubmit="bugSubmit" bindreset='uploadImage'>
+  <!-- 版本选择部分 -->
+  <view class="pickerContainer addTopDis">
+    <view class="title">版本</view>
+    <picker bindchange="chooseVersion" name="findVersion" value="{{versionArray[indexOfVersion]}}" range="{{versionArray}}">
+      <view class="content">{{versionArray[indexOfVersion]}}
       </view>
     </picker>
   </view>
 
-      <view class="textAreaContainer">
-         <textarea class="inputPromptArea"  style="height: 40rpx;" placeholder="缺陷现象描述(跟踪回访)" disabled='true' /> 
+  <view class="pickerContainer">
+    <view class="title">模块</view>
+    <picker bindchange="chooseModule" name="findModule" value="{{moduleArray[indexOfModule]}}" range="{{moduleArray}}">
+      <view class="content">{{moduleArray[indexOfModule]}}
+      </view>
+    </picker>
+  </view>
 
-        <textarea class="debugDescribing" placeholder="缺陷概述（必填项）" placeholder-style=" auto-focus"
-         name="title" value="{{title}}"/>
-        <textarea class="preConditionAndReoccurSteps" placeholder="前提条件/重现步骤" name="preConditionAndReoccurSteps" value="{{preConditionAndReoccurSteps}}"/>
+  <!-- 缺陷详情 -->
+  <view class="pickerContainer">
+    <view class="title">缺陷程度</view>
+    <picker bindchange="chooseLevel" name="findLevel" value="{{levelArray[indexOfLevel]}}" range="{{levelArray}}">
+      <view class="content">{{levelArray[indexOfLevel]}}
+      </view>
+    </picker>
+  </view>
 
-        <textarea class="expectedAndActualResult" placeholder="期望结果/实际结果"  name="expectedAndActualResult" value="{{expectedAndActualResult}}" />
+  <view class='bugTitle'>缺陷现象描述（跟踪回访）</view>
+  <textarea class="bugBriefDescTextArea" cursor-spacing="180" maxlength='-1' placeholder="缺陷概述（必填项）" placeholder-style="auto-focus" name="bugBriefDesc" value="{{bugBriefDesc}}" />
+  <textarea class="bugDescTextarea" cursor-spacing="180" maxlength='-1' placeholder="前提条件/重现步骤" name="bugDetailDesc" value="{{bugDetailDesc}}" />
+  <textarea class="resultTextarea" cursor-spacing="180" maxlength='-1' placeholder="期望结果/实际结果" name="bugResult" value="{{bugResult}}" />
+  <textarea class="planTextarea" cursor-spacing="180" maxlength='-1' placeholder="解决方案描述" name="bugPlan" value="{{bugPlan}}" />
 
-        <textarea class="solutionDescription" placeholder="解决方案描述" name="solutionDescription" value="{{solutionDescription}}"/>
- 
-      </view>  
-
-      <radio-group class="radio-group" bindchange="radioChangeOfAnonymousButton">
-    <label class="anonymousSubmit" wx:for="{{itemsOfAnonymousSubmit}}">
-
-        <radio class="radioButton" color="darkred" style="" value="{{item.name}}" checked="{{item.checked}}"/>
-        {{item.value}}
+  <!-- 选择匿名提交 -->
+  <radio-group class="groupRadio" name="noNameFlag">
+    <label>
+      <radio bindtap='clickNoName' color="darkred" value="1" checked="{{noNameChecked}}" />匿名提交
     </label>
-</radio-group>
+  </radio-group>
 
-
-        <view class="buttonGroup">
-          <button class="attachementButton" bindtap="choosingOrTakingPhoto" style="background: darkred;width:210rpx;color:white;" size="mini" type="default" >照片留痕</button>
-          <button class="submitButton" style="background: darkred;color:white;" size="mini" form-type="submit">提交缺陷</button>
-
-
-        </view>
-
-        <view class="section" wx:for="{{sources}}" wx:key="{{index}}">
-          <image src="{{item}}"></image>
-        </view>
-
-      </form>
-    </view>
+  <!-- 缺陷详情 -->
+  <view class='buttonContainer'>
+    <button class="resetBtn" type="mini" form-type="reset">照片留痕</button>
+    <button class="submitBtn" type="mini" form-type="submit">提交缺陷</button>
+  </view>
+</form>

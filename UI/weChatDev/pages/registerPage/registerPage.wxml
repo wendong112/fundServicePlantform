@@ -1,53 +1,34 @@
 <!--pages/registerPage/registerPage.wxml-->
 
 <form bindsubmit="formRegister">
-
-  <view class="nameContainer">
-    <view class="nameLabel">
-      <text>姓名：</text>
+  <view class="registerContainer">
+    <view class="title">
+      姓名：
     </view>
-    <view class="nameInputView">
-      <input class="nameInput" style="" placeholder="请输入真实姓名" type="text" name="name" value="{{name}}" />
-    </view>
+    <input class="content" placeholder="请输入真实姓名" type="text" name="name" value="{{name}}" />
   </view>
 
-  <view class="companyContainer">
-    <view class="companyLabel">
-      <text>公司：</text>
+  <view class="registerContainer">
+    <view class="title">
+      公司：
     </view>
-    <view class="companyInputView">
-      <!--<input class="companyInput" disabled='disabled' style="" placeholder="" type="text" name="companyName" value="{{companyName}}" />-->
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-          <input class="companyInput" disabled='disabled' style="" placeholder="" type="text" name="companyName" value="{{array[index]}}" />
-        </picker>
-
-      <!--<<picker class="pickerView" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="companyInput">{{array[index]}}</view>
-      </picker>-->
-    </view>
+    <picker class="pickerContent" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <input disable="true" name="companyName" value="{{array[index]}}" />
+    </picker>
   </view>
 
-  <view class="companyMailboxContainer">
-    <view class="companyMailboxLabel">
-      <text>工作邮箱：</text>
+  <view class="registerContainer">
+    <view class="title">
+      工作邮箱：
     </view>
-    <view class="companyMailboxInputView">
-      <input class="companyMailboxInput" style="" placeholder="请输入工作邮箱" type="text" name="companyMailboxName" value="{{companyMailboxName}}" />
-    </view>
+    <input class="content" placeholder="请输入工作邮箱" type="text" name="companyMailboxName" value="{{companyMailboxName}}" />
   </view>
 
-
-  <view class="telNumberContainer">
-    <view class="telNumberLabel">
-      <text>联系电话：</text>
+  <view class="registerContainer">
+    <view class="title">
+      联系电话：
     </view>
-    <view class="telNumberInputView">
-      <input class="telNumberInput" style="" placeholder="请输入联系电话" type="text" name="telNumberName" value="{{telNumberName}}" />
-    </view>
+    <input class="content" placeholder="请输入联系电话" type="number" name="telNumberName" value="{{telNumberName}}" />
   </view>
-
-
-
-  <button class="sRegisterButn" style="background: darkred;width: 90%;" size="mini" type="primary" form-type="submit">注册</button>
-
+  <button class="sRegisterBtn" size="mini" form-type="submit">注册</button>
 </form>

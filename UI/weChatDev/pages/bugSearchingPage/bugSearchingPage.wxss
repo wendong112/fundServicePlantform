@@ -1,4 +1,5 @@
 /*搜索框部分*/
+
 .searchInputPart {
   position: relative;
   padding: 3% 3%;
@@ -35,7 +36,7 @@
   position: absolute;
   left: 3%;
   top: 20%;
-  size: 40%
+  size: 40%;
 }
 
 .searchInput {
@@ -44,52 +45,55 @@
   font-size: 75%;
 }
 
-.searchBtn{
+.searchBtn {
   margin: 1rpx;
-  padding-top: 1rpx;  
-  font-size: 80%;  
+  padding-top: 1rpx;
+  font-size: 80%;
   color: white;
   margin-left: 5%;
 }
 
 /*选择框部分*/
-.radioController{
-    display: flex;
-    flex-direction: row;
-    padding-top: 2%;
-    padding-bottom: 3%;
-    font-size: 70%;
-    border-bottom: 2rpx solid #dadada;
+
+.radioController {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  font-size: 70%;
+  border-bottom: 2rpx solid #dadada;
 }
 
 .groupRadio {
   margin-left: 10%;
 }
 
-radio .wx-radio-input{
-   border-radius: 50%;/* 圆角 */
-   width: 30rpx;
-   height: 30rpx;
+radio .wx-radio-input {
+  border-radius: 50%; /* 圆角 */
+  width: 30rpx;
+  height: 30rpx;
 }
 
 /* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
-radio .wx-radio-input.wx-radio-input-checked::before{
-   border-radius: 50%;/* 圆角 */
-   width: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
-   height: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
-   font-size: 30rpx; /* 对勾大小 30rpx */
-   color: white; /* 对勾颜色 白色 */
-   background: transparent;
-   transform:translate(-50%, -50%) scale(1);
-   -webkit-transform:translate(-50%, -50%) scale(1);
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%; /* 圆角 */
+  width: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 30rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  font-size: 30rpx; /* 对勾大小 30rpx */
+  color: white; /* 对勾颜色 白色 */
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
 }
 
-radio .wx-radio-input.wx-radio-input-checked{
-   border: none;
-   background: red;
+radio .wx-radio-input.wx-radio-input-checked {
+  border: none;
+  background: red;
 }
 
 /* 表格代码   */
+
 .history-table-wrap {
   position: absolute;
   width: 100%;
@@ -98,44 +102,48 @@ radio .wx-radio-input.wx-radio-input-checked{
   overflow-x: hidden;
 }
 
-.table{
-  border:1px solid #dadada;
-  border-right:0;
+.table {
+  border: 1px solid #dadada;
+  border-right: 0;
   border-bottom: 0;
   width: 98%;
   margin-left: 1%;
 }
-.tr{
-  width:100%;
+
+.tr {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.th,.td{
+.th, .td {
   padding: 10px;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
   width: 100%;
 }
-.th1,.td1{
+
+.th1, .td1 {
   width: 20%;
 }
-.th3,.td3{
+
+.th3, .td3 {
   width: 20%;
 }
-.th4,.td4{
+
+.th4, .td4 {
   width: 30%;
 }
 
-.th{
+.th {
   font-weight: 800;
   background-color: darkred;
   font-size: 70%;
   color: white;
 }
 
-.td{
+.td {
   font-size: 65%;
   color: black;
 }
@@ -143,6 +151,7 @@ radio .wx-radio-input.wx-radio-input-checked{
 .bg-g {
   background-color: peachpuff;
 }
+
 .td-brief {
   text-align: left;
 }

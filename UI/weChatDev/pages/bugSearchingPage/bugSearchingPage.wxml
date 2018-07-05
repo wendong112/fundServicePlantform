@@ -16,20 +16,20 @@
     <!-- 仅查看本司 -->
     <radio-group class="groupRadio" name="searchCompany">
     <label>
-      <radio bindtap='clickCompany' class="singleGroupRadio" color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
+      <radio bindtap='clickCompany' color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
     </label>
     </radio-group>
 
     <radio-group  class="groupRadio"  name="searchVersion">
     <!-- 按版本 -->
     <label>
-      <radio bindtap='clickVersion' class="singleGroupRadio" color="darkred" value="2" checked="{{versionChecked}}" />按版本
+      <radio bindtap='clickVersion' color="darkred" value="2" checked="{{versionChecked}}" />按版本
     </label>
     </radio-group>
-    <radio-group  class="groupRadio"  name="searchKeyword">
+    <radio-group  class="groupRadio" name="searchKeyword">
     <!-- 按关键字 -->
     <label>
-      <radio bindtap='clickKeyword' class="singleGroupRadio" color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
+      <radio bindtap='clickKeyword' color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
     </label>
     </radio-group>
   </view>

@@ -217,12 +217,6 @@ Page({
     })
   },
 
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
-  },
-
 
   //版本选择处理函数
   bindPickerChooseVersion: function (e) {

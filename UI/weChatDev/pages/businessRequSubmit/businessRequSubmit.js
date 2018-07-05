@@ -68,7 +68,7 @@ Page({
   
   },
 
-  bindBusiRequSubmitForm: function(e) {
+  reqSubmit: function(e) {
     var formData = e.detail.value;
     var that = this;
 

@@ -36,28 +36,32 @@
 
   <!-- 具体问题描述 -->
   <view class="redTitle">具体问题描述</view>
-  <textarea placeholder="" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
+  <textarea cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
 
   <!-- 解决方案 -->
   <view class="redTitle">解决方案</view>
-  <textarea class="shortArea" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
+  <textarea class="shortArea" cursor-spacing="180" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
 
   <!-- 评论面板 -->
   <view class="redTitle">评论面板</view>
-  <scroll-view class="commentContainer" scroll-y="true">
-      <view class="blueLink" id="{{defectArray.id}}" bindtap='clickMessage'>
-          写留言
-      </view>
+  <view class="commentContainer">
+    <view class="blueLink" id="{{defectArray.id}}" bindtap='clickMessage'>
+      写留言
+    </view>
 
+    <scroll-view class='scrollView' scroll-y>
       <view class="personComment" wx:for="{{commentList}}" wx:key="messageId">
         <view class="personTitle">{{item.userName}}（{{item.company}}）:</view>
         <view>{{item.messageContent}}</view>
       </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 
-  <view class="viewImageLink"><label class='line' bindtap='clickViewImage'>查看照片留痕</label></view>
+  <view class="viewImageLink">
+    <label class='line' bindtap='clickViewImage'>查看照片留痕</label>
+  </view>
 
   <!-- 提交按钮 -->
-  <button class='submitButton'size="mini" form-type="submit">保存</button>
- 
+  <button class='submitButton' size="mini" form-type="submit">保存</button>
+
 </form>
