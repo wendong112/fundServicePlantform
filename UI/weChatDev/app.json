@@ -8,10 +8,12 @@
     "pages/bugSearchingPage/bugSearchingPage",
     "pages/bugSubmittingPage/bugSubmittingPage",
     "pages/defectDetailedInfo/defectDetailedInfo",
+    "pages/messageEditing/messageEditing",
 
     "pages/testInformationShare/testInformationShare",
     "pages/businessRequSubmit/businessRequSubmit",
     "pages/businessRequLibLooking/businessRequLibLooking",
+    "pages/sceneDetailedInfo/sceneDetailedInfo",
 
     "pages/uniformTest/uniformTest",
     "pages/projectProgressDetail/projectProgressDetail",

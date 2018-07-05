@@ -1,144 +1,63 @@
-<input class="detailedInfo" style="border:3rpx solid darkred; height:35rpx; min-height:10rpx;border-radius: 15rpx;"  disabled='true' placeholder="详情" auto-height/> 
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <!-- 缺陷详情 -->
+  <view class="redTitle">详情</view>
+  <view class="detailContainer">
+    <view class="title startTitle">缺陷序号</view>
+    <input class="content disableColor" type="number" name="id" disabled='true' value="{{defectArray.id}}" />
+    <view class="title rightTitle">缺陷状态</view>
+    <input class="content disableColor" type="text" name="statusIdName" disabled='true' value="{{defectArray.statusIdName}}" />
+  </view>
 
+  <view class="detailContainer">
+    <view class="title startTitle">缺陷描述</view>
+    <input class="longContent disableColor" type="text" name="title" disabled='true' value="{{defectArray.title}}" />
+  </view>
 
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="detailContainer">
+    <view class="title startTitle">提交人员</view>
+    <input class="content disableColor" type="text" name="createdUserIdName" disabled='true' value="{{defectArray.createdUserIdName}}" />
+    <view class="title rightTitle">提交时间</view>
+    <input class="content disableColor" type="text" name="createdDate" disabled='true' value="{{defectArray.createdDate}}" />
+  </view>
 
-      <view class="bugID">
-        <view class="bugIdLabel">
-        <text>缺陷序号</text>
-        </view>
+  <view class="detailContainer">
+    <view class="title startTitle">一级模块</view>
+    <input class="content disableColor" type="text" name="firstLevelModulePriorityIdName" disabled='true' value="{{defectArray.firstLevelModulePriorityIdName}}" />
+    <view class="title rightTitle">严重程度</view>
+    <input class="content disableColor" type="text" name="severity" disabled='true' value="{{defectArray.severity}}" />
+  </view>
 
-        <view class="inputOfBugId">
-        <input class="id" style="border:3rpx solid darkred; height:40rpx; min-height:10rpx;border-radius: 15rpx;" type="number" name="id" disabled='true' value="{{id}}" />
-        </view>
+  <view class="detailContainer">
+    <view class="title startTitle">发现版本</view>
+    <input class="content disableColor" type="text" name="findVersionIdName" disabled='true' value="{{defectArray.findVersionIdName}}" />
+    <view class="title rightTitle">修复版本</view>
+    <input class="content disableColor" type="text" name="prepareProperty3" disabled='true' value="{{defectArray.prepareProperty3}}" />
+  </view>
 
-        <view class="bugStatus">
-          <view class="bugStatusLabel">
-            <text>缺陷状态</text>
-          </view>
+  <!-- 具体问题描述 -->
+  <view class="redTitle">具体问题描述</view>
+  <textarea placeholder="" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
 
-          <view class="bugStatusInputBackground">
-          <input class="bugStatusIdNameInput" style="border:3rpx solid darkred; height:40rpx; min-height:10rpx;border-radius: 15rpx;" type="text" name="statusIdName" disabled='true' value="{{statusIdName}}" />
-          </view>
+  <!-- 解决方案 -->
+  <view class="redTitle">解决方案</view>
+  <textarea class="shortArea" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
 
-        </view>
+  <!-- 评论面板 -->
+  <view class="redTitle">评论面板</view>
+  <scroll-view class="commentContainer" scroll-y="true">
+      <view class="blueLink" id="{{defectArray.id}}" bindtap='clickMessage'>
+          写留言
       </view>
 
-    <view class="bugDescripContainer">
-
-      <view class="bugDescriptionLable">
-      <text>缺陷概述</text>
+      <view class="personComment" wx:for="{{commentList}}" wx:key="messageId">
+        <view class="personTitle">{{item.userName}}（{{item.company}}）:</view>
+        <view>{{item.messageContent}}</view>
       </view>
+  </scroll-view>
 
-      <view>
-      <input class="bugDescriptionInput" style="border:3rpx solid darkred; height:40rpx;width:550rpx; min-height:10rpx;border-radius: 15rpx;" type="text" name="title" disabled='true'  value="{{title}}" />
-      </view>
+  <view class="viewImageLink"><label class='line' bindtap='clickViewImage'>查看照片留痕</label></view>
 
-    </view>
-
-
-
-
-    <view class="submitPersonAndTime">
-      <view class="bugSubmitterLabel">
-        <text>提交人员</text>
-      </view>
-      <view>
-      <input class="bugSubmitterInput" type="text" style="border:3rpx solid darkred; height:40rpx;width:120rpx; min-height:10rpx;border-radius: 15rpx;" name="createdUserIdName" disabled='true' value="{{createdUserIdName}}" />
-      </view>
-
-      <view class="submitDateLabel">
-        <text>提交时间</text>
-      </view>
-
-      <view>
-      <input class="submitDateInput" style="border:3rpx solid darkred; height:40rpx;width:150rpx; min-height:10rpx;border-radius: 15rpx;"  type="text" name="createdDate" disabled='true' value="{{createdDate}}" />
-      </view>
-
-    </view>
-
-    <!-- 这个view用来管控 第一模块和严重程度 部分 -->
-    <view class="firstLevelModuleAndSeverity">
-      <view class="firstLevelModuleLabel">
-        <text>一级模块</text>
-      </view>
-      <view>
-      <input class="fistLevelModuleInput" style="border:3rpx solid darkred; height:40rpx;width:150rpx; min-height:10rpx;border-radius: 15rpx;" type="text" name="firstLevelModulePriorityIdName" disabled='true' value="{{firstLevelModulePriorityIdName}}" />
-      </view>
-      <view class="severityLabel">
-        <text>严重程度</text>
-      </view>
-      <view>
-        <input class="severityInput" style="border:3rpx solid darkred; height:40rpx;width:180rpx; min-height:10rpx;border-radius: 15rpx;" type="number" name="severity" disabled='true' value="{{severity}}" />
-      </view>
-    </view>
-
-     <!-- 这个view用来管控 缺陷的(发现版本)和(计划修复版本)部分 -->
-    <view class="bugFoundAndPlanFixingVersion">
-      <view class="bugFoundVersionLabel">
-        <text>发现版本</text>
-      </view>
-
-      <view>
-      <input class="bugFoundVersionInput" style="border:3rpx solid darkred; height:40rpx;width:150rpx; min-height:10rpx;border-radius: 15rpx;" type="text" name="findVersionIdName" disabled='true' value="{{findVersionIdName}}" />
-      </view>
-      <view class="planFixingVersionLabel">
-        <text>计划修复版本</text>
-      </view>
-      <view>
-        <input class="planFixingVersionInput" style="border:3rpx solid darkred; height:40rpx;width:180rpx; min-height:10rpx;border-radius: 15rpx;" type="number" name="prepareProperty3" disabled='true' value="{{prepareProperty3}}" />
-      </view>
-    </view>
-
-
-<!-- 具体问题描述 -->
-
-<input class="detailedInformationDisplaying"  type="text" maxlength='-1' style="border:3rpx solid darkred; height:35rpx; width:190rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="具体问题描述" ></input>  
-
-
- <view class="detailedInformationTextarea">
- <textarea style="border:3rpx solid darkred; height:260rpx; width: 680rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="" type="text" name="defectDescription" value="{{defectDescription}}">
- </textarea>
- </view>
-
-<!-- 解决方案描述 -->
- <input class="solutionDescriptionLabel" style="border:3rpx solid darkred; height:35rpx; width:190rpx;min-height:10rpx;border-radius: 15rpx;"  disabled='true' placeholder="解决方案描述" auto-height/>  
-
- <view class="solutionDescriptionTextarea">
- <textarea style="border:3rpx solid darkred; height:160rpx; width: 680rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="" type="text" name="solutionDescription" value="{{solutionDescription}}">
- </textarea>
- </view>
-
-<!-- 评论面板 -->
- <input class="commentPanelLabel" style="border:3rpx solid darkred; height:35rpx; width:190rpx;min-height:10rpx;border-radius: 15rpx;"  disabled='true' placeholder="评论面板" auto-height/>  
-
-<view calss="commentPanel" style="border:3rpx solid darkred;height:150rpx;width:92%;margin-left:25rpx; border-radius: 15rpx;min-height:10rpx;">
-
-
-        <view class="writingComment" style="" >
-
-             <navigator class="link" url="../messageEditing/messageEditing?defectId={{id}}">写留言</navigator> 
-
-              <text class="messageContentDisplayingText" type="text" name="messageContentDisplaying" value="{{messageContentDisplaying}}">
- </text>
-
-
-          </view> 
-
-</view>
-
- <view class="messageContentView">
- <textarea class="messageContentTextarea" auto-focus='' style="border:3rpx solid darkred; height:160rpx; width: 680rpx;min-height:10rpx;border-radius: 15rpx;" placeholder="写留言" type="text" name="messageContent" value="{{messageContent}}">
- </textarea>
- </view>
-
- <view class="lookingBugPicture" style="" >
-             <navigator class="link" url="../defectDetailedInfo/defectDetailedInfo?defectId={{id}}">查看缺陷留痕</navigator> 
-          </view>
-
-      <view class="row">  
-      <button class="sbmButn" style="background: darkred;" size="mini" type="primary" form-type="submit">保存</button>
-      </view>  
-
-  </form>
-  
+  <!-- 提交按钮 -->
+  <button class='submitButton'size="mini" form-type="submit">保存</button>
+ 
+</form>

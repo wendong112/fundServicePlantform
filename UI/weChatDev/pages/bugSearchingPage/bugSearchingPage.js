@@ -303,9 +303,8 @@ Page({
   clickDetail: function(e) {
     var id = e.target.id;
     console.log("跳转到缺陷详情中", id)
-
-    //
-    // 待完善
-    //
+    wx.navigateTo({
+      url: app.globalData.bugDetail + "?defectId=" + id,
+    })
   }
 })

@@ -1,0 +1,27 @@
+<view class="redTitle">需求详情</view>
+
+<!-- 需求详情 -->
+<view class="detailContainer">
+  <view class="title startTitle">序号</view>
+  <view class="content addColor">{{requirementId}}</view>
+  <view class="title">共建伙伴</view>
+  <view class="content addColor">{{company}}</view>
+  <view class="title">完成阶段</view>
+  <view class="content">{{processStatus}}</view>
+</view>
+<view class="detailContainer">
+  <view class="title startTitle">需求概述</view>
+  <view class="content long">{{requirementBrief}}</view>
+</view>
+
+<!-- 业务场景导图 -->
+<view class="redTitle">业务场景导图</view>
+<view class="sceneContainer"wx:for="{{sceneList}}" wx:key="sort"> 
+  <view class="sceneBrief pad{{item.sort.length}}" id='{{item.sort}}' bindtap='closeBrief'>
+    <image class="iconType" src="{{imgSrc}}" wx:if='{{item.sort.length < 7}}'></image>
+    {{item.scenarioName}}
+  </view>
+</view>
+
+<view class="downloadLink"><label class='line' id='{{requirementId}}' bindtap='clickDownload'>业务场景流程下载</label></view>
+<view class="savePath" wx:if="{{savePath.length > 0}}">保存位置: {{savePath}}</view>

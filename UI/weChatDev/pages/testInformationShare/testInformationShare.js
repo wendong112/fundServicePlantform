@@ -121,5 +121,8 @@ Page({
     //
     //
     //
+    wx.navigateTo({
+      url: app.globalData.sceneDetail + "?id=" + reqId,
+    })
   }
 })

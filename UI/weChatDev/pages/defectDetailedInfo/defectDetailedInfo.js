@@ -1,3 +1,4 @@
+const app = getApp();
 
 Page({
 
@@ -5,228 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-    defectId: '',
-    title: '',
-    severityID: '',
-
-    createdUserIdName: '',
-    businessFieldIdName: '',
-    tradeTypeIDName:'',
-    findVersionIdName: '',
-
-    prepareProperty3: '',
-
-    modifyUrl: "http://127.0.0.1:8080/defectplatform/superadmin/modifydefect"
-
+    defectArray: {},
+    commentList: [],
   },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    var that = this;
-
-    // 页面初始化 options为页面跳转所带来的参数
-    this.setData({
-
-      defectId: options.defectId
-
-    });
-
-    if (options.defectId == undefined) {
-      return;
-    }
-
-    // add one more wx.request -----start
-    wx.request({
-      url: "http://127.0.0.1:8080/defectplatform/superadmin/getdefectviewbyid",
-      data: { "id": options.defectId },
-      method: 'GET',
-      success: function (res) {
-        var defectView = res.data.defectView;
-
-        if (defectView == undefined) {
-          var toastText = '获取数据失败' + res.data.errMsg;
-          wx.showToast({
-            title: toastText,
-            icon: '',
-            duration: 2000
-          });
-        } else {
-
-          that.setData({
-
-            //缺陷提交人
-            createdUserIdName: defectView.createdUserIdName,
-
-            //二级模块名字
-            businessFieldIdName: defectView.businessFieldIdName,
-
-            //三级模块名字
-            tradeTypeIDName: defectView.tradeTypeIDName,
-           
-            //缺陷发现版本
-            findVersionIdName: defectView.findVersionIdName,
-
-          });
-        }
-      }
-    }),
-    // add one more wx.request -----end
-
-
-    wx.request({
-      url: "http://127.0.0.1:8080/defectplatform/superadmin/getdefectbyid",
-      data: { "id": options.defectId },
-      method: 'GET',
-      success: function (res) {
-        var defect = res.data.defect;
-
-        var temDateTimeNumFormat = defect.createdDate;
-
-        var format = 'Y-M-D h:m:s';
-
-        var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-        var returnArr = [];
-
-        var date = new Date(temDateTimeNumFormat);
-        returnArr.push(date.getFullYear());
-
-        var temMonth=date.getMonth() + 1
-        if (temMonth<10){
-          temMonth = "0" + temMonth;
-        }
-        returnArr.push(temMonth);
-
-        var temDate = date.getDate()
-        if (temDate < 10) {
-          temDate = "0" + temDate;
-        }
-        returnArr.push(temDate);
-
-        var temHours = date.getHours()
-        if (temHours < 10) {
-          temHours = "0" + temHours;
-        }
-        returnArr.push(temHours);
-
-        var getMinutes = date.getMinutes()
-        if (getMinutes < 10) {
-          getMinutes = "0" + getMinutes;
-        }
-        returnArr.push(getMinutes);
-
-        var getSeconds = date.getSeconds()
-        if (getSeconds < 10) {
-          getSeconds = "0" + getSeconds;
-        }
-        returnArr.push(getSeconds);
-
-        for (var i in returnArr) {
-          format = format.replace(formateArr[i], returnArr[i]);
-        }
-   
-        var formatedDateTime = format;
-
-        if (defect == undefined) {
-          var toastText = '获取数据失败' + res.data.errMsg;
-          wx.showToast({
-            title: toastText,
-            icon: '',
-            duration: 2000
-          });
-        } else {
-
-          that.setData({
-            //缺陷序号
-            id: defect.id,
-            //缺陷状态
-            statusIdName: defect.statusIdName,
-            //缺陷描述
-            title: defect.title,
-            //提交人员
-
-            //提交时间
-            createdDate: formatedDateTime,
-            // createdDate: defect.createdDate,
-            
-            //一级模块
-            firstLevelModulePriorityIdName: defect.firstLevelModulePriorityIdName,
-
-            //严重程度
-            severity: defect.severity,
-
-            //前提条件
-            preCondition: defect.preCondition,
-            //重现步骤
-            reoccurSteps: defect.reoccurSteps,
-            //预期结果
-            expectedResult: defect.expectedResult,
-            //实际结果
-            actualResult: defect.actualResult,
+    var id = options.defectId;
+    console.log("查询的缺陷id为:", id)
  
-            //计划修复版本
-            prepareProperty3: defect.prepareProperty3,
 
-          });
-        }
-      }
+    this.setData({
+      defectArray: this.getBugDetail(id)
     })
   }, 
-
-
-  formSubmit: function (e) {
-    var that = this;
-    var formData = e.detail.value;
-        
-    var createdDate= formData.createdDate;
-
-    formData.statusIdName="";
-    formData.createdUserIdName="";
-    formData.createdDate = "";
-    formData.firstLevelModulePriorityIdName="";
-    formData.businessFieldIdName="";
-    formData.tradeTypeIDName="";
-    formData.preCondition="";
-    formData.reoccurSteps="";
-    formData.expectedResult="";
-    formData.actualResult="";
-
-    var handledFormData = formData
-
-    var url = that.data.modifyUrl;
-
-    // if (that.data.defectId != undefined) {
-    //   formData.defectId = that.data.defectId;
-    //   url = that.data.modifyUrl;
-    // }
-
-
-    wx.request({
-      url: url,
-      data: JSON.stringify(handledFormData),
-      method: 'POST',
-      header: {
-        'Content-Type': 'application/json'
-      },
-
-      success: function (res) {
-        var result = res.data.success
-        var toastText = "操作成功！";
-        if (result != true) {
-          toastText = "操作失败" + res.data.errMsg;
-        }
-        wx.showToast({
-          title: toastText,
-          icon: '',
-          duration: 2000
-        });
-      }
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -239,7 +34,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //
+    // 由于留言从留言编辑界面返回时需要刷新，所以放到此处
+    // 需要从数据库中获取
+    //
 
+    var id = this.data.defectArray.id;
+    console.log("获取留言：", id)
+
+    var commentList = [{
+      messageId: "3",
+      userName: "小明",
+      company: "南方基金",
+      messageContent: "很赞！该缺陷反应了目前系统的在头寸计算的出入"
+    }, {
+      messageId: "2",
+      userName: "小哄",
+      company: "北方基金",
+      messageContent: "同意"
+    }, {
+      messageId: "1",
+      userName: "小哄",
+      company: "华夏基金",
+      messageContent: "666"
+    }]
+
+    this.setData({
+      commentList: commentList
+    })
   },
 
   /**
@@ -275,5 +97,78 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 点击写留言
+  clickMessage: function(e) {
+    var id = e.target.id;
+    var url = app.globalData.messageEdit;
+    console.log("跳转到", url)
+  
+    wx.navigateTo({
+      url: url + "?defectId=" + id
+    })
+  },
+
+  // 点击查看照片留痕
+  //
+  //
+  //
+  clickViewImage: function() {
+    wx.showToast({
+      title: '暂未实现',
+      icon: "loading"
+    })
+  },
+
+  // 提交表单
+  formSubmit: function(e) {
+    var formData = e.detail.value;
+    var id = formData.id;
+
+    var updateData = {
+      "id": formData.id,
+      "defectDescription": formData.defectDescription,
+      "solutionDescription": formData.solutionDescription
+    }
+
+    // 根据id更新数据库
+    //
+    //
+    console.log("更新缺陷详情：", updateData);
+    wx.showModal({
+      title: '温馨提示',
+      content: '缺陷更新成功！',
+      showCancel: false,
+      confrimText: "确定",
+      confirmColor: "#8B0000",
+    })
+
+    // 刷新页面
+    this.setData({
+      defectArray: this.getBugDetail(id)
+    })
+  },
+
+  // 公用方法 - 根据id获取缺陷详情
+  getBugDetail: function (id) {
+    //
+    // 通过id从数据库中查找缺陷详情
+    //
+    var defectArray = {
+      id: "1",
+      statusIdName: "打开",
+      title: "组合指令中个人参数的取整数功能未实现",
+      createdUserIdName: "小明",
+      createdDate: "2017-06-21",
+      firstLevelModulePriorityIdName: "指令管理",
+      severity: "一般问题",
+      findVersionIdName: "20170630B",
+      prepareProperty3: "20170630D",
+      defectDescription: "[前提条件]\nNA\n[重现步骤]\n1.打开\n2.启动风控测试管理系统",
+      solutionDescription: "暂无",
+    }
+
+    return defectArray;
   }
 })
