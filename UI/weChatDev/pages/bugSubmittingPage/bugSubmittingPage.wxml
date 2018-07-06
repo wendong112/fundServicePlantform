@@ -1,11 +1,11 @@
 <!--pages/bugSubmittingPage/bugSubmittingPage.wxml-->
 
-<form bindsubmit="bugSubmit" bindreset='uploadImage'>
+<form bindsubmit="bugSubmit">
   <!-- 版本选择部分 -->
   <view class="pickerContainer addTopDis">
     <view class="title">版本</view>
-    <picker bindchange="chooseVersion" name="findVersion" value="{{versionArray[indexOfVersion]}}" range="{{versionArray}}">
-      <view class="content">{{versionArray[indexOfVersion]}}
+    <picker bindchange="chooseVersion" name="findVersion" value="{{versionArray[indexOfVersion].version}}" range="{{versionArray}}" range-key='version'>
+      <view class="content">{{versionArray[indexOfVersion].version}}
       </view>
     </picker>
   </view>
@@ -42,7 +42,7 @@
 
   <!-- 缺陷详情 -->
   <view class='buttonContainer'>
-    <button class="resetBtn" type="mini" form-type="reset">照片留痕</button>
+    <button class="resetBtn" type="mini" bindtap='uploadImage'>照片留痕</button>
     <button class="submitBtn" type="mini" form-type="submit">提交缺陷</button>
   </view>
 </form>

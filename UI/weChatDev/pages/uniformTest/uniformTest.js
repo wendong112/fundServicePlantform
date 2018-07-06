@@ -16,21 +16,7 @@ Page({
     projectProgressImage: app.globalData.progressImg,
 
     // 历次质量报表的版本选择，版本数据
-    array:[
-      {
-        version: '20160122X',
-        imageURL: app.globalData.imgServerURL + "logo.png"
-      }, {
-        version: '20160122D_7',
-        imageURL: app.globalData.imgServerURL + "pulpit.jpg"
-      }, {
-        version: '20160122D',
-        imageURL: app.globalData.imgServerURL + "logo.png"
-      }, {
-        version: '20160122I_3',
-        imageURL: app.globalData.imgServerURL + "pulpit.jpg"
-      }
-    ],
+    array: app.globalData.versionArray,
     indexOfVersion: 0
   },
 

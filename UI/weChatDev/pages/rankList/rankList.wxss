@@ -1,97 +1,72 @@
 /* pages/rankList/rankList.wxss */
 
 .table {
-  border: 0px solid darkgray;
+  text-align: center;
 }
+
 .tr {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  height: 80rpx;
-  align-items: center;
-  font-size: 30rpx;
+  text-align: center;
+  justify-content: space-between;
+  background-color: #F0F0F0;
+  height: 100rpx;
+  margin-top: 1%;
+  font-size: 80%;
+  font-weight: 400;
 }
 
-.bg-w{
-  background: snow;
-}
-.bg-g{
-  background: #E6F3F9;
-}
-.th1 {
-  width: 40%;
-  justify-content: center;
-  /* //darkred */
-  background: #8B0000; 
-  color: #fff;
-  display: flex;
-  /* height: 3rem; */
-  align-items: center;
-  height: 80rpx;
-}
-.th2 {
-  width: 80%;
-  justify-content: center;
-  /* //darkred */
-  background: #8B0000; 
-  color: #fff;
-  display: flex;
-  /* height: 3rem; */
-  align-items: center;
-  height: 80rpx;
-}
-.th3 {
-  width: 40%;
-  justify-content: center;
-  /* //darkred */
-  background: #8B0000; 
-  color: #fff;
-  display: flex;
-  /* height: 3rem; */
-  align-items: center;
-  height: 80rpx;
-}
-.th4 {
-  width: 40%;
-  justify-content: center;
-  /* //darkred */
-  background: #8B0000; 
-  color: #fff;
-  display: flex;
-  /* height: 3rem; */
-  align-items: center;
-  height: 80rpx;
+.owner {
+  height: 150rpx;
+  font-size: 100%;
+  font-weight: 600;
 }
 
-.td1{
-    width:40%;
-    justify-content: center;
-    text-align: center;
-    white-space:nowrap;
-    text-overflow:ellipsis;overflow:hidden
+.likeOwner{
+  margin-top: 2%;
+}
+.td1 {
+  width: 10%;
 }
 
-
-.td2{
-    width:80%;
-    justify-content: center;
-    text-align: center;
-    white-space:nowrap;
-    text-overflow:ellipsis;overflow:hidden
+.td3 {
+  width: 15%;
 }
 
-.td3{
-    width:40%;
-    justify-content: center;
-    text-align: center;
-    white-space:nowrap;
-    text-overflow:ellipsis;overflow:hidden
+.td4 {
+  width: 15%;
+  display:column;
 }
 
-.td4{
-    width:40%;
-    justify-content: center;
-    text-align: center;
-    white-space:nowrap;
-    text-overflow:ellipsis;overflow:hidden
+.td1, .td2, .td3 {
+  margin-top: 4%;
+}
+
+label {
+  padding: 10%;
+  border-color: 10rpx white solid;
+}
+
+.bg0 {
+  background: darkred;
+  color: white
+}
+
+.bg1 {
+  background: orange;
+  color: white
+}
+
+.bg2 {
+  background: blue;
+  color: white
+}
+
+.bg3 {
+  background: gold;
+  color: white
+}
+
+.agreeIcon{
+  height:40rpx;
+  width:40rpx;
 }

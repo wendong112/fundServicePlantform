@@ -12,6 +12,7 @@ App({
   onError: function (msg) {
     console.log(msg)
   },
+
   globalData: {
     userInfo: null,
 
@@ -35,6 +36,30 @@ App({
     rightArrowImage: "/image/common/rightArrow.png",
     // 故障信息中心 - 缺陷搜索页面使用的链接
     allBugURL: "http://127.0.0.1:8080/defectplatform/superadmin/listdefect",
+    // 使用的array(之后使用数据库替换)
+    //
+    //
+    //
+    imgServerURL: "http://www.runoob.com/images/",
+    uploadServerURL: "",
+    versionArray: [
+    {
+      version: '20160122X',
+      imageURL: "http://www.runoob.com/images/logo.png" //给项目信息中心使用
+    }, {
+      version: '20160122D_7',
+      imageURL: "http://www.runoob.com/images/pulpit.jpg" //给项目信息中心使用
+    }, {
+      version: '20160122D',
+      imageURL: "http://www.runoob.com/images/logo.png" //给项目信息中心使用
+    }, {
+      version: '20160122I_3',
+      imageURL: "http://www.runoob.com/images/pulpit.jpg" //给项目信息中心使用
+    }
+    ],
+
+    moduleArray: ['风险控制', '基金财务', '交易管理', '日终清算'],
+    levelArray: ['1-改善建议', '2-轻微问题', '3-一般问题', '4-严重问题', '5-致命问题'],
 
     // 测试场景共建
     reqImg: "/image/testInformationShare/requirementSubmit.png",
@@ -46,6 +71,9 @@ App({
     // 项目信息中心使用
     progressImg: "/image/uniformTest/projectProgress.jpg",
     threeLineIcon: "/image/common/threeline.png",
-    imgServerURL: "http://www.runoob.com/images/",
+    
+    // 排行榜
+    redHeartImg: "/image/rankList/redHeart.png",
+    grayHeartImg: "/image/rankList/grayHeart.png"
   }
 })

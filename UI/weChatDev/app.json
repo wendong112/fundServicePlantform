@@ -56,7 +56,7 @@
         "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
         "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
         "pagePath": "pages/rankList/rankList",
-        "text": "我的"
+        "text": "排行榜"
       }
     ]
   },
