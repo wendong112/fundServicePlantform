@@ -5,7 +5,7 @@
     <view class="title">
       姓名：
     </view>
-    <input class="content" placeholder="请输入真实姓名" type="text" name="name" value="{{name}}" />
+    <input class="content" placeholder="请输入真实姓名" type="text" name="userName" value="{{name}}" />
   </view>
 
   <view class="registerContainer">
@@ -13,7 +13,7 @@
       公司：
     </view>
     <picker class="pickerContent" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <input disable="true" name="companyName" value="{{array[index]}}" />
+      <input disable="true" name="company" value="{{array[index]}}" />
     </picker>
   </view>
 
@@ -21,14 +21,14 @@
     <view class="title">
       工作邮箱：
     </view>
-    <input class="content" placeholder="请输入工作邮箱" type="text" name="companyMailboxName" value="{{companyMailboxName}}" />
+    <input class="content" placeholder="请输入工作邮箱" type="text" name="mail" value="{{companyMailboxName}}" />
   </view>
 
   <view class="registerContainer">
     <view class="title">
       联系电话：
     </view>
-    <input class="content" placeholder="请输入联系电话" type="number" name="telNumberName" value="{{telNumberName}}" />
+    <input class="content" placeholder="请输入联系电话" type="number" name="telephone" value="{{telNumberName}}" />
   </view>
   <button class="sRegisterBtn" size="mini" form-type="submit">注册</button>
 </form>

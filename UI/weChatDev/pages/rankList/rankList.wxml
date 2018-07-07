@@ -2,7 +2,7 @@
   <block wx:for="{{listData}}" wx:key="{{code}}">
     <view class="tr owner" wx:if="{{index==0}}">
       <view class="td1">
-        <label class='bg{{index}}'>{{item.i}}</label>
+        <label class='bg{{index}}'>{{item.serialNo}}</label>
       </view>
       <view class="td2">{{item.userName}}（{{item.company}}）</view>
       <view class="td3">{{item.bugNumber}}</view>
@@ -16,7 +16,7 @@
 
     <view class="tr" wx:else>
       <view class="td1">
-        <label class='bg{{index}}'>{{item.i}}</label>
+        <label class='bg{{index}}'>{{item.serialNo}}</label>
       </view>
       <view class="td2">{{item.userName}}（{{item.company}}）</view>
       <view class="td3">{{item.bugNumber}}</view>
