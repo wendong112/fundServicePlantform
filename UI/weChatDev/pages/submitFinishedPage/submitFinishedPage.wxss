@@ -1,9 +1,0 @@
-/* pages/submitFinishedPage/submitFinishedPage.wxss */
-
-.successIcon {
-  display: -webkit-flex;
-  text-align: center;
-  margin-top: 500rpx;
-  margin-bottom: 500rpx;
-  margin-left: 328rpx;
-}

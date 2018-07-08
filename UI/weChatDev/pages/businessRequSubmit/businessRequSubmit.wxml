@@ -3,8 +3,8 @@
 <form bindsubmit="reqSubmit">
   <view class='title'>业务需求描述</view>
 
-  <textarea class="reqBriefDescTextArea" cursor-spacing="180" maxlength='-1' placeholder="需求概述（必填项）" placeholder-style="auto-focus" name="reqBriefDesc" value="{{reqBriefDesc}}" />
-  <textarea class="reqDescTextarea" cursor-spacing="180" maxlength='-1' placeholder="需求详细描述" name="reqDetailDesc" value="{{reqDetailDesc}}" />
+  <textarea class="reqBriefDescTextArea" cursor-spacing="180" maxlength='-1' placeholder="需求概述（必填项）" placeholder-style="auto-focus" name="requirementBriefDescription" value="{{reqBriefDesc}}" />
+  <textarea class="reqDescTextarea" cursor-spacing="180" maxlength='-1' placeholder="需求详细描述" name="requirementDescription" value="{{reqDetailDesc}}" />
   <textarea class="remarkTextarea" cursor-spacing="180" maxlength='-1' placeholder="备注" name="remark" value="{{remark}}" />
 
   <button class="submitBtn" form-type="submit">提交</button>

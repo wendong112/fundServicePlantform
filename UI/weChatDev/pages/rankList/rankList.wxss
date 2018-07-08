@@ -42,28 +42,32 @@
 }
 
 label {
-  padding: 10%;
-  border-color: 10rpx white solid;
+  border-color: 20rpx white solid;
+  padding: 10% 20% 10% 20%;
 }
 
 .bg0 {
   background: darkred;
-  color: white
+  color: white;
+  font-weight: 600;
 }
 
 .bg1 {
   background: orange;
-  color: white
+  color: white;
+  font-weight: 600;
 }
 
 .bg2 {
-  background: blue;
-  color: white
+  background: yellowgreen;
+  color: white;
+  font-weight: 600;
 }
 
 .bg3 {
-  background: gold;
-  color: white
+  background: peru;
+  color: white;
+  font-weight: 600;
 }
 
 .agreeIcon{

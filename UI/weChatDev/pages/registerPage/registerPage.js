@@ -164,8 +164,9 @@ Page({
           }
         },
         fail: function() {
-          wx.showLoading({
+          wx.showToast({
             title: '操作失败',
+            icon: "loading"
           })
         }
       })

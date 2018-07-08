@@ -62,9 +62,12 @@ App({
     levelArray: ['1-改善建议', '2-轻微问题', '3-一般问题', '4-严重问题', '5-致命问题'],
 
     // 测试场景共建
+    getTop3BusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getTop3BusinessReq",
+    addBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/addBusinessReq",
+    getScenarioByReqId: "https://www.fundserviceplatform.cn/fundService/api/getScenarioByReqId",
     reqImg: "/image/testInformationShare/requirementSubmit.png",
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
-    // 测试场景共建 - 查看测试场景页面使用的链接
+    
 
     // 项目信息中心使用
     progressImg: "/image/uniformTest/projectProgress.jpg",

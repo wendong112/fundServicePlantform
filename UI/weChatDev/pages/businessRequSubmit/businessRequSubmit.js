@@ -72,37 +72,53 @@ Page({
     var formData = e.detail.value;
     var that = this;
 
-    var currentDate = util.formatTime(new Date).replace(new RegExp("/",'g'), "-");
-    console.log("提交缺陷的时间为", currentDate);
-
     if (this.checkBriefNotEmpty(formData)) {
-      //提交需求到数据库中
-      console.log("提交数据到数据库中: ", formData)
-      //
-      //
-      //
-      // 清空数据
-      console.log("清空表单数据")
-      this.setData({
-        reqBriefDesc: '',
-        reqDetailDesc: '',
-        remark: ''    
-      })
 
-      // 弹出提示信息
-      console.log("弹出提示信息")
-      wx.showModal({
-        title: '温馨提示',
-        content: '业务需求提交成功！',
-        showCancel: false,
-        confrimText: "确定",
-        confirmColor: "#8B0000",
-        /*
+      // 获取其他数据
+      var telephone = wx.getStorageSync("telNum");
+      var processStatus = "计划阶段"
+      var tmpData = formData;
+      tmpData["telephone"] = telephone
+      tmpData["processStatus"] = processStatus
+      tmpData["createDate"] = new Date
+
+      //提交需求到数据库中
+      console.log("提交数据到数据库中: ", tmpData)
+      wx.request({
+        url: app.globalData.addBusinessReq,
+        data: JSON.stringify(tmpData),
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/json'
+        },
         success: function (res) {
-          wx.reLaunch({
-            url: app.globalData.startPage,
-          })
-        }*/
+          var result = res.data.addBusinessReq
+          console.log(res.data)
+          if (result != true) {
+            wx.showToast({
+              title: "插入失败",
+              icon: 'loading'
+            });
+          } else {
+            // 清空数据
+            console.log("清空表单数据")
+            that.setData({
+              reqBriefDesc: '',
+              reqDetailDesc: '',
+              remark: ''
+            })
+
+            // 弹出提示信息
+            console.log("弹出提示信息")
+            wx.showModal({
+              title: '温馨提示',
+              content: '业务需求提交成功！',
+              showCancel: false,
+              confrimText: "确定",
+              confirmColor: "#8B0000"
+            })
+          }
+        }
       })
     }
   },
@@ -110,13 +126,12 @@ Page({
   // 检查需求概述已经填写
   checkBriefNotEmpty: function (param) {
     console.log("检查需求概述是否填写")
-    if (param.reqBriefDesc.length == 0 || param.reqBriefDesc.trim().length == 0) {
+    if (param.requirementBriefDescription.length == 0 || param.requirementBriefDescription.trim().length == 0) {
       wx.showToast({
         title: '需求概述必填',
         icon: "loading"
       })
       return false;
-
     }
 
     // 返回信息正确

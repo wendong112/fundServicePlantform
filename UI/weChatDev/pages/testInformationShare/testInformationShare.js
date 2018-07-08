@@ -17,34 +17,58 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    //
-    // 从数据库中获取相关的需求的id，日期，共建伙伴，详情
-    //
-    this.setData({
-      reqArray: [{
-        requirementId: "1",
-        requirementBriefDescription: "ETF发行短业务测试场景库",
-        requirementDescription: "基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-        company: "南方基金",
-        topFlag: "1",
-        createDate: "2018-5-30 14:05:20"
-      }, {
-        requirementId: "5",
-        requirementBriefDescription: "银行间债券借贷业务",
-        requirementDescription: "test基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-        company: "测试基金",
-        topFlag: "2",
-        createDate: "2018-5-30 13:05:20"
-      }, {
-        requirementId: "8",
-        requirementBriefDescription: "证券公司间债券借贷业务",
-        requirementDescription: "testtest基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-        company: "华夏基金",
-        topFlag: "3",
-        createDate: "2018-5-31 13:05:20"
-      }]
+  onLoad: function () {
+    console.log("查询数据库")
+    var that = this;
+    wx.request({
+      url: app.globalData.getTop3BusinessReq,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getTop3BusinessReq;
+        console.log("查询结果", list)
+        if (list.length == 0) {
+          wx.showToast({
+            title: '无结果',
+            icon: "loading"
+          })
+        } else {
+          that.setData({
+            reqArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
     })
+    // this.setData({
+    //   reqArray: [{
+    //     requirementId: "1",
+    //     requirementBriefDescription: "ETF发行短业务测试场景库",
+    //     requirementDescription: "基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
+    //     company: "南方基金",
+    //     topFlag: "1",
+    //     createDate: "2018-5-30 14:05:20"
+    //   }, {
+    //     requirementId: "5",
+    //     requirementBriefDescription: "银行间债券借贷业务",
+    //     requirementDescription: "test基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
+    //     company: "测试基金",
+    //     topFlag: "2",
+    //     createDate: "2018-5-30 13:05:20"
+    //   }, {
+    //     requirementId: "8",
+    //     requirementBriefDescription: "证券公司间债券借贷业务",
+    //     requirementDescription: "testtest基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
+    //     company: "华夏基金",
+    //     topFlag: "3",
+    //     createDate: "2018-5-31 13:05:20"
+    //   }]
+    // })
 
   },
 

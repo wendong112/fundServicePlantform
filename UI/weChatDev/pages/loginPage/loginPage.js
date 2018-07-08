@@ -165,8 +165,9 @@ Page({
           }
         },
         fail: function() {
-          wx.showLoading({
+          wx.showToast({
             title: '查询失败',
+            icon: "loading"
           })
         }
       })

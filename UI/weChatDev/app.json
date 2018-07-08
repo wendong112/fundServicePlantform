@@ -18,17 +18,9 @@
     "pages/uniformTest/uniformTest",
     "pages/projectProgressDetail/projectProgressDetail",
 
-    "pages/logs/logs",
+    "pages/rankList/rankList",
 
-
-    "pages/defectSubmit/defectSubmit",
-    "pages/saveSuccessPage/saveSuccessPage",
-    "pages/submitFinishedPage/submitFinishedPage",
-
-    "pages/searchResultPage/searchResultPage",
-    "pages/firstPage/firstPage",
-
-    "pages/rankList/rankList"
+    "pages/logs/logs"
   ],
   "tabBar": {
     "color": "#808080",

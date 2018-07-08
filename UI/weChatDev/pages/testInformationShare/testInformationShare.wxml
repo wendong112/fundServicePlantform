@@ -18,6 +18,6 @@
     【TOP{{item.topFlag}}】{{item.requirementBriefDescription}}
   </view>
   <view class="reqDesc">
-    <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.createDate}}\n共建伙伴：{{item.company}}\n详情：{{item.requirementDescription}}</text>
+    <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.formatCreateDate}}\n共建伙伴：{{item.company}}\n详情：{{item.requirementDescription}}</text>
   </view>
 </view>
