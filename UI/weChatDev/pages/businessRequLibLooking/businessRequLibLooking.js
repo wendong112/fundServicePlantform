@@ -1,5 +1,6 @@
 //获取应用实例 
 const app = getApp()
+var allList = [];
 
 Page({
 
@@ -10,67 +11,43 @@ Page({
     searchContent: "",
     companyChecked: false,
     keywordChecked: false,
-    //缺陷列表
-    reqList: [],
 
-    // 使用到的链接
-    allReqURL: app.globalData.allReqURL,
+    // 需求列表
+    reqList: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    console.log("获取所有的需求进行展示: ", this.data.allReqURL);
     var that = this;
-
-    var list = [{
-      "requirementId": 3,
-      "requirementBriefDescription": "股转市场集合竞价转让业务场景",
-      "progressStatus": "已完成",
-      "company": "南方基金"
-    }, {
-      "requirementId": 2,
-      "requirementBriefDescription": "债券EFT发行端业务",
-      "progressStatus": "对应中",
-      "company": "华夏基金"
-    }, {
-      "requirementId": 1,
-      "requirementBriefDescription": "银行间债券代结业务",
-      "progressStatus": "对应中",
-      "company": "益达基金"
-      }]
-    that.setData({
-      reqList: list
-    })
-
-    // 获取全部需求进行初始展示
-    /*
     wx.request({
-      url: this.data.allReqURL,
+      url: app.globalData.getAllBusinessReq,
       data: {},
       method: 'GET',
-      success: function(res) {
-        var list = res.data.requirementList;
-
-        if (list == null) {
-          console.log('获取数据失败', res.data.errMsg)
-
+      success: function (res) {
+        var list = res.data.getAllBusinessReq;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
           wx.showToast({
-            title: "获取数据失败",
-            icon: 'loading',
-            duration: 2000
+            title: "连接失败",
+            icon: 'loading'
           });
-
         } else {
-          console.log("获取数据成功，进行页面展示");
+          allList = list;
 
           that.setData({
             reqList: list
-          });
+          })
         }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
       }
-    }) */
+    })
   },
 
   /**
@@ -144,55 +121,57 @@ Page({
     var findKeyword = formData.searchKeyword.length;
     var findContent = formData.searchContent.trim().length;
 
-    var content = formData.searchContent;
+    var content = formData.searchContent.trim();
     var list = []
     console.log("开始提交搜索内容", formData);
 
     // 检查内容是否符合要求
     if (this.checkPageRight(formData)) {
+      // 查看全部
+      var allFlag = (findCompany == 0 && findKeyword == 0)
+      if (allFlag) {
+        console.log("本公司和关键字都为空，查看全部")
+        list = allList
+      }
+
       // 只查看本公司
       var onlyCompany = (findCompany != 0 && findKeyword == 0)
       if (onlyCompany) {
         console.log("只查看本公司");
-        //
-        //
-        //
-        list = [{
-          "requirementId": 3,
-          "requirementBriefDescription": "只有本公司",
-          "progressStatus": "已完成",
-          "company": "南方基金"
-        }]
+        var currentCompany = wx.getStorageSync("currentCompany")
+        for (var i in allList) {
+          var item = allList[i]
+          if (item.companyName == currentCompany) {
+            list.push(item)
+          }
+        }
       }
 
       // 只查看关键字
       var onlyKeyWord = (findCompany == 0 && findKeyword != 0)
       if (onlyKeyWord) {
         console.log("只查看关键字");
-        //
-        //
-        //
-        list = [{
-          "requirementId": 2,
-          "requirementBriefDescription": "只有关键字",
-          "progressStatus": "已完成",
-          "company": "南方基金"
-        }]
+        for (var i in allList) {
+          var item = allList[i]
+          if (item.requirementBriefDescription.indexOf(content) != -1 || item.requirementDescription.indexOf(content) != -1) {
+            list.push(item)
+          }
+        }
       }
 
       // 本公司+关键字
       var companyKeyword = (findCompany != 0 && findKeyword != 0)
       if (companyKeyword) {
         console.log("本公司+关键字");
-        //
-        //
-        //
-        list = [{
-          "requirementId": 2,
-          "requirementBriefDescription": "本公司+关键字",
-          "progressStatus": "已完成",
-          "company": "南方基金"
-        }]
+        var currentCompany = wx.getStorageSync("currentCompany")
+        for (var i in allList) {
+          var item = allList[i]
+          if (item.companyName == currentCompany) {
+            if (item.requirementBriefDescription.indexOf(content) != -1 || item.requirementDescription.indexOf(content) != -1) {
+              list.push(item)
+            }
+          }
+        }
       }
 
       that.setData({
@@ -213,19 +192,6 @@ Page({
       console.log("关键字被勾选，没有搜索内容")
       wx.showToast({
         title: '内容必填',
-        icon: "loading",
-        duration: 2000,
-      })
-
-      return false;
-    }
-
-    // 关键字不勾选，本公司也为空
-    var error2 = (findCompany == 0 && findKeyword == 0)
-    if (error2) {
-      console.log("关键字不勾选，本公司也为空")
-      wx.showToast({
-        title: '勾选框必选',
         icon: "loading",
         duration: 2000,
       })

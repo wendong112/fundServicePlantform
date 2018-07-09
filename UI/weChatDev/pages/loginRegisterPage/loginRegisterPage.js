@@ -29,16 +29,74 @@ Page({
 
     // 判断逻辑
     var storeTelNum = wx.getStorageSync("telNum");
-
     console.log("缓存手机号为: ", storeTelNum);
+
     // 已经登录过
     if (storeTelNum.length != 0) {
-      console.log("已经登录过, 直接跳转到首页");
-      wx.switchTab({
-        url: app.globalData.firstTab,
+      // 检查权限
+      wx.request({
+        url: app.globalData.getUserByPhone,
+        data: {
+          "telephone": storeTelNum
+        },
+        method: 'GET',
+        success: function (res) {
+          var userList = res.data.getUserByPhone
+          console.log("查询结果:", res.data)
+          if (userList == undefined) {
+            wx.showToast({
+              title: "连接失败",
+              icon: 'loading'
+            });
+          } else {
+            // 手机号不在数据库中
+            if (userList.length == 0) {
+              // 弹出提示信息
+              wx.showModal({
+                title: '温馨提示',
+                content: '未找到匹配手机号，请先注册！',
+                showCancel: false,
+                confrimText: "确定",
+                confirmColor: "#8B0000",
+                success: function (res) {
+                  if (res.confirm) {
+                    wx.navigateTo({
+                      url: app.globalData.registerPage,
+                    })
+                  }
+                }
+              })
+              // 手机号在数据库中
+            } else {
+              // 比对权限
+              var flag = userList[0].authorizedFlag
+              if (flag == "2") {
+                console.log("没有权限登录");
+                wx.showModal({
+                  title: '温馨提示',
+                  content: '权限发生变化，无法登录，请联系管理员！',
+                  showCancel: false,
+                  confrimText: "确定",
+                  confirmColor: "#8B0000"
+                })
+              } else {
+                console.log("已经登录过, 直接跳转到首页");
+                wx.switchTab({
+                  url: app.globalData.firstTab,
+                })
+              }
+            }
+          }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '查询失败',
+            icon: "loading"
+          })
+        }
       })
     } else {
-      console.log("没有登录过, 停留在注册页面")
+      console.log("没有登录过, 停留在当前页面")
     }
   },
 

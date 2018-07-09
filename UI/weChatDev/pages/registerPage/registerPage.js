@@ -8,14 +8,18 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    array: [],
+    index: 0,
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function() {
+    var that = this;
+  
     // 获取微信昵称，用于插入数据库
-
     wx.getUserInfo({
       success: function(res) {
         nickName = res.userInfo.nickName;
@@ -26,9 +30,31 @@ Page({
       }
     });
 
-    this.setData({
-      array: ["南方基金", "测试基金", "其他基金"],
-      index: 0
+    // 获取所有公司
+    wx.request({
+      url: app.globalData.getAllCompany,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getAllCompany
+        console.log("查询结果为", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            array: list
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
     })
   },
 
@@ -36,7 +62,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
   },
 
   /**
@@ -82,7 +107,7 @@ Page({
   },
 
   bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
       index: e.detail.value
     })
@@ -104,63 +129,72 @@ Page({
         data: {
           "telephone": telNum
         },
+        method: 'GET',
         success: function(res) {
           var userList = res.data.getUserByPhone
-          console.log("查询结果:", res.data.getUserByPhone)
+          console.log("查询结果:", res.data)
 
-          if (userList.length == 0) {
-            console.log("数据插入数据库中")
-            // 修改插入数据
-            var insertData = formData;
-            insertData["wechatName"] = nickName
-            insertData["authorizedFlag"] = "2"
-            console.log(insertData)
-            wx.request({
-              url: app.globalData.addUser,
-              data: JSON.stringify(insertData),
-              method: 'POST',
-              header: {
-                'Content-Type': 'application/json'
-              },
-              success: function (res) {
-                var result = res.data.addUser
-                if (result != true) {
-                  wx.showToast({
-                    title: '操作失败',
-                    icon: "loading"
-                  })
-                } else {
-                  // 弹出提示信息
-                  wx.showModal({
-                    title: '温馨提示',
-                    content: '请先等待，我们确认后会第一时间联系您！',
-                    showCancel: false,
-                    confrimText: "确定",
-                    confirmColor: "#8B0000",
-                    success: function (res) {
-                      wx.reLaunch({
-                        url: app.globalData.startPage,
-                      })
-                    }
+          if (userList == undefined) {
+            wx.showToast({
+              title: "连接失败",
+              icon: 'loading'
+            });     
+          } else {
+            if (userList.length == 0) {
+              console.log("数据插入数据库中")
+              // 修改插入数据
+              var insertData = formData;
+              insertData["wechatName"] = nickName
+              insertData["authorizedFlag"] = "2"
+              console.log(insertData)
+              wx.request({
+                url: app.globalData.addUser,
+                data: JSON.stringify(insertData),
+                method: 'POST',
+                header: {
+                  'Content-Type': 'application/json'
+                },
+                success: function (res) {
+                  var result = res.data.addUser
+                  console.log("操作结果", res.data);
+                  if (result != true) {
+                    wx.showToast({
+                      title: '操作失败',
+                      icon: "loading"
+                    })
+                  } else {
+                    // 弹出提示信息
+                    wx.showModal({
+                      title: '温馨提示',
+                      content: '请先等待，我们确认后会第一时间联系您！',
+                      showCancel: false,
+                      confrimText: "确定",
+                      confirmColor: "#8B0000",
+                      success: function (res) {
+                        wx.reLaunch({
+                          url: app.globalData.startPage,
+                        })
+                      }
+                    })
+                  }
+                }
+              })
+            } else {
+              // 手机号已经注册过
+              console.log("手机号已经注册过")
+              wx.showModal({
+                title: '温馨提示',
+                content: '手机号已注册，请勿重复注册！',
+                showCancel: false,
+                confrimText: "确定",
+                confirmColor: "#8B0000",
+                success: function () {
+                  wx.navigateTo({
+                    url: app.globalData.loginPage,
                   })
                 }
-              }
-            })
-          } else {
-            // 手机号已经注册过
-            console.log("手机号已经注册过")
-            wx.showModal({
-              title: '温馨提示',
-              content: '手机号已注册，请勿重复注册！',
-              showCancel: false,
-              confrimText: "确定",
-              confirmColor: "#8B0000",
-              success: function() {
-                wx.navigateTo({
-                  url: app.globalData.loginPage,
-                })
-              }
-            });
+              });
+            }
           }
         },
         fail: function() {
@@ -170,9 +204,6 @@ Page({
           })
         }
       })
-
-      /*
-      */
     }
   },
 
@@ -190,7 +221,7 @@ Page({
     }
 
     // 检查公司名称
-    if (param.company.length == 0) {
+    if (param.companyName.length == 0) {
       wx.showToast({
         title: '公司名称必填',
         icon: "loading"

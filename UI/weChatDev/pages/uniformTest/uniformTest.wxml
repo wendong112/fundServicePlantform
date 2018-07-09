@@ -25,7 +25,6 @@
     </picker> 
   </view>
 
-
   <view class="qualityView">
     <image class="qualityImage" src="{{array[indexOfVersion].imageURL}}" mode='widthFix'>
     </image>

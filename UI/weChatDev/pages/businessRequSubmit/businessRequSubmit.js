@@ -93,7 +93,7 @@ Page({
         },
         success: function (res) {
           var result = res.data.addBusinessReq
-          console.log(res.data)
+          console.log("操作结果", res.data)
           if (result != true) {
             wx.showToast({
               title: "插入失败",

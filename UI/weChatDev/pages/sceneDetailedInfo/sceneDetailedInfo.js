@@ -1,4 +1,5 @@
 const app = getApp()
+var allList = [];
 var removeList = [];
 
 Page({
@@ -8,15 +9,8 @@ Page({
    */
   data: {
     imgSrc: app.globalData.rightArrowImage,
-    requirementId: "",
-    company: "",
-    processStatus: "",
-    requirementBrief: "",
-
-    sceneList: [],
+    sceneArray: [],
     savePath: "", // 保存文件位置
-
-    allList: [], // 折叠表格的全量部分
   },
 
 
@@ -25,6 +19,7 @@ Page({
    */
   onLoad: function (options) {
     var reqId = options.id
+    var that = this;
     console.log("准备查找业务场景：", reqId);
 
     if (reqId == undefined) {
@@ -35,66 +30,34 @@ Page({
       })
     } else {
       console.log("开始查找")
+      wx.request({
+        url: app.globalData.getScenarioByReqId,
+        data: { "requirementId": reqId },
+        method: 'GET',
+        success: function (res) {
+          var list = res.data.getScenarioByReqId;
+          console.log("查询结果:", res.data)
+          if (list == undefined) {
+            wx.showToast({
+              title: "连接失败",
+              icon: 'loading'
+            });
+          } else {
+            allList = list;
 
-      //
-      // 从数据库中查找
-      //
-      this.setData({
-        requirementId: reqId,
-        company: "华夏基金",
-        processStatus: "对应中",
-        requirementBrief: "股转市场集合竞价转让业务场景库",
-      })
-  
-      //
-      // 从数据库中获取数据
-      //
-      var list = [
-        {
-          "scenarioName": "竞价转让业务流",
-          "sort": "1"
-        }, {
-          "scenarioName": "正常时段报价",
-          "sort": "1-1"
-        }, {
-          "scenarioName": "全部成交",
-          "sort": "1-1-1"
-        }, {
-          "scenarioName": "指令下达后，发生变化",
-          "sort": "1-1-1-1"
-        }, {
-          "scenarioName": "单笔委托后资金证券变化",
-          "sort": "1-1-1-2"
-        }, {
-          "scenarioName": "异常时段报价",
-          "sort": "1-2"
-        }, {
-          "scenarioName": "部分成交",
-          "sort": "1-2-1"
-        }, {
-          "scenarioName": "部分成交后发生证券等比例变化",
-          "sort": "1-2-1-1"
-        }, {
-          "scenarioName": "部分成交后T+1日计算正常变化量",
-          "sort": "1-2-1-2"
-        }, {
-          "scenarioName": "未成交",
-          "sort": "1-2-2"
-        }, {
-          "scenarioName": "未成交后发生证券等比例变化",
-          "sort": "1-2-2-1"
-        }, {
-          "scenarioName": "未成交后T+1日发生证券等比例变化-51",
-          "sort": "1-2-2-2"
+            that.setData({
+              sceneArray: list
+            })
+          }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '查询失败',
+            icon: "loading"
+          })
         }
-      ]
-
-      this.setData({
-        sceneList: list,
-        allList: list,
       })
     }
-
   },
 
   /**
@@ -149,7 +112,7 @@ Page({
   // 隐藏场景列表
   closeBrief: function(e) {
     var clickId = e.target.id;
-    console.log("点击的id为: ", e.target.id);
+    console.log("点击的id为: ", clickId);
     console.log("原有隐藏列表为: ", removeList);
 
     // 根据removeList元素存在则添加，没有则删除
@@ -162,11 +125,11 @@ Page({
     console.log("最新隐藏列表为: ", removeList);
 
     // 从列表中删除不显示的选项
-    var list = this.data.allList;
+    var list = allList;
     var result = [];
     for(var i = 0; i < list.length; i++) {
       var showFlag = true;
-      var tmpId = list[i].sort
+      var tmpId = list[i].fatherNode
 
       for (var j = 0; j < removeList.length; j++) {
         var tmpRemoveId = removeList[j]
@@ -187,7 +150,7 @@ Page({
     }
 
     this.setData({
-      sceneList: result,
+      sceneArray: result,
     })
   },
 
@@ -206,7 +169,7 @@ Page({
       //
       // 需要确认并修改
       //
-      var url = app.globalData.downloadServerURL + "logo.png";
+      var url = "http://www.runoob.com/images/logo.png";
       console.log("下载链接为：", url)
 
       wx.downloadFile({

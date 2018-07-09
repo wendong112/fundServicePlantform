@@ -40,15 +40,15 @@
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
             <view class="td td1" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.requirementId}}</view>
             <view class="td td2 td-brief" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.requirementBriefDescription}}</view>
-            <view class="td td3" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.progressStatus}}</view>
-            <view class="td td4" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.company}}</view>
+            <view class="td td3" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.processStatus}}</view>
+            <view class="td td4" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.companyName}}</view>
         </view>
 
         <view class="tr" wx:else>
             <view  class="td td1" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.requirementId}}</view>
             <view class="td td2 td-brief" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.requirementBriefDescription}}</view>
-            <view class="td td3" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.progressStatus}}</view>
-            <view class="td td4" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.company}}</view>
+            <view class="td td3" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.processStatus}}</view>
+            <view class="td td4" id="{{item.requirementId}}" bindtap='clickDetail'>{{item.companyName}}</view>
         </view>
       </block>
     </view>

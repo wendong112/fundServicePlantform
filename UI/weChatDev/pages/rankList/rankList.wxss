@@ -18,12 +18,30 @@
 .owner {
   height: 150rpx;
   font-size: 100%;
-  font-weight: 600;
+  font-weight: 800;
+}
+
+.ownerSerialNo {
+  text-align:left;
+  font-size: 80%;
+  padding-top:2%;
+  font-weight: 200;
+  color: gray
+}
+
+.addColor {
+  color: darkred
+}
+
+.ownerTd {
+  padding-top: 3%;
 }
 
 .likeOwner{
   margin-top: 2%;
 }
+
+
 .td1 {
   width: 10%;
 }
@@ -46,6 +64,12 @@ label {
   padding: 10% 20% 10% 20%;
 }
 
+/* 图标背景色 */
+.redStar {
+  width:50rpx;
+  height:50rpx
+}
+
 .bg0 {
   background: darkred;
   color: white;
@@ -53,13 +77,13 @@ label {
 }
 
 .bg1 {
-  background: orange;
+  background: gold;
   color: white;
   font-weight: 600;
 }
 
 .bg2 {
-  background: yellowgreen;
+  background: silver;
   color: white;
   font-weight: 600;
 }
@@ -70,6 +94,11 @@ label {
   font-weight: 600;
 }
 
+.bg {
+  background: lightgray;
+  color: white;
+  font-weight: 600;  
+}
 .agreeIcon{
   height:40rpx;
   width:40rpx;

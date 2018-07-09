@@ -1,7 +1,7 @@
 {
   "navigationBarBackgroundColor": "#000000",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "排行榜",
+  "navigationBarTitleText": "缺陷贡献榜",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

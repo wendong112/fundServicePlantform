@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgSrc: app.globalData.redStarImg,
     listData: [],
   },
 
@@ -26,9 +27,10 @@ Page({
       method: 'GET',
       success: function (res) {
         var allList = res.data.getRankList;
-        if (allList.length == 0) {
+        console.log("查询结果:", res.data)
+        if (allList == undefined) {
           wx.showToast({
-            title: "获取失败",
+            title: "连接失败",
             icon: 'loading'
           });
         } else {
@@ -44,11 +46,11 @@ Page({
 
           // 添加其他元素
           for (var i = 0; i < allList.length; i++) {
-            if (allList[i].telephone !== telNum) {
-              allList[i]["imageSrc"] = app.globalData.grayHeartImg
-              allList[i]["hasChange"] = false
-              result.push(allList[i])
-            }
+
+            allList[i]["imageSrc"] = app.globalData.grayHeartImg
+            allList[i]["hasChange"] = false
+            result.push(allList[i])
+
           }
           that.setData({
             listData: result,
@@ -89,7 +91,7 @@ Page({
         },
         success: function (res) {
           var result = res.data.modifyLikeCountByPhone
-          console.log(res.data)
+          console.log("操作结果:", res.data)
           if (result != true) {
             console.log("操作失败")
           } else {

@@ -26,16 +26,23 @@ Page({
       method: 'GET',
       success: function (res) {
         var list = res.data.getTop3BusinessReq;
-        console.log("查询结果", list)
-        if (list.length == 0) {
+        console.log("查询结果", res.data)
+        if (list == undefined) {
           wx.showToast({
-            title: '无结果',
-            icon: "loading"
-          })
+            title: "连接失败",
+            icon: 'loading'
+          });
         } else {
-          that.setData({
-            reqArray: list
-          })
+          if (list.length == 0) {
+            wx.showToast({
+              title: '无结果',
+              icon: "loading"
+            })
+          } else {
+            that.setData({
+              reqArray: list
+            })
+          }
         }
       },
       fail: function () {
@@ -45,31 +52,6 @@ Page({
         })
       }
     })
-    // this.setData({
-    //   reqArray: [{
-    //     requirementId: "1",
-    //     requirementBriefDescription: "ETF发行短业务测试场景库",
-    //     requirementDescription: "基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-    //     company: "南方基金",
-    //     topFlag: "1",
-    //     createDate: "2018-5-30 14:05:20"
-    //   }, {
-    //     requirementId: "5",
-    //     requirementBriefDescription: "银行间债券借贷业务",
-    //     requirementDescription: "test基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-    //     company: "测试基金",
-    //     topFlag: "2",
-    //     createDate: "2018-5-30 13:05:20"
-    //   }, {
-    //     requirementId: "8",
-    //     requirementBriefDescription: "证券公司间债券借贷业务",
-    //     requirementDescription: "testtest基于跨市场债券ETF，分别对上交所深交所发行端的银行间交易流程（包含指令端、交易端、清算过程、财务对账）",
-    //     company: "华夏基金",
-    //     topFlag: "3",
-    //     createDate: "2018-5-31 13:05:20"
-    //   }]
-    // })
-
   },
 
   /**
@@ -142,9 +124,7 @@ Page({
     console.log(e.target);
     var reqId = e.target.id;
     console.log("跳转到业务场景详情界面", reqId);
-    //
-    //
-    //
+
     wx.navigateTo({
       url: app.globalData.sceneDetail + "?id=" + reqId,
     })

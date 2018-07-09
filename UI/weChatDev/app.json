@@ -27,26 +27,26 @@
     "selectedColor": "#8B0000",
     "list": [
       {
-        "selectedIconPath": "/image/tabBar/firstMenuPicture.jpg",
-        "iconPath": "/image/tabBar/firstMenuPictureGray.jpg",
-        "text": "故障信息中心",
+        "selectedIconPath": "/image/tabBar/firstMenuPictureSelected.png",
+        "iconPath": "/image/tabBar/firstMenuPicture.png",
+        "text": "故障信息共享",
         "pagePath": "pages/ringFirstPage/ringFirstPage"
       },
       {
-        "selectedIconPath": "/image/tabBar/secondMenuPictureSelected.jpg",
-        "iconPath": "/image/tabBar/secondMenuPicture.jpg",
+        "selectedIconPath": "/image/tabBar/secondMenuPictureSelected.png",
+        "iconPath": "/image/tabBar/secondMenuPicture.png",
         "pagePath": "pages/testInformationShare/testInformationShare",
         "text": "测试场景共建"
       },
       {
-        "selectedIconPath": "/image/tabBar/thirdMenuPictureSelected.jpg",
-        "iconPath": "/image/tabBar/thirdMenuPicture.jpg",
+        "selectedIconPath": "/image/tabBar/thirdMenuPictureSelected.png",
+        "iconPath": "/image/tabBar/thirdMenuPicture.png",
         "pagePath": "pages/uniformTest/uniformTest",
         "text": "项目信息中心"
       },
       {
-        "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.jpg",
-        "iconPath": "/image/tabBar/fouthMenuPicture.jpg",
+        "selectedIconPath": "/image/tabBar/fouthMenuPictureSelected.png",
+        "iconPath": "/image/tabBar/fouthMenuPicture.png",
         "pagePath": "pages/rankList/rankList",
         "text": "排行榜"
       }

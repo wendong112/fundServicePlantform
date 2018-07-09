@@ -1,11 +1,14 @@
 <view class="table">
   <block wx:for="{{listData}}" wx:key="{{code}}">
     <view class="tr owner" wx:if="{{index==0}}">
-      <view class="td1">
-        <label class='bg{{index}}'>{{item.serialNo}}</label>
+      <view class="td1 ownerTd">
+        <image class="redStar" src="{{imgSrc}}"></image>
       </view>
-      <view class="td2">{{item.userName}}（{{item.company}}）</view>
-      <view class="td3">{{item.points}}</view>
+      <view class="td2 specTd">
+        <view>{{item.userName}}（{{item.companyName}}）</view>
+        <view class="ownerSerialNo">第{{item.serialNo}}名</view>
+      </view>
+      <view class="td3 ownerTd addColor">{{item.points}}</view>
       <view class="td4 likeOwner">
         <view data-curIndex="{{index}}" bindtap='clickAgree'>{{item.likeCount}}</view>
         <view>
@@ -16,9 +19,10 @@
 
     <view class="tr" wx:else>
       <view class="td1">
-        <label class='bg{{index}}'>{{item.serialNo}}</label>
+        <label class='bg{{index}}' wx:if="{{index < 4}}">{{item.serialNo}}</label>
+        <label class='bg' wx:else>{{item.serialNo}}</label>
       </view>
-      <view class="td2">{{item.userName}}（{{item.company}}）</view>
+      <view class="td2">{{item.userName}}（{{item.companyName}}）</view>
       <view class="td3">{{item.points}}</view>
       <view class="td4">
         <view data-curIndex="{{index}}" bindtap='clickAgree'>{{item.likeCount}}</view>

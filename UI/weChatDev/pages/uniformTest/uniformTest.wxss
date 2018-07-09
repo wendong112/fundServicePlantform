@@ -37,8 +37,8 @@
 
 .pickerContent{
   font-size: 70%;
-  width: 100%;
   padding-left: 2%;
+  min-width: 150%;
 }
 
 .bottomLine {

@@ -31,12 +31,14 @@ App({
 
     // 登录注册页面(已完成)
     getUserByPhone: "https://www.fundserviceplatform.cn/fundService/api/getUserByPhone",
+    getAllCompany: "https://www.fundserviceplatform.cn/fundService/api/getAllCompany",
     addUser: "https://www.fundserviceplatform.cn/fundService/api/addUser",
 
     // 故障信息中心使用的图片
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
     rightArrowImage: "/image/common/rightArrow.png",
+
     // 故障信息中心 - 缺陷搜索页面使用的链接
     // 使用的array(之后使用数据库替换)
     //
@@ -65,9 +67,9 @@ App({
     getTop3BusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getTop3BusinessReq",
     addBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/addBusinessReq",
     getScenarioByReqId: "https://www.fundserviceplatform.cn/fundService/api/getScenarioByReqId",
+    getAllBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getAllBusinessReq",
     reqImg: "/image/testInformationShare/requirementSubmit.png",
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
-    
 
     // 项目信息中心使用
     progressImg: "/image/uniformTest/projectProgress.jpg",
@@ -76,6 +78,7 @@ App({
     // 排行榜(已完成)
     getRankList: "https://www.fundserviceplatform.cn/fundService/api/getRankList",
     modifyLikeCountByPhone: "https://www.fundserviceplatform.cn/fundService/api/modifyLikeCountByPhone",
+    redStarImg: "/image/rankList/redStar.png",
     redHeartImg: "/image/rankList/redHeart.png",
     grayHeartImg: "/image/rankList/grayHeart.png"
   }

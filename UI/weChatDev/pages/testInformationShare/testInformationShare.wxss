@@ -58,3 +58,10 @@ image {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.viewDetail{
+  text-align: right;
+  font-size: 60%;
+  margin-right: 4%;
+  margin-bottom: 1%;
+}
