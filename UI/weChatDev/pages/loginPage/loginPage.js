@@ -16,15 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    wx.getUserInfo({
-      success: function(res) {
-        nickName = res.userInfo.nickName;
-        console.log("登录界面获取的昵称:", nickName);
-      },
-      fail: function() {
-        console.log("获取昵称失败");
-      }
-    });
+
   },
 
   /**
@@ -80,6 +72,10 @@ Page({
     var that = this;
     var formData = e.detail.value;
     var telNum = formData.telNumberName;
+
+    // 获取微信昵称，用于插入数据库
+    nickName = wx.getStorageSync("nickName")
+    console.log("保存的昵称为:", nickName)
 
     // 登录页面信息跳转
     if (this.checkPhoneRight(telNum)) {
@@ -147,7 +143,7 @@ Page({
                   // 记录登录信息
                   wx.setStorageSync("telNum", telNum);
                   wx.setStorageSync("currentCompany", userList[0].companyName);
-                  wx.setStorageSync("currentProductionVersion", userList[0].currentProductionVersion);
+                  wx.setStorageSync("currentProductionVersion", userList[0].propertyValueName);
 
                   wx.switchTab({
                     url: app.globalData.firstTab,

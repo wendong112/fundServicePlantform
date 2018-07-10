@@ -1,33 +1,23 @@
 <!--pages/loginRegisterPage/loginRegisterPage.wxml-->
 
 <view>
-<!--<modal titile="温馨提示" confirm-text="注册" cancel-text="登录"> test</modal>-->
-<dialog 
-  id='dialog'
-  isShow="{{dialogShow}}"
-  title='温馨提示' 
-  content='查看平台详情，请先注册登录' 
-  cancelText='注册' 
-  confirmText='登录'
-  bind:clickCancel="clickCancel"  
-  bind:clickConfirm="clickConfirm">
-</dialog>
-
+  <!--<modal titile="温馨提示" confirm-text="注册" cancel-text="登录"> test</modal>-->
+  <dialog id='dialog' isShow="{{dialogShow}}" title='温馨提示' content='查看平台详情，请先注册登录' cancelText='注册' confirmText='登录' bind:clickCancel="clickCancel" bind:clickConfirm="clickConfirm">
+  </dialog>
 </view>
 
 <view class="containerController">
-
   <view class="canvasContainer">
     <view class="circleContainer">
-      <canvas class="circle"  canvas-id="leftCanvas">
-      </canvas>
-      <view class="circleDesc"><label class='redValue'>--</label> Numbers</view>
+      <image class="circle" src="{{roundImage}}"></image>
+      <view class="circleDesc">
+        <label class='redValue'>--</label> Numbers</view>
     </view>
 
     <view class="circleContainer">
-      <canvas class="circle"  canvas-id="rightCanvas">
-      </canvas>
-      <view class="circleDesc"><label class='redValue'>--</label> Numbers</view>
+      <image class="circle" src="{{roundImage}}"></image>
+      <view class="circleDesc">
+        <label class='redValue'>--</label> Numbers</view>
     </view>
   </view>
 

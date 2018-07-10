@@ -7,8 +7,8 @@
             <view class='wx-dialog-footer'>
               <!--<view class='wx-dialog-btn' bindtap='cancelEvent'>{{ cancelText }}</view>
               <view class='wx-dialog-btn' bindtap='confirmEvent'>{{ confirmText }}</view>-->
-              <button class='wx-dialog-btn' bindtap='cancelEvent'>{{ cancelText }}</button>
-              <button class='wx-dialog-btn' bindtap='confirmEvent'>{{ confirmText }}</button>
+              <button class='wx-dialog-btn' open-type="getUserInfo" bindgetuserinfo='cancelEvent'>{{ cancelText }}</button>
+              <button class='wx-dialog-btn' open-type="getUserInfo" bindgetuserinfo='confirmEvent'>{{ confirmText }}</button>
             </view>
         </view>
     </view>

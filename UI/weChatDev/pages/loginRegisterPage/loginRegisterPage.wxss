@@ -2,7 +2,7 @@
 .containerController {
   background: darkred;
   width: 100%;
-
+  opacity: 0.5
 }
 
 .bugContainer{
@@ -38,6 +38,13 @@ image {
   margin-top: 2%;
   margin-left: 2%;
   border-radius: 32rpx;
+}
+
+.circle {
+  margin-top:6%;
+  margin-left:-2%;
+  height:250rpx;
+  width:250rpx
 }
 
 .circleDesc{

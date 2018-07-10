@@ -44,16 +44,16 @@ Component({
    * 更新属性和数据的方法与更新页面数据的方法类似
    */
   methods: {
-    cancelEvent: function() {
+    cancelEvent: function(e) {
       var cancelEventDetail = {}
       var cancelEventOption = {}
-      this.triggerEvent('clickCancel', cancelEventDetail, cancelEventOption);
+      this.triggerEvent('clickCancel', e, cancelEventOption);
     },
 
-    confirmEvent: function() {
+    confirmEvent: function(e) {
       var confirmEventDetail = {}
       var confirmEventOption = {}
-      this.triggerEvent('clickConfirm', confirmEventDetail, confirmEventOption);
+      this.triggerEvent('clickConfirm', e, confirmEventOption);
     }
   }
 })

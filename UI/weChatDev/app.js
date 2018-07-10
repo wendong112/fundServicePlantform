@@ -35,6 +35,7 @@ App({
     addUser: "https://www.fundserviceplatform.cn/fundService/api/addUser",
 
     // 故障信息中心使用的图片
+    roundImage: "/image/ringFirstPage/roundImg.png",
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
     rightArrowImage: "/image/common/rightArrow.png",

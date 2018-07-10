@@ -83,7 +83,7 @@ label {
 }
 
 .bg2 {
-  background: silver;
+  background: powderblue;
   color: white;
   font-weight: 600;
 }

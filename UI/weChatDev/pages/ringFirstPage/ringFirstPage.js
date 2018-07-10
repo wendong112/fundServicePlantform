@@ -58,7 +58,7 @@ Page({
     var rightCavArray = {
       canvasName: "rightCanvas",
       title: "  已修复",
-      percent: 1.5
+      percent: 1
     }
     this.drawCircle(rightCavArray);
   },
@@ -150,48 +150,54 @@ Page({
 
   drawCircle: function (cavArray) {
     console.log("准备进行绘图")
-    var height = wx.getSystemInfoSync().windowHeight;
-    var width = wx.getSystemInfoSync().windowWidth
-    console.log("屏幕高度:", height)
-    console.log("屏幕宽度:", width)
+    var query = wx.createSelectorQuery();
+    query.select("#leftCanvas").boundingClientRect()
+    query.exec(function (res) {
 
-    // 获取参数
-    var position = cavArray.position;
-    var canvasName = cavArray.canvasName;
-    var title = cavArray.title;
-    var percent = cavArray.percent;
+      var width = res[0].width;
+      var height = res[0].height;
 
-    var x = width * 0.24
-    var y = height * 0.11
-    var radius = width * 0.13
+      console.log("屏幕高度:", height)
+      console.log("屏幕宽度:", width)
 
-    if (height < 600) {
-      y = height * 0.15
-    }  
+      // 获取参数
+      var canvasName = cavArray.canvasName;
+      var title = cavArray.title;
+      var percent = cavArray.percent;
 
-    // 页面渲染完成
-    var cxt_arc = wx.createCanvasContext(canvasName);//创建并返回绘图上下文context对象
-    // 设置文字
-    cxt_arc.setFontSize(13)
-    cxt_arc.setFillStyle("#8B0000")
-    cxt_arc.fillText(title, x - radius * 0.6, y + radius * 0.1);
+      var x = width * (0.25 - 0.02)
+      var y = height * (5 / 12)
+      var radius = height * 1 / 4
 
-    // 外层圆圈
-    cxt_arc.setLineWidth(16);
-    cxt_arc.setStrokeStyle('#d2d2d2');
-    cxt_arc.setLineCap('round')
-    cxt_arc.beginPath();//开始一个新的路径
-    cxt_arc.arc(x, y, radius, 0, 2 * Math.PI, false);//设置一个原点(106,106)，半径为100的圆的路径到当前路径
-    cxt_arc.stroke();//对当前路径进行描边
+      var text_x = x - radius * 0.6
+      var text_y = y + radius * 0.1
 
-    //内层圆圈
-    cxt_arc.setLineWidth(16);
-    cxt_arc.setStrokeStyle('#8b0000');
-    cxt_arc.setLineCap('round')
-    cxt_arc.beginPath();//开始一个新的路径
-    cxt_arc.arc(x, y, radius, 0, Math.PI * percent, false);
-    cxt_arc.stroke();//对当前路径进行描边
+      // 页面渲染完成
+      var cxt_arc = wx.createCanvasContext(canvasName);//创建并返回绘图上下文context对象
+      // 设置文字
+      cxt_arc.setFontSize(13)
+      cxt_arc.setFillStyle("#800000")
+      cxt_arc.fillText(title, text_x, text_y);
 
-    cxt_arc.draw();
+      // 外层圆圈
+      cxt_arc.setLineWidth(16);
+      cxt_arc.setStrokeStyle('#d2d2d2');
+      cxt_arc.setLineCap('round')
+      cxt_arc.beginPath();//开始一个新的路径
+      cxt_arc.arc(x, y, radius, 0, 2 * Math.PI, false);//设置一个原点(106,106)，半径为100的圆的路径到当前路径
+      cxt_arc.stroke();//对当前路径进行描边
+
+      //内层圆圈
+      cxt_arc.setLineWidth(16);
+      cxt_arc.setStrokeStyle('#800000');
+      cxt_arc.setLineCap('round')
+      cxt_arc.beginPath();//开始一个新的路径
+      cxt_arc.arc(x, y, radius, 0, Math.PI * percent, false);
+      cxt_arc.stroke();//对当前路径进行描边
+
+      cxt_arc.draw();
+    })
+
+
   }
 })

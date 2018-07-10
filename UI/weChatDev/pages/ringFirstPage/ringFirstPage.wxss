@@ -1,7 +1,10 @@
-
+allContainer {
+  width: 100%;
+}
 .containerController {
   background: darkred;
   width: 100%;
+  display: column
 }
 
 .versionDisplay{

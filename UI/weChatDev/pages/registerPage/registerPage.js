@@ -18,17 +18,6 @@ Page({
    */
   onLoad: function() {
     var that = this;
-  
-    // 获取微信昵称，用于插入数据库
-    wx.getUserInfo({
-      success: function(res) {
-        nickName = res.userInfo.nickName;
-        console.log("注册界面，获取用户昵称:", nickName);
-      },
-      fail: function() {
-        console.log("获取昵称失败");
-      }
-    });
 
     // 获取所有公司
     wx.request({
@@ -114,7 +103,9 @@ Page({
   },
 
   formRegister: function(e) {
-    console.log("当前用户的昵称:", nickName);
+    // 获取微信昵称，用于插入数据库
+    nickName = wx.getStorageSync("nickName")
+    console.log("保存的昵称为:", nickName)
 
     // 获取表单信息
     var that = this;
