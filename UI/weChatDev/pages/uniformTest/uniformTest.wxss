@@ -4,7 +4,7 @@
 
 /* 查看报告 */
 .newsUpdate {
-  font-size: 65%;
+  font-size: 75%;
   padding: 2% 10%;
   border-bottom: 1rpx lightgrey solid;
 }

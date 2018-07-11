@@ -3,7 +3,7 @@
 <view class="allContainer">
   <view class="containerController">
     <view class="versionDisplay">
-      您当前生产版本{{currentVersion}}缺陷数据
+      您当前生产版本{{bugBriefArray.versionName}}缺陷数据
     </view>
 
     <view class="canvasContainer" id="leftCanvas">
@@ -11,15 +11,15 @@
         <canvas class="circle" canvas-id="leftCanvas">
         </canvas>
         <view class="circleDesc">
-          <label class='redValue'>{{bugTotalNum}}</label> Numbers
+          <label class='redValue'>{{bugBriefArray.bugNum}}</label> Numbers
         </view>
       </view>
 
       <view class="circleContainer" id="rightCanvas">
-        <canvas class="circle" canvas-id="rightCanvas" >
+        <canvas class="circle" canvas-id="rightCanvas">
         </canvas>
         <view class="circleDesc">
-          <label class='redValue'>{{bugFixNum}}</label> Numbers</view>
+          <label class='redValue'>{{bugBriefArray.bugFixNum}}</label> Numbers</view>
       </view>
     </view>
 
@@ -35,52 +35,19 @@
     </view>
   </view>
 
-  <view class="heavyBugDiaplay">
-    <view class="redTitle">
-      主流版本20170630B严重缺陷集锦
-    </view>
-    <view class="topBug" id="{{item.id}}" bindtap='clickBugDetail' wx:for="{{bugArray}}" wx:key="topFlag">
-      【TOP{{item.topFlag}}】{{item.title}}
-    </view>
-    <view class="more" id='20170630B' bindtap='clickMore'>
-      >>> 更多
-    </view>
-  </view>
-
-  <!--需要修改替换的部分-->
-  <view class="heavyBugDiaplay">
-    <view class="redTitle">
-      主流版本20170630C严重缺陷集锦
-    </view>
-    <view class="topBug">
-      【TOP1】证券买入指令成交时，资金未扣除费用
-    </view>
-    <view class="topBug">
-      【TOP2】撤销债券买入指令后，可用资金未解冻
-    </view>
-    <view class="topBug">
-      【TOP3】现货自动拆分，可用扣减计算错误
-    </view>
-    <view class="more">
-      >>> 更多
-    </view>
-  </view>
-
-  <view class="heavyBugDiaplay">
-    <view class="redTitle">
-      主流版本20170630E严重缺陷集锦
-    </view>
-    <view class="topBug">
-      【TOP1】证券买入指令成交时，资金未扣除费用
-    </view>
-    <view class="topBug">
-      【TOP2】撤销债券买入指令后，可用资金未解冻
-    </view>
-    <view class="topBug">
-      【TOP3】现货自动拆分，可用扣减计算错误
-    </view>
-    <view class="more">
-      >>> 更多
+  <view class="mainVersionContainer">
+    <view wx:for="{{bugArray}}" wx:for-item="versionBugArray">
+      <view class="heavyBugDisplay">
+        <view class="redTitle">
+          主流版本{{versionBugArray[0].versionName}}严重缺陷集锦
+        </view>
+        <view class="topBug" id="{{item.id}}" bindtap='clickBugDetail' wx:for="{{versionBugArray}}" wx:key="topFlag">
+          【TOP{{item.topFlag}}】{{item.title}}
+        </view>
+        <view class="more" id='20170630B' bindtap='clickMore'>
+          >>> 更多
+        </view>
+      </view>
     </view>
   </view>
 </view>

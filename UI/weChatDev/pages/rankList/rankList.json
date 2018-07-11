@@ -3,5 +3,6 @@
   "navigationBarTextStyle": "white",
   "navigationBarTitleText": "缺陷贡献榜",
   "backgroundColor": "#eeeeee",
-  "backgroundTextStyle": "light"
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true
 }

@@ -61,7 +61,11 @@ image {
 }
 
 /* 具体缺陷展示 */
-.heavyBugDiaplay{
+.mainVersionContainer {
+  margin-bottom: 5%;
+}
+
+.heavyBugDisplay{
   background-color: gainsboro;
   border-radius: 35rpx;
   border: 2rpx gainsboro solid;

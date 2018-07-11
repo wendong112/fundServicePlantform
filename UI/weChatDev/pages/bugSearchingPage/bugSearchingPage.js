@@ -32,30 +32,28 @@ Page({
       var that = this;
 
       // 获取全部bug进行初始展示
-      wx.request({
-        url: this.data.allBugURL,
-        data: {},
-        method: 'GET',
-        success: function (res) {
-          var list = res.data.defectList;
+      //
+      //
+      //
+      list = [{
+        "id": 3,
+        "createdUserId_Name": "清清",
+        "title": "个别C类风控失效",
+        "statusIdName": "新建"
+      }, {
+        "id": 2,
+        "createdUserId_Name": "小月",
+        "title": "CJHB处理异常3",
+        "statusIdName": "新建"
+        }, {
+          "id": 1,
+          "createdUserId_Name": "小心",
+          "title": "补券任务处理异常",
+          "statusIdName": "新建"
+        }]
 
-          if (list == null) {
-            console.log('获取数据失败', res.data.errMsg)
-
-            wx.showToast({
-              title: "获取数据失败",
-              icon: 'loading',
-              duration: 2000
-            });
-
-          } else {
-            console.log("获取数据成功，进行页面展示");
-
-            that.setData({
-              defectList: list
-            });
-          }
-        }
+      that.setData({
+        defectList: list
       })
     } else {
       console.log("搜索指定version: ", version)
@@ -65,8 +63,8 @@ Page({
       //
       var list = [{
         "id": 1,
-        "createdUserId_Name": "test",
-        "title": "仅跳转版本",
+        "createdUserId_Name": "清清",
+        "title": "跳转版本测试数据",
         "statusIdName": "新建"
       }]
 
@@ -189,8 +187,8 @@ Page({
         //
         list = [{
           "id": 1,
-          "createdUserId_Name": "test",
-          "title": "本公司",
+          "createdUserId_Name": "林梓",
+          "title": "公司内部测试数据",
           "statusIdName": "新建"
         }]
       }
@@ -204,8 +202,8 @@ Page({
         //
         list = [{
           "id": 1,
-          "createdUserId_Name": "test",
-          "title": "仅版本",
+          "createdUserId_Name": "小月",
+          "title": "版本测试数据",
           "statusIdName": "新建"
         }]
       }
@@ -219,8 +217,8 @@ Page({
         //
         list = [{
           "id": 1,
-          "createdUserId_Name": "test",
-          "title": "只查看关键字",
+          "createdUserId_Name": "清清",
+          "title": "关键字测试数据",
           "statusIdName": "新建"
         }]
       }

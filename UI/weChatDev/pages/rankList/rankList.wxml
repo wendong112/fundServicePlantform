@@ -4,7 +4,7 @@
       <view class="td1 ownerTd">
         <image class="redStar" src="{{imgSrc}}"></image>
       </view>
-      <view class="td2 specTd">
+      <view class="td2">
         <view>{{item.userName}}（{{item.companyName}}）</view>
         <view class="ownerSerialNo">第{{item.serialNo}}名</view>
       </view>

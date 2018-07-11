@@ -187,7 +187,6 @@ Page({
 
     // 版本关键字被勾选，没有搜索内容
     var error1 = (findKeyword != 0 && findContent == 0)
-
     if (error1) {
       console.log("关键字被勾选，没有搜索内容")
       wx.showToast({
@@ -195,10 +194,20 @@ Page({
         icon: "loading",
         duration: 2000,
       })
-
       return false;
     }
 
+    // 版本关键字未被勾选，有搜索内容
+    var error2 = (findCompany == 0 && findKeyword == 0 && findContent != 0)
+    if (error2) {
+      console.log("版本关键字未被勾选，有搜索内容")
+      wx.showToast({
+        title: '选择勾选框',
+        icon: "loading",
+        duration: 2000,
+      })
+      return false;
+    }
     return true;
   },
 

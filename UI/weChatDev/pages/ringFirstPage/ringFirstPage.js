@@ -10,11 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentVersion: "",
-    bugTotalNum: "",
-    bugFixNum: "",
-
-    bugArray: [],
+    bugBriefArray: {},
+    bugArray: {},
 
     searchImage: app.globalData.searchImage,
     commitImage: app.globalData.commitImage,
@@ -28,39 +25,128 @@ Page({
     //
     // 需要从数据库中获取
     //
-    this.setData({
-      currentVersion: "20170630B",
-      bugTotalNum: 40,
-      bugFixNum: 28,
-      bugArray: [{
-        topFlag: "1",
-        id: "2",
-        title: "证券买入指令成交时，资金未扣除费用"
-      }, {
-        topFlag: "2",
-        id: "3",
-        title: "撤销债券买入指令后，可用资金未解冻" 
-      }, {
-        topFlag: "3",
-        id: "4",
-        title: "现货自动拆分，可用扣减计算错误"
-      }]
+    // this.setData({
+
+    //   bugArray: {
+    //     1: [{
+    //       topFlag: "1",
+    //       id: "2",
+    //       title: "证券买入指令成交时，资金未扣除费用"
+    //     }, {
+    //       topFlag: "2",
+    //       id: "3",
+    //       title: "撤销债券买入指令后，可用资金未解冻"
+    //     }, {
+    //       topFlag: "3",
+    //       id: "4",
+    //       title: "现货自动拆分，可用扣减计算错误"
+    //     }],
+    //     2: [{
+    //       topFlag: "1",
+    //       id: "2",
+    //       title: "证券买入指令成交时t"
+    //     }, {
+    //       topFlag: "2",
+    //       id: "3",
+    //       title: "撤销债券买入指令后t"
+    //     }, {
+    //       topFlag: "3",
+    //       id: "4",
+    //       title: "现货自动拆分tttt"
+    //     }]}
+    // })
+    var that = this;
+    var telNum = wx.getStorageSync("telNum");
+    console.log("当前用户的手机号为：", telNum)
+
+    wx.request({
+      url: app.globalData.getUserBugInfo,
+      data: { "telephone": telNum },
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getUserBugInfo;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          console.log(list[0].versionName)
+          if (list[0].versionName == null) {
+            console.log("没有缺陷版本")
+            wx.showModal({
+              title: '温馨提示',
+              content: '您没有选择生产版本，请联系管理员修改！',
+              showCancel: false,
+              confrimText: "确定",
+              confirmColor: "#8B0000"
+            })
+
+            // 画图
+            that.drawCircleImg(1, 0)
+          } else {
+            console.log("找到对应数据")
+            // 画图
+            var bugFixNum = list[0].bugFixNum
+            var bugNum = list[0].bugNum
+
+            that.drawCircleImg(1, bugFixNum/bugNum)
+
+            // 界面显示
+            that.setData({
+              bugBriefArray: list[0]
+            })
+          }
+        }
+      },
+
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
     })
 
-    // 画图
-    var leftCavArray = {
-      canvasName: "leftCanvas",
-      title: "缺陷总数",
-      percent: 2
-    }
-    this.drawCircle(leftCavArray);
-
-    var rightCavArray = {
-      canvasName: "rightCanvas",
-      title: "  已修复",
-      percent: 1
-    }
-    this.drawCircle(rightCavArray);
+    // 获取主流版本缺陷
+    wx.request({
+      url: app.globalData.getMainBugInfo,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getMainBugInfo
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          // 对结果进行分类处理
+          var tmpArray = {}
+          for (var i in list) {
+            var item = list[i]
+            if (!tmpArray[item.mainFlag]) {
+              tmpArray[item.mainFlag] = [item]
+            } else {
+              tmpArray[item.mainFlag].push(item)
+            }
+          }
+          console.log(tmpArray)
+          // 界面显示
+          that.setData({
+            bugArray: tmpArray
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
+    })
   },
 
   /**
@@ -95,7 +181,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -146,6 +232,22 @@ Page({
     wx.navigateTo({
       url: app.globalData.bugSearch + "?version=" + versionName,
     })
+  },
+
+  drawCircleImg: function(leftPer, rightPer) {
+    var leftCavArray = {
+      canvasName: "leftCanvas",
+      title: "缺陷总数",
+      percent: leftPer * 2
+    }
+    this.drawCircle(leftCavArray);
+
+    var rightCavArray = {
+      canvasName: "rightCanvas",
+      title: "  已修复",
+      percent: rightPer * 2
+    }
+    this.drawCircle(rightCavArray);
   },
 
   drawCircle: function (cavArray) {

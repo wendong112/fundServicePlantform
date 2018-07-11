@@ -46,7 +46,6 @@ Page({
 
           // 添加其他元素
           for (var i = 0; i < allList.length; i++) {
-
             allList[i]["imageSrc"] = app.globalData.grayHeartImg
             allList[i]["hasChange"] = false
             result.push(allList[i])
@@ -113,7 +112,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.onLoad()
   },
 
   /**

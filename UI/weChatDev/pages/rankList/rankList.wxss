@@ -22,7 +22,6 @@
 }
 
 .ownerSerialNo {
-  text-align:left;
   font-size: 80%;
   padding-top:2%;
   font-weight: 200;
@@ -43,11 +42,19 @@
 
 
 .td1 {
+  margin-left: 3%;
   width: 10%;
+}
+
+.td2 {
+  width: 45%;
+  text-align: left;
 }
 
 .td3 {
   width: 15%;
+  text-align: right;
+  padding-right: 3%;
 }
 
 .td4 {
@@ -100,6 +107,6 @@ label {
   font-weight: 600;  
 }
 .agreeIcon{
-  height:40rpx;
-  width:40rpx;
+  height:31rpx;
+  width:31rpx;
 }

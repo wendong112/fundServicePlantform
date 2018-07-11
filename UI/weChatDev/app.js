@@ -34,7 +34,9 @@ App({
     getAllCompany: "https://www.fundserviceplatform.cn/fundService/api/getAllCompany",
     addUser: "https://www.fundserviceplatform.cn/fundService/api/addUser",
 
-    // 故障信息中心使用的图片
+    // 故障信息共享
+    getUserBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getUserBugInfo",
+    getMainBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getMainBugInfo",
     roundImage: "/image/ringFirstPage/roundImg.png",
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
@@ -49,16 +51,16 @@ App({
     uploadServerURL: "",
     versionArray: [{
       version: '20160122X',
-      imageURL: "http://www.runoob.com/images/logo.png" //给项目信息中心使用
+      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
     }, {
       version: '20160122D_7',
-      imageURL: "http://www.runoob.com/images/pulpit.jpg" //给项目信息中心使用
+      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail2.jpg" //给项目信息中心使用
     }, {
       version: '20160122D',
-      imageURL: "http://www.runoob.com/images/logo.png" //给项目信息中心使用
+      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail3.jpg" //给项目信息中心使用
     }, {
       version: '20160122I_3',
-      imageURL: "http://www.runoob.com/images/pulpit.jpg" //给项目信息中心使用
+      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
     }],
 
     moduleArray: ['风险控制', '基金财务', '交易管理', '日终清算'],
@@ -73,7 +75,7 @@ App({
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
 
     // 项目信息中心使用
-    progressImg: "/image/uniformTest/projectProgress.jpg",
+    progressImg: "http://www.fundserviceplatform.cn:8080/uniformTest/progress.png",
     threeLineIcon: "/image/common/threeline.png",
 
     // 排行榜(已完成)

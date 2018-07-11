@@ -143,7 +143,6 @@ Page({
                   // 记录登录信息
                   wx.setStorageSync("telNum", telNum);
                   wx.setStorageSync("currentCompany", userList[0].companyName);
-                  wx.setStorageSync("currentProductionVersion", userList[0].propertyValueName);
 
                   wx.switchTab({
                     url: app.globalData.firstTab,

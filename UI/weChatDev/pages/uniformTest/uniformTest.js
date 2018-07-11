@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ['项目进展', '历次质量报表'],
+    navbar: ['项目进展', '测试报告查询'],
     currentTab: 0,
 
     // 项目进度
@@ -59,7 +59,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**

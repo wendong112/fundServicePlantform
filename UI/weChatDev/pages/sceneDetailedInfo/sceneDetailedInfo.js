@@ -120,7 +120,9 @@ Page({
     if (index > -1) {
       removeList.splice(index, 1);
     } else {
-      removeList.push(clickId)
+      if (clickId != "") {
+        removeList.push(clickId)
+      }
     }
     console.log("最新隐藏列表为: ", removeList);
 
