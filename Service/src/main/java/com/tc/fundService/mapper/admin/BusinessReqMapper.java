@@ -12,6 +12,11 @@ public interface BusinessReqMapper {
     List<BusinessReq> getAllBusinessReq();
 
     /**
+     * 列出Top3业务需求
+     */
+    List<BusinessReq> getTop3BusinessReq();
+
+    /**
      * 插入业务需求
      *
      * @param businessReq
@@ -25,4 +30,8 @@ public interface BusinessReqMapper {
      */
     int modifyBusinessReq(BusinessReq businessReq);
 
+    /**
+     * 根据需求ID获取业务场景
+     */
+    List<BusinessReq> getScenarioByReqId(Integer requirementId);
 }

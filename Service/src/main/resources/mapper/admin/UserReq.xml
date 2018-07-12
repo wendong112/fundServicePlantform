@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.UserReqMapper">
+    <select id="getAllUserInfo" resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT *
+        FROM user_information
+    </select>
+
+    <select id="getRankList" resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT (@i:=@i+1) as serial_no, user_information.*,company.COMPANY_NAME
+	    FROM (SELECT @i:=0) AS it, user_information
+        LEFT JOIN company
+        ON user_information.COMPANY_ID = company.COMPANY_ID
+	    WHERE AUTHORIZED_FLAG != '2'
+	    ORDER BY points DESC;
+    </select>
+
+    <select id="getUserByPhone" resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT *
+        FROM user_information
+        LEFT JOIN company
+        ON user_information.company_id = company.company_id
+        WHERE telephone=#{telephone}
+    </select>
+
+    <select id="getAllCompany" resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT *
+        FROM company
+    </select>
+
+    <insert id="addUser" parameterType="com.tc.fundService.entity.admin.UserReq">
+        INSERT INTO
+        user_information(telephone, wechat_name, user_name, company_id, mail, authorized_flag)
+        SELECT
+        #{telephone}, #{wechatName}, #{userName}, company_id, #{mail}, #{authorizedFlag}
+        FROM company
+        WHERE company_name=#{companyName}
+    </insert>
+
+    <insert id="addUserInfo" parameterType="com.tc.fundService.entity.admin.UserReq">
+        INSERT INTO
+        user_information(telephone, wechat_name, user_name, company_id, mail, authorized_flag)
+        VALUES(#{telephone}, #{wechatName}, #{userName}, #{companyId}, #{mail}, #{authorizedFlag})
+    </insert>
+
+    <update id="modifyLikeCountByPhone" parameterType="com.tc.fundService.entity.admin.UserReq">
+        UPDATE user_information
+        SET like_count = #{likeCount}
+        WHERE telephone = #{telephone}
+    </update>
+
+</mapper>

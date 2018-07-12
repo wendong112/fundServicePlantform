@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.defect.PropertyValueMapper">
+    <select id="getAllVersion" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS VERSION_ID,
+            PROPERTY_VALUE_NAME AS VERSION_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = "ENVIRONMENT_VERSION"
+        ORDER BY PROPERTY_VALUE_ID ASC;
+    </select>
+</mapper>

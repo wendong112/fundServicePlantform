@@ -4,18 +4,47 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tc.fundService.mapper.admin.BusinessReqMapper">
     <select id="getAllBusinessReq" resultType="com.tc.fundService.entity.admin.BusinessReq">
-        SELECT *
+        SELECT *,
+          DATE_FORMAT(CREATE_DATE, "%Y-%m-%d %h:%i:%s") AS FORMAT_CREATE_DATE
         FROM business_requirement
+        LEFT JOIN company
+        ON business_requirement.COMPANY_ID = company.COMPANY_ID
+        ORDER BY requirement_id DESC
     </select>
+
+    <select id="getTop3BusinessReq" resultType="com.tc.fundService.entity.admin.BusinessReq">
+        SELECT *,
+        DATE_FORMAT(CREATE_DATE, "%Y-%m-%d %h:%i:%s") AS FORMAT_CREATE_DATE
+        FROM business_requirement
+        LEFT JOIN company
+        ON business_requirement.COMPANY_ID = company.COMPANY_ID
+        WHERE TOP_FLAG IN ("1", "2", "3")
+        ORDER BY TOP_FLAG ASC
+    </select>
+
     <insert id="addBusinessReq" useGeneratedKeys="true" keyProperty="requirement_id" parameterType="com.tc.fundService.entity.admin.BusinessReq">
         INSERT INTO
-        business_requirement(requirement_brief_description, requirement_description, remark, telephone, company, process_status, top_flag, create_date)
-        VALUES
-        (#{requirementBriefDescription}, #{requirementDescription}, #{remark}, #{telephone}, #{company}, #{processStatus}, #{topFlag}, #{createDate})
+        business_requirement(requirement_brief_description, requirement_description, remark, telephone, company_id, process_status, create_date)
+        SELECT
+        #{requirementBriefDescription},#{requirementDescription},#{remark}, #{telephone}, company_id, #{processStatus}, #{createDate}
+        FROM user_information
+        WHERE telephone=#{telephone}
     </insert>
+
     <update id="modifyBusinessReq" parameterType="com.tc.fundService.entity.admin.BusinessReq">
         UPDATE business_requirement
         SET remark = #{remark}
         WHERE requirement_id = #{requirementId}
     </update>
+
+    <select id="getScenarioByReqId" resultType="com.tc.fundService.entity.admin.BusinessReq">
+        SELECT *
+        FROM business_requirement
+        LEFT JOIN test_scenarios
+        ON business_requirement.requirement_id = test_scenarios.requirement_id
+        LEFT JOIN company
+        ON business_requirement.COMPANY_ID = company.COMPANY_ID
+		WHERE business_requirement.requirement_id = #{requirementId}
+		ORDER BY FATHER_NODE ASC;
+    </select>
 </mapper>

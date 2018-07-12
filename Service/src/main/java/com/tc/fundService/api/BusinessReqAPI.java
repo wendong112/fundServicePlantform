@@ -27,10 +27,21 @@ public class BusinessReqAPI {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<BusinessReq> list = new ArrayList<BusinessReq>();
         list = businessReqService.getAllBusinessReq();
-        modelMap.put("allBusinessReq", list);
+        modelMap.put("getAllBusinessReq", list);
         return modelMap;
     }
 
+    /**
+     * 获取所有的业务需求信息
+     */
+    @RequestMapping(value = "/getTop3BusinessReq", method = RequestMethod.GET)
+    private Map<String, Object> getTop3BusinessReq() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<BusinessReq> list = new ArrayList<BusinessReq>();
+        list = businessReqService.getTop3BusinessReq();
+        modelMap.put("getTop3BusinessReq", list);
+        return modelMap;
+    }
     /**
      * 插入业务需求信息
      */
@@ -48,6 +59,18 @@ public class BusinessReqAPI {
     private Map<String, Object> modifyBusinessReq(@RequestBody BusinessReq businessReq) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         modelMap.put("modifyBusinessReq", businessReqService.modifyBusinessReq(businessReq));
+        return modelMap;
+    }
+
+    /**
+     * 根据需求id获取业务场景
+     */
+    @RequestMapping(value = "/getScenarioByReqId", method = RequestMethod.GET)
+    private Map<String, Object> getScenarioByReqId(Integer requirementId) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<BusinessReq> list = new ArrayList<BusinessReq>();
+        list = businessReqService.getScenarioByReqId(requirementId);
+        modelMap.put("getScenarioByReqId", list);
         return modelMap;
     }
 }

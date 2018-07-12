@@ -19,8 +19,13 @@ public class BusinessReq {
     private String requirementDescription;
     private String remark;
     private String telephone;
-    private String company;
+    private Integer companyId;
+    private String companyName;
     private String processStatus;
     private String topFlag;
     private Date createDate;
+    private String formatCreateDate;
+    private Integer scenarioID;
+    private String scenarioName;
+    private String fatherNode;
 }

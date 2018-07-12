@@ -54,4 +54,12 @@ public class Defect {
     private Integer statusId;
     //缺陷状态名称
     private String statusIdName;
+
+    public Integer getStatusId() {
+        return statusId;
+    }
+
+    public Integer getPriorityId() {
+        return priorityId;
+    }
 }

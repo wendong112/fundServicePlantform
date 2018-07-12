@@ -19,6 +19,11 @@ public class BusinessReqImpl implements BusinessReqService {
     }
 
     @Override
+    public List<BusinessReq> getTop3BusinessReq() {
+        return businessReqMapper.getTop3BusinessReq();
+    }
+
+    @Override
     public boolean addBusinessReq(BusinessReq businessReq) {
         try {
             int effectedNum = businessReqMapper.addBusinessReq(businessReq);
@@ -45,4 +50,10 @@ public class BusinessReqImpl implements BusinessReqService {
             throw new RuntimeException("更新业务需求失败:" + e.getMessage());
         }
     }
+
+    @Override
+    public List<BusinessReq> getScenarioByReqId(Integer requirementId) {
+        return businessReqMapper.getScenarioByReqId(requirementId);
+    }
+
 }
