@@ -21,6 +21,9 @@ Page({
     var telNum = wx.getStorageSync("telNum")
     console.log("当前用户的手机号码", telNum)
 
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.getRankList,
       data: {},
@@ -55,6 +58,15 @@ Page({
             listData: result,
           })
         }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      },
+      complete: function () {
+        wx.hideLoading()
       }
     })
   },
@@ -112,7 +124,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    wx.showNavigationBarLoading()
     this.onLoad()
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
   },
 
   /**

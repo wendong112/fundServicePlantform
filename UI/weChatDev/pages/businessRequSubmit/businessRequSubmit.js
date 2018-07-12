@@ -84,6 +84,9 @@ Page({
 
       //提交需求到数据库中
       console.log("提交数据到数据库中: ", tmpData)
+      wx.showLoading({
+        title: '加载中...',
+      })
       wx.request({
         url: app.globalData.addBusinessReq,
         data: JSON.stringify(tmpData),
@@ -118,6 +121,15 @@ Page({
               confirmColor: "#8B0000"
             })
           }
+        },
+        fail: function () {
+          wx.showToast({
+            title: '提交失败',
+            icon: "loading"
+          })
+        },
+        complete: function () {
+          wx.hideLoading()
         }
       })
     }

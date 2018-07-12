@@ -4,16 +4,16 @@
   <!-- 版本选择部分 -->
   <view class="pickerContainer addTopDis">
     <view class="title">版本</view>
-    <picker bindchange="chooseVersion" name="findVersion" value="{{versionArray[indexOfVersion].version}}" range="{{versionArray}}" range-key='version'>
-      <view class="content">{{versionArray[indexOfVersion].version}}
+    <picker bindchange="chooseVersion" name="findVersionId" value="{{versionArray[indexOfVersion].findVersionId}}" range="{{versionArray}}" range-key='versionName'>
+      <view class="content">{{versionArray[indexOfVersion].versionName}}
       </view>
     </picker>
   </view>
 
   <view class="pickerContainer">
     <view class="title">模块</view>
-    <picker bindchange="chooseModule" name="findModule" value="{{moduleArray[indexOfModule]}}" range="{{moduleArray}}">
-      <view class="content">{{moduleArray[indexOfModule]}}
+    <picker bindchange="chooseModule" name="priorityId" value="{{moduleArray[indexOfModule].priorityId}}" range="{{moduleArray}}" range-key='priorityName'>
+      <view class="content">{{moduleArray[indexOfModule].priorityName}}
       </view>
     </picker>
   </view>
@@ -21,22 +21,22 @@
   <!-- 缺陷详情 -->
   <view class="pickerContainer">
     <view class="title">缺陷程度</view>
-    <picker bindchange="chooseLevel" name="findLevel" value="{{levelArray[indexOfLevel]}}" range="{{levelArray}}">
-      <view class="content">{{levelArray[indexOfLevel]}}
+    <picker bindchange="chooseLevel" name="severityId" value="{{severityArray[indexOfSeverity].severityId}}" range="{{severityArray}}" range-key='severityName'>
+      <view class="content">{{severityArray[indexOfSeverity].severityName}}
       </view>
     </picker>
   </view>
 
   <view class='bugTitle'>缺陷现象描述（跟踪回访）</view>
-  <textarea class="bugBriefDescTextArea" cursor-spacing="180" maxlength='-1' placeholder="缺陷概述（必填项）" placeholder-style="auto-focus" name="bugBriefDesc" value="{{bugBriefDesc}}" />
-  <textarea class="bugDescTextarea" cursor-spacing="180" maxlength='-1' placeholder="前提条件/重现步骤" name="bugDetailDesc" value="{{bugDetailDesc}}" />
-  <textarea class="resultTextarea" cursor-spacing="180" maxlength='-1' placeholder="期望结果/实际结果" name="bugResult" value="{{bugResult}}" />
-  <textarea class="planTextarea" cursor-spacing="180" maxlength='-1' placeholder="解决方案描述" name="bugPlan" value="{{bugPlan}}" />
+  <textarea class="bugBriefDescTextArea" cursor-spacing="180" maxlength='-1' placeholder="缺陷概述（必填项）" placeholder-style="auto-focus" name="title" value="{{title}}" />
+  <textarea class="bugDescTextarea" cursor-spacing="180" maxlength='-1' placeholder="前提条件/重现步骤" name="defectDescription" value="{{defectDescription}}" />
+  <textarea class="resultTextarea" cursor-spacing="180" maxlength='-1' placeholder="期望结果/实际结果" name="expectDescription" value="{{expectDescription}}" />
+  <textarea class="planTextarea" cursor-spacing="180" maxlength='-1' placeholder="解决方案描述" name="solutionDescription" value="{{solutionDescription}}" />
 
   <!-- 选择匿名提交 -->
-  <radio-group class="groupRadio" name="noNameFlag">
+  <radio-group class="groupRadio" name="anonymousFlag">
     <label>
-      <radio bindtap='clickNoName' color="darkred" value="1" checked="{{noNameChecked}}" />匿名提交
+      <radio bindtap='clickNoName' color="darkred" value="2" checked="{{noNameChecked}}" />匿名提交
     </label>
   </radio-group>
 

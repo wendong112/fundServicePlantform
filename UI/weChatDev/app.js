@@ -32,23 +32,26 @@ App({
     // 登录注册页面(已完成)
     getUserByPhone: "https://www.fundserviceplatform.cn/fundService/api/getUserByPhone",
     getAllCompany: "https://www.fundserviceplatform.cn/fundService/api/getAllCompany",
-    addUser: "https://www.fundserviceplatform.cn/fundService/api/addUser",
+    addUserInfo: "https://www.fundserviceplatform.cn/fundService/api/addUserInfo",
 
     // 故障信息共享
     getUserBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getUserBugInfo",
     getMainBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getMainBugInfo",
+    getAllVersion: "https://www.fundserviceplatform.cn/fundService/api/getAllVersion",
+    getAllModule: "https://www.fundserviceplatform.cn/fundService/api/getAllModule",
+    getAllSeverity: "https://www.fundserviceplatform.cn/fundService/api/getAllSeverity",
+    getSearchBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getSearchBugInfo",
     roundImage: "/image/ringFirstPage/roundImg.png",
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
     rightArrowImage: "/image/common/rightArrow.png",
 
-    // 故障信息中心 - 缺陷搜索页面使用的链接
+    // 故障信息中心 - 缺陷搜索页面使用的array
     // 使用的array(之后使用数据库替换)
     //
     //
     //
     imgServerURL: "http://www.runoob.com/images/",
-    uploadServerURL: "",
     versionArray: [{
       version: '20160122X',
       imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
@@ -62,9 +65,6 @@ App({
       version: '20160122I_3',
       imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
     }],
-
-    moduleArray: ['风险控制', '基金财务', '交易管理', '日终清算'],
-    levelArray: ['1-改善建议', '2-轻微问题', '3-一般问题', '4-严重问题', '5-致命问题'],
 
     // 测试场景共建
     getTop3BusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getTop3BusinessReq",

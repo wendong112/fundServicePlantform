@@ -10,20 +10,20 @@ Page({
    */
   data: {
     // 选择模块等部分
-    versionArray: app.globalData.versionArray,
+    versionArray: [],
     indexOfVersion: 0,
 
-    moduleArray: app.globalData.moduleArray,
+    moduleArray: [],
     indexOfModule: 0,
 
-    levelArray: app.globalData.levelArray,
-    indexOfLevel: 0,
+    severityArray: [],
+    indexOfSeverity: 0,
 
     // 输入内容部分
-    bugBriefDesc: "",
-    bugDetailDesc: "",
-    bugResult: "",
-    bugPlan: "",
+    title: "",
+    defectDescription: "",
+    expectDescription: "",
+    solutionDescription: "",
 
     // 匿名提交部分
     noNameChecked: false,
@@ -33,7 +33,106 @@ Page({
     * 生命周期函数--监听页面加载
     */
   onLoad: function () {
+    var that = this;
 
+    // 获取所有version
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getAllVersion,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getAllVersion;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            versionArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+
+    // 获取所有module
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getAllModule,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getAllModule;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            moduleArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
+
+    // 获取所有severity
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getAllSeverity,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        var list = res.data.getAllSeverity;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            severityArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

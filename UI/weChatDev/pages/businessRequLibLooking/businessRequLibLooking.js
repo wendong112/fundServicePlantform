@@ -21,6 +21,11 @@ Page({
    */
   onLoad: function() {
     var that = this;
+
+    wx.showLoading({
+      title: '加载中...',
+    })
+
     wx.request({
       url: app.globalData.getAllBusinessReq,
       data: {},
@@ -46,6 +51,9 @@ Page({
           title: '查询失败',
           icon: "loading"
         })
+      },
+      complete: function() {
+        wx.hideLoading()
       }
     })
   },

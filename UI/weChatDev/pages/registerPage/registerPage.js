@@ -20,6 +20,9 @@ Page({
     var that = this;
 
     // 获取所有公司
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.getAllCompany,
       data: {},
@@ -43,6 +46,9 @@ Page({
           title: '查询失败',
           icon: "loading"
         })
+      },
+      complete: function () {
+        wx.hideLoading()
       }
     })
   },
@@ -96,6 +102,7 @@ Page({
   },
 
   bindPickerChange: function(e) {
+    console.log(e.detail)
     console.log('picker发送选择改变，携带值为', e.detail.value);
     this.setData({
       index: e.detail.value
@@ -115,6 +122,9 @@ Page({
 
     // 注册页面信息跳转
     if (this.checkPageMsg(formData)) {
+      wx.showLoading({
+        title: '加载中...',
+      })
       wx.request({
         url: app.globalData.getUserByPhone,
         data: {
@@ -137,16 +147,17 @@ Page({
               var insertData = formData;
               insertData["wechatName"] = nickName
               insertData["authorizedFlag"] = "2"
+
               console.log(insertData)
               wx.request({
-                url: app.globalData.addUser,
+                url: app.globalData.addUserInfo,
                 data: JSON.stringify(insertData),
                 method: 'POST',
                 header: {
                   'Content-Type': 'application/json'
                 },
                 success: function (res) {
-                  var result = res.data.addUser
+                  var result = res.data.addUserInfo
                   console.log("操作结果", res.data);
                   if (result != true) {
                     wx.showToast({
@@ -170,6 +181,7 @@ Page({
                   }
                 }
               })
+
             } else {
               // 手机号已经注册过
               console.log("手机号已经注册过")
@@ -193,6 +205,9 @@ Page({
             title: '操作失败',
             icon: "loading"
           })
+        },
+        complete: function() {
+          wx.hideLoading()
         }
       })
     }
@@ -206,15 +221,6 @@ Page({
     if (param.userName.length == 0 || param.userName.trim().length == 0) {
       wx.showToast({
         title: '姓名必填',
-        icon: "loading"
-      })
-      return false;
-    }
-
-    // 检查公司名称
-    if (param.companyName.length == 0) {
-      wx.showToast({
-        title: '公司名称必填',
         icon: "loading"
       })
       return false;

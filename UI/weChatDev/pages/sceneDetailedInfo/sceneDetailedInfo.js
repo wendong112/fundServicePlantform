@@ -30,6 +30,10 @@ Page({
       })
     } else {
       console.log("开始查找")
+      wx.showLoading({
+        title: '加载中...',
+      })
+
       wx.request({
         url: app.globalData.getScenarioByReqId,
         data: { "requirementId": reqId },
@@ -55,6 +59,9 @@ Page({
             title: '查询失败',
             icon: "loading"
           })
+        },
+        complete: function () {
+          wx.hideLoading()
         }
       })
     }

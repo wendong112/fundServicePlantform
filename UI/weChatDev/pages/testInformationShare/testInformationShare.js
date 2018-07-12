@@ -20,6 +20,10 @@ Page({
   onLoad: function () {
     console.log("查询数据库")
     var that = this;
+
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.getTop3BusinessReq,
       data: {},
@@ -50,6 +54,9 @@ Page({
           title: '查询失败',
           icon: "loading"
         })
+      },
+      complete: function () {
+        wx.hideLoading()
       }
     })
   },
@@ -86,7 +93,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()
     this.onLoad()
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
   },
 
   /**

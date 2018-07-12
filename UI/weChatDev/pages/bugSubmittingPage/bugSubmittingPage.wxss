@@ -86,6 +86,7 @@ radio .wx-radio-input.wx-radio-input-checked {
 
 .buttonContainer{
   display: flex;
+  margin-bottom: 8%;
 }
 
 button{

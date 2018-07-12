@@ -12,8 +12,7 @@
     <view class="title">
       公司：
     </view>
-    <picker class="pickerContent" name="companyName" bindchange="bindPickerChange" value="{{array[index].companyName}}" range="{{array}}" range-key='companyName'>
-      <!-- <input disable="true" focus='false' name="companyName" value="{{array[index].companyName}}" /> -->
+    <picker class="pickerContent" name="companyId" bindchange="bindPickerChange" value="{{array[index].companyId}}" range="{{array}}" range-key='companyName'>
       <view >{{array[index].companyName}}</view>
     </picker>
   </view>

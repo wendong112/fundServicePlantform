@@ -1,5 +1,4 @@
 /*搜索框部分*/
-
 .searchInputPart {
   position: relative;
   padding: 3% 3%;
@@ -45,6 +44,12 @@
   font-size: 75%;
 }
 
+.searchPicker {
+  padding-top: 4%;
+  text-align: center;
+  font-size: 75%; 
+}
+
 .searchBtn {
   margin: 1rpx;
   padding-top: 1rpx;
@@ -54,7 +59,6 @@
 }
 
 /*选择框部分*/
-
 .radioController {
   display: flex;
   flex-direction: row;

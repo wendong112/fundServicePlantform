@@ -21,44 +21,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    // 设置页面元素
-    //
-    // 需要从数据库中获取
-    //
-    // this.setData({
-
-    //   bugArray: {
-    //     1: [{
-    //       topFlag: "1",
-    //       id: "2",
-    //       title: "证券买入指令成交时，资金未扣除费用"
-    //     }, {
-    //       topFlag: "2",
-    //       id: "3",
-    //       title: "撤销债券买入指令后，可用资金未解冻"
-    //     }, {
-    //       topFlag: "3",
-    //       id: "4",
-    //       title: "现货自动拆分，可用扣减计算错误"
-    //     }],
-    //     2: [{
-    //       topFlag: "1",
-    //       id: "2",
-    //       title: "证券买入指令成交时t"
-    //     }, {
-    //       topFlag: "2",
-    //       id: "3",
-    //       title: "撤销债券买入指令后t"
-    //     }, {
-    //       topFlag: "3",
-    //       id: "4",
-    //       title: "现货自动拆分tttt"
-    //     }]}
-    // })
     var that = this;
     var telNum = wx.getStorageSync("telNum");
     console.log("当前用户的手机号为：", telNum)
 
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.getUserBugInfo,
       data: { "telephone": telNum },
@@ -106,10 +75,16 @@ Page({
           title: '查询失败',
           icon: "loading"
         })
+      },
+      complete: function () {
+        wx.hideLoading()
       }
     })
 
     // 获取主流版本缺陷
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: app.globalData.getMainBugInfo,
       data: {},
@@ -145,6 +120,9 @@ Page({
           title: '查询失败',
           icon: "loading"
         })
+      },
+      complete: function () {
+        wx.hideLoading()
       }
     })
   },
@@ -181,7 +159,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading()
     this.onLoad()
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -230,7 +211,7 @@ Page({
     console.log("查询版本为: ", versionName);
     console.log("点击更多，准备跳转到对应界面")
     wx.navigateTo({
-      url: app.globalData.bugSearch + "?version=" + versionName,
+      url: app.globalData.bugSearch + "?versionName=" + versionName,
     })
   },
 
@@ -299,7 +280,5 @@ Page({
 
       cxt_arc.draw();
     })
-
-
   }
 })

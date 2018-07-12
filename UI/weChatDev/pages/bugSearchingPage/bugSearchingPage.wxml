@@ -4,8 +4,12 @@
   <view class="searchInputPart">
     <view class="searchForm">
       <view class="searchBox">
-        <icon class="searchIcon" type="search" ></icon>
-        <input type="text" class="searchInput" placeholder="请输入搜索内容" name="searchContent" value="{{searchContent}}" />
+        <icon class="searchIcon" type="search"></icon>
+        <input type="text" hidden='{{inputHidden}}' class="searchInput" placeholder="请输入搜索内容" name="searchContent" value="{{searchContent}}" />
+        <picker hidden='{{pickerHidden}}' bindchange="chooseVersion" name="versionName" value="{{versionArray[index].versionName}}" range="{{versionArray}}" range-key='versionName'>
+          <view hidden='{{pickerHidden}}' class="searchPicker">{{versionArray[index].versionName}}
+          </view>
+        </picker>
       </view>
     </view>
     <button class="searchBtn" style="background: darkred;" form-type="submit">搜索</button>
@@ -15,49 +19,49 @@
   <view class="radioController">
     <!-- 仅查看本司 -->
     <radio-group class="groupRadio" name="searchCompany">
-    <label>
-      <radio bindtap='clickCompany' color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
-    </label>
+      <label>
+        <radio bindtap='clickCompany' color="darkred" value="1" checked="{{companyChecked}}" />仅查看本司
+      </label>
     </radio-group>
 
-    <radio-group  class="groupRadio"  name="searchVersion">
-    <!-- 按版本 -->
-    <label>
-      <radio bindtap='clickVersion' color="darkred" value="2" checked="{{versionChecked}}" />按版本
-    </label>
+    <radio-group class="groupRadio" name="searchVersion">
+      <!-- 按版本 -->
+      <label>
+        <radio bindtap='clickVersion' color="darkred" value="2" checked="{{versionChecked}}" />按版本
+      </label>
     </radio-group>
-    <radio-group  class="groupRadio" name="searchKeyword">
-    <!-- 按关键字 -->
-    <label>
-      <radio bindtap='clickKeyword' color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
-    </label>
+    <radio-group class="groupRadio" name="searchKeyword">
+      <!-- 按关键字 -->
+      <label>
+        <radio bindtap='clickKeyword' color="darkred" value="3" checked="{{keywordChecked}}" />按关键字
+      </label>
     </radio-group>
   </view>
 </form>
 
 <!-- 表格显示部分 -->
 <view class="history-table-wrap">
-    <view class="table">
-      <view class="tr">
-          <view class="th th1">序号</view>
-          <view class="th th2">缺陷概述</view>
-          <view class="th th3">状态</view>
-          <view class="th th4">提交人</view>
-      </view>
-      <block wx:for="{{defectList}}" wx:key="{{id}}">
-        <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
-            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
-            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
-            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
-            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
-        </view>
-        <view class="tr" wx:else>
-            <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
-            <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
-            <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusIdName}}</view>
-            <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.createdUserId_Name}}</view>
-        </view>
-      </block>
-
+  <view class="table">
+    <view class="tr">
+      <view class="th th1">序号</view>
+      <view class="th th2">缺陷概述</view>
+      <view class="th th3">状态</view>
+      <view class="th th4">提交人</view>
     </view>
+    <block wx:for="{{defectList}}" wx:key="{{id}}">
+      <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+        <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+        <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+        <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusName}}</view>
+        <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.userName}}</view>
+      </view>
+      <view class="tr" wx:else>
+        <view class="td td1" id="{{item.id}}" bindtap='clickDetail'>{{item.id}}</view>
+        <view class="td td2 td-brief" id="{{item.id}}" bindtap='clickDetail'>{{item.title}}</view>
+        <view class="td td3" id="{{item.id}}" bindtap='clickDetail'>{{item.statusName}}</view>
+        <view class="td td4" id="{{item.id}}" bindtap='clickDetail'>{{item.userName}}</view>
+      </view>
+    </block>
+
+  </view>
 </view>

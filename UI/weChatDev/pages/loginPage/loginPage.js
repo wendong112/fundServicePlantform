@@ -79,6 +79,9 @@ Page({
 
     // 登录页面信息跳转
     if (this.checkPhoneRight(telNum)) {
+      wx.showLoading({
+        title: '加载中...',
+      })
       wx.request({
         url: app.globalData.getUserByPhone,
         data: {
@@ -174,6 +177,9 @@ Page({
             title: '查询失败',
             icon: "loading"
           })
+        },
+        complete: function() {
+          wx.hideLoading()
         }
       })
     }

@@ -44,7 +44,7 @@
         <view class="topBug" id="{{item.id}}" bindtap='clickBugDetail' wx:for="{{versionBugArray}}" wx:key="topFlag">
           【TOP{{item.topFlag}}】{{item.title}}
         </view>
-        <view class="more" id='20170630B' bindtap='clickMore'>
+        <view class="more" id='{{versionBugArray[0].versionName}}' bindtap='clickMore'>
           >>> 更多
         </view>
       </view>
