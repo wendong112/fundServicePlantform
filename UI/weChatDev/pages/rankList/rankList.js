@@ -29,6 +29,8 @@ Page({
       data: {},
       method: 'GET',
       success: function (res) {
+        wx.hideLoading()
+
         var allList = res.data.getRankList;
         console.log("查询结果:", res.data)
         if (allList == undefined) {
@@ -60,13 +62,12 @@ Page({
         }
       },
       fail: function () {
+        wx.hideLoading()
+
         wx.showToast({
           title: '查询失败',
           icon: "loading"
         })
-      },
-      complete: function () {
-        wx.hideLoading()
       }
     })
   },

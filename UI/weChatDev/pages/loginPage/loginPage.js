@@ -88,7 +88,9 @@ Page({
           "telephone": telNum
         },
         method: 'GET',
-        success: function(res) {
+        success: function (res) {
+          wx.hideLoading()
+
           var userList = res.data.getUserByPhone
           console.log("查询结果:", res.data)
           if(userList == undefined) {
@@ -172,14 +174,13 @@ Page({
           }
 
         },
-        fail: function() {
+        fail: function () {
+          wx.hideLoading()
+
           wx.showToast({
             title: '查询失败',
             icon: "loading"
           })
-        },
-        complete: function() {
-          wx.hideLoading()
         }
       })
     }

@@ -5,38 +5,42 @@
     <view class="title startTitle">缺陷序号</view>
     <input class="content disableColor" type="number" name="id" disabled='true' value="{{defectArray.id}}" />
     <view class="title rightTitle">缺陷状态</view>
-    <input class="content disableColor" type="text" name="statusIdName" disabled='true' value="{{defectArray.statusIdName}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.statusName}}" />
   </view>
 
   <view class="detailContainer">
     <view class="title startTitle">缺陷描述</view>
-    <input class="longContent disableColor" type="text" name="title" disabled='true' value="{{defectArray.title}}" />
+    <input class="longContent disableColor" type="text" disabled='true' value="{{defectArray.title}}" />
   </view>
 
   <view class="detailContainer">
     <view class="title startTitle">提交人员</view>
-    <input class="content disableColor" type="text" name="createdUserIdName" disabled='true' value="{{defectArray.createdUserIdName}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.userName}}" />
     <view class="title rightTitle">提交时间</view>
-    <input class="content disableColor" type="text" name="createdDate" disabled='true' value="{{defectArray.createdDate}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.formatCreatedDate}}" />
   </view>
 
   <view class="detailContainer">
     <view class="title startTitle">一级模块</view>
-    <input class="content disableColor" type="text" name="firstLevelModulePriorityIdName" disabled='true' value="{{defectArray.firstLevelModulePriorityIdName}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.priorityName}}" />
     <view class="title rightTitle">严重程度</view>
-    <input class="content disableColor" type="text" name="severity" disabled='true' value="{{defectArray.severity}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.severityName}}" />
   </view>
 
   <view class="detailContainer">
     <view class="title startTitle">发现版本</view>
-    <input class="content disableColor" type="text" name="findVersionIdName" disabled='true' value="{{defectArray.findVersionIdName}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.findVersionName}}" />
     <view class="title rightTitle">修复版本</view>
-    <input class="content disableColor" type="text" name="prepareProperty3" disabled='true' value="{{defectArray.prepareProperty3}}" />
+    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.planResolvedVersionName}}" />
   </view>
 
   <!-- 具体问题描述 -->
-  <view class="redTitle">具体问题描述</view>
+  <view class="redTitle">缺陷描述</view>
   <textarea cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
+ 
+ <!-- 具体问题描述 -->
+  <view class="redTitle">期望结果</view>
+  <textarea class="shortArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
 
   <!-- 解决方案 -->
   <view class="redTitle">解决方案</view>

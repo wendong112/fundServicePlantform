@@ -1,4 +1,5 @@
 const app = getApp();
+var defectId = "";
 
 Page({
 
@@ -15,11 +16,44 @@ Page({
    */
   onLoad: function (options) {
     var id = options.defectId;
-    console.log("查询的缺陷id为:", id)
- 
+    // 设置公共变量
+    defectId = id;
 
-    this.setData({
-      defectArray: this.getBugDetail(id)
+    var that = this;
+    console.log("查询的缺陷id为:", id)
+
+    // 查询缺陷
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getDefectById,
+      data: { "id": id },
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading()
+
+        var list = res.data.getDefectById;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            defectArray: list[0]
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
     })
   }, 
 
@@ -164,26 +198,4 @@ Page({
       defectArray: this.getBugDetail(id)
     })
   },
-
-  // 公用方法 - 根据id获取缺陷详情
-  getBugDetail: function (id) {
-    //
-    // 通过id从数据库中查找缺陷详情
-    //
-    var defectArray = {
-      id: "1",
-      statusIdName: "打开",
-      title: "组合指令中个人参数的取整数功能未实现",
-      createdUserIdName: "小明",
-      createdDate: "2017-06-21",
-      firstLevelModulePriorityIdName: "指令管理",
-      severity: "一般问题",
-      findVersionIdName: "20170630B",
-      prepareProperty3: "20170630D",
-      defectDescription: "[前提条件]\nNA\n[重现步骤]\n1.打开\n2.启动风控测试管理系统",
-      solutionDescription: "暂无",
-    }
-
-    return defectArray;
-  }
 })

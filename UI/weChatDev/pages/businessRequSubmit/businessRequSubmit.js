@@ -73,7 +73,6 @@ Page({
     var that = this;
 
     if (this.checkBriefNotEmpty(formData)) {
-
       // 获取其他数据
       var telephone = wx.getStorageSync("telNum");
       var processStatus = "计划阶段"
@@ -95,6 +94,8 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
+          wx.hideLoading()
+
           var result = res.data.addBusinessReq
           console.log("操作结果", res.data)
           if (result != true) {
@@ -123,13 +124,12 @@ Page({
           }
         },
         fail: function () {
+          wx.hideLoading()
+
           wx.showToast({
             title: '提交失败',
             icon: "loading"
           })
-        },
-        complete: function () {
-          wx.hideLoading()
         }
       })
     }

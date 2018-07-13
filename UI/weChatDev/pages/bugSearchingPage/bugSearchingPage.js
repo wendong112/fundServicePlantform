@@ -35,12 +35,17 @@ Page({
     var that = this;
 
     // 获取所有的版本
+    wx.showLoading({
+      title: '加载中...',
+    })
     console.log("获取所有版本")
     wx.request({
       url: app.globalData.getAllVersion,
       data: {},
       method: 'GET',
       success: function(res) {
+        wx.hideLoading()
+
         var list = res.data.getAllVersion;
         console.log("查询结果:", res.data)
         if (list == undefined) {
@@ -56,6 +61,8 @@ Page({
         }
       },
       fail: function() {
+        wx.hideLoading()
+
         wx.showToast({
           title: '查询失败',
           icon: "loading"
@@ -72,6 +79,8 @@ Page({
       data: {},
       method: 'GET',
       success: function(res) {
+        wx.hideLoading()
+
         var list = res.data.getSearchBugInfo;
         console.log("查询结果:", res.data)
         if (list == undefined) {
@@ -123,14 +132,13 @@ Page({
           }
         }
       },
-      fail: function() {
+      fail: function () {
+        wx.hideLoading()
+
         wx.showToast({
           title: '查询失败',
           icon: "loading"
         })
-      },
-      complete: function() {
-        wx.hideLoading()
       }
     })
 

@@ -41,6 +41,8 @@ App({
     getAllModule: "https://www.fundserviceplatform.cn/fundService/api/getAllModule",
     getAllSeverity: "https://www.fundserviceplatform.cn/fundService/api/getAllSeverity",
     getSearchBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getSearchBugInfo",
+    addNewDefect: "https://www.fundserviceplatform.cn/fundService/api/addNewDefect",
+    getDefectById: "https://www.fundserviceplatform.cn/fundService/api/getDefectById",
     roundImage: "/image/ringFirstPage/roundImg.png",
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",

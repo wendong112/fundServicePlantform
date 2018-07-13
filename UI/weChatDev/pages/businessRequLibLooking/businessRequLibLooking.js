@@ -31,6 +31,8 @@ Page({
       data: {},
       method: 'GET',
       success: function (res) {
+        wx.hideLoading()
+
         var list = res.data.getAllBusinessReq;
         console.log("查询结果:", res.data)
         if (list == undefined) {
@@ -47,13 +49,12 @@ Page({
         }
       },
       fail: function () {
+        wx.hideLoading()
+
         wx.showToast({
           title: '查询失败',
           icon: "loading"
         })
-      },
-      complete: function() {
-        wx.hideLoading()
       }
     })
   },

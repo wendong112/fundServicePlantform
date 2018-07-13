@@ -1,6 +1,8 @@
 allContainer {
   width: 100%;
+  overflow-x: hidden;
 }
+
 .containerController {
   background: darkred;
   width: 100%;

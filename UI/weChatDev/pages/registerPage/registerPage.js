@@ -28,6 +28,8 @@ Page({
       data: {},
       method: 'GET',
       success: function (res) {
+        wx.hideLoading()
+
         var list = res.data.getAllCompany
         console.log("查询结果为", res.data)
         if (list == undefined) {
@@ -42,13 +44,12 @@ Page({
         }
       },
       fail: function () {
+        wx.hideLoading()
+
         wx.showToast({
           title: '查询失败',
           icon: "loading"
         })
-      },
-      complete: function () {
-        wx.hideLoading()
       }
     })
   },
@@ -131,7 +132,9 @@ Page({
           "telephone": telNum
         },
         method: 'GET',
-        success: function(res) {
+        success: function (res) {
+          wx.hideLoading()
+
           var userList = res.data.getUserByPhone
           console.log("查询结果:", res.data)
 
@@ -200,14 +203,13 @@ Page({
             }
           }
         },
-        fail: function() {
+        fail: function () {
+          wx.hideLoading()
+
           wx.showToast({
             title: '操作失败',
             icon: "loading"
           })
-        },
-        complete: function() {
-          wx.hideLoading()
         }
       })
     }
