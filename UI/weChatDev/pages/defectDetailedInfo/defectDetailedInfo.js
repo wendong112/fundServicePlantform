@@ -8,7 +8,7 @@ Page({
    */
   data: {
     defectArray: {},
-    commentList: [],
+    commentArray: {},
   },
 
   /**
@@ -68,49 +68,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //
-    // 由于留言从留言编辑界面返回时需要刷新，所以放到此处
-    // 需要从数据库中获取
-    //
-
-    var id = this.data.defectArray.id;
-    console.log("获取留言：", id)
-
-    var commentList = [{
-      messageId: "3",
-      userName: "小明",
-      company: "南方基金",
-      messageContent: "很赞！该缺陷反应了目前系统的在头寸计算的出入"
-    }, {
-      messageId: "2",
-      userName: "小哄",
-      company: "北方基金",
-      messageContent: "同意"
-    }, {
-      messageId: "1",
-      userName: "小哄",
-      company: "华夏基金",
-      messageContent: "666"
-    }, {
-      messageId: "1",
-      userName: "小哄",
-      company: "华夏基金",
-      messageContent: "666"
-    }, {
-      messageId: "1",
-      userName: "小哄",
-      company: "华夏基金",
-      messageContent: "666"
-    }, {
-      messageId: "1",
-      userName: "小哄",
-      company: "华夏基金",
-      messageContent: "666"
-    }]
-
-    this.setData({
-      commentList: commentList
+    var that = this
+    console.log("根据缺陷id获取留言", defectId)
+    wx.showLoading({
+      title: '加载中...',
     })
+    wx.request({
+      url: app.globalData.getMessageByDefectId,
+      data: { "defectId": defectId },
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading()
+
+        var list = res.data.getMessageByDefectId;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          that.setData({
+            commentArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
+    })
+
   },
 
   /**
@@ -173,29 +165,49 @@ Page({
   // 提交表单
   formSubmit: function(e) {
     var formData = e.detail.value;
-    var id = formData.id;
-
-    var updateData = {
-      "id": formData.id,
-      "defectDescription": formData.defectDescription,
-      "solutionDescription": formData.solutionDescription
-    }
 
     // 根据id更新数据库
-    //
-    //
-    console.log("更新缺陷详情：", updateData);
-    wx.showModal({
-      title: '温馨提示',
-      content: '缺陷更新成功！',
-      showCancel: false,
-      confrimText: "确定",
-      confirmColor: "#8B0000",
+    console.log("提交数据到数据库中: ", formData)
+    wx.showLoading({
+      title: '加载中...',
     })
+    wx.request({
+      url: app.globalData.modifyDefectById,
+      data: JSON.stringify(formData),
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        wx.hideLoading()
 
-    // 刷新页面
-    this.setData({
-      defectArray: this.getBugDetail(id)
+        var result = res.data.modifyDefectById
+        console.log("操作结果", res.data)
+        if (result != true) {
+          wx.showToast({
+            title: "插入失败",
+            icon: 'loading'
+          });
+        } else {
+          // 弹出提示信息
+          console.log("弹出提示信息")
+          wx.showModal({
+            title: '温馨提示',
+            content: '缺陷修改成功！',
+            showCancel: false,
+            confrimText: "确定",
+            confirmColor: "#8B0000"
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '修改失败',
+          icon: "loading"
+        })
+      }
     })
   },
 })

@@ -16,14 +16,16 @@
 
 <!--历次质量报表-->
 <view hidden="{{currentTab!==1}}">
+
   <view class="pickerContainer">
-    <icon type="info_circle" size="20" color="#8B0000"></icon>
-    <picker bindchange="selectVersion" value="{{array[indexOfVersion].version}}" range="{{array}}" range-key='version'>
-      <view class="pickerContent">
-        点此选择版本：<label class='bottomLine'>{{array[indexOfVersion].version}}</label>
-      </view>
-    </picker> 
+  <view class="title">模块</view>
+  <picker bindchange="selectVersion" value="{{array[indexOfVersion].version}}" range="{{array}}" range-key='version'>
+    <view class="content">
+      {{array[indexOfVersion].version}}
+    </view>
+  </picker>
   </view>
+
 
   <view class="qualityView">
     <image class="qualityImage" src="{{array[indexOfVersion].imageURL}}" mode='widthFix'>

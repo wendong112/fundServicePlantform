@@ -11,7 +11,7 @@
   background-color: #F0F0F0;
   height: 100rpx;
   margin-top: 1%;
-  font-size: 80%;
+  font-size: 85%;
   font-weight: 400;
 }
 
@@ -40,7 +40,6 @@
   margin-top: 2%;
 }
 
-
 .td1 {
   margin-left: 3%;
   width: 10%;
@@ -60,6 +59,7 @@
 .td4 {
   width: 15%;
   display:column;
+  margin-top: 2%;
 }
 
 .td1, .td2, .td3 {

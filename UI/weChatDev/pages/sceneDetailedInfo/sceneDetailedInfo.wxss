@@ -17,36 +17,44 @@
 .detailContainer{
   display: flex;
   font-size: 70%;
+  margin-bottom: 3%;
 }
 
 .title {
   margin: 1% 1% 1% 2%;
 }
 
-.content {
-  margin: 1% 1% 1% 2%; 
-  border: 2rpx darkred solid;
-  width: 12%;
-  border-radius: 15rpx;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  font-size: 85%;
-}
-
 .startTitle {
   margin-left: 3%;
 }
 
-.addColor {
-  background-color: wheat;
+.rightTitle {
+  margin-left: 5%;
 }
 
-.long {
-  width: 70%;
+.content {
+  border:3rpx solid darkred;
+  border-radius: 15rpx;
+
+  max-width: 25%;
+  min-width: 20%;
 }
 
+.disableColor {
+  background-color: gainsboro;
+}
+
+.longContent {
+  border:3rpx solid darkred;
+  border-radius: 15rpx;
+
+  max-width: 80%;
+  min-width: 70%;
+}
+
+/*场景导图*/
 .sceneContainer {
-  font-size: 70%;
+  font-size: 75%;
   margin-left: 4%;
   margin-right: 4%;
 }
@@ -57,8 +65,8 @@
 
 /* 业务场景导图样式 */
 .iconType {
-  width: 20rpx;
-  height:20rpx;
+  width: 30rpx;
+  height:30rpx;
 }
 
 .pad3 {

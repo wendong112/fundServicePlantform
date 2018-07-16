@@ -153,7 +153,7 @@ radio .wx-radio-input.wx-radio-input-checked {
 }
 
 .bg-g {
-  background-color: peachpuff;
+  background-color: linen;
 }
 
 .td-brief {

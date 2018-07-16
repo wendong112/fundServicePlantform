@@ -179,23 +179,27 @@ Page({
       //
       // 需要确认并修改
       //
-      var url = "http://www.runoob.com/images/logo.png";
+      var url = "http://www.fundserviceplatform.cn:8080/test.docx";
       console.log("下载链接为：", url)
 
       wx.downloadFile({
         url: url,
         success: function (res) {
           console.log("临时文件位置：", res.tempFilePath);
+
           wx.saveFile({
             tempFilePath: res.tempFilePath,
             success: function (res) {
               wx.showToast({
                 title: '下载成功',
               })
-
-              console.log(res)
+              console.log("下载后信息：", res)
               that.setData({
                 savePath: res.savedFilePath
+              })
+
+              wx.openDocument({
+                filePath: res.savedFilePath,
               })
             }
           })

@@ -2,16 +2,18 @@
 
 <!-- 需求详情 -->
 <view class="detailContainer">
-  <view class="title startTitle">序号</view>
-  <view class="content addColor">{{sceneArray[0].requirementId}}</view>
-  <view class="title">共建伙伴</view>
-  <view class="content addColor">{{sceneArray[0].companyName}}</view>
-  <view class="title">完成阶段</view>
-  <view class="content">{{sceneArray[0].processStatus}}</view>
+  <view class="title startTitle">需求序号</view>
+  <input class="content disableColor" type="number" name="id" disabled='true' value="{{sceneArray[0].requirementId}}" />
+</view>
+<view class="detailContainer">
+  <view class="title startTitle">共建伙伴</view>
+  <input class="content disableColor" type="number" name="id" disabled='true' value="{{sceneArray[0].companyName}}" />
+  <view class="title rightTitle">完成阶段</view>
+  <input class="content disableColor" type="text" disabled='true' value="{{sceneArray[0].processStatus}}" />
 </view>
 <view class="detailContainer">
   <view class="title startTitle">需求概述</view>
-  <view class="content long">{{sceneArray[0].requirementBriefDescription}}</view>
+  <input class="longContent disableColor" type="text" disabled='true' value="{{sceneArray[0].requirementBriefDescription}}" />
 </view>
 
 <!-- 业务场景导图 -->

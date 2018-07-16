@@ -2,6 +2,7 @@
 .titleContainer{
   display: flex;
   background-color: darkred;
+  line-height: 75rpx;
 }
 
 .pickerImage {
@@ -16,11 +17,10 @@ image {
 
 .titleContent{
   width: 90%;
-  padding-top: 1%;
   text-align: center;
   color: white;
   margin: 1%;
-  font-size: 75%;
+  font-size: 85%;
   font-weight: 600;
 }
 

@@ -1,6 +1,6 @@
-allContainer {
-  width: 100%;
-  overflow-x: hidden;
+.allContainer {
+  width: auto;
+  overflow: hidden;
 }
 
 .containerController {

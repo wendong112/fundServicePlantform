@@ -40,7 +40,7 @@
 }
 
 .disableColor {
-  background-color: lightgray;
+  background-color: gainsboro;
 }
 
 .longContent {
@@ -71,11 +71,11 @@ textarea {
   margin: 1% 4% 1% 4%;
   font-size: 70%;
   padding: 2%;
-  border:3rpx solid darkred; 
   border-radius: 15rpx;
   height: 300rpx;
   min-width: 88%;
   max-width: 88%;
+  background-color: gainsboro;
 }
 
 .scrollView {
@@ -88,7 +88,6 @@ textarea {
 }
 
 .personComment {
-  border-bottom: 2rpx gray solid;
   margin-bottom: 3%;
   padding-bottom: 1%
 }

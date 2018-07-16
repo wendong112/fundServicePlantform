@@ -269,7 +269,7 @@ Page({
       cxt_arc.setStrokeStyle('#d2d2d2');
       cxt_arc.setLineCap('round')
       cxt_arc.beginPath();//开始一个新的路径
-      cxt_arc.arc(x, y, radius, 0, 2 * Math.PI, false);//设置一个原点(106,106)，半径为100的圆的路径到当前路径
+      cxt_arc.arc(x, y, radius, -0.5 * Math.PI, 1.5 * Math.PI, false);
       cxt_arc.stroke();//对当前路径进行描边
 
       //内层圆圈
@@ -277,9 +277,8 @@ Page({
       cxt_arc.setStrokeStyle('#800000');
       cxt_arc.setLineCap('round')
       cxt_arc.beginPath();//开始一个新的路径
-      cxt_arc.arc(x, y, radius, 0, Math.PI * percent, false);
+      cxt_arc.arc(x, y, radius, -0.5 * Math.PI, Math.PI * (percent - 0.5), false);
       cxt_arc.stroke();//对当前路径进行描边
-
       cxt_arc.draw();
     })
   }

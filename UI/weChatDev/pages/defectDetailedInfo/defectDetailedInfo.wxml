@@ -54,8 +54,8 @@
     </view>
 
     <scroll-view class='scrollView' scroll-y>
-      <view class="personComment" wx:for="{{commentList}}" wx:key="messageId">
-        <view class="personTitle">{{item.userName}}（{{item.company}}）:</view>
+      <view class="personComment" wx:for="{{commentArray}}" wx:key="messageId">
+        <view class="personTitle">{{item.userName}}（{{item.companyName}}）:</view>
         <view>{{item.messageContent}}</view>
       </view>
     </scroll-view>

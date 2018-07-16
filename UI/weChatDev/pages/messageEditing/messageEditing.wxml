@@ -1,7 +1,7 @@
 <!--标题部分-->
 <view class="title">{{title}}</view>
 
-<form id="{{id}}" bindsubmit="messageSubmit">
+<form bindsubmit="messageSubmit">
   <view class="contentContainer">
     <textarea class="messageContent" cursor-spacing="180" maxlength="-1" placeholder="请在此编辑留言，留言会对所有人可见！" type="text" name="messageContent" value="{{messageContent}}">
     </textarea>
