@@ -43,8 +43,12 @@ Page({
             icon: 'loading'
           });
         } else {
-          console.log(list[0].versionName)
-          if (list[0].versionName == null) {
+          var currentVersionName = list[0].versionName;
+          // 设置公共变量
+          console.log("当前用户的生产版本", currentVersionName);
+          wx.setStorageSync("currentVersionName", currentVersionName)
+
+          if (currentVersionName == null) {
             console.log("没有缺陷版本")
             wx.showModal({
               title: '温馨提示',

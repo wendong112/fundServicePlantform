@@ -5,9 +5,10 @@
   background: darkred;
   width: 100%;
 }
+
 .reqContainer{
   display: flex;
-  margin-left: 18%;
+  margin-left: 20%;
 }
 
 .reqGroup {
@@ -23,7 +24,7 @@ image {
 }
 
 .rightIcon {
-  margin-left: 20%
+  margin-left: 23%
 }
 
 .reqContent {

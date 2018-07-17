@@ -34,7 +34,7 @@ App({
     getAllCompany: "https://www.fundserviceplatform.cn/fundService/api/getAllCompany",
     addUserInfo: "https://www.fundserviceplatform.cn/fundService/api/addUserInfo",
 
-    // 故障信息共享
+    // 故障信息共享（已完成）
     getUserBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getUserBugInfo",
     getMainBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getMainBugInfo",
     getAllVersion: "https://www.fundserviceplatform.cn/fundService/api/getAllVersion",
@@ -52,26 +52,26 @@ App({
     rightArrowImage: "/image/common/rightArrow.png",
 
     // 故障信息中心 - 缺陷搜索页面使用的array
-    // 使用的array(之后使用数据库替换)
-    //
-    //
-    //
-    imgServerURL: "http://www.runoob.com/images/",
-    versionArray: [{
-      version: '20160122X',
-      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
-    }, {
-      version: '20160122D_7',
-      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail2.jpg" //给项目信息中心使用
-    }, {
-      version: '20160122D',
-      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail3.jpg" //给项目信息中心使用
-    }, {
-      version: '20160122I_3',
-      imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
-    }],
+    // // 使用的array(之后使用数据库替换)
+    // //
+    // //
+    // //
+    // imgServerURL: "http://www.runoob.com/images/",
+    // versionArray: [{
+    //   version: '20160122X',
+    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
+    // }, {
+    //   version: '20160122D_7',
+    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail2.jpg" //给项目信息中心使用
+    // }, {
+    //   version: '20160122D',
+    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail3.jpg" //给项目信息中心使用
+    // }, {
+    //   version: '20160122I_3',
+    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
+    // }],
 
-    // 测试场景共建
+    // 测试场景共建（已完成）
     getTop3BusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getTop3BusinessReq",
     addBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/addBusinessReq",
     getScenarioByReqId: "https://www.fundserviceplatform.cn/fundService/api/getScenarioByReqId",
@@ -80,6 +80,7 @@ App({
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
 
     // 项目信息中心使用
+    uniformImgServerURL: "http://www.fundserviceplatform.cn:8080/uniformTest/",
     progressImg: "http://www.fundserviceplatform.cn:8080/uniformTest/progress.png",
     threeLineIcon: "/image/common/threeline.png",
 

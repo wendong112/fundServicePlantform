@@ -19,16 +19,16 @@
 
   <view class="pickerContainer">
   <view class="title">模块</view>
-  <picker bindchange="selectVersion" value="{{array[indexOfVersion].version}}" range="{{array}}" range-key='version'>
+  <picker bindchange="selectVersion" value="{{versionArray[index].versionName}}" range="{{versionArray}}" range-key='versionName'>
     <view class="content">
-      {{array[indexOfVersion].version}}
+      {{versionArray[index].versionName}}
     </view>
   </picker>
   </view>
 
 
   <view class="qualityView">
-    <image class="qualityImage" src="{{array[indexOfVersion].imageURL}}" mode='widthFix'>
+    <image class="qualityImage" src="{{imgSrc}}" mode='widthFix'>
     </image>
   </view>
 </view>

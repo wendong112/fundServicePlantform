@@ -1,6 +1,7 @@
 // pages/uniformTest/uniformTest.js
 
 const app = getApp();
+var versionList = {};
 
 Page({
 
@@ -16,8 +17,9 @@ Page({
     projectProgressImage: app.globalData.progressImg,
 
     // 历次质量报表的版本选择，版本数据
-    array: app.globalData.versionArray,
-    indexOfVersion: 0
+    versionArray: {},
+    index: 0,
+    imgSrc: ""
   },
 
 
@@ -25,6 +27,58 @@ Page({
     * 生命周期函数--监听页面加载
     */
   onLoad: function () {
+    var that = this;
+    // 获取所有的版本
+    wx.showLoading({
+      title: '加载中...',
+    })
+    console.log("获取所有版本")
+    wx.request({
+      url: app.globalData.getAllVersion,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading()
+
+        var list = res.data.getAllVersion;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          versionList = list
+          // 获取当前生产版本
+          var currentVersion = wx.getStorageSync("currentVersionName")
+          var currentIndex = 0;
+
+          // 获取index值
+          for (var i in versionList) {
+            var item = versionList[i]
+            if (item.versionName == currentVersion) {
+              currentIndex = i;
+              break
+            }
+          }
+
+          // 页面设置
+          that.setData({
+            versionArray: list,
+            index: currentIndex,
+            imgSrc: app.globalData.uniformImgServerURL + currentVersion + ".jpg"
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
+    })
   },
 
   /**
@@ -88,10 +142,12 @@ Page({
 
   //历次质量报表，版本选择对应的处理函数
   selectVersion: function (e) {
-    console.log('版本选择改变，携带值为', e.detail.value)
-
+    var index = e.detail.value
+    console.log('版本选择改变，携带值为', index )
+    var tmpVersionName = versionList[index].versionName
     this.setData({
-      indexOfVersion: e.detail.value
+      index: index,
+      imgSrc: app.globalData.uniformImgServerURL + tmpVersionName + ".jpg"
     })
   },
 

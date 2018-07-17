@@ -19,12 +19,11 @@ Page({
     versionChecked: false,
     keywordChecked: false,
 
-    versionArray: [],
+    versionArray: {},
     index: 0,
 
     //缺陷列表
-    defectList: [],
-
+    defectList: {},
   },
 
   /**
@@ -55,8 +54,23 @@ Page({
           });
         } else {
           versionList = list
+          // 获取当前生产版本
+          var currentVersion = wx.getStorageSync("currentVersionName")
+          var currentIndex = 0;
+
+          // 获取index值
+          for (var i in versionList) {
+            var item = versionList[i]
+            if (item.versionName == currentVersion) {
+              currentIndex = i;
+              break
+            }
+          }
+          
+          // 页面设置
           that.setData({
-            versionArray: list
+            versionArray: list,
+            index: currentIndex
           })
         }
       },

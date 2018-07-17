@@ -1,5 +1,6 @@
 // pages/rankList/rankList.js
 const app = getApp();
+var recordArray = {}
 var modifyArray = {}
 
 Page({
@@ -16,11 +17,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     console.log("从数据库中取数据并加值和重新排序")
     var that = this;
     var telNum = wx.getStorageSync("telNum")
     console.log("当前用户的手机号码", telNum)
 
+    console.log("清空待操作的表");
+    modifyArray = {}
+
+    // 更新数据
     wx.showLoading({
       title: '加载中...',
     })
@@ -39,25 +56,30 @@ Page({
             icon: 'loading'
           });
         } else {
-          var result = []
+          var currentRankList = []
           // 添加第一个元素
           for (var i = 0; i < allList.length; i++) {
             if (allList[i].telephone == telNum) {
-              allList[i]["imageSrc"] = app.globalData.grayHeartImg
-              allList[i]["hasChange"] = false
-              result.push(allList[i])
+              if (recordArray[allList[i].serialNo] != undefined) {
+                allList[i]["imageSrc"] = recordArray[allList[i].serialNo].imageSrc
+              } else {
+                allList[i]["imageSrc"] = app.globalData.grayHeartImg
+              }
+              currentRankList.push(allList[i])
             }
           }
 
           // 添加其他元素
           for (var i = 0; i < allList.length; i++) {
-            allList[i]["imageSrc"] = app.globalData.grayHeartImg
-            allList[i]["hasChange"] = false
-            result.push(allList[i])
-
+            if (recordArray[allList[i].serialNo] != undefined) {
+              allList[i]["imageSrc"] = recordArray[allList[i].serialNo].imageSrc
+            } else {
+              allList[i]["imageSrc"] = app.globalData.grayHeartImg
+            }
+            currentRankList.push(allList[i])
           }
           that.setData({
-            listData: result,
+            listData: currentRankList,
           })
         }
       },
@@ -70,20 +92,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    console.log("清空待操作的表");
-    modifyArray = {}
   },
 
   /**
@@ -102,9 +110,9 @@ Page({
           'Content-Type': 'application/json'
         },
         success: function (res) {
-          var result = res.data.modifyLikeCountByPhone
+          var modifyFlag = res.data.modifyLikeCountByPhone
           console.log("操作结果:", res.data)
-          if (result != true) {
+          if (modifyFlag != true) {
             console.log("操作失败")
           } else {
             console.log("操作成功")
@@ -151,31 +159,29 @@ Page({
     console.log("点击的行数为：", index)
 
     var currentList = this.data.listData;
-
     var item = currentList[index]
     if (item) {
-      var hasChange = item.hasChange;
-      if (hasChange !== undefined) {
-        var onum = item.likeCount;
-        if (hasChange) {
-          item.likeCount = (parseInt(onum) - 1);
-          item.hasChange = false;
-          item.imageSrc = app.globalData.grayHeartImg
-        } else {
-          item.likeCount = (parseInt(onum) + 1);
-          item.hasChange = true;
-          item.imageSrc = app.globalData.redHeartImg
-        }
+      // 红心减一,灰心加一
+      var onum = item.likeCount;
+      var image = item.imageSrc;
 
-        // 变化加入modifyList中
-        modifyArray[item.serialNo] = item
-        console.log(modifyArray)
-
-        // 设置界面
-        this.setData({
-          listData: currentList
-        })
+      if (image.indexOf(app.globalData.redHeartImg) != -1) {
+        item.likeCount = (parseInt(onum) - 1);
+        item.imageSrc = app.globalData.grayHeartImg
+      } else {
+        item.likeCount = (parseInt(onum) + 1);
+        item.imageSrc = app.globalData.redHeartImg
       }
+
+      // 变化加入更新数据库的Array和记录Array中
+      recordArray[item.serialNo] = item
+      modifyArray[item.serialNo] = item
+      console.log("需要变化的值为", modifyArray)
+
+      // 设置界面
+      this.setData({
+        listData: currentList
+      })
     }
   }
 })
