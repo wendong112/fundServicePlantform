@@ -12,4 +12,18 @@ public interface PropertyValueMapper {
      * @return defectList
      */
     List<PropertyValue> getAllVersion();
+
+    /**
+     * 列出所有模块
+     *
+     * @return defectList
+     */
+    List<PropertyValue> getAllModule();
+
+    /**
+     * 列出所有缺陷程度
+     *
+     * @return defectList
+     */
+    List<PropertyValue> getAllSeverity();
 }

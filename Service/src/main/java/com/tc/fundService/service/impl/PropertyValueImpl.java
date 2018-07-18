@@ -17,4 +17,14 @@ public class PropertyValueImpl implements PropertyValueService {
     public List<PropertyValue> getAllVersion() {
         return propertyValueMapper.getAllVersion();
     }
+
+    @Override
+    public List<PropertyValue> getAllModule() {
+        return propertyValueMapper.getAllModule();
+    }
+
+    @Override
+    public List<PropertyValue> getAllSeverity() {
+        return propertyValueMapper.getAllSeverity();
+    }
 }

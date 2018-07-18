@@ -66,16 +66,6 @@ public class UserReqAPI {
     }
 
     /**
-     * 插入新用户信息(delete)
-     */
-    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    private Map<String, Object> addUser(@RequestBody UserReq userReq) {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        modelMap.put("addUser", userReqService.addUser(userReq));
-        return modelMap;
-    }
-
-    /**
      * 插入新用户信息
      */
     @RequestMapping(value = "/addUserInfo", method = RequestMethod.POST)

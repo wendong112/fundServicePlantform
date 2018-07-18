@@ -34,20 +34,6 @@ public class UserReqImpl implements UserReqService {
     }
 
     @Override
-    public boolean addUser(UserReq userReq) {
-        try {
-            int effectedNum = userReqMapper.addUser(userReq);
-            if (effectedNum > 0) {
-                return true;
-            } else {
-                throw new RuntimeException("插入新用户失败！");
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("插入新用户失败:" + e.getMessage());
-        }
-    }
-
-    @Override
     public boolean addUserInfo(UserReq userReq) {
         try {
             int effectedNum = userReqMapper.addUserInfo(userReq);

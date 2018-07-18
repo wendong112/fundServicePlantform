@@ -14,6 +14,10 @@ import java.util.Date;
 @Setter
 @Getter
 public class PropertyValue {
-    private Integer versionId;
+    private Integer findVersionId;
     private String versionName;
+    private Integer priorityId;
+    private String priorityName;
+    private Integer severityId;
+    private String severityName;
 }

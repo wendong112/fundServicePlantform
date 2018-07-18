@@ -30,15 +30,6 @@
         FROM company
     </select>
 
-    <insert id="addUser" parameterType="com.tc.fundService.entity.admin.UserReq">
-        INSERT INTO
-        user_information(telephone, wechat_name, user_name, company_id, mail, authorized_flag)
-        SELECT
-        #{telephone}, #{wechatName}, #{userName}, company_id, #{mail}, #{authorizedFlag}
-        FROM company
-        WHERE company_name=#{companyName}
-    </insert>
-
     <insert id="addUserInfo" parameterType="com.tc.fundService.entity.admin.UserReq">
         INSERT INTO
         user_information(telephone, wechat_name, user_name, company_id, mail, authorized_flag)

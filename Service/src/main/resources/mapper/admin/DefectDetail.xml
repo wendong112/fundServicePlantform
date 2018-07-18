@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.DefectDetailMapper">
+    <select id="getDefectById" resultType="com.tc.fundService.entity.admin.DefectDetail">
+        SELECT
+            bug.ID,
+            sts.PROPERTY_VALUE_NAME AS STATUS_NAME,
+            bug.TITLE,
+            IF (bug.ANONYMOUS_FLAG = 2, "匿名", person.USER_NAME) AS USER_NAME,
+            date_format(CREATED_DATE,'%Y-%m-%d %T') AS FORMAT_CREATED_DATE,
+            module.PROPERTY_VALUE_NAME AS PRIORITY_NAME,
+            severity.PROPERTY_VALUE_NAME AS SEVERITY_NAME,
+            findVer.PROPERTY_VALUE_NAME AS FIND_VERSION_NAME,
+            fixVer.PROPERTY_VALUE_NAME AS PLAN_RESOLVED_VERSION_NAME,
+            bug.DEFECT_DESCRIPTION AS DEFECT_DESCRIPTION,
+            bug.EXPECT_DESCRIPTION AS EXPECT_DESCRIPTION,
+            bug.SOLUTION_DESCRIPTION AS SOLUTION_DESCRIPTION
+        FROM
+            defect_details AS bug
+        LEFT JOIN mtf_project_database_10.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
+        LEFT JOIN user_information AS person ON bug.TELEPHONE = person.TELEPHONE
+        LEFT JOIN mtf_project_database_10.property_value_list AS module ON bug.PRIORITY_ID = module.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_10.property_value_list AS severity ON bug.SEVERITY_ID = severity.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_10.property_value_list AS findVer ON bug.FIND_VERSION_ID = findVer.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_10.property_value_list AS fixVer ON bug.PLAN_RESOLVED_VERSION_ID = fixVer.PROPERTY_VALUE_ID
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="addNewDefect" parameterType="com.tc.fundService.entity.admin.DefectDetail">
+        INSERT INTO defect_details (
+            FIND_VERSION_ID,
+            SEVERITY_ID,
+            PRIORITY_ID,
+            STATUS_ID,
+            TELEPHONE,
+            CREATED_DATE,
+            TITLE,
+            DEFECT_DESCRIPTION,
+            EXPECT_DESCRIPTION,
+            SOLUTION_DESCRIPTION,
+            ANONYMOUS_FLAG
+        ) SELECT
+            #{findVersionId},#{severityId},#{priorityId},PROPERTY_VALUE_ID,#{telephone},#{createdDate},#{title},#{defectDescription},#{expectDescription},#{solutionDescription},#{anonymousFlag}
+        FROM
+            mtf_project_database_10.property_value_list AS p0
+        WHERE
+            p0.PROPERTY_VALUE_NAME = "新建"
+        AND p0.PROPERTY_LIST_NAME = "DEFECT_TYP"
+    </insert>
+
+    <update id="modifyDefectById" parameterType="com.tc.fundService.entity.admin.DefectDetail">
+        UPDATE defect_details
+        SET DEFECT_DESCRIPTION=#{defectDescription},EXPECT_DESCRIPTION=#{expectDescription},SOLUTION_DESCRIPTION=#{solutionDescription}
+        WHERE ID = #{id}
+    </update>
+</mapper>

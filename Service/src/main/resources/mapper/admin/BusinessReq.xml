@@ -38,7 +38,13 @@
     </update>
 
     <select id="getScenarioByReqId" resultType="com.tc.fundService.entity.admin.BusinessReq">
-        SELECT *
+        SELECT
+            business_requirement.REQUIREMENT_ID,
+            COMPANY_NAME,
+            PROCESS_STATUS,
+            REQUIREMENT_BRIEF_DESCRIPTION,
+            FATHER_NODE,
+            IFNULL(SCENARIO_NAME,"业务场景图待更新") AS SCENARIO_NAME
         FROM business_requirement
         LEFT JOIN test_scenarios
         ON business_requirement.requirement_id = test_scenarios.requirement_id

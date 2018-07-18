@@ -5,11 +5,31 @@
 <mapper namespace="com.tc.fundService.mapper.defect.PropertyValueMapper">
     <select id="getAllVersion" resultType="com.tc.fundService.entity.defect.PropertyValue">
         SELECT
-            PROPERTY_VALUE_ID AS VERSION_ID,
+            PROPERTY_VALUE_ID AS FIND_VERSION_ID,
             PROPERTY_VALUE_NAME AS VERSION_NAME
         FROM
             property_value_list
         WHERE PROPERTY_LIST_NAME = "ENVIRONMENT_VERSION"
+        ORDER BY PROPERTY_VALUE_ID ASC;
+    </select>
+
+    <select id="getAllModule" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS PRIORITY_ID,
+            PROPERTY_VALUE_NAME AS PRIORITY_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = "MODULE_TYPE"
+        ORDER BY PROPERTY_VALUE_ID ASC;
+    </select>
+
+    <select id="getAllSeverity" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS SEVERITY_ID,
+            PROPERTY_VALUE_NAME AS SEVERITY_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = "SEVERITY"
         ORDER BY PROPERTY_VALUE_ID ASC;
     </select>
 </mapper>

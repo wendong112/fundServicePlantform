@@ -28,13 +28,6 @@ public interface UserReqMapper {
     List<UserReq> getAllCompany();
 
     /**
-     * 插入新用户(delete)
-     *
-     * @param userReq
-     */
-    int addUser(UserReq userReq);
-
-    /**
      * 插入新用户
      *
      * @param userReq

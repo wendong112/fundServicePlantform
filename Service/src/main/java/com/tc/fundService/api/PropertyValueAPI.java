@@ -29,4 +29,28 @@ public class PropertyValueAPI {
         modelMap.put("getAllVersion", list);
         return modelMap;
     }
+
+    /**
+     * 获取所有模块
+     */
+    @RequestMapping(value = "/getAllModule", method = RequestMethod.GET)
+    private Map<String, Object> getAllModule() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<PropertyValue> list = new ArrayList<PropertyValue>();
+        list = propertyValueService.getAllModule();
+        modelMap.put("getAllModule", list);
+        return modelMap;
+    }
+
+    /**
+     * 获取所有缺陷程度
+     */
+    @RequestMapping(value = "/getAllSeverity", method = RequestMethod.GET)
+    private Map<String, Object> getAllSeverity() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<PropertyValue> list = new ArrayList<PropertyValue>();
+        list = propertyValueService.getAllSeverity();
+        modelMap.put("getAllSeverity", list);
+        return modelMap;
+    }
 }

@@ -30,11 +30,6 @@ public interface UserReqService {
     List<UserReq> getAllCompany();
 
     /**
-     * 插入注册的用户(delete)
-     */
-    boolean addUser(UserReq userReq);
-
-    /**
      * 插入注册的用户
      */
     boolean addUserInfo(UserReq userReq);
