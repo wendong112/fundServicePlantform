@@ -319,12 +319,6 @@ Page({
         }
       })
     }
-
-    // 上传照片
-    //
-    //
-    //
-    // this.upload(defectId)
   },
 
 

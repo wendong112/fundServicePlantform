@@ -40,7 +40,7 @@
  
  <!-- 具体问题描述 -->
   <view class="redTitle">期望结果</view>
-  <textarea class="shortArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
+  <textarea cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
 
   <!-- 解决方案 -->
   <view class="redTitle">解决方案</view>
@@ -55,7 +55,7 @@
 
     <scroll-view class='scrollView' scroll-y>
       <view class="personComment" wx:for="{{commentArray}}" wx:key="messageId">
-        <view class="personTitle">{{item.userName}}（{{item.companyName}}）:</view>
+        <view class="personTitle">{{item.userName}}（{{item.companyName}}） {{item.formatMessageDate}}:</view>
         <view>{{item.messageContent}}</view>
       </view>
     </scroll-view>

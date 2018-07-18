@@ -67,12 +67,14 @@ Page({
   onShareAppMessage: function () {
   
   },
-
+  
   reqSubmit: function(e) {
+    console.log("触发提交操作")
     var formData = e.detail.value;
     var that = this;
 
     if (this.checkBriefNotEmpty(formData)) {
+      console.log("开始提交")
       // 获取其他数据
       var telephone = wx.getStorageSync("telNum");
       var processStatus = "计划阶段"
@@ -138,7 +140,8 @@ Page({
   // 检查需求概述已经填写
   checkBriefNotEmpty: function (param) {
     console.log("检查需求概述是否填写")
-    if (param.requirementBriefDescription.length == 0 || param.requirementBriefDescription.trim().length == 0) {
+    var briefDes = param.requirementBriefDescription;
+    if (briefDes.length == 0 || briefDes.trim().length == 0) {
       wx.showToast({
         title: '需求概述必填',
         icon: "loading"

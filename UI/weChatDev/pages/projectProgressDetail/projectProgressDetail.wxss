@@ -2,7 +2,7 @@
 .titleContainer{
   display: flex;
   background-color: darkred;
-  line-height: 75rpx;
+  line-height: 69rpx;
 }
 
 .pickerImage {

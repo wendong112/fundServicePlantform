@@ -6,7 +6,8 @@
 
 <!--项目进展-->
 <view hidden="{{currentTab!==0}}">
-  <view class="newsUpdate"><label class="strong">最新动态： </label>{{newsContent}}</view>
+  <view class="newsUpdate">
+    <label class="strong">最新动态： </label>{{newsContent}}</view>
   <view class="projectProgressView">
     <view class="briefContent">点击图片查看项目详细信息</view>
     <image class="projectProgressImage" src="{{projectProgressImage}}" bindtap='clickProjectProcess' mode='widthFix'>
@@ -16,16 +17,14 @@
 
 <!--历次质量报表-->
 <view hidden="{{currentTab!==1}}">
-
   <view class="pickerContainer">
-  <view class="title">模块</view>
-  <picker bindchange="selectVersion" value="{{versionArray[index].versionName}}" range="{{versionArray}}" range-key='versionName'>
-    <view class="content">
-      {{versionArray[index].versionName}}
-    </view>
-  </picker>
+    <view class="title">版本</view>
+    <picker bindchange="selectVersion" value="{{versionArray[index].versionName}}" range="{{versionArray}}" range-key='versionName'>
+      <view class="content">
+        {{versionArray[index].versionName}}
+      </view>
+    </picker>
   </view>
-
 
   <view class="qualityView">
     <image class="qualityImage" src="{{imgSrc}}" mode='widthFix'>

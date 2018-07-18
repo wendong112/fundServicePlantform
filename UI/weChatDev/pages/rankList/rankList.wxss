@@ -8,7 +8,7 @@
   display: flex;
   text-align: center;
   justify-content: space-between;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   height: 100rpx;
   margin-top: 1%;
   font-size: 85%;
@@ -23,22 +23,11 @@
 
 .ownerSerialNo {
   font-size: 80%;
-  padding-top:2%;
+  padding-top: 2%;
   font-weight: 200;
-  color: gray
+  color: gray;
 }
 
-.addColor {
-  color: darkred
-}
-
-.ownerTd {
-  padding-top: 3%;
-}
-
-.likeOwner{
-  margin-top: 2%;
-}
 
 .td1 {
   margin-left: 3%;
@@ -56,10 +45,22 @@
   padding-right: 3%;
 }
 
+.addColor {
+  color: darkred;
+}
+
+.ownerTd {
+  padding-top: 3%;
+}
+
 .td4 {
   width: 15%;
-  display:column;
+  display: column;
   margin-top: 2%;
+}
+
+.likeOwner {
+  margin-top: 4%;
 }
 
 .td1, .td2, .td3 {
@@ -72,9 +73,10 @@ label {
 }
 
 /* 图标背景色 */
+
 .redStar {
-  width:50rpx;
-  height:50rpx
+  width: 42rpx;
+  height: 42rpx;
 }
 
 .bg0 {
@@ -104,9 +106,10 @@ label {
 .bg {
   background: lightgray;
   color: white;
-  font-weight: 600;  
+  font-weight: 600;
 }
-.agreeIcon{
-  height:31rpx;
-  width:31rpx;
+
+.agreeIcon {
+  height: 31rpx;
+  width: 31rpx;
 }

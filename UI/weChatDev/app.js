@@ -51,26 +51,6 @@ App({
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
     rightArrowImage: "/image/common/rightArrow.png",
 
-    // 故障信息中心 - 缺陷搜索页面使用的array
-    // // 使用的array(之后使用数据库替换)
-    // //
-    // //
-    // //
-    // imgServerURL: "http://www.runoob.com/images/",
-    // versionArray: [{
-    //   version: '20160122X',
-    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
-    // }, {
-    //   version: '20160122D_7',
-    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail2.jpg" //给项目信息中心使用
-    // }, {
-    //   version: '20160122D',
-    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail3.jpg" //给项目信息中心使用
-    // }, {
-    //   version: '20160122I_3',
-    //   imageURL: "http://www.fundserviceplatform.cn:8080/uniformTest/detail1.jpg" //给项目信息中心使用
-    // }],
-
     // 测试场景共建（已完成）
     getTop3BusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getTop3BusinessReq",
     addBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/addBusinessReq",
