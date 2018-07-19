@@ -27,7 +27,8 @@
   </view>
 
   <view class="qualityView">
-    <image class="qualityImage" src="{{imgSrc}}" mode='widthFix'>
+    <view class="qualityError" hidden='{{errorHidden}}'>暂无测试报告</view>
+    <image class="qualityImage" binderror='imageNotShow' bindload='imageShow' src="{{imgSrc}}" mode='widthFix'>
     </image>
   </view>
 </view>

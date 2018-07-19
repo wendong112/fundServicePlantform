@@ -146,7 +146,7 @@ Page({
           console.log("弹出提示信息")
           wx.showModal({
             title: '温馨提示',
-            content: '留言插入成功！',
+            content: '留言提交成功！',
             showCancel: false,
             confrimText: "确定",
             confirmColor: "#8B0000",

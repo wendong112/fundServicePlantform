@@ -9,15 +9,19 @@
   </view>
 
   <view class="detailContainer">
-    <view class="title startTitle">缺陷描述</view>
-    <input class="longContent disableColor" type="text" disabled='true' value="{{defectArray.title}}" />
+    <view class="title startTitle">缺陷概述</view>
+    <!-- <input class="longContent disableColor" type="text" disabled='true' value="{{defectArray.title}}" /> -->
+    <view class="longContent longContentView disableColor">{{defectArray.title}}</view>
   </view>
 
   <view class="detailContainer">
     <view class="title startTitle">提交人员</view>
     <input class="content disableColor" type="text" disabled='true' value="{{defectArray.userName}}" />
     <view class="title rightTitle">提交时间</view>
-    <input class="content disableColor" type="text" disabled='true' value="{{defectArray.formatCreatedDate}}" />
+    <!-- <input class="content disableColor" type="text" value="{{defectArray.formatCreatedDate}}" /> -->
+    <scroll-view scroll-x="true" class="content disableColor">
+      <view class="viewContent">{{defectArray.formatCreatedDate}}</view>
+    </scroll-view>
   </view>
 
   <view class="detailContainer">
@@ -36,15 +40,15 @@
 
   <!-- 具体问题描述 -->
   <view class="redTitle">缺陷描述</view>
-  <textarea cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
- 
- <!-- 具体问题描述 -->
+  <textarea class="defectTextArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
+
+  <!-- 具体问题描述 -->
   <view class="redTitle">期望结果</view>
-  <textarea cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
+  <textarea class="defectTextArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
 
   <!-- 解决方案 -->
   <view class="redTitle">解决方案</view>
-  <textarea class="shortArea" cursor-spacing="180" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
+  <textarea class="defectTextArea shortArea" cursor-spacing="180" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
 
   <!-- 评论面板 -->
   <view class="redTitle">评论面板</view>

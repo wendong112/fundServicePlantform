@@ -2,6 +2,7 @@
 
 const app = getApp();
 var versionList = {};
+var selectVersionName = wx.getStorageSync("currentVersionName");
 
 Page({
 
@@ -14,11 +15,12 @@ Page({
 
     // 项目进度
     newsContent: "2018年7月初行业测试信息共享平台正式对客户开放试用，目前已得到数家基金公司的强烈号召与对应！",
-    projectProgressImage: app.globalData.progressImg,
+    projectProgressImage: app.globalData.progressImg +"?v=" + Math.random() * 9999 + 1,
 
     // 历次质量报表的版本选择，版本数据
     versionArray: {},
     index: 0,
+    errorHidden: true,
     imgSrc: ""
   },
 
@@ -27,58 +29,10 @@ Page({
     * 生命周期函数--监听页面加载
     */
   onLoad: function () {
-    var that = this;
-    // 获取所有的版本
-    wx.showLoading({
-      title: '加载中...',
-    })
-    console.log("获取所有版本")
-    wx.request({
-      url: app.globalData.getAllVersion,
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        wx.hideLoading()
-
-        var list = res.data.getAllVersion;
-        console.log("查询结果:", res.data)
-        if (list == undefined) {
-          wx.showToast({
-            title: "连接失败",
-            icon: 'loading'
-          });
-        } else {
-          versionList = list
-          // 获取当前生产版本
-          var currentVersion = wx.getStorageSync("currentVersionName")
-          var currentIndex = 0;
-
-          // 获取index值
-          for (var i in versionList) {
-            var item = versionList[i]
-            if (item.versionName == currentVersion) {
-              currentIndex = i;
-              break
-            }
-          }
-
-          // 页面设置
-          that.setData({
-            versionArray: list,
-            index: currentIndex,
-            imgSrc: app.globalData.uniformImgServerURL + currentVersion + ".jpg"
-          })
-        }
-      },
-      fail: function () {
-        wx.hideLoading()
-
-        wx.showToast({
-          title: '查询失败',
-          icon: "loading"
-        })
-      }
-    })
+    // 获取当前生产版本
+    console.log("获取当前生产版本")
+    var currentVersion = wx.getStorageSync("currentVersionName")
+    this.showReport({"currentVersionName": currentVersion})
   },
 
   /**
@@ -112,9 +66,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function (e) {
     wx.showNavigationBarLoading()
-    this.onLoad()
+    this.showReport({ "currentVersionName": selectVersionName })
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
   },
@@ -140,17 +94,92 @@ Page({
     })
   },
 
-  //历次质量报表，版本选择对应的处理函数
-  selectVersion: function (e) {
-    var index = e.detail.value
-    console.log('版本选择改变，携带值为', index )
-    var tmpVersionName = versionList[index].versionName
-    this.setData({
-      index: index,
-      imgSrc: app.globalData.uniformImgServerURL + tmpVersionName + ".jpg"
+  showReport: function(e) {
+    var that = this;
+    var currentVersion = e.currentVersionName
+    console.log("展示报告的版本名称", currentVersion)
+
+    // 获取所有的版本
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getAllVersion,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading()
+
+        var list = res.data.getAllVersion;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          versionList = list
+          var currentIndex = 0;
+
+          // 获取index值
+          for (var i in versionList) {
+            var item = versionList[i]
+            if (item.versionName == currentVersion) {
+              console.log("获取index", i)
+              currentIndex = i;
+              break
+            }
+          }
+
+          // 页面设置
+          that.setData({
+            versionArray: list,
+            index: currentIndex,
+            imgSrc: app.globalData.uniformImgServerURL + currentVersion + ".jpg?v=" + Math.random() * 9999 + 1
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
     })
   },
 
+  //历次质量报表，版本选择对应的处理函数
+  selectVersion: function (e) {
+    var that = this;
+    var index = e.detail.value
+
+    console.log('版本选择改变，携带值为', index )
+    var tmpVersionName = versionList[index].versionName
+    console.log("选中版本为", tmpVersionName)
+
+    // 设置选中的版本名称
+    selectVersionName = tmpVersionName
+
+    that.setData({
+      index: index,
+      imgSrc: app.globalData.uniformImgServerURL + tmpVersionName + ".jpg?v="+Math.random()*9999+1
+    })
+  },
+
+  imageNotShow: function(e) {
+    this.setData({
+      errorHidden: false
+    })
+  },
+
+  imageShow: function(e) {
+    this.setData({
+      errorHidden: true
+    })
+  },
+  
   // 点击标签页进行切换
   navbarTap: function (e) {
     this.setData({

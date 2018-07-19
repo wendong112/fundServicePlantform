@@ -56,6 +56,12 @@ picker {
   margin-right: 5%;
 }
 
+.qualityError {
+  text-align: center;
+  font-size: 90%;
+  margin-top: 45%;
+}
+
 .qualityImage {
   width: 100%; 
   text-align: center;

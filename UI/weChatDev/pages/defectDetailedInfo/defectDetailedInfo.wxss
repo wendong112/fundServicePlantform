@@ -34,9 +34,9 @@
 .content {
   border:3rpx solid darkred;
   border-radius: 15rpx;
-
-  max-width: 25%;
-  min-width: 20%;
+  padding-left: 1%;
+  max-width: 27%;
+  min-width: 27%;
 }
 
 .disableColor {
@@ -46,13 +46,26 @@
 .longContent {
   border:3rpx solid darkred;
   border-radius: 15rpx;
+  padding-left: 1%;
+  max-width: 76%;
+  min-width: 76%;
+}
 
-  max-width: 80%;
-  min-width: 70%;
+.longContentView {
+  padding-top:2%;
+  padding-bottom:2%
+}
+
+scroll-view {
+  white-space: nowrap
+}
+
+.viewContent{
+  margin-top:3%
 }
 
 /* 问题部分 */
-textarea {
+.defectTextArea {
   margin: 1% 1% 1% 4%;
   font-size: 70%;
   padding: 2%;

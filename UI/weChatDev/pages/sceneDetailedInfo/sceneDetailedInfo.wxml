@@ -13,7 +13,8 @@
 </view>
 <view class="detailContainer">
   <view class="title startTitle">需求概述</view>
-  <input class="longContent disableColor" type="text" disabled='true' value="{{sceneArray[0].requirementBriefDescription}}" />
+  <!-- <input class="longContent disableColor" type="text" disabled='true' value="{{sceneArray[0].requirementBriefDescription}}" /> -->
+  <view class="longContent longContentView disableColor">{{sceneArray[0].requirementBriefDescription}}   </view>
 </view>
 
 <!-- 业务场景导图 -->

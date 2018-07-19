@@ -94,7 +94,7 @@ image {
 
 .more{
   text-align: right;
-  font-size: 60%;
+  font-size: 70%;
   margin-right: 4%;
   margin-bottom: 1%;
 }
