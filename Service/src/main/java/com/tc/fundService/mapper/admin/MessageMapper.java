@@ -1,6 +1,6 @@
-package com.tc.fundService.mapper.defect;
+package com.tc.fundService.mapper.admin;
 
-import com.tc.fundService.entity.defect.Message;
+import com.tc.fundService.entity.admin.Message;
 
 import java.util.List;
 

@@ -13,7 +13,7 @@
             ) AS bug_fix_num
         FROM
             defect_details AS p0
-        LEFT JOIN mtf_project_database_10.property_value_list AS p1 ON p0.find_version_id = p1.property_value_id
+        LEFT JOIN mtf_project_database_9.property_value_list AS p1 ON p0.find_version_id = p1.property_value_id
         LEFT JOIN user_information AS p2 ON p0.find_version_id = p2.current_production_version_id
         WHERE p2.telephone = #{telephone}
     </select>
@@ -27,7 +27,7 @@
             p2.ID AS MAIN_FLAG
         FROM
             defect_details AS p0
-        LEFT JOIN mtf_project_database_10.property_value_list AS p1 ON p0.FIND_VERSION_ID = p1.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS p1 ON p0.FIND_VERSION_ID = p1.PROPERTY_VALUE_ID
         LEFT JOIN main_version AS p2 ON p0.FIND_VERSION_ID = p2.MAIN_VERSION_ID
         WHERE NOT ISNULL(p2.ID) and NOT ISNULL(p0.TOP_FLAG)
         ORDER BY p2.ID ASC, p0.TOP_FLAG ASC;
@@ -48,8 +48,8 @@
             defect_details AS bug
         LEFT JOIN user_information AS person ON bug.TELEPHONE = person.TELEPHONE
         LEFT JOIN company AS cmp ON person.COMPANY_ID = cmp.COMPANY_ID
-        LEFT JOIN mtf_project_database_10.property_value_list AS ver ON bug.FIND_VERSION_ID = ver.PROPERTY_VALUE_ID
-        LEFT JOIN mtf_project_database_10.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS ver ON bug.FIND_VERSION_ID = ver.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
         ORDER BY ID DESC
     </select>
 

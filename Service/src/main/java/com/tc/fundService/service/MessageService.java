@@ -1,6 +1,6 @@
 package com.tc.fundService.service;
 
-import com.tc.fundService.entity.defect.Message;
+import com.tc.fundService.entity.admin.Message;
 
 import java.util.List;
 

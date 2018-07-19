@@ -1,4 +1,4 @@
-package com.tc.fundService.entity.defect;
+package com.tc.fundService.entity.admin;
 
 import java.util.Date;
 

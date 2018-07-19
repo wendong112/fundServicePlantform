@@ -19,13 +19,13 @@
             bug.SOLUTION_DESCRIPTION AS SOLUTION_DESCRIPTION
         FROM
             defect_details AS bug
-        LEFT JOIN mtf_project_database_10.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
         LEFT JOIN user_information AS person ON bug.TELEPHONE = person.TELEPHONE
-        LEFT JOIN mtf_project_database_10.property_value_list AS module ON bug.PRIORITY_ID = module.PROPERTY_VALUE_ID
-        LEFT JOIN mtf_project_database_10.property_value_list AS severity ON bug.SEVERITY_ID = severity.PROPERTY_VALUE_ID
-        LEFT JOIN mtf_project_database_10.property_value_list AS findVer ON bug.FIND_VERSION_ID = findVer.PROPERTY_VALUE_ID
-        LEFT JOIN mtf_project_database_10.property_value_list AS fixVer ON bug.PLAN_RESOLVED_VERSION_ID = fixVer.PROPERTY_VALUE_ID
-        WHERE ID = #{id}
+        LEFT JOIN mtf_project_database_9.property_value_list AS module ON bug.PRIORITY_ID = module.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS severity ON bug.SEVERITY_ID = severity.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS findVer ON bug.FIND_VERSION_ID = findVer.PROPERTY_VALUE_ID
+        LEFT JOIN mtf_project_database_9.property_value_list AS fixVer ON bug.PLAN_RESOLVED_VERSION_ID = fixVer.PROPERTY_VALUE_ID
+        WHERE bug.ID = #{id}
     </select>
 
     <insert id="addNewDefect" parameterType="com.tc.fundService.entity.admin.DefectDetail">
@@ -44,7 +44,7 @@
         ) SELECT
             #{findVersionId},#{severityId},#{priorityId},PROPERTY_VALUE_ID,#{telephone},#{createdDate},#{title},#{defectDescription},#{expectDescription},#{solutionDescription},#{anonymousFlag}
         FROM
-            mtf_project_database_10.property_value_list AS p0
+            mtf_project_database_9.property_value_list AS p0
         WHERE
             p0.PROPERTY_VALUE_NAME = "新建"
         AND p0.PROPERTY_LIST_NAME = "DEFECT_TYP"

@@ -10,6 +10,7 @@
         FROM
             property_value_list
         WHERE PROPERTY_LIST_NAME = "ENVIRONMENT_VERSION"
+        AND INSTR(PROPERTY_VALUE_NAME, '_') = 0
         ORDER BY PROPERTY_VALUE_ID ASC;
     </select>
 

@@ -1,6 +1,6 @@
 package com.tc.fundService.api;
 
-import com.tc.fundService.entity.defect.Message;
+import com.tc.fundService.entity.admin.Message;
 import com.tc.fundService.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

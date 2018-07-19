@@ -1,7 +1,7 @@
 package com.tc.fundService.service.impl;
 
-import com.tc.fundService.entity.defect.Message;
-import com.tc.fundService.mapper.defect.MessageMapper;
+import com.tc.fundService.entity.admin.Message;
+import com.tc.fundService.mapper.admin.MessageMapper;
 import com.tc.fundService.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tc.fundService.mapper.defect.MessageMapper">
-    <select id="getMessageByDefectId" resultType="com.tc.fundService.entity.defect.Message">
+<mapper namespace="com.tc.fundService.mapper.admin.MessageMapper">
+    <select id="getMessageByDefectId" resultType="com.tc.fundService.entity.admin.Message">
         SELECT
             MESSAGE_ID,
             DEFECT_ID,
@@ -12,14 +12,14 @@
             person.USER_NAME AS USER_NAME,
             company.COMPANY_NAME AS COMPANY_NAME
         FROM message
-        LEFT JOIN testmgmtplatform_admin.user_information AS person ON message.TELEPHONE = person.TELEPHONE
-        LEFT JOIN testmgmtplatform_admin.company AS company ON person.COMPANY_ID = company.COMPANY_ID
+        LEFT JOIN user_information AS person ON message.TELEPHONE = person.TELEPHONE
+        LEFT JOIN company AS company ON person.COMPANY_ID = company.COMPANY_ID
         WHERE
             DEFECT_ID = #{defectId}
         ORDER BY MESSAGE_DATE DESC;
     </select>
 
-    <insert id="addMessage" parameterType="com.tc.fundService.entity.defect.Message">
+    <insert id="addMessage" parameterType="com.tc.fundService.entity.admin.Message">
         INSERT INTO message(DEFECT_ID, TELEPHONE, MESSAGE_CONTENT, MESSAGE_DATE)
         VALUES(#{defectId}, #{telephone}, #{messageContent},#{messageDate})
     </insert>
