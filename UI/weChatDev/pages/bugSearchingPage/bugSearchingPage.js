@@ -369,7 +369,14 @@ Page({
         console.log("只查看关键字");
         for (var i in searchBugList) {
           var item = searchBugList[i]
-          if (item.title.indexOf(content) != -1 || item.defectDescription.indexOf(content) != -1) {
+          // 关键字搜索范围
+          var tmpTitle = String(item.title).toLowerCase();
+          var tmpDefectDescription = String(item.defectDescription).toLowerCase();
+          var tmpStatusName = String(item.statusName).toLowerCase();
+          var tmpUserName = String(item.userName).toLowerCase();
+          var tmpContent = String(content).toLowerCase();
+
+          if (tmpTitle.indexOf(tmpContent) != -1 || tmpDefectDescription.indexOf(tmpContent) != -1 || tmpStatusName.indexOf(tmpContent) != -1 || tmpUserName.indexOf(tmpContent) != -1) {
             list.push(item)
           }
         }

@@ -29,7 +29,6 @@
 }
 
 /* 查看历次质量报表 */
-
 .pickerContainer {
   display: flex;
   font-size: 80%;

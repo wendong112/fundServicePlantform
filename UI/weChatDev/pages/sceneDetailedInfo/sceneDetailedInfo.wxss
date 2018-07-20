@@ -36,8 +36,8 @@
   border:3rpx solid darkred;
   border-radius: 15rpx;
   padding-left: 1%;
-  max-width: 27%;
-  min-width: 27%;
+  max-width: 28%;
+  min-width: 28%;
 }
 
 .disableColor {
@@ -59,7 +59,7 @@
 
 /*场景导图*/
 .sceneContainer {
-  font-size: 75%;
+  font-size: 85%;
   margin-left: 4%;
   margin-right: 4%;
 }
@@ -70,8 +70,8 @@
 
 /* 业务场景导图样式 */
 .iconType {
-  width: 30rpx;
-  height:30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .pad3 {
@@ -83,11 +83,11 @@
 }
 
 .pad7 {
-  padding-left: 15%
+  padding-left: 17%
 }
 
 .pad9 {
-  padding-left: 25%
+  padding-left: 27%
 }
 
 /* 下载样式 */

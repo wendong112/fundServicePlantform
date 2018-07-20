@@ -162,7 +162,11 @@ Page({
         console.log("只查看关键字");
         for (var i in allList) {
           var item = allList[i]
-          if (item.requirementBriefDescription.indexOf(content) != -1 || item.requirementDescription.indexOf(content) != -1) {
+          // 搜索范围
+          var tmpBriefDesc = String(item.requirementBriefDescription).toLowerCase()
+          var tmpDetailDesc = String(item.requirementDescription).toLowerCase()
+          var tmpContent = String(content).toLowerCase()
+          if (tmpBriefDesc.indexOf(tmpContent) != -1 || tmpDetailDesc.indexOf(tmpContent) != -1) {
             list.push(item)
           }
         }

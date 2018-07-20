@@ -4,7 +4,7 @@
     <view class="searchForm">
       <view class="searchBox">
         <icon class="searchIcon" type="search" ></icon>
-        <input type="text" class="searchInput" placeholder="请输入搜索内容" name="searchContent" value="{{searchContent}}" />
+        <input type="text" class="searchInput" placeholder="搜索范围:概述,详情" name="searchContent" value="{{searchContent}}" />
       </view>
     </view>
     <button class="searchBtn" style="background: darkred;" form-type="submit">搜索</button>
