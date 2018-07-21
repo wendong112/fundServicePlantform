@@ -29,4 +29,4 @@
 <view class="downloadLink">
   <label class='line' id='{{sceneArray[0].requirementId}}' bindtap='clickDownload'>业务场景流程下载</label>
 </view>
-<view class="savePath" wx:if="{{savePath.length > 0}}">保存位置: {{savePath}}</view>
+<!-- <view class="savePath" wx:if="{{savePath.length > 0}}">保存位置: {{savePath}}</view> -->

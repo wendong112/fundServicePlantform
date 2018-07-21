@@ -15,7 +15,7 @@ Page({
 
     // 项目进度
     newsContent: "2018年7月初行业测试信息共享平台正式对客户开放试用，目前已得到数家基金公司的强烈号召与对应！",
-    projectProgressImage: app.globalData.progressImg +"?v=" + Math.random() * 9999 + 1,
+    projectProgressImage: "",
 
     // 历次质量报表的版本选择，版本数据
     versionArray: {},
@@ -32,6 +32,9 @@ Page({
     // 获取当前生产版本
     console.log("获取当前生产版本")
     var currentVersion = wx.getStorageSync("currentVersionName")
+    this.setData({
+      projectProgressImage: app.globalData.progressImg
+    })
     this.showReport({"currentVersionName": currentVersion})
   },
 
@@ -68,6 +71,9 @@ Page({
    */
   onPullDownRefresh: function (e) {
     wx.showNavigationBarLoading()
+    this.setData({
+      projectProgressImage: app.globalData.progressImg
+    })
     this.showReport({ "currentVersionName": selectVersionName })
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh()
@@ -135,7 +141,7 @@ Page({
           that.setData({
             versionArray: list,
             index: currentIndex,
-            imgSrc: app.globalData.uniformImgServerURL + currentVersion + ".jpg?v=" + Math.random() * 9999 + 1
+            imgSrc: app.globalData.uniformImgServerURL + currentVersion + ".png"
           })
         }
       },
@@ -164,7 +170,7 @@ Page({
 
     that.setData({
       index: index,
-      imgSrc: app.globalData.uniformImgServerURL + tmpVersionName + ".jpg?v="+Math.random()*9999+1
+      imgSrc: app.globalData.uniformImgServerURL + tmpVersionName + ".png"
     })
   },
 

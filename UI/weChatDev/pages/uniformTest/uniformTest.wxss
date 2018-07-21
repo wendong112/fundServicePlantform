@@ -1,8 +1,10 @@
 /* pages/uniformTest/uniformTest.wxss */
+
 /**index.wxss**/
 @import "/common/navbarStyle.wxss";
 
 /* 查看报告 */
+
 .newsUpdate {
   font-size: 75%;
   padding: 2% 10%;
@@ -18,7 +20,7 @@
   color: lightgray;
 }
 
-.projectProgressView{
+.projectProgressView {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -26,14 +28,17 @@
 
 .projectProgressImage {
   width: 94.5%;
+  min-height: 800rpx
 }
 
 /* 查看历次质量报表 */
+
 .pickerContainer {
   display: flex;
   font-size: 80%;
   margin-top: 3%;
 }
+
 picker {
   min-width: 40%;
 }
@@ -49,7 +54,7 @@ picker {
   border: 2rpx darkred solid;
 }
 
-.qualityView{
+.qualityView {
   padding: 5%;
   margin-left: 5%;
   margin-right: 5%;
@@ -62,6 +67,6 @@ picker {
 }
 
 .qualityImage {
-  width: 100%; 
+  width: 100%;
   text-align: center;
 }

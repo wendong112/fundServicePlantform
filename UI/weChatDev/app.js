@@ -56,10 +56,11 @@ App({
     addBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/addBusinessReq",
     getScenarioByReqId: "https://www.fundserviceplatform.cn/fundService/api/getScenarioByReqId",
     getAllBusinessReq: "https://www.fundserviceplatform.cn/fundService/api/getAllBusinessReq",
+    downloadURL: "https://www.fundserviceplatform.cn/fundService/api/downloadFile",
     reqImg: "/image/testInformationShare/requirementSubmit.png",
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
 
-    // 项目信息中心使用
+    // 项目信息中心使用（已完成）
     uniformImgServerURL: "http://www.fundserviceplatform.cn:8080/uniformTest/",
     progressImg: "http://www.fundserviceplatform.cn:8080/uniformTest/progress.png",
     threeLineIcon: "/image/common/threeline.png",

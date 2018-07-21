@@ -165,10 +165,10 @@ Page({
   },
 
   clickDownload: function(e) {
-    var id = e.target.id;
+    var fileName = e.target.id;
     var that = this;
-    console.log("准备下载的id", id);
-    if (id == "" || id == undefined) {
+    console.log("准备下载:", fileName);
+    if (fileName == "" || fileName == undefined) {
         console.log("无法下载")
 
         wx.showToast({
@@ -176,11 +176,13 @@ Page({
           icon: "loading"
         })
     } else {
-      //
-      // 需要确认并修改
-      //
-      var url = "http://www.fundserviceplatform.cn:8080/test.docx";
+      var url = app.globalData.downloadURL+ "?fileName=" + fileName + ".docx";
       console.log("下载链接为：", url)
+
+      wx.showToast({
+        title: '准备下载...',
+        icon: "loading"
+      })
 
       wx.downloadFile({
         url: url,
@@ -194,12 +196,23 @@ Page({
                 title: '下载成功',
               })
               console.log("下载后信息：", res)
+
               that.setData({
                 savePath: res.savedFilePath
               })
 
               wx.openDocument({
                 filePath: res.savedFilePath,
+                success: function (res) {
+                  console.log("打开成功", res)
+                },
+                fail: function (res) {
+                  console.log("打开失败", res)
+                  wx.showToast({
+                    title: '下载失败',
+                    icon: "loading"
+                  })
+                }
               })
             }
           })

@@ -17,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+
   },
 
   /**
@@ -30,7 +31,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.showModal({
+      title: '温馨提示',
+      content: '由于微信缺陷，每个区域输入后请点击键盘上的“完成”； 若有遗漏，可重新点击输入区域，之后点击键盘上的“完成”',
+      showCancel: false,
+      confrimText: "确定",
+      confirmColor: "#8B0000"
+    })
   },
 
   /**
