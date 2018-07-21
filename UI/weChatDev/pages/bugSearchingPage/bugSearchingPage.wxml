@@ -5,7 +5,7 @@
     <view class="searchForm">
       <view class="searchBox">
         <icon class="searchIcon" type="search"></icon>
-        <input type="text" hidden='{{inputHidden}}' class="searchInput" placeholder="请输入搜索内容" name="searchContent" value="{{searchContent}}" />
+        <input type="text" hidden='{{inputHidden}}' class="searchInput" placeholder="搜索范围:概述,详情,状态,提交人" name="searchContent" value="{{searchContent}}" />
         <picker hidden='{{pickerHidden}}' bindchange="chooseVersion" name="versionName" value="{{versionArray[index].versionName}}" range="{{versionArray}}" range-key='versionName'>
           <view hidden='{{pickerHidden}}' class="searchPicker">{{versionArray[index].versionName}}
           </view>

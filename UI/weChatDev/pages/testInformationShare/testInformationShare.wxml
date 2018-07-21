@@ -19,7 +19,4 @@
   <view class="reqDesc">
     <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.formatCreateDate}}\n共建伙伴：{{item.companyName}}\n详情：{{item.requirementDescription}}</text>
   </view>
-  <view class="viewDetail" id='{{item.requirementId}}' bindtap='clickSpecScene'>
-    >>> 查看详情
-  </view>
 </view>
