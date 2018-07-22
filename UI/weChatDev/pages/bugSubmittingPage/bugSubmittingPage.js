@@ -1,7 +1,5 @@
-
 const app = getApp();
-
-var allImageArray = []
+var allImageArray = [];
 
 Page({
 
@@ -30,104 +28,49 @@ Page({
   },
 
   /**
-    * 生命周期函数--监听页面加载
-    */
-  onLoad: function () {
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function() {
+    // 展示提示信息
+    wx.showModal({
+      title: '温馨提示',
+      content: '由于微信缺陷，每个区域输入后请点击键盘上的“完成”； 若有遗漏，可重新点击输入区域，之后点击键盘上的“完成”',
+      showCancel: false,
+      confrimText: "确定",
+      confirmColor: "#8B0000"
+    })
+
     var that = this;
-
-    // 获取所有version
+    // 获取信息
     wx.showLoading({
       title: '加载中...',
     })
     wx.request({
-      url: app.globalData.getAllVersion,
+      url: app.globalData.getDefectPropertyValue,
       data: {},
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading()
 
-        var list = res.data.getAllVersion;
+        var versionList = res.data.getAllVersion;
+        var moduleList = res.data.getAllModule;
+        var severityList = res.data.getAllSeverity;
         console.log("查询结果:", res.data)
-        if (list == undefined) {
+        if (versionList == undefined || moduleList == undefined || severityList == undefined) {
           wx.showToast({
             title: "连接失败",
             icon: 'loading'
           });
         } else {
           that.setData({
-            versionArray: list
+            versionArray: versionList,
+            moduleArray: moduleList,
+            severityArray: severityList
+
           })
         }
       },
-      fail: function () {
-        wx.hideLoading()
-
-        wx.showToast({
-          title: '查询失败',
-          icon: "loading"
-        })
-      }
-    })
-
-    // 获取所有module
-    wx.showLoading({
-      title: '加载中...',
-    })
-    wx.request({
-      url: app.globalData.getAllModule,
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        wx.hideLoading()
-
-        var list = res.data.getAllModule;
-        console.log("查询结果:", res.data)
-        if (list == undefined) {
-          wx.showToast({
-            title: "连接失败",
-            icon: 'loading'
-          });
-        } else {
-          that.setData({
-            moduleArray: list
-          })
-        }
-      },
-      fail: function () {
-        wx.hideLoading()
-
-        wx.showToast({
-          title: '查询失败',
-          icon: "loading"
-        })
-      }
-    })
-
-    // 获取所有severity
-    wx.showLoading({
-      title: '加载中...',
-    })
-    wx.request({
-      url: app.globalData.getAllSeverity,
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        wx.hideLoading()
-
-        var list = res.data.getAllSeverity;
-        console.log("查询结果:", res.data)
-        if (list == undefined) {
-          wx.showToast({
-            title: "连接失败",
-            icon: 'loading'
-          });
-        } else {
-          that.setData({
-            severityArray: list
-          })
-        }
-      },
-      fail: function () {
+      fail: function() {
         wx.hideLoading()
 
         wx.showToast({
@@ -141,55 +84,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    wx.showModal({
-      title: '温馨提示',
-      content: '由于微信缺陷，每个区域输入后请点击键盘上的“完成”； 若有遗漏，可重新点击输入区域，之后点击键盘上的“完成”',
-      showCancel: false,
-      confrimText: "确定",
-      confirmColor: "#8B0000"
-    })
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
@@ -202,7 +139,7 @@ Page({
   },
 
   // 点击选择模块
-  chooseModule: function (e) {
+  chooseModule: function(e) {
     console.log('模块选择，发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexOfModule: e.detail.value
@@ -210,7 +147,7 @@ Page({
   },
 
   // 点击选择缺陷程度
-  chooseLevel: function (e) {
+  chooseLevel: function(e) {
     console.log('缺陷程度选择，发送选择改变，携带值为', e.detail.value)
     this.setData({
       indexOfSeverity: e.detail.value
@@ -225,34 +162,19 @@ Page({
   },
 
   // 进行图片留痕
-  uploadImage: function() {
-    wx.showToast({
-      title: '暂未实现',
-      icon: "loading"
+  chooseImage: function() {
+    console.log("开始选择图片")
+    allImageArray = [];
+
+    wx.chooseImage({
+      count: 3,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: function(res) {
+        allImageArray = res.tempFilePaths
+        console.log("选择的临时文件位置为：", allImageArray)
+      },
     })
-    // allImageArray = [];
-
-    // wx.chooseImage({
-    //   sizeType: ['compressed'],
-    //   sourceType: ['album', 'camera'],
-    //   success: function(res) {
-    //     allImageArray = res.tempFilePaths
-
-    //     if (allImageArray.length > 3) {
-    //       wx.showToast({
-    //         title: '仅限3张',
-    //         icon: "loading"
-    //       })
-    //       return;
-    //     } else {
-    //       wx.showToast({
-    //         title: '选中' + allImageArray.length + "张",
-    //         icon: "success"
-    //       })
-    //     }
-    //   },
-    // })
-
   },
 
   //进行缺陷提交
@@ -263,6 +185,7 @@ Page({
     if (this.checkBriefNotEmpty(formData)) {
       var telephone = wx.getStorageSync("telNum");
       var tmpData = formData;
+      var that = this;
       tmpData["telephone"] = telephone
       tmpData["createdDate"] = new Date
       if (tmpData.anonymousFlag != "2") {
@@ -281,7 +204,7 @@ Page({
         header: {
           'Content-Type': 'application/json'
         },
-        success: function (res) {
+        success: function(res) {
           wx.hideLoading()
 
           var result = res.data.addNewDefect
@@ -292,6 +215,10 @@ Page({
               icon: 'loading'
             });
           } else {
+            // 上传图片
+            var id = res.data.id;
+            that.upload(id)
+
             // 清空数据
             console.log("清空表单数据")
             that.setData({
@@ -315,7 +242,7 @@ Page({
             })
           }
         },
-        fail: function () {
+        fail: function() {
           wx.hideLoading()
 
           wx.showToast({
@@ -329,7 +256,7 @@ Page({
 
 
   // 检查概述已经填写
-  checkBriefNotEmpty: function (param) {
+  checkBriefNotEmpty: function(param) {
     console.log("检查缺陷概述是否填写")
     if (param.title.length == 0 || param.title.trim().length == 0) {
       wx.showToast({
@@ -344,41 +271,41 @@ Page({
   },
 
   // 上传图片
-  upload: function (defectId) {
+  upload: function(defectId) {
     console.log("准备上传图片")
-    wx.showToast({
-      title: '正在上传...',
-      icon: "loading",
-      duration: 10000,
-    })
+    if (allImageArray.length > 0) {
+      wx.showLoading({
+        title: '图片上传',
+      })
+    }
 
     var uploadCount = 0;
     for (var i = 0, h = allImageArray.length; i < h; i++) {
       console.log("上传", allImageArray[i])
       wx.uploadFile({
-        url: app.global.uploadServerURL,
+        url: app.globalData.uploadServerURL,
         filePath: allImageArray[i],
-        name: 'uploadImage',
+        name: 'file',
 
         formData: {
-          "defectId": defectId,
-          "imageName": i + ".png"
+          "folderName": defectId,
+          "trueFileName": i + ".png"
         },
 
         header: {
           "Content-Type": "multipart/form-data"
         },
 
-        success: function (res) {
+        success: function(res) {
           uploadCount++;
 
           if (uploadCount == allImageArray.length) {
-            wx.hideToast();
+            wx.hideLoading()
           }
         },
 
-        fail: function (res) {
-          wx.hideToast();
+        fail: function(res) {
+          wx.hideLoading()
           wx.showModal({
             title: '错误提示',
             content: '上传图片失败',
@@ -389,5 +316,3 @@ Page({
     }
   }
 })
-
-

@@ -20,7 +20,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function() {
     var that = this;
     var telNum = wx.getStorageSync("telNum");
     console.log("当前用户的手机号为：", telNum)
@@ -29,21 +29,25 @@ Page({
       title: '加载中...',
     })
     wx.request({
-      url: app.globalData.getUserBugInfo,
-      data: { "telephone": telNum },
+      url: app.globalData.getFirstPageInfo,
+      data: {
+        "telephone": telNum
+      },
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading()
 
-        var list = res.data.getUserBugInfo;
+        var userBugList = res.data.getUserBugInfo;
+        var mainBugList = res.data.getMainBugInfo
         console.log("查询结果:", res.data)
-        if (list == undefined) {
+        if (userBugList == undefined || mainBugList == undefined) {
           wx.showToast({
             title: "连接失败",
             icon: 'loading'
           });
         } else {
-          var currentVersionName = list[0].versionName;
+          // 对用户缺陷信息进行处理
+          var currentVersionName = userBugList[0].versionName;
           // 设置公共变量
           console.log("当前用户的生产版本", currentVersionName);
           wx.setStorageSync("currentVersionName", currentVersionName)
@@ -63,66 +67,37 @@ Page({
           } else {
             console.log("找到对应数据")
             // 画图
-            var bugFixNum = list[0].bugFixNum
-            var bugNum = list[0].bugNum
+            var bugFixNum = userBugList[0].bugFixNum
+            var bugNum = userBugList[0].bugNum
 
-            that.drawCircleImg(1, bugFixNum/bugNum)
+            that.drawCircleImg(1, bugFixNum / bugNum)
 
             // 界面显示
             that.setData({
-              bugBriefArray: list[0]
+              bugBriefArray: userBugList[0]
             })
           }
-        }
-      },
 
-      fail: function () {
-        wx.hideLoading()
-
-        wx.showToast({
-          title: '查询失败',
-          icon: "loading"
-        })
-      }
-    })
-
-    // 获取主流版本缺陷
-    wx.showLoading({
-      title: '加载中...',
-    })
-    wx.request({
-      url: app.globalData.getMainBugInfo,
-      data: {},
-      method: 'GET',
-      success: function (res) {
-        wx.hideLoading()
-
-        var list = res.data.getMainBugInfo
-        console.log("查询结果:", res.data)
-        if (list == undefined) {
-          wx.showToast({
-            title: "连接失败",
-            icon: 'loading'
-          });
-        } else {
-          // 对结果进行分类处理
+          // 对主流缺陷进行分类处理
           var tmpArray = {}
-          for (var i in list) {
-            var item = list[i]
+          for (var i in mainBugList) {
+            var item = mainBugList[i]
             if (!tmpArray[item.mainFlag]) {
               tmpArray[item.mainFlag] = [item]
             } else {
               tmpArray[item.mainFlag].push(item)
             }
           }
-          console.log(tmpArray)
+          console.log("主流缺陷：", tmpArray)
           // 界面显示
           that.setData({
             bugArray: tmpArray
           })
+
         }
       },
-      fail: function () {
+
+      fail: function() {
         wx.hideLoading()
 
         wx.showToast({
@@ -136,35 +111,35 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.showNavigationBarLoading()
     this.onLoad()
     wx.hideNavigationBarLoading()
@@ -174,14 +149,14 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
@@ -237,11 +212,11 @@ Page({
     this.drawCircle(rightCavArray);
   },
 
-  drawCircle: function (cavArray) {
+  drawCircle: function(cavArray) {
     console.log("准备进行绘图")
     var query = wx.createSelectorQuery();
     query.select("#leftCanvas").boundingClientRect()
-    query.exec(function (res) {
+    query.exec(function(res) {
 
       var width = res[0].width;
       var height = res[0].height;
@@ -262,7 +237,7 @@ Page({
       var text_y = y + radius * 0.1
 
       // 页面渲染完成
-      var cxt_arc = wx.createCanvasContext(canvasName);//创建并返回绘图上下文context对象
+      var cxt_arc = wx.createCanvasContext(canvasName); //创建并返回绘图上下文context对象
       // 设置文字
       cxt_arc.setFontSize(13)
       cxt_arc.setFillStyle("#800000")
@@ -272,17 +247,17 @@ Page({
       cxt_arc.setLineWidth(16);
       cxt_arc.setStrokeStyle('#d2d2d2');
       cxt_arc.setLineCap('round')
-      cxt_arc.beginPath();//开始一个新的路径
+      cxt_arc.beginPath(); //开始一个新的路径
       cxt_arc.arc(x, y, radius, -0.5 * Math.PI, 1.5 * Math.PI, false);
-      cxt_arc.stroke();//对当前路径进行描边
+      cxt_arc.stroke(); //对当前路径进行描边
 
       //内层圆圈
       cxt_arc.setLineWidth(16);
       cxt_arc.setStrokeStyle('#800000');
       cxt_arc.setLineCap('round')
-      cxt_arc.beginPath();//开始一个新的路径
+      cxt_arc.beginPath(); //开始一个新的路径
       cxt_arc.arc(x, y, radius, -0.5 * Math.PI, Math.PI * (percent - 0.5), false);
-      cxt_arc.stroke();//对当前路径进行描边
+      cxt_arc.stroke(); //对当前路径进行描边
       cxt_arc.draw();
     })
   }

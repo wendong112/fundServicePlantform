@@ -42,7 +42,7 @@
 
   <!-- 缺陷详情 -->
   <view class='buttonContainer'>
-    <button class="resetBtn" type="mini" bindtap='uploadImage'>照片留痕</button>
+    <button class="resetBtn" type="mini" bindtap='chooseImage'>照片留痕</button>
     <button class="submitBtn" type="mini" form-type="submit">提交缺陷</button>
   </view>
 </form>
