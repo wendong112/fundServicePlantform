@@ -31,6 +31,22 @@ public class PropertyValueAPI {
     }
 
     /**
+     * 获取所有与缺陷有关的设置值
+     */
+    @RequestMapping(value = "/getDefectPropertyValue", method = RequestMethod.GET)
+    private Map<String, Object> getVersionModuleSeverity() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<PropertyValue> list = new ArrayList<PropertyValue>();
+        list = propertyValueService.getAllVersion();
+        modelMap.put("getAllVersion", list);
+        list = propertyValueService.getAllModule();
+        modelMap.put("getAllModule", list);
+        list = propertyValueService.getAllSeverity();
+        modelMap.put("getAllSeverity", list);
+        return modelMap;
+    }
+
+    /**
      * 获取所有模块
      */
     @RequestMapping(value = "/getAllModule", method = RequestMethod.GET)

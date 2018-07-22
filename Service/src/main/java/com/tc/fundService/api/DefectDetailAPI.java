@@ -37,6 +37,7 @@ public class DefectDetailAPI {
     private Map<String, Object> addNewDefect(@RequestBody DefectDetail defectDetail) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         modelMap.put("addNewDefect", defectDetailService.addNewDefect(defectDetail));
+        modelMap.put("id", defectDetail.getId());
         return modelMap;
     }
 

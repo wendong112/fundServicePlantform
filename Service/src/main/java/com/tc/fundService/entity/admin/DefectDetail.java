@@ -31,4 +31,8 @@ public class DefectDetail {
     private String severityName;
     private String findVersionName;
     private String planResolvedVersionName;
+
+    public Integer getId() {
+        return id;
+    }
 }

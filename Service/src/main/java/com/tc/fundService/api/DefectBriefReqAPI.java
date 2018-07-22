@@ -20,6 +20,20 @@ public class DefectBriefReqAPI {
     private DefectBriefReqService defectBriefReqService;
 
     /**
+     * 根据phone获取首页所有缺陷信息
+     */
+    @RequestMapping(value = "/getFirstPageInfo", method = RequestMethod.GET)
+    private Map<String, Object> getFirstPageInfo(String telephone) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<DefectBriefReq> list = new ArrayList<DefectBriefReq>();
+        list = defectBriefReqService.getUserBugInfo(telephone);
+        modelMap.put("getUserBugInfo", list);
+        list = defectBriefReqService.getMainBugInfo();
+        modelMap.put("getMainBugInfo", list);
+        return modelMap;
+    }
+
+    /**
      * 根据phone获取用户缺陷汇总信息
      */
     @RequestMapping(value = "/getUserBugInfo", method = RequestMethod.GET)

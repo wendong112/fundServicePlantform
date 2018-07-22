@@ -28,7 +28,7 @@
         WHERE bug.ID = #{id}
     </select>
 
-    <insert id="addNewDefect" parameterType="com.tc.fundService.entity.admin.DefectDetail">
+    <insert id="addNewDefect" keyProperty="id" useGeneratedKeys="true" parameterType="com.tc.fundService.entity.admin.DefectDetail">
         INSERT INTO defect_details (
             FIND_VERSION_ID,
             SEVERITY_ID,
