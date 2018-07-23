@@ -20,8 +20,8 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class TransferAPI {
-    public String uploadPath = "C:\\fund\\image\\imageUpload\\";
-    public String downloadPath = "C:\\fund\\fileDownload\\";
+    public String uploadPath = "C:\\fund\\fundServiceFile\\defectImageView\\";
+    public String downloadPath = "C:\\fund\\fundServiceFile\\businessReqDownLoad\\";
     @ResponseBody
     @RequestMapping(value = "/uploadImage")
     public String upload(HttpServletRequest request, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {

@@ -14,6 +14,14 @@ public interface PropertyValueMapper {
     List<PropertyValue> getAllVersion();
 
     /**
+     * 列出主要版本
+     *
+     * @return defectList
+     */
+    List<PropertyValue> getMainVersion();
+
+
+    /**
      * 列出所有模块
      *
      * @return defectList
@@ -21,9 +29,9 @@ public interface PropertyValueMapper {
     List<PropertyValue> getAllModule();
 
     /**
-     * 列出所有缺陷程度
+     * 列出严重缺陷程度
      *
      * @return defectList
      */
-    List<PropertyValue> getAllSeverity();
+    List<PropertyValue> getHeavySeverity();
 }

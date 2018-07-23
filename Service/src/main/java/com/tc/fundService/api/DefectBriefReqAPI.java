@@ -34,30 +34,6 @@ public class DefectBriefReqAPI {
     }
 
     /**
-     * 根据phone获取用户缺陷汇总信息
-     */
-    @RequestMapping(value = "/getUserBugInfo", method = RequestMethod.GET)
-    private Map<String, Object> getUserBugInfo(String telephone) {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        List<DefectBriefReq> list = new ArrayList<DefectBriefReq>();
-        list = defectBriefReqService.getUserBugInfo(telephone);
-        modelMap.put("getUserBugInfo", list);
-        return modelMap;
-    }
-
-    /**
-     * 列出所有主流缺陷
-     */
-    @RequestMapping(value = "/getMainBugInfo", method = RequestMethod.GET)
-    private Map<String, Object> getMainBugInfo() {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        List<DefectBriefReq> list = new ArrayList<DefectBriefReq>();
-        list = defectBriefReqService.getMainBugInfo();
-        modelMap.put("getMainBugInfo", list);
-        return modelMap;
-    }
-
-    /**
      * 列出所有缺陷用于搜索
      */
     @RequestMapping(value = "/getSearchBugInfo", method = RequestMethod.GET)
