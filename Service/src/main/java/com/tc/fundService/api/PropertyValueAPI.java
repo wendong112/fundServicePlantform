@@ -31,42 +31,30 @@ public class PropertyValueAPI {
     }
 
     /**
+     * 获取主要版本
+     */
+    @RequestMapping(value = "/getMainVersion", method = RequestMethod.GET)
+    private Map<String, Object> getMainVersion() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<PropertyValue> list = new ArrayList<PropertyValue>();
+        list = propertyValueService.getMainVersion();
+        modelMap.put("getMainVersion", list);
+        return modelMap;
+    }
+
+    /**
      * 获取所有与缺陷有关的设置值
      */
     @RequestMapping(value = "/getDefectPropertyValue", method = RequestMethod.GET)
     private Map<String, Object> getVersionModuleSeverity() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<PropertyValue> list = new ArrayList<PropertyValue>();
-        list = propertyValueService.getAllVersion();
-        modelMap.put("getAllVersion", list);
+        list = propertyValueService.getMainVersion();
+        modelMap.put("getMainVersion", list);
         list = propertyValueService.getAllModule();
         modelMap.put("getAllModule", list);
-        list = propertyValueService.getAllSeverity();
-        modelMap.put("getAllSeverity", list);
-        return modelMap;
-    }
-
-    /**
-     * 获取所有模块
-     */
-    @RequestMapping(value = "/getAllModule", method = RequestMethod.GET)
-    private Map<String, Object> getAllModule() {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        List<PropertyValue> list = new ArrayList<PropertyValue>();
-        list = propertyValueService.getAllModule();
-        modelMap.put("getAllModule", list);
-        return modelMap;
-    }
-
-    /**
-     * 获取所有缺陷程度
-     */
-    @RequestMapping(value = "/getAllSeverity", method = RequestMethod.GET)
-    private Map<String, Object> getAllSeverity() {
-        Map<String, Object> modelMap = new HashMap<String, Object>();
-        List<PropertyValue> list = new ArrayList<PropertyValue>();
-        list = propertyValueService.getAllSeverity();
-        modelMap.put("getAllSeverity", list);
+        list = propertyValueService.getHeavySeverity();
+        modelMap.put("getHeavySeverity", list);
         return modelMap;
     }
 }

@@ -19,12 +19,17 @@ public class PropertyValueImpl implements PropertyValueService {
     }
 
     @Override
+    public List<PropertyValue> getMainVersion() {
+        return propertyValueMapper.getMainVersion();
+    }
+
+    @Override
     public List<PropertyValue> getAllModule() {
         return propertyValueMapper.getAllModule();
     }
 
     @Override
-    public List<PropertyValue> getAllSeverity() {
-        return propertyValueMapper.getAllSeverity();
+    public List<PropertyValue> getHeavySeverity() {
+        return propertyValueMapper.getHeavySeverity();
     }
 }

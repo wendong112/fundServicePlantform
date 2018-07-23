@@ -12,14 +12,19 @@ public interface PropertyValueService {
     List<PropertyValue> getAllVersion();
 
     /**
+     * 获取主要支持的版本
+     */
+    List<PropertyValue> getMainVersion();
+
+    /**
      * 列出所有模块
      *
      */
     List<PropertyValue> getAllModule();
 
     /**
-     * 列出所有缺陷程度
+     * 列出严重和致命缺陷程度
      *
      */
-    List<PropertyValue> getAllSeverity();
+    List<PropertyValue> getHeavySeverity();
 }
