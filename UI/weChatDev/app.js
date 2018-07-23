@@ -15,6 +15,9 @@ App({
   globalData: {
     userInfo: null,
 
+    // 公共变量
+    uploadMaxSize: 4,
+
     // 跳转使用到的页面
     startPage: "/pages/loginRegisterPage/loginRegisterPage",
     loginPage: "/pages/loginPage/loginPage",
@@ -28,6 +31,7 @@ App({
     sceneView: "/pages/businessRequLibLooking/businessRequLibLooking",
     sceneDetail: "/pages/sceneDetailedInfo/sceneDetailedInfo",
     messageEdit: "/pages/messageEditing/messageEditing",
+    imageView: "/pages/defectImageView/defectImageView",
 
     // 登录注册页面(已完成)
     getUserByPhone: "https://www.fundserviceplatform.cn/fundService/api/getUserByPhone",
@@ -35,12 +39,8 @@ App({
     addUserInfo: "https://www.fundserviceplatform.cn/fundService/api/addUserInfo",
 
     // 故障信息共享（已完成）
-    // getUserBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getUserBugInfo",
-    // getMainBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getMainBugInfo",
     getFirstPageInfo: "https://www.fundserviceplatform.cn/fundService/api/getFirstPageInfo",
-    getAllVersion: "https://www.fundserviceplatform.cn/fundService/api/getAllVersion",
-    // getAllModule: "https://www.fundserviceplatform.cn/fundService/api/getAllModule",
-    // getAllSeverity: "https://www.fundserviceplatform.cn/fundService/api/getAllSeverity",
+    getMainVersion: "https://www.fundserviceplatform.cn/fundService/api/getMainVersion",
     getDefectPropertyValue: "https://www.fundserviceplatform.cn/fundService/api/getDefectPropertyValue",
     getSearchBugInfo: "https://www.fundserviceplatform.cn/fundService/api/getSearchBugInfo",
     addNewDefect: "https://www.fundserviceplatform.cn/fundService/api/addNewDefect",
@@ -49,6 +49,7 @@ App({
     getMessageByDefectId: "https://www.fundserviceplatform.cn/fundService/api/getMessageByDefectId",
     addMessage: "https://www.fundserviceplatform.cn/fundService/api/addMessage",
     uploadServerURL: "https://www.fundserviceplatform.cn/fundService/api/uploadImage",
+    uploadViewServerURL: "http://www.fundserviceplatform.cn:8080/defectImageView",
     roundImage: "/image/ringFirstPage/roundImg.png",
     commitImage: "/image/ringFirstPage/bugCommitImg.png",
     searchImage: "/image/ringFirstPage/bugSearchImg.png",
@@ -64,8 +65,8 @@ App({
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
 
     // 项目信息中心使用（已完成）
+    getAllVersion: "https://www.fundserviceplatform.cn/fundService/api/getAllVersion",
     uniformImgServerURL: "http://www.fundserviceplatform.cn:8080/uniformTest/",
-    progressImg: "http://www.fundserviceplatform.cn:8080/uniformTest/progress.png",
     threeLineIcon: "/image/common/threeline.png",
 
     // 排行榜(已完成)

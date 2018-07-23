@@ -132,8 +132,8 @@ Page({
 
   // 跳转到业务场景详情界面
   clickSpecScene: function(e) {
-    console.log(e.target);
-    var reqId = e.target.id;
+    console.log("点击部分信息", e);
+    var reqId = e.currentTarget.id;
     console.log("跳转到业务场景详情界面", reqId);
 
     wx.navigateTo({

@@ -8,6 +8,7 @@
     "pages/bugSearchingPage/bugSearchingPage",
     "pages/bugSubmittingPage/bugSubmittingPage",
     "pages/defectDetailedInfo/defectDetailedInfo",
+    "pages/defectImageView/defectImageView",
     "pages/messageEditing/messageEditing",
 
     "pages/testInformationShare/testInformationShare",

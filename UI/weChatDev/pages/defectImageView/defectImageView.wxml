@@ -1,0 +1,7 @@
+<!--标题部分-->
+<view class="title">{{title}}</view>
+<view class="noImage" hidden='{{errorHidden}}'>无缺陷留痕</view>
+
+<view class="imageView" wx:for="{{imageArray}}" wx:key="index" hidden='{{!errorHidden}}'>
+  <image src='{{item.url}}' id="{{item.index}}" data-src="{{item.url}}" bindtap='showPreviewImage' binderror='showError' bindload='showSuccess'></image>
+</view>

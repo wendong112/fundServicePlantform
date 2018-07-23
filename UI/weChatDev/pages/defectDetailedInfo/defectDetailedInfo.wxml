@@ -40,15 +40,15 @@
 
   <!-- 具体问题描述 -->
   <view class="redTitle">缺陷描述</view>
-  <textarea class="defectTextArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
+  <textarea class="defectTextArea" disabled='true' cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="defectDescription" value="{{defectArray.defectDescription}}"></textarea>
 
   <!-- 具体问题描述 -->
   <view class="redTitle">期望结果</view>
-  <textarea class="defectTextArea" cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
+  <textarea class="defectTextArea" disabled='true' cursor-spacing="180" placeholder="NA" maxlength="-1" type="text" name="expectDescription" value="{{defectArray.expectDescription}}"></textarea>
 
   <!-- 解决方案 -->
   <view class="redTitle">解决方案</view>
-  <textarea class="defectTextArea shortArea" cursor-spacing="180" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
+  <textarea class="defectTextArea shortArea" disabled='true' cursor-spacing="180" maxlength="-1" placeholder="NA" type="text" name="solutionDescription" value="{{defectArray.solutionDescription}}"></textarea>
 
   <!-- 评论面板 -->
   <view class="redTitle">评论面板</view>
@@ -66,10 +66,9 @@
   </view>
 
   <view class="viewImageLink">
-    <label class='line' bindtap='clickViewImage'>查看照片留痕</label>
+    <label class='line' id="{{defectArray.id}}" bindtap='clickViewImage'>查看照片留痕</label>
   </view>
 
-  <!-- 提交按钮 -->
-  <button class='submitButton' size="mini" form-type="submit">保存</button>
-
+  <!-- 提交按钮（暂时不提供该功能 - 2018/07/23） -->
+  <!-- <button class='submitButton' size="mini" form-type="submit">保存</button> -->
 </form>

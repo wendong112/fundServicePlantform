@@ -52,9 +52,9 @@ Page({
       success: function(res) {
         wx.hideLoading()
 
-        var versionList = res.data.getAllVersion;
+        var versionList = res.data.getMainVersion;
         var moduleList = res.data.getAllModule;
-        var severityList = res.data.getAllSeverity;
+        var severityList = res.data.getHeavySeverity;
         console.log("查询结果:", res.data)
         if (versionList == undefined || moduleList == undefined || severityList == undefined) {
           wx.showToast({
@@ -167,7 +167,7 @@ Page({
     allImageArray = [];
 
     wx.chooseImage({
-      count: 3,
+      count: app.globalData.uploadMaxSize,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: function(res) {

@@ -49,24 +49,24 @@ image {
 .redTitle{
   color: darkred;
   margin: 3% 0% 2% 3%;
-  font-size: 80%;
+  font-size: 90%;
   font-weight: 600;
 }
 
 .reqDesc {
-  font-size: 70%;
-  margin: 0% 0% 3% 5%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
+  font-size: 80%;
+  margin: 3% 3% 3% 5%;
 }
 
-.viewDetail{
-  text-align: right;
-  font-size: 60%;
-  margin-right: 4%;
-  margin-bottom: 1%;
+.reqDetailInfo {
+  margin-bottom: 2%
+}
+
+.wrapLine {
+   text-overflow: -o-ellipsis-lastline;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }

@@ -39,13 +39,13 @@ Page({
     })
     console.log("获取所有版本")
     wx.request({
-      url: app.globalData.getAllVersion,
+      url: app.globalData.getMainVersion,
       data: {},
       method: 'GET',
       success: function(res) {
         wx.hideLoading()
 
-        var list = res.data.getAllVersion;
+        var list = res.data.getMainVersion;
         console.log("查询结果:", res.data)
         if (list == undefined) {
           wx.showToast({

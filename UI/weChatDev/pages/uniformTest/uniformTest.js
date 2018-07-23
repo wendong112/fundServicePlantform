@@ -33,7 +33,7 @@ Page({
     console.log("获取当前生产版本")
     var currentVersion = wx.getStorageSync("currentVersionName")
     this.setData({
-      projectProgressImage: app.globalData.progressImg
+      projectProgressImage: app.globalData.uniformImgServerURL + "progress.png"
     })
     this.showReport({"currentVersionName": currentVersion})
   },

@@ -152,13 +152,13 @@ Page({
   },
 
   // 点击查看照片留痕
-  //
-  //
-  //
-  clickViewImage: function() {
-    wx.showToast({
-      title: '暂未实现',
-      icon: "loading"
+  clickViewImage: function(e) {
+    var id = e.target.id;
+    var url = app.globalData.imageView + "?defectId=" + id;
+    console.log("跳转到", url)
+
+    wx.navigateTo({
+      url: url
     })
   },
 

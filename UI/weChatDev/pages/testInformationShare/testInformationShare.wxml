@@ -12,11 +12,14 @@
   </view>
 </view>
 
-<view class="heavyReqDiaplay" wx:for="{{reqArray}}" wx:key="topFlag">
-  <view class="redTitle" id="{{item.requirementId}}" bindtap='clickSpecScene'>
+<view class="heavyReqDiaplay" wx:for="{{reqArray}}" wx:key="topFlag" id="{{item.requirementId}}" bindtap='clickSpecScene'>
+  <view class="redTitle">
     【TOP{{item.topFlag}}】{{item.requirementBriefDescription}}
   </view>
   <view class="reqDesc">
-    <text id="{{item.requirementId}}" bindtap='clickSpecScene'>日期：{{item.formatCreateDate}}\n共建伙伴：{{item.companyName}}\n详情：{{item.requirementDescription}}</text>
+    <view class="reqDetailInfo">日期：{{item.formatCreateDate}}</view>
+    <view class="reqDetailInfo">共建伙伴：{{item.companyName}}</view>
+    <view class="reqDetailInfo wrapLine">详情：{{item.requirementDescription}}</view>
+    <!-- <text>日期：{{item.formatCreateDate}}\n共建伙伴：{{item.companyName}}\n详情：{{item.requirementDescription}}</text> -->
   </view>
 </view>

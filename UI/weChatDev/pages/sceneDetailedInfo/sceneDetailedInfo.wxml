@@ -18,7 +18,7 @@
 </view>
 
 <!-- 业务场景导图 -->
-<view class="redTitle">业务场景导图</view>
+<view class="redTitle">业务测试场景导图</view>
 <view class="sceneContainer" wx:for="{{sceneArray}}" wx:key="fatherNode">
   <view class="sceneBrief pad{{item.fatherNode.length}}" id='{{item.fatherNode}}' bindtap='closeBrief'>
     <image id='{{item.fatherNode}}' class="iconType" src="{{imgSrc}}" wx:if='{{item.fatherNode.length < 7}}'></image>
@@ -27,6 +27,6 @@
 </view>
 
 <view class="downloadLink">
-  <label class='line' id='{{sceneArray[0].requirementId}}' bindtap='clickDownload'>业务场景流程下载</label>
+  <label class='line' id='{{sceneArray[0].requirementId}}' bindtap='clickDownload'>测试需求分析下载</label>
 </view>
 <!-- <view class="savePath" wx:if="{{savePath.length > 0}}">保存位置: {{savePath}}</view> -->
