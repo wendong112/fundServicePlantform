@@ -12,9 +12,9 @@ public interface UserReqService {
     List<UserReq> getAllUserInfo();
 
     /**
-     * 获取排行榜
+     * 获取基金公司排行榜
      */
-    List<UserReq> getRankList();
+    List<UserReq> getFundCompanyRank();
 
     /**
      * 通过手机号获取用户

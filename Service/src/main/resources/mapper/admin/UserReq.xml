@@ -8,12 +8,13 @@
         FROM user_information
     </select>
 
-    <select id="getRankList" resultType="com.tc.fundService.entity.admin.UserReq">
+    <select id="getFundCompanyRank" resultType="com.tc.fundService.entity.admin.UserReq">
         SELECT (@i:=@i+1) as serial_no, user_information.*,company.COMPANY_NAME
 	    FROM (SELECT @i:=0) AS it, user_information
         LEFT JOIN company
         ON user_information.COMPANY_ID = company.COMPANY_ID
 	    WHERE AUTHORIZED_FLAG != '2'
+	    AND user_information.COMPANY_ID != 3
 	    ORDER BY points DESC;
     </select>
 

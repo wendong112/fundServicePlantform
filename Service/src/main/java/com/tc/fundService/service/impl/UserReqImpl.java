@@ -19,8 +19,8 @@ public class UserReqImpl implements UserReqService {
     }
 
     @Override
-    public List<UserReq> getRankList() {
-        return userReqMapper.getRankList();
+    public List<UserReq> getFundCompanyRank() {
+        return userReqMapper.getFundCompanyRank();
     }
 
     @Override

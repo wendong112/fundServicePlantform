@@ -43,14 +43,15 @@
             COMPANY_NAME,
             PROCESS_STATUS,
             REQUIREMENT_BRIEF_DESCRIPTION,
-            FATHER_NODE,
-            IFNULL(SCENARIO_NAME,"业务场景图待更新") AS SCENARIO_NAME
+            TRIM(FATHER_NODE) AS FATHER_NODE,
+            IFNULL(SCENARIO_NAME,"业务场景图待更新") AS SCENARIO_NAME,
+			LENGTH(FATHER_NODE)-LENGTH(replace(FATHER_NODE,'-','')) AS CLASS_NUM
         FROM business_requirement
         LEFT JOIN test_scenarios
         ON business_requirement.requirement_id = test_scenarios.requirement_id
         LEFT JOIN company
         ON business_requirement.COMPANY_ID = company.COMPANY_ID
 		WHERE business_requirement.requirement_id = #{requirementId}
-		ORDER BY FATHER_NODE ASC;
+		ORDER BY REQUIREMENT_ID ASC;
     </select>
 </mapper>

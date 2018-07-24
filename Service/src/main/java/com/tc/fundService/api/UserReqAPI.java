@@ -33,12 +33,12 @@ public class UserReqAPI {
     /**
      * 获取排行榜
      */
-    @RequestMapping(value = "/getRankList", method = RequestMethod.GET)
-    private Map<String, Object> getRankList() {
+    @RequestMapping(value = "/getFundCompanyRank", method = RequestMethod.GET)
+    private Map<String, Object> getFundCompanyRank() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<UserReq> list = new ArrayList<UserReq>();
-        list = userReqService.getRankList();
-        modelMap.put("getRankList", list);
+        list = userReqService.getFundCompanyRank();
+        modelMap.put("getFundCompanyRank", list);
         return modelMap;
     }
     /**

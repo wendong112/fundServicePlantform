@@ -9,11 +9,17 @@
             DEFECT_ID,
             MESSAGE_CONTENT,
             date_format(MESSAGE_DATE, '%Y-%m-%d %T') AS FORMAT_MESSAGE_DATE,
+			message.TELEPHONE,
             person.USER_NAME AS USER_NAME,
-            company.COMPANY_NAME AS COMPANY_NAME
+            company.COMPANY_NAME AS COMPANY_NAME,
+			IFNULL(atPerson.USER_NAME, "NA") AS AT_USER_NAME,
+			IFNULL(atCompany.COMPANY_NAME, "NA") AS AT_COMPANY_NAME,
+			message.SPECIFIED_TELEPHONE AS AT_TELEPHONE
         FROM message
         LEFT JOIN user_information AS person ON message.TELEPHONE = person.TELEPHONE
         LEFT JOIN company AS company ON person.COMPANY_ID = company.COMPANY_ID
+		LEFT JOIN user_information AS atPerson ON message.SPECIFIED_TELEPHONE = atPerson.TELEPHONE
+		LEFT JOIN company AS atCompany ON atPerson.COMPANY_ID = atCompany.COMPANY_ID
         WHERE
             DEFECT_ID = #{defectId}
         ORDER BY MESSAGE_DATE DESC;

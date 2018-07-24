@@ -12,9 +12,9 @@ public interface UserReqMapper {
     List<UserReq> getAllUserInfo();
 
     /**
-     * 列出排行榜
+     * 列出基金公司排行榜
      */
-    List<UserReq> getRankList();
+    List<UserReq> getFundCompanyRank();
     /**
      * 根据手机号列出用户
      */

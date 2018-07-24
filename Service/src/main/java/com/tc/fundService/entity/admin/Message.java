@@ -21,4 +21,7 @@ public class Message {
     private Date messageDate;
     private String userName;
     private String companyName;
+    private String atUserName;
+    private String atCompanyName;
+    private String atTelephone;
 }

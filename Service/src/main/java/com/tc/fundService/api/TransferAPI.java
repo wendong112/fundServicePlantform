@@ -21,7 +21,8 @@ import java.io.IOException;
 @RequestMapping("/api")
 public class TransferAPI {
     public String uploadPath = "C:\\fund\\fundServiceFile\\defectImageView\\";
-    public String downloadPath = "C:\\fund\\fundServiceFile\\businessReqDownLoad\\";
+    public String reqPath = "C:\\fund\\fundServiceFile\\businessReqDownLoad\\";
+    public String uniformPath = "C:\\fund\\fundServiceFile\\uniformTest\\";
     @ResponseBody
     @RequestMapping(value = "/uploadImage")
     public String upload(HttpServletRequest request, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
@@ -78,13 +79,25 @@ public class TransferAPI {
      */
     @RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
     public String downloadImage(String fileName, HttpServletRequest request, HttpServletResponse response) {
-        String fileUrl = downloadPath + fileName;
+//        String fileUrl = downloadPath + fileName;
         String ext = fileName.split("\\.")[1];
+        String contentType = "";
+        String fileUrl = "";
+        if (ext.equals("pdf")) {
+            fileUrl = reqPath + fileName;
+            contentType = "application/pdf";
+        }
+
+        if (ext.equals("doc")) {
+            fileUrl = uniformPath + fileName;
+            contentType = "application/msword";
+        }
 
         if (fileUrl != null) {
             File file = new File(fileUrl);
             if (file.exists()) {
-                response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+//                response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+                response.setContentType(contentType);
                 response.addHeader("Content-Disposition",
                         "attachment;fileName=" + fileName);
                 byte[] buffer = new byte[1024];

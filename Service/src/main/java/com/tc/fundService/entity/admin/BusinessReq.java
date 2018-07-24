@@ -28,4 +28,5 @@ public class BusinessReq {
     private Integer scenarioID;
     private String scenarioName;
     private String fatherNode;
+    private String classNum;
 }
