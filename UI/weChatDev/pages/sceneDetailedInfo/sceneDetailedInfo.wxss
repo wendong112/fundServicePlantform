@@ -76,20 +76,16 @@
   height: 40rpx;
 }
 
-.pad3 {
+.pad1 {
   padding-left: 5%;
 }
 
-.pad5 {
+.pad2 {
   padding-left: 10%;
 }
 
-.pad7 {
+.pad3 {
   padding-left: 17%;
-}
-
-.pad9 {
-  padding-left: 27%;
 }
 
 /* 下载样式 */

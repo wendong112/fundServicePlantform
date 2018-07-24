@@ -31,4 +31,8 @@
     <image class="qualityImage" binderror='imageNotShow' bindload='imageShow' src="{{imgSrc}}" mode='widthFix'>
     </image>
   </view>
+
+  <view class="downloadLink" hidden='{{!errorHidden}}' data-version="{{versionArray[index].versionName}}" bindtap='downloadReport'>
+    <label class='addLine'>测试报告下载</label>
+  </view>
 </view>

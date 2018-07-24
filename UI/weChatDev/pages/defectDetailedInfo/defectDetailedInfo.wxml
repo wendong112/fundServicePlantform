@@ -53,20 +53,21 @@
   <!-- 评论面板 -->
   <view class="redTitle">评论面板</view>
   <view class="commentContainer">
-    <view class="blueLink" id="{{defectArray.id}}" bindtap='clickMessage'>
+    <view class="blueLink" bindtap='clickMessage'>
       写留言
     </view>
 
     <scroll-view class='scrollView' scroll-y>
-      <view class="personComment" wx:for="{{commentArray}}" wx:key="messageId">
-        <view class="personTitle">{{item.userName}}（{{item.companyName}}） {{item.formatMessageDate}}:</view>
+      <view class="personComment" wx:for="{{commentArray}}" wx:key="messageId" data-username='{{item.userName}}' data-telephone='{{item.telephone}}' bindtap='clickAnswer'>
+        <view class="personTitle">{{item.userName}}({{item.companyName}})
+          <label wx:if="{{item.atUserName != 'NA'}}">回复 {{item.atUserName}}({{item.atCompanyName}})</label> {{item.formatMessageDate}}:</view>
         <view>{{item.messageContent}}</view>
       </view>
     </scroll-view>
   </view>
 
   <view class="viewImageLink">
-    <label class='line' id="{{defectArray.id}}" bindtap='clickViewImage'>查看照片留痕</label>
+    <label class='line' bindtap='clickViewImage'>查看照片留痕</label>
   </view>
 
   <!-- 提交按钮（暂时不提供该功能 - 2018/07/23） -->

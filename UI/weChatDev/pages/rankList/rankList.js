@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ownerHidden: true,
     imgSrc: app.globalData.redStarImg,
     listData: [],
   },
@@ -42,13 +43,13 @@ Page({
       title: '加载中...',
     })
     wx.request({
-      url: app.globalData.getRankList,
+      url: app.globalData.getFundCompanyRank,
       data: {},
       method: 'GET',
       success: function (res) {
         wx.hideLoading()
 
-        var allList = res.data.getRankList;
+        var allList = res.data.getFundCompanyRank;
         console.log("查询结果:", res.data)
         if (allList == undefined) {
           wx.showToast({
@@ -68,6 +69,20 @@ Page({
               currentRankList.push(allList[i])
             }
           }
+
+          // 不存在第一个元素不显示自己信息，反之亦然
+          if (currentRankList.length == 0) {
+            // 放置占位值，不进行显示
+            currentRankList.push(allList[0])
+            that.setData({
+              ownerHidden: true
+            })
+          } else {
+            that.setData({
+              ownerHidden: false
+            })
+          }
+
 
           // 添加其他元素
           for (var i = 0; i < allList.length; i++) {

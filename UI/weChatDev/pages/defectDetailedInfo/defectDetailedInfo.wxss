@@ -107,6 +107,7 @@ scroll-view {
 
 .personTitle {
   color: gray;
+  font-size: 83%;
 }
 
 .viewImageLink {

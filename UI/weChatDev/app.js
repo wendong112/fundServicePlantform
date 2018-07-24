@@ -70,7 +70,7 @@ App({
     threeLineIcon: "/image/common/threeline.png",
 
     // 排行榜(已完成)
-    getRankList: "https://www.fundserviceplatform.cn/fundService/api/getRankList",
+    getFundCompanyRank: "https://www.fundserviceplatform.cn/fundService/api/getFundCompanyRank",
     modifyLikeCountByPhone: "https://www.fundserviceplatform.cn/fundService/api/modifyLikeCountByPhone",
     redStarImg: "/image/rankList/redStar.png",
     redHeartImg: "/image/rankList/redHeart.png",

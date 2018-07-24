@@ -1,6 +1,6 @@
 <view class="table">
   <block wx:for="{{listData}}" wx:key="{{code}}">
-    <view class="tr owner" wx:if="{{index==0}}">
+    <view class="tr owner" wx:if="{{index==0}}" hidden='{{ownerHidden}}'>
       <view class="td1 ownerTd">
         <image class="redStar" src="{{imgSrc}}"></image>
       </view>

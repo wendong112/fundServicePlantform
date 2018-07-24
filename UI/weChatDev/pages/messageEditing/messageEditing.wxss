@@ -10,6 +10,11 @@
   border: 2rpx gray solid;
 }
 
+.atMessage {
+  font-size: 80%;
+  margin: 2%;
+  color: blue
+}
 .messageContent {
   width: 96%;
   font-size: 80%;

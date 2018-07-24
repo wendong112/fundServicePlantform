@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    atHidden: true,
+    atUserName: "",
     title: "",
   },
 
@@ -14,8 +16,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("页面入参", options)
     var that = this;
     var id = options.defectId;
+    var atUserName = options.atUserName;
+    var atTelephone = options.atTelephone;
+
     // 设置公共变量
     defectId = id
 
@@ -55,6 +61,19 @@ Page({
           })
         }
       })
+      
+      // 展示回复信息
+      if (atUserName != undefined) {
+        that.setData({
+          atHidden: false,
+          atUserName: atUserName
+        })
+      } else {
+        that.setData({
+          atHidden: true,
+          atUserName: ""
+        })
+      }
     }
   },
 
@@ -138,31 +157,20 @@ Page({
         console.log("操作结果", res.data)
         if (result != true) {
           wx.showToast({
-            title: "插入失败",
+            title: "留言失败",
             icon: 'loading'
           });
         } else {
-          // 弹出提示信息
-          console.log("弹出提示信息")
-          wx.showModal({
-            title: '温馨提示',
-            content: '留言提交成功！',
-            showCancel: false,
-            confrimText: "确定",
-            confirmColor: "#8B0000",
-            success: function(res) {
-              console.log("跳转回上一页")
-
-              wx.navigateBack({});
-            }
-          })
+          // 留言成功
+          wx.hideLoading()
+          console.log("跳转回上一页")
+          wx.navigateBack({});
         }
       },
       fail: function () {
         wx.hideLoading()
-
         wx.showToast({
-          title: '提交失败',
+          title: '留言提交失败',
           icon: "loading"
         })
       }

@@ -185,6 +185,54 @@ Page({
       errorHidden: true
     })
   },
+
+  // 点击下载测试报告
+  downloadReport: function(e) {
+    var versionName = e.currentTarget.dataset.version;
+    console.log("下载报告版本", versionName)
+
+    var url = app.globalData.downloadURL + "?fileName=" + versionName + ".doc";
+    console.log("下载链接为：", url)
+
+    wx.showLoading({
+      title: '正在下载...',
+    })
+    wx.downloadFile({
+      url: url,
+      success: function (res) {
+        wx.hideLoading()
+        console.log("临时文件位置：", res.tempFilePath);
+
+        wx.showLoading({
+          title: '正在打开文件',
+        })
+        wx.openDocument({
+          filePath: res.tempFilePath,
+          success: function (res) {
+            wx.hideLoading()
+            console.log("打开成功", res)
+          },
+          fail: function (res) {
+            wx.hideLoading()
+            console.log("打开失败", res)
+            wx.showToast({
+              title: '打开失败',
+              icon: "loading"
+            })
+          }
+        })
+      },
+      fail: function (res) {
+        wx.hideLoading()
+
+        console.log("下载文件失败")
+        wx.showToast({
+          title: '下载失败',
+          icon: "loading"
+        })
+      }
+    })
+  },
   
   // 点击标签页进行切换
   navbarTap: function (e) {

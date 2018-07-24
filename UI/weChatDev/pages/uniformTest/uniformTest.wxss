@@ -70,3 +70,15 @@ picker {
   width: 100%;
   text-align: center;
 }
+
+.downloadLink {
+  font-size: 78%;
+  color: blue;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  text-align: center;
+}
+
+.addLine {
+  border-bottom: 1rpx blue solid;
+}

@@ -20,8 +20,8 @@
 <!-- 业务场景导图 -->
 <view class="redTitle">业务测试场景导图</view>
 <view class="sceneContainer" wx:for="{{sceneArray}}" wx:key="fatherNode">
-  <view class="sceneBrief pad{{item.fatherNode.length}}" id='{{item.fatherNode}}' bindtap='closeBrief'>
-    <image id='{{item.fatherNode}}' class="iconType" src="{{imgSrc}}" wx:if='{{item.fatherNode.length < 7}}'></image>
+  <view class="sceneBrief pad{{item.classNum}}" id='{{item.fatherNode}}' bindtap='closeBrief'>
+    <image id='{{item.fatherNode}}' class="iconType" src="{{imgSrc}}" wx:if='{{item.classNum < 3}}'></image>
     {{item.scenarioName}}
   </view>
 </view>

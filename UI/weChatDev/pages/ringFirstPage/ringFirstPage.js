@@ -196,6 +196,27 @@ Page({
     })
   },
 
+  // 点击缺陷总数
+  showTotalBug: function(e) {
+    var versionName = e.currentTarget.dataset.version;
+    console.log("查询版本为: ", versionName);
+    console.log("点击缺陷总数，准备跳转到对应界面")
+    wx.navigateTo({
+      url: app.globalData.bugSearch + "?versionName=" + versionName,
+    })
+  },
+
+  // 点击已修复
+  showFixBug: function(e) {
+    var versionName = e.currentTarget.dataset.version;
+    console.log("查询版本为: ", versionName);
+    console.log("点击已修复，准备跳转到对应界面")
+    wx.navigateTo({
+      url: app.globalData.bugSearch + "?versionName=" + versionName + "&status=修复",
+    })
+  },
+
+  // 画圆圈
   drawCircleImg: function(leftPer, rightPer) {
     var leftCavArray = {
       canvasName: "leftCanvas",

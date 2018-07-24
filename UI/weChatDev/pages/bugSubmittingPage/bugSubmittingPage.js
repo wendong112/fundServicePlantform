@@ -173,7 +173,18 @@ Page({
       success: function(res) {
         allImageArray = res.tempFilePaths
         console.log("选择的临时文件位置为：", allImageArray)
+
+        wx.showToast({
+          title: '选中' + allImageArray.length + "张图片",
+        })
       },
+      fail: function(res) {
+        console.log("选择文件失败", res)
+        wx.showToast({
+          title: "选图失败",
+          icon: "loading"
+        })
+      }
     })
   },
 
@@ -235,7 +246,7 @@ Page({
             console.log("弹出提示信息")
             wx.showModal({
               title: '温馨提示',
-              content: '缺陷提交成功！',
+              content: '缺陷提交成功！\n上传图片数量:' + allImageArray.length,
               showCancel: false,
               confrimText: "确定",
               confirmColor: "#8B0000"

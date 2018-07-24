@@ -3,6 +3,7 @@
 
 <form bindsubmit="messageSubmit">
   <view class="contentContainer">
+    <view class='atMessage' hidden='{{atHidden}}'>@ {{atUserName}}</view>
     <textarea class="messageContent" cursor-spacing="180" maxlength="-1" placeholder="请在此编辑留言，留言会对所有人可见！" type="text" name="messageContent" value="{{messageContent}}">
     </textarea>
   </view>

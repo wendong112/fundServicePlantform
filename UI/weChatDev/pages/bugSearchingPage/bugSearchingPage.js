@@ -1,5 +1,3 @@
-// pages/bugSearchingPage/bugSearchingPage.js
-
 //获取应用实例 
 const app = getApp()
 var versionList = []
@@ -31,6 +29,7 @@ Page({
    */
   onLoad: function(options) {
     var versionName = options.versionName;
+    var status = options.status;
     var that = this;
 
     // 获取所有的版本
@@ -107,21 +106,37 @@ Page({
 
           if (versionName == null) {
             console.log("没有入参传入", options);
-            console.log("获取所有的缺陷进行展示: ");
+            console.log("获取所有的缺陷进行展示");
 
             that.setData({
               defectList: list
             })
           } else {
             console.log("搜索指定版本: ", versionName)
+
+            // 获取执行状态的数据库数据
+            var partList = []
+            if (status == null) {
+              console.log("没有入参传入", options)
+              partList = list
+            } else {
+              for (var i in list) {
+                var item = list[i]
+                if (item.statusName == status) {
+                  partList.push(item)
+                }
+              }
+            }
+
             // 获取指定版本的数据库数据
             var tmpList = []
-            for (var i in list) {
-              var item = list[i]
+            for (var i in partList) {
+              var item = partList[i]
               if (item.versionName == versionName) {
                 tmpList.push(item)
               }
             }
+
             // 获取版本的index值
             var tmpIndex = 0;
             for (var j in versionList) {

@@ -142,8 +142,7 @@ Page({
 
   // 点击写留言
   clickMessage: function(e) {
-    var id = e.target.id;
-    var url = app.globalData.messageEdit + "?defectId=" + id;
+    var url = app.globalData.messageEdit + "?defectId=" + defectId;
     console.log("跳转到", url)
   
     wx.navigateTo({
@@ -151,10 +150,36 @@ Page({
     })
   },
 
+  // 点击回复
+  clickAnswer: function(e) {
+    console.log("控件数据", e);
+    var atUserName = e.currentTarget.dataset.username;
+    var atTelephone = e.currentTarget.dataset.telephone;
+
+    console.log("回复用户为", atUserName)
+    console.log("回复用户电话为", atTelephone)
+
+    var curTel = wx.getStorageSync("telNum");
+    if (atTelephone == curTel) {
+      console.log("无法回复给自己")
+      wx.showToast({
+        title: '回复人不当',
+        icon: "loading"
+      })
+    } else {
+      console.log("正常进行回复")
+      var url = app.globalData.messageEdit + "?defectId=" + defectId + "&atUserName=" + atUserName + "&atTelephone=" + atTelephone;
+      console.log("跳转到", url)
+
+      wx.navigateTo({
+        url: url
+      })
+    }
+  },
+
   // 点击查看照片留痕
   clickViewImage: function(e) {
-    var id = e.target.id;
-    var url = app.globalData.imageView + "?defectId=" + id;
+    var url = app.globalData.imageView + "?defectId=" + defectId;
     console.log("跳转到", url)
 
     wx.navigateTo({

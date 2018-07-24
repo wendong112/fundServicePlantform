@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    errorHidden: false,
+    errorHidden: true,
     imageArray: []
   },
 
@@ -149,6 +149,9 @@ Page({
     var removeIndex = e.currentTarget.id;
     removeList.push(removeIndex)
 
+    wx.showLoading({
+      title: '加载中...',
+    })
     // 重置元素，删除不显示的元素
     console.log("不显示元素列表", removeList)
     var tmpArray = []
@@ -159,6 +162,9 @@ Page({
         tmpArray.push(tmpItem)
       }
     }
+
+    // 隐藏提示框
+    wx.hideLoading()
     this.setData({
       imageArray: tmpArray
     })
