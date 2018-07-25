@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.ProjectProgressMapper">
+    <select id="getNewStatus" resultType="com.tc.fundService.entity.admin.ProjectProgress">
+        SELECT
+            *
+        FROM
+            project_progress
+        WHERE
+            PROJECT_NAME = '最新动态'
+        ORDER BY ID ASC
+    </select>
+
+    <select id="getProjectProgress" resultType="com.tc.fundService.entity.admin.ProjectProgress">
+        SELECT
+          *
+        FROM
+          project_progress
+        WHERE
+          PROJECT_NAME != '最新动态'
+        ORDER BY ID ASC
+    </select>
+</mapper>

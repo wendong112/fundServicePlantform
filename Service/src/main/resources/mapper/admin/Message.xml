@@ -26,7 +26,7 @@
     </select>
 
     <insert id="addMessage" parameterType="com.tc.fundService.entity.admin.Message">
-        INSERT INTO message(DEFECT_ID, TELEPHONE, MESSAGE_CONTENT, MESSAGE_DATE)
-        VALUES(#{defectId}, #{telephone}, #{messageContent},#{messageDate})
+        INSERT INTO message(DEFECT_ID, TELEPHONE, MESSAGE_CONTENT, MESSAGE_DATE, SPECIFIED_TELEPHONE)
+        VALUES(#{defectId}, #{telephone}, #{messageContent},#{messageDate},#{atTelephone})
     </insert>
 </mapper>

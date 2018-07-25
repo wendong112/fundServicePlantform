@@ -83,9 +83,9 @@ public class TransferAPI {
         String ext = fileName.split("\\.")[1];
         String contentType = "";
         String fileUrl = "";
-        if (ext.equals("pdf")) {
+        if (ext.equals("docx")) {
             fileUrl = reqPath + fileName;
-            contentType = "application/pdf";
+            contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
         }
 
         if (ext.equals("doc")) {

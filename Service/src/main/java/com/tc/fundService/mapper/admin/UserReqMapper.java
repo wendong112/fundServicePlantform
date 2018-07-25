@@ -15,16 +15,15 @@ public interface UserReqMapper {
      * 列出基金公司排行榜
      */
     List<UserReq> getFundCompanyRank();
+
     /**
      * 根据手机号列出用户
      */
-
     List<UserReq> getUserByPhone(String telephone);
 
     /**
      * 获取所有公司
      */
-
     List<UserReq> getAllCompany();
 
     /**
