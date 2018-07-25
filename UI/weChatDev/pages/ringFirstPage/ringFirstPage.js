@@ -157,7 +157,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    }
   },
 
   // 点击缺陷提交
@@ -250,7 +254,7 @@ Page({
       var title = cavArray.title;
       var percent = cavArray.percent;
 
-      var x = width * (0.25 - 0.02)
+      var x = width * 0.5
       var y = height * (5 / 12)
       var radius = height * 1 / 4
 

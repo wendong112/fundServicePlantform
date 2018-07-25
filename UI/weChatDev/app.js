@@ -33,6 +33,10 @@ App({
     messageEdit: "/pages/messageEditing/messageEditing",
     imageView: "/pages/defectImageView/defectImageView",
 
+    // 转发用到的图片
+    transferTitle: "信息共享, 携手并进",
+    transferImage: "/image/common/transfer.jpg",
+
     // 登录注册页面(已完成)
     getUserByPhone: "https://www.fundserviceplatform.cn/fundService/api/getUserByPhone",
     getAllCompany: "https://www.fundserviceplatform.cn/fundService/api/getAllCompany",
@@ -65,6 +69,8 @@ App({
     sceneImg: "/image/testInformationShare/scenarioLibPic.png",
 
     // 项目信息中心使用（已完成）
+    getNewStatus: "https://www.fundserviceplatform.cn/fundService/api/getNewStatus",
+    getProjectProgress: "https://www.fundserviceplatform.cn/fundService/api/getProjectProgress",
     getAllVersion: "https://www.fundserviceplatform.cn/fundService/api/getAllVersion",
     uniformImgServerURL: "http://www.fundserviceplatform.cn:8080/uniformTest/",
     threeLineIcon: "/image/common/threeline.png",

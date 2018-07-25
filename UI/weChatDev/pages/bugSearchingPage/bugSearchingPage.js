@@ -116,6 +116,7 @@ Page({
 
             // 获取执行状态的数据库数据
             var partList = []
+
             if (status == null) {
               console.log("没有入参传入", options)
               partList = list
@@ -170,8 +171,6 @@ Page({
         })
       }
     })
-
-
   },
 
   /**
@@ -220,7 +219,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    }
   },
 
   // 点击仅查看公司

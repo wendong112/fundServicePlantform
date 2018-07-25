@@ -31,7 +31,7 @@ image {
 }
 
 .brefContent{
-  font-size: 60%;
+  font-size: 80%;
   padding-left: 1%;
   color: gray;
 }
@@ -45,5 +45,5 @@ image {
 }
 .projectDetail {
   margin: 3% 5%;
-  font-size: 70%;
+  font-size: 85%;
 }

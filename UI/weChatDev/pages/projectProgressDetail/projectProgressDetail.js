@@ -7,17 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    projectArray:[
-      {
-        projectName: "全年六次指定版本验收测试",
-        projectDetail: "第一次验收测试：已完成\n测试版本：20160122J_14\n周期：17年10月9日-11月17日\n\n第二次验收测试：已完成\n测试版本：201600630B\n周期：17年12月4日-2018年3月9日\n\n第三次验收测试：已完成\n测试版本：201600630C\n周期：18年4月2日-5月18日\n\n第死次验收测试：已完成\n测试版本：201600630C_7\n周期：18年5月*日-*月*日\n\n截止**日项目进展为60%\n其他详细信息********************************"
-      }, {
-        projectName: "行业故障平台建设",
-        projectDetail: "test1第一次验收测试：已完成\n测试版本：20160122J_14\n周期：17年10月9日-11月17日\n\n第二次验收测试：已完成\n测试版本：201600630B\n周期：17年12月4日-2018年3月9日\n\n第三次验收测试：已完成\n测试版本：201600630C\n周期：18年4月2日-5月18日\n\n第死次验收测试：已完成\n测试版本：201600630C_7\n周期：18年5月*日-*月*日\n\n截止**日项目进展为60%\n其他详细信息********************************"
-      }, {
-        projectName: "新业务测试用例设计",
-        projectDetail: "test2第一次验收测试：已完成\n测试版本：20160122J_14\n周期：17年10月9日-11月17日\n\n第二次验收测试：已完成\n测试版本：201600630B\n周期：17年12月4日-2018年3月9日\n\n第三次验收测试：已完成\n测试版本：201600630C\n周期：18年4月2日-5月18日\n\n第死次验收测试：已完成\n测试版本：201600630C_7\n周期：18年5月*日-*月*日\n\n截止**日项目进展为60%\n其他详细信息********************************"
-      }],
+    projectArray: [],
     index: 0,
 
     threeLineIcon: app.globalData.threeLineIcon
@@ -26,8 +16,43 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function () {
+    var that = this;
+
+    // 获取项目详情
+    wx.showLoading({
+      title: '加载中...',
+    })
+    wx.request({
+      url: app.globalData.getProjectProgress,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading()
+
+        var list = res.data.getProjectProgress;
+        console.log("查询结果:", res.data)
+        if (list == undefined) {
+          wx.showToast({
+            title: "连接失败",
+            icon: 'loading'
+          });
+        } else {
+          // 页面设置
+          that.setData({
+            projectArray: list
+          })
+        }
+      },
+      fail: function () {
+        wx.hideLoading()
+
+        wx.showToast({
+          title: '查询失败',
+          icon: "loading"
+        })
+      }
+    }) 
   },
 
   /**
@@ -76,7 +101,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    } 
   },
 
   //历次质量报表，版本选择对应的处理函数

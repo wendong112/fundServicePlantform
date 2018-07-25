@@ -114,7 +114,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    }
   },
 
   // 隐藏场景列表
@@ -176,7 +180,7 @@ Page({
           icon: "loading"
         })
     } else {
-      var url = app.globalData.downloadURL+ "?fileName=" + fileName + ".pdf";
+      var url = app.globalData.downloadURL+ "?fileName=" + fileName + ".docx";
       console.log("下载链接为：", url)
 
       wx.showLoading({
@@ -188,56 +192,56 @@ Page({
           wx.hideLoading()
           console.log("临时文件位置：", res.tempFilePath);
 
-          wx.showLoading({
-            title: '正在打开文件',
-          })
-          wx.openDocument({
-            filePath: res.tempFilePath,
-            success: function (res) {
-              wx.hideLoading()
-              console.log("打开成功", res)
-            },
-            fail: function (res) {
-              wx.hideLoading()
-              console.log("打开失败", res)
-              wx.showToast({
-                title: '打开失败',
-                icon: "loading"
-              })
-            }
-          })
-          // wx.saveFile({
-          //   tempFilePath: res.tempFilePath,
+          // wx.showLoading({
+          //   title: '正在打开文件',
+          // })
+          // wx.openDocument({
+          //   filePath: res.tempFilePath,
           //   success: function (res) {
+          //     wx.hideLoading()
+          //     console.log("打开成功", res)
+          //   },
+          //   fail: function (res) {
+          //     wx.hideLoading()
+          //     console.log("打开失败", res)
           //     wx.showToast({
-          //       title: '下载成功',
-          //     })
-          //     console.log("下载后信息：", res)
-
-          //     that.setData({
-          //       savePath: res.savedFilePath
-          //     })
-
-          //     wx.showLoading({
-          //       title: '正在打开文件',
-          //     })
-          //     wx.openDocument({
-          //       filePath: res.savedFilePath,
-          //       success: function (res) {
-          //         wx.hideLoading()
-          //         console.log("打开成功", res)
-          //       },
-          //       fail: function (res) {
-          //         wx.hideLoading()
-          //         console.log("打开失败", res)
-          //         wx.showToast({
-          //           title: '下载失败',
-          //           icon: "loading"
-          //         })
-          //       }
+          //       title: '打开失败',
+          //       icon: "loading"
           //     })
           //   }
           // })
+          wx.saveFile({
+            tempFilePath: res.tempFilePath,
+            success: function (res) {
+              wx.showToast({
+                title: '下载成功',
+              })
+              console.log("下载后信息：", res)
+
+              that.setData({
+                savePath: res.savedFilePath
+              })
+
+              wx.showLoading({
+                title: '正在打开文件',
+              })
+              wx.openDocument({
+                filePath: res.savedFilePath,
+                success: function (res) {
+                  wx.hideLoading()
+                  console.log("打开成功", res)
+                },
+                fail: function (res) {
+                  wx.hideLoading()
+                  console.log("打开失败", res)
+                  wx.showToast({
+                    title: '下载失败',
+                    icon: "loading"
+                  })
+                }
+              })
+            }
+          })
         },
         fail: function(res) {
           wx.hideLoading()

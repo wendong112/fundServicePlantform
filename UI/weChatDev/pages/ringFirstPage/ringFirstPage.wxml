@@ -6,8 +6,8 @@
       您当前生产版本{{bugBriefArray.versionName}}缺陷数据
     </view>
 
-    <view class="canvasContainer" id="leftCanvas" bindtap='showTotalBug' data-version='{{bugBriefArray.versionName}}'>
-      <view class="circleContainer">
+    <view class="canvasContainer">
+      <view class="circleContainer" id="leftCanvas" bindtap='showTotalBug' data-version='{{bugBriefArray.versionName}}'>
         <canvas class="circle" canvas-id="leftCanvas">
         </canvas>
         <view class="circleDesc">

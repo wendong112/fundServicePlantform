@@ -137,7 +137,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    }
   },
 
   // 点击写留言
@@ -163,7 +167,7 @@ Page({
     if (atTelephone == curTel) {
       console.log("无法回复给自己")
       wx.showToast({
-        title: '回复人不当',
+        title: '无法自我回复',
         icon: "loading"
       })
     } else {

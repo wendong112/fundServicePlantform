@@ -17,7 +17,7 @@
 
 <view class="contentContainer">
   <view class="projectDetail">
-    <text>{{projectArray[index].projectDetail}}</text>
+    <text decode='true'>{{projectArray[index].projectDetail}}</text>
   </view>
   
 </view>

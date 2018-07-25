@@ -1,5 +1,6 @@
 const app = getApp();
 var defectId = "";
+var updateAtTelephone = ""
 
 Page({
 
@@ -24,6 +25,7 @@ Page({
 
     // 设置公共变量
     defectId = id
+    updateAtTelephone = atTelephone
 
     if (id == undefined) {
       console.log("没有找到id")
@@ -62,7 +64,7 @@ Page({
         }
       })
       
-      // 展示回复信息
+      // 是否展示回复信息
       if (atUserName != undefined) {
         that.setData({
           atHidden: false,
@@ -123,7 +125,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: app.globalData.transferTitle,
+      path: app.globalData.startPage,
+      imageUrl: app.globalData.transferImage
+    }
   },
 
   // 点击提交按钮
@@ -137,6 +143,11 @@ Page({
     tmpData["defectId"] = defectId
     tmpData["telephone"] = telNum
     tmpData["messageDate"] = new Date
+    
+    // 设置回复人手机号码
+    if (updateAtTelephone != undefined) {
+      tmpData["atTelephone"] = updateAtTelephone
+    }
 
     //提交留言到数据库中
     console.log("提交数据到数据库中: ", tmpData)
