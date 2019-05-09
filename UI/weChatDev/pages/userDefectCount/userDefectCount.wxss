@@ -1,0 +1,165 @@
+/* pages/userDefectCount/userDefectCount.wxss */
+
+/**index.wxss**/
+@import "/common/navbarStyle.wxss";
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.td {
+  margin: 1%;
+  width: 100%;
+  word-break: break-all;
+  font-size: 30rpx;
+}
+
+.std {
+  margin: 1%;
+  width: 100%;
+  word-break: break-all;
+  font-size: 30rpx;
+}
+
+.littleSpace {
+  margin-top: 2%;
+}
+
+/* 缺陷查询页面 */
+.search-bar{
+  position:relative;
+  padding:8px 10px;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  box-sizing:border-box;
+  background-color:#fff;
+}
+
+.search-bar__form{
+  position:relative;
+  -webkit-box-flex:1;
+  -webkit-flex:auto;
+  flex:auto;
+  border-radius:5px;
+  background:#fff;
+  margin-right:20rpx;
+  border:1rpx solid #607D8B
+}
+
+.search-bar__box{
+  position:relative;
+  padding-left:30px;
+  padding-right:30px;
+  width:100%;
+  box-sizing:border-box;
+  z-index:1
+}
+
+.search-bar__input{
+  height:28px;
+  line-height:28px;
+  font-size:14px
+}
+
+.search-btn {
+  padding-top: 6rpx;
+  text-align: center;
+  width: 20%;
+  color: #fff;
+  border-radius:5px;
+  background-color: #4CAF50
+}
+
+.mybutton-hover {
+  color:rgba(0, 0, 0, 0.6);
+  background-color:#DEDEDE;
+}
+
+.defectCount {
+  margin-left: 10rpx;
+  color: #757575;
+  font-size:30rpx
+}
+
+.table {
+  font-size: 30rpx;
+  border: 1rpx solid #607D8B
+}
+
+.bugTd {
+  width: 100%;
+  word-break: break-all;
+  padding: 1% 1% 1% 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleStyle {
+  background-color: gainsboro;
+}
+
+.sortTitle {
+  font-weight: bold;
+  width: 100%;
+  text-align: center
+}
+
+.th1, .td1 {
+  width: 14%;
+  text-align: center
+}
+
+.th2, .td2 {
+  width: 47%;
+}
+
+.th3, .td3 {
+  width: 15%;
+  text-align: center
+}
+
+.th4, .td4 {
+  width: 24%;
+}
+
+.link-flg {
+  color:#2196F3;
+  padding: 5% 0;
+}
+
+.td-text{
+  width:100%;
+  text-align: center;
+  margin: auto;
+}
+
+.td-brief {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.bottomBorder {
+  border-bottom: 1rpx solid #607D8B;
+}
+
+.rightBorder {
+  border-right: 1rpx solid #607D8B;
+}
+
+.defect-description-manyLine{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.filter-flg {
+  font-size: 30rpx;
+}

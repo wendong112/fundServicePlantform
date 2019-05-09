@@ -1,0 +1,60 @@
+<!--pages/qualityMessage/qualityMessage.wxml-->
+<view class="titleDiscription">
+  <image style='height:230rpx;width:100%' mode='aspectFill' src='/image/background-1.jpg'></image>
+  <view class="title">
+    <view class='title-deatil'>基金行业</view>
+    <view class='title-deatil'>恒生032投资交易系统版本质量</view>
+  </view>
+</view>
+
+<view class="card currency_font {{blur?'page_blur':''}}" wx:for="{{qualityMessageList}}" wx:key="lastVersionName">
+  <view bindtap='showDetail' data-index="{{index}}">
+    <view class="card-title currency_font_content">
+      <view class="card-title-left contant_spase"> {{item.lastVersionName}}</view>
+      <view class="card-title-right contant_spase">
+        <view wx:if="{{index==0}}" class="shine_red">在测版本</view>
+        <view class="{{item.color}}">
+          <text>{{item.evaluate}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class="card-body currency_font_content contant_spase">
+      <view class="card-body-modle">
+        <view>指令模块</view>
+        <view>{{item.instructMark}}</view>
+      </view>
+      <view class="card-body-modle">
+        <view>交易模块</view>
+        <view>{{item.transactionMark}}</view>
+      </view>
+      <view class="card-body-modle">
+        <view>风控模块</view>
+        <view>{{item.riskMark}}</view>
+      </view>
+      <view class="card-body-modle">
+        <view>其他模块</view>
+        <view>{{item.otherMark}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <view wx:if="{{vipLevel == 2}}" class="card-foot currency_font_content">
+    <view class="card-foot-left contant_spase">
+      <view class="card-foot-contant" bindtap="allDefect" data-index="{{index}}">总缺陷：
+        <text class="defectCont">{{item.allDefect}} ></text>
+      </view>
+    </view>
+    <view class="card-foot-right contant_spase">
+      <view class="card-foot-contant" bindtap="fatefulDefect" data-index="{{index}}">严重缺陷：
+        <text class="defectCont">{{item.fatefulDefect}} ></text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="card-foot">
+    <view class="card-foot-tmp" data-index="{{index}}">版本评分：
+      <text style="color:{{item.scoreColor}}">{{item.score}}</text>
+    </view>
+  </view>
+</view>
+

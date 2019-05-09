@@ -1,0 +1,134 @@
+<!--pages/versionQualityDetail/versionQualityDetail.wxml-->
+
+<view class="title">{{versionName}}版本质量</view>
+<view class="tr topBorder">
+  <view class="tableTd">
+    <view class="verCol rightBorder">
+      <view class="cell bottomBorder">模块</view>
+      <view wx:for="{{qualityList}}">
+        <view class="cell bottomBorder">{{item.name}}</view>
+      </view>
+    </view>
+    <view class="verCol rightBorder">
+      <view class="cell bottomBorder">模块评分</view>
+      <view wx:for="{{qualityList}}">
+        <view class="cell bottomBorder">{{item.moduleScore}}</view>
+      </view>
+    </view>
+    <view class="verCol rightBorder">
+      <view class="cell bottomBorder">权重</view>
+      <view wx:for="{{qualityList}}">
+        <view class="cell bottomBorder">{{item.weight}}</view>
+      </view>
+    </view>
+    <view class="verCol rightBorder">
+      <view class="cell bottomBorder">质量评分</view>
+      <view wx:for="{{qualityList}}">
+        <view class="cell bottomBorder">{{item.qualityScore}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="verScoreTd bottomBorder">
+    <view class="cell bottomBorder">版本评分</view>
+    <view class="cell scoreCell-version scoreTd" style='color:{{versionColor}}'>
+    {{versionScore}}分</view>
+  </view>
+</view>
+
+<view class="tr " wx:for="{{moduleList}}">
+  <!-- 第一个图和表 -->
+  <view class="detailContainer rightBorder bottomBorder" wx:if="{{index % 2 == 0}}">
+    <view class="tr">
+        <view class="detailCol detailTitle">{{item.name}}</view>
+    </view>
+
+    <canvas canvas-id="canvas{{index}}" class="canvas" style="height:{{canvasHeight}}"></canvas>
+
+    <view class="detailTable">
+      
+      <view class="tr">
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">严重度</view>
+          <view class="cell bottomBorder">致命</view>
+          <view class="cell bottomBorder">严重</view>
+          <view class="cell bottomBorder">一般</view>
+          <view class="cell bottomBorder">轻微</view>
+          <view class="cell">建议</view>
+        </view>
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">A类</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.deadlyDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.fatefulDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.generalDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.slightDefectNotRepaired}}</view>
+          <view class="cell">{{item.deftRepaired.suggestedDefectNotRepaired}}</view>
+        </view>
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">B类</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.deadlyDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.fatefulDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.generalDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{item.deftRepaired.slightDefectWaitRepaired}}</view>
+          <view class="cell">{{item.deftRepaired.suggestedDefectWaitRepaired}}</view>
+        </view>
+        <view class="detailCol">
+          <view class="cell bottomBorder">评分</view>
+          <view class="cell scoreCell">{{item.total}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 第二个图和表 -->
+  <view class="detailContainer bottomBorder" wx:if="{{index % 2 == 0}}">
+    <view class="tr">
+      <view class="detailCol detailTitle">{{moduleList[index+1].name}}</view>
+    </view>
+
+    <canvas canvas-id="canvas{{index+1}}" class="canvas" style="height:{{canvasHeight}}"></canvas>
+
+    <view class="detailTable">
+      
+      <view class="tr">
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">严重度</view>
+          <view class="cell bottomBorder">致命</view>
+          <view class="cell bottomBorder">严重</view>
+          <view class="cell bottomBorder">一般</view>
+          <view class="cell bottomBorder">轻微</view>
+          <view class="cell">建议</view>
+        </view>
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">A类</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.deadlyDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.fatefulDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.generalDefectNotRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.slightDefectNotRepaired}}</view>
+          <view class="cell">{{moduleList[index+1].deftRepaired.suggestedDefectNotRepaired}}</view>
+        </view>
+        <view class="detailCol rightBorder">
+          <view class="cell bottomBorder">B类</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.deadlyDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.fatefulDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.generalDefectWaitRepaired}}</view>
+          <view class="cell bottomBorder">{{moduleList[index+1].deftRepaired.slightDefectWaitRepaired}}</view>
+          <view class="cell">{{moduleList[index+1].deftRepaired.suggestedDefectWaitRepaired}}</view>
+        </view>
+        <view class="detailCol">
+          <view class="cell bottomBorder">评分</view>
+          <view class="cell scoreCell">{{moduleList[index+1].total}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="pointsInfo currency_font_content">
+    扣分标准：
+    <view>
+      A类(功能类缺陷，亟待修复)：致命-5; 严重-3; 一般-1; 轻微-0.5; 建议-0.2
+    </view>
+    <view>
+      B类(优化类缺陷，风险可控)：致命-3; 严重-1; 一般-0.5; 轻微-0.3; 建议-0.1
+    </view>
+</view>

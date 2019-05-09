@@ -1,0 +1,162 @@
+<!--导航条-->
+<view class="page {{blur?'page_blur':''}}">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar" style='border-bottom:1rpx solid #607D8B'>
+        <block wx:for="{{navbar}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+
+      <view class="weui-tab__panel">
+        <!--缺陷搜索-->
+        <view hidden="{{activeIndex != 0}}">
+        <form bindsubmit="showDefectList">
+          <view class="search-bar">
+              <view class="search-bar__form">
+                  <view class="search-bar__box">
+                      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                      <input type="text" class="search-bar__input" placeholder="请输入内容"  bindinput="wxSearchInput" />
+                  </view>
+              </view>
+              <view class="search-btn" hover-class="mybutton-hover" bindtap="showDefectList">搜索</view>
+          </view>
+        </form>
+          
+
+          <!-- 筛选区 -->
+          <view class="filterList">
+            <view class="filterList-characteristic-title">版本</view>
+            <view class="filterList-characteristic-items">
+              <block wx:for="{{characteristicList}}" wx:key="">
+                <view class="filterList-characteristic-item {{characteristicSelected[index]==true?'characteristic-selected':''}}"
+                catchtap="characteristicSelected" data-index="{{index}}">{{item.versionName}}</view>
+              </block>
+            </view>
+            <view class="filterList-characteristic-title">严重度</view>
+            <view class="filterList-characteristic-items">
+              <block wx:for="{{severityList}}" wx:key="">
+                <view class="filterList-characteristic-item {{severitySelected[index]==true?'characteristic-selected':''}}"
+                catchtap="severitySelected" data-index="{{index}}">{{item.severityName}}</view>
+              </block>
+            </view>
+            <view class="filterList-characteristic-title">状态</view>
+            <view class="filterList-characteristic-items">
+              <block wx:for="{{statusList}}" wx:key="">
+                <view class="filterList-characteristic-item {{statusSelected[index]==true?'characteristic-selected':''}}"
+                catchtap="statusSelected" data-index="{{index}}">{{item.statusName}}</view>
+              </block>
+            </view>
+          </view>
+        </view>
+
+        
+
+
+        <!--缺陷提交-->
+        <view hidden="{{activeIndex != 1}}">
+          <!-- 版本和模块选择部分 -->
+          <view class="tr" style="margin-top:10rpx">
+            <view class="td title">版本<text style='color:red;'>*</text></view>
+            <view class="td value">
+              <picker class="submitPicker" bindchange="chooseVersion" name="versionName" value="{{versionName}}" range="{{versionArray}}" range-key='versionName'>
+                <view class="tr">
+                  <view class="content">{{versionArray[indexOfVersion].versionName}}
+                  </view>
+                  <view class="downArrow">∨</view>
+                </view>
+              </picker>
+            </view>
+             <view class="td numInput">
+             <text style='margin-right:5%'>补丁编号</text>
+             <input class="inputNum" type='number' placeholder="临时补丁编号" bindinput="changePathNum">{{patchNum}}</input>
+              </view>
+          </view>
+  
+          <view class="tr">
+            <view class="td title">模块<text style='color:red;'>*</text></view>
+            <view class="td value">
+              <picker class="submitPicker" bindchange="chooseModule" name="moduleName" value="{{priorityId}}" range="{{moduleArray}}" range-key='priorityName'>
+                <view class="tr">
+                  <view class="content">{{moduleArray[indexOfModule].priorityName}}
+                  </view>
+                  <view class="downArrow">∨</view>
+                </view>
+              </picker>
+            </view>
+            <view class="td numInput"></view>
+          </view>
+
+          <view class="tr">
+            <view class="td title">标题<text style='color:red;'>*</text></view>
+            <view class="td title-content">
+              <input placeholder="缺陷场景描述" bindinput="bindinput" value="{{defectTitle}}"></input>
+            </view>
+          </view>
+
+          <!-- 缺陷详情 -->
+          <view class="tr">
+            <view class="td detailTitle">缺陷详情</view>
+            <view class="td"></view>
+            <view class="td"></view>
+          </view>
+
+          <view class="tr">
+            <view class="td" style='width:50%'>
+              <button class="raidoBtn" size="mini" catch:touchstart="startRecord" catch:touchend="stopRecord">按住录音</button>
+            </view>
+
+            <view class="td numInput">
+              <view class='audio' hover-class="adio-hover" wx:if="{{readyPlay}}"  bindtap="audioPlay" bind:longpress="deleteAudio">
+                <image class='ico' src='/image/yuyin-ico.gif' />
+                <label class='time'>{{audioTime}} s</label>
+              </view>
+
+              <view class='audio' hover-class="adio-hover" wx:if="{{played}}" bindtap="audioStop" bind:longpress="deleteAudio">
+                <image class='ico' src='/image/yuyin-gif.gif' />
+                <label class='time'>{{audioTime}} s</label>
+              </view>
+            </view>
+          </view>
+
+          <form bindsubmit="formSubmit" id="2" bindreset="formReset">  
+              <view class="imageTable">
+                <block wx:for="{{img_arr}}" wx:key="index">
+                  <view class="bugImg" bindlongpress="deleteImage" data-index="{{index}}" bindtap="previewImg">
+                    <image class="bugImg-imgs" mode="scaleToFill" src="{{item}}"></image>
+                  </view>
+                </block>
+                <view class="addImg" bindtap="upimg">
+                  <view class="addImg-img">
+                    <image style="width:100rpx;height:100rpx" mode="scaleToFill" 
+                              src='../../image/camera.png'></image>
+                  </view>
+                </view>
+              </view>
+          </form> 
+        </view>
+      </view>
+    </view>
+
+    <view class="bottomBar" hidden="{{activeIndex != 0}}">
+      <view class="bottomBar-area">
+        <view class="bottomBar-cont" style='padding:30rpx 0'>
+          <text>{{selectedNumb}} 条缺陷符合查找条件</text>
+        </view>
+        <view style='width:45%;padding-top:7px;'>
+          <button size="mini" bindtap="clearSelectedNumb">重置</button>
+          <button size="mini" bindtap="showDefectList">确定</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 缺陷提交 -->
+    <view class="bottomBar" style='border-top:0' hidden="{{activeIndex != 1}}">
+      <view class="defectSubmitBt" hover-class="mybutton-hover" bindtap="defectSubmit">缺陷提交</view>
+    </view>
+    
+  </view>
+</view>

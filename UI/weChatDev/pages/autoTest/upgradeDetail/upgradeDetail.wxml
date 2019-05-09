@@ -1,0 +1,45 @@
+<!--pages/autoTest/upgradeDetail/upgradeDetail.wxml-->
+
+<view class="mask" hidden="{{!flag}}"> 
+   <view class="tips" bindtap='closeMask'> 
+    <image class="tips-img" src='/image/upTips.gif'></image>
+   </view>
+</view> 
+
+<view class="upgradeDetail">
+  <view class="h1">
+    {{upgradeMessage.title1}}
+  </view>
+  <view class="h1">
+    {{upgradeMessage.title2}}
+  </view>
+
+  <view class="h2">
+    <view>{{upgradeMessage.version}}</view>
+    <view class="h2-little">{{upgradeMessage.publishOrg}}</view>
+    <view class="h2-little">{{upgradeMessage.upgradePackageSize}}</view>
+  </view>
+
+  <block class="content" wx:for="{{upgradeMessage.contentList}}">
+    <view class="content-line" wx:if="{{showAll}}">
+      <view wx:if="{{index > 0}}">{{index}}. {{item}}</view>
+    </view>
+    <view class="content-line" wx:else>
+      <view wx:if="{{index > 0 && index < 4}}">{{index}}. {{item}}</view>
+    </view>
+  </block>
+  <view hidden="{{upgradeMessage.contentList.length <= 4}}" class="state" bindtap="chingShowContent">{{showAll?"收起":"全文"}}</view>
+
+  <view class="link">
+    <view>分享获得下载链接</view>
+
+    <button class="shareBtn" open-type='share'> 
+      <view class='link-title'>
+        <image style="width:70px;height:70px;" src='/image/share-icon.png'></image>
+      </view>
+    </button>
+
+    <view class="link-foot">微信好友</view>
+  </view>
+
+</view>

@@ -1,0 +1,82 @@
+<!--pages/uniformTest/uniformTest.wxml-->
+<view style="width:100%;height20%;">
+  <image style="width:100%;height:200px;" mode="widthFix" src='/image/logo.png'></image>
+  <!-- <image style="width:100%;height:200px;" mode="scaleToFill" 
+  src='http://www.fundserviceplatform.cn:8080/WeChat/uniformTest/company.png'></image> -->
+</view>
+
+<view class="weui-tab">
+  <view class="weui-navbar" style='border-bottom:1rpx solid #607D8B'>
+      <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title" style="display: inline-block;vertical-align:middle;">{{item}}</view>
+              <view wx:if='{{index == 1 && userNewMessage != 0}}' class="weui-badge weui-badge_dot"></view>
+          </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+
+  <view class="weui-tab__panel">
+    <!-- 行业信息 -->
+    <view class="card" hidden="{{activeIndex != 0}}">
+      <block wx:for="{{messageList}}">
+        <view class="message"  data-index="{{index}}" bindtap="checkDetails">
+            <view class="message-title">
+              <view class="message-title-description">{{item.title}}</view>
+            </view>
+            <view class="message-image" hidden="{{item.mainImg==''}}">
+              <image src="{{item.mainImg}}" mode='aspectFill' style="height:400rpx;width:100%"></image>
+            </view>
+            <view>
+                <text class="message-title-date">{{item.date}}</text>
+            </view>
+            <!-- <view class="message-description {{item.mainImg==''?'message-description-manyLine':'message-description-oneLine'}}">{{item.description}}</view> -->
+        </view>
+      </block>
+    </view>
+
+    <!-- 共享测试 -->
+    <view class="" hidden="{{activeIndex != 1}}">
+      <!-- 仿微信朋友圈 -->
+      <scroll-view class='page'>
+        <!-- 列表 -->
+        <view class='CircleList' wx:for='{{DataSource}}' wx:for-index="indexAll">
+          <!-- 头像、昵称、内容 -->
+          <view class='body-view'>
+            <!-- 头像 -->
+            <view class='left-view'>
+              <view class="left-day">{{item.day}}</view>
+              <view class="right-month">{{item.month}}月</view>
+            </view>
+
+            <view class='right-view'>
+              <view>
+                <text class="{{item.isFolded&&item.ifFold?'const-manyLine':'user-content'}}">{{item.content}}</text>
+              </view>
+              <view hidden="{{!item.ifFold}}" class="state" bindtap="changeFolded" data-index="{{indexAll}}">{{item.isFolded?"全文":"收起"}}</view>
+
+              <!-- 图片 -->
+              <view class='photo-view'>
+                <view class='photo' wx:for='{{item.imgs}}' wx:for-item="imgItem" wx:for-index="itemIndex" style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
+                  <image data-id="{{indexAll}}" data-index="{{itemIndex}}" mode='aspectFill' bindtap='LookPhoto' data-photUrl='{{imgItem}}' src='{{imgItem}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </scroll-view>
+
+      <!-- <view class="weui-search-bar" style='background-color:#fff;border-bottom:1rpx solid #607D8B'>
+        <view class="weui-search-bar__form" style='border: 1rpx solid #607D8B'>
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" bindinput="wxSearchInput"/>
+            </view>
+        </view>
+
+        <view class="search" bindtap="search">搜索</view>
+      </view> -->
+    </view>
+  </view>
+</view>

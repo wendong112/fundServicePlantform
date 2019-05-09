@@ -1,0 +1,75 @@
+/* pages/myMessage/myMessage.wxss */
+page{
+  background-color: #F8F8F8;
+  font-size: 16px;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.search{
+  border-radius: 10%;
+  text-align: center;
+  width:20%;
+  margin-left: 20rpx;
+  color: white;
+  font-size: 37rpx;
+  padding-top: 10rpx;
+  background: #00BB00; 
+}
+
+.message{
+  background: white;
+  display: flex;
+  flex-direction:column;
+  border-radius: 15rpx;
+  margin: 30rpx;
+  font-size: 30rpx;
+}
+
+.message-title{
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 10rpx;
+}
+
+.message-title-flg{
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.message-title-description{
+  padding-top: 10rpx; 
+  font-weight:bolder;
+}
+
+.message-title-date{
+  padding-top: 10rpx; 
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  width:25%;
+  color: rgb(182, 181, 181);
+  text-align: right;
+}
+
+.message-image{
+  overflow: auto;
+}
+
+.message-description{
+  color: rgb(139, 138, 138);
+}
+
+.message-description-oneLine{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.message-description-manyLine{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}

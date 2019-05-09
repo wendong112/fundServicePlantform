@@ -1,0 +1,26 @@
+<!--pages/myMessage/myMessage.wxml-->
+<view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" bindinput="wxSearchInput"/>
+        </view>
+    </view>
+
+    <view class="search" bindtap="search">搜索</view>
+</view>
+<template is="wxSearch" data="{{wxSearchData}}"  />
+
+<block wx:for="{{messageList}}">
+  <view class="message"  data-index="{{index}}" bindtap="checkDetails">
+      <view class="message-title">
+        <!-- <image class="message-title-flg" src="{{item.flg}}"></image> -->
+        <text class="message-title-description">{{item.title}}</text>
+        <text class="message-title-date">{{item.date}}</text>
+      </view>
+      <view class="message-image" hidden="{{item.mainImg==''}}">
+        <image src="{{item.mainImg}}" style="height:200rpx"></image>
+      </view>
+      <view class="message-description {{item.mainImg==''?'message-description-manyLine':'message-description-oneLine'}}">{{item.description}}</view>
+  </view>
+</block>

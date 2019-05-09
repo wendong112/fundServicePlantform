@@ -1,0 +1,7 @@
+<!--pages/autoTest/upgradeDetail/upgradeLink.wxml-->
+
+<view class="link">
+  <view class="title">下载地址：</view>
+  <text class="link-url" selectable="true">{{url}}</text>
+</view>
+

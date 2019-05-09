@@ -1,0 +1,60 @@
+<!--pages/userDefectCount/userDefectCount.wxml-->
+<view class="littleSpace"></view>
+  <form>
+    <!-- 输入框和搜索按钮 -->
+      <view class="search-bar">
+        <view class="search-bar__form">
+            <view class="search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="search-bar__input" placeholder="请输入内容" value="{{searchContent}}" bindinput='changeInput'/>
+            </view>
+        </view>
+        <view class="search-btn" hover-class="mybutton-hover" bindtap="searchBugSubmit">搜索</view>
+      </view>
+  </form>
+
+  <!-- 列表 -->
+  <!-- 表格显示部分 -->
+  <view class="defectCount">共{{defectCount}}个缺陷</view>
+
+  <view class="table">
+    <view class="tr bottomBorder">
+      <view class="bugTd th1 rightBorder" bindtap='sortById'>
+        <view class="sortTitle">序号</view>
+        <view wx:if="{{sortIdDesc}}" class="filter-flg">∨</view>
+        <view wx:else class="filter-flg">∧</view>
+      </view>
+      <view class="bugTd th2 rightBorder" bindtap='sortByBrief'>
+        <view class="sortTitle">缺陷概述</view>
+        <view wx:if="{{sortBriefDesc}}" class="filter-flg">∨</view>
+        <view wx:else class="filter-flg">∧</view>
+      </view>
+      <view class="bugTd th3 rightBorder" bindtap="sortByStatus">
+        <view class="sortTitle">状态</view>
+        <view wx:if="{{sortStatusDesc}}" class="filter-flg">∨</view>
+        <view wx:else class="filter-flg">∧</view>
+      </view>
+      <view class="bugTd th4" bindtap="sortByVersionName">
+        <view class="sortTitle">发现版本</view>
+        <view wx:if="{{sortVersionNameDesc}}" class="filter-flg">∨</view>
+      <view wx:else class="filter-flg">∧</view>
+    </view>
+    </view>
+    <block wx:for="{{bugList}}">
+      <view class="tr" id="{{index}}" bindtap='clickDetail'>
+        <view class="bugTd td1 rightBorder bottomBorder">
+          <view class='td-text'>{{item.id}}</view>
+        </view>
+        <view class="bugTd td2 rightBorder bottomBorder">
+          <view class="defect-description-manyLine">{{item.title}}</view>
+          <view class="link-flg">></view>
+        </view>
+        <view class="bugTd td3 rightBorder bottomBorder">
+          <view class='td-text'>{{item.statusName}}</view>
+        </view>
+        <view class="bugTd td4 bottomBorder">
+          <view class='td-text'>{{item.versionName}}</view>
+        </view>
+      </view>
+    </block>
+  </view>

@@ -1,0 +1,43 @@
+/* pages/myMessage/userMessageDetails/userMessageDetails.wxss */
+
+.message{
+  background: white;
+  display: flex;
+  flex-direction:column;
+  border-radius: 15rpx;
+  margin: 30rpx;
+  font-size: 30rpx;
+}
+
+.message-title{
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 10rpx;
+}
+
+.message-title-flg{
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.message-title-description{
+  padding-top: 10rpx; 
+  font-weight:bolder;
+}
+
+.message-title-date{
+  padding-top: 10rpx; 
+  margin-right: 10rpx;
+  color: rgb(165, 162, 162);
+}
+
+.message-image{
+  overflow: auto;
+}
+
+.message-description{
+  color: rgb(165, 162, 162);
+  text-indent: 20rpx;
+  text-align: left;
+}

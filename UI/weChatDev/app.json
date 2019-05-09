@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/qualityMessage/qualityMessage",
+    "pages/versionQualityDetail/versionQualityDetail",
+    "pages/bugManager/bugManager",
+    "pages/registerPage/registerPage",
+    "pages/defectDetailedInfo/defectDetailedInfo",
+    "pages/uniformTest/uniformTest",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/userMessage/userMessage",
+    "pages/login/login",
+    "pages/userDefectCount/userDefectCount",
+    "pages/defectList/defectList",
+    "pages/uniformTest/userMessageDetails/userMessageDetails",
+    "pages/autoTest/autoTest",
+    "pages/autoTest/upgradeDetail/upgradeDetail",
+    "pages/autoTest/upgradeDetail/upgradeLink",
+    "pages/advertisement/advertisement",
+    "pages/my/webpage/webpage"
+  ],
+  "tabBar": {
+    "color": "#757575",
+    "selectedColor": "#4CAF50",
+    "list": [
+      {
+        "selectedIconPath": "/image/qualityInfoSelect.png",
+        "iconPath": "/image/qualityInfo.png",
+        "text": "质量信息",
+        "pagePath": "pages/qualityMessage/qualityMessage"
+      },
+      {
+        "selectedIconPath": "/image/bugInfoSelect.png",
+        "iconPath": "/image/bugInfo.png",
+        "pagePath": "pages/bugManager/bugManager",
+        "text": "缺陷管理"
+      },
+      {
+        "selectedIconPath": "/image/progressSelect.png",
+        "iconPath": "/image/progress.png",
+        "pagePath": "pages/uniformTest/uniformTest",
+        "text": "消息中心"
+      },
+      {
+        "selectedIconPath": "/image/mineSelect.png",
+        "iconPath": "/image/mine.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat2018",
+    "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,90 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <!-- 缺陷详情 -->
+  <view class="titleGround">
+    <view class="redTitle">详情</view>
+  </view>
+  <view class="detailContainer">
+    <view class="title startTitle">缺陷序号</view>
+    <input class="content" type="number" name="id" disabled='true' value="{{defectDetaile.id}}" />
+    <view class="title rightTitle">缺陷状态</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.statusName}}" />
+  </view>
+
+  <view class="detailContainer">
+    <view class="title startTitle">缺陷概述</view>
+    <view class="longContent longContentView">{{defectDetaile.title}}</view>
+  </view>
+
+  <view class="detailContainer">
+    <view class="title startTitle">提交人员</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.userName}}" />
+    <view class="title rightTitle">提交时间</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.formatCreatedDate}}" />
+    <!-- <scroll-view scroll-x="true" class="content">
+      <view class="viewContent">{{defectDetaile.formatCreatedDate}}</view>
+    </scroll-view> -->
+  </view>
+
+  <view class="detailContainer">
+    <view class="title startTitle">一级模块</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.priorityName}}" />
+    <view class="title rightTitle">严重程度</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.severityName}}" />
+  </view>
+
+  <view class="detailContainer">
+    <view class="title startTitle">发现版本</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.findVersionName}}" />
+    <view class="title rightTitle">修复版本</view>
+    <input class="content" type="text" disabled='true' value="{{defectDetaile.planResolvedVersionName}}" />
+  </view>
+
+  <!-- 具体问题描述 -->
+  <view class="titleGround">
+    <view class="redTitle">具体问题描述</view>
+  </view>
+  <view>
+    <textarea class="defectTextArea" disabled='true' maxlength="-1" name="defectDescription" value="{{defectDetaile.defectDescription}}"></textarea>
+  </view>
+
+  <!-- 解决方案 -->
+  <view class="titleGround">
+  <view class="redTitle">解决方案</view>
+  </view>
+  
+  <textarea class="defectTextArea shortArea" disabled='true' cursor-spacing="180" maxlength="-1" type="text" name="solutionDescription" value="{{defectDetaile.solutionDescription}}"></textarea>
+
+  <!-- 评论面板 -->
+  <!-- <view class="redTitle">评论面板</view>
+  <view class="commentContainer">
+    <view class="blueLink" bindtap='clickMessage'>
+      写留言
+    </view>
+
+    <scroll-view class='scrollView' scroll-y>
+      <view class="personComment" wx:for="{{commentArray}}" wx:key="messageId" data-username='{{item.userName}}' data-telephone='{{item.telephone}}' bindtap='clickAnswer'>
+        <view class="personTitle">{{item.userName}}({{item.companyName}})
+          <label wx:if="{{item.atUserName != 'NA'}}">回复 {{item.atUserName}}({{item.atCompanyName}})</label> {{item.formatMessageDate}}:</view>
+        <view>{{item.messageContent}}</view>
+      </view>
+    </scroll-view>
+  </view> -->
+  <view hidden='{{!showImages}}'> 
+    <!-- <view class="viewImageLink">
+      <label class='line'>缺陷留痕>>></label>
+    </view> -->
+    <view class="redTitle">缺陷留痕</view>
+
+    <view class="defectImgs">
+      <block wx:for="{{defectDetaile.materialList}}">
+        <image data-id="{{index}}" mod="scaleToFill" style="height:120px;width:44%;margin:3%" bindtap='LookPhoto' data-photUrl='{{item}}' src="{{item}}"></image>
+      </block>
+    </view>
+  </view>
+  <!-- 提交按钮（暂时不提供该功能 - 2018/07/23） -->
+  <!-- <view class="butns">
+    <button class='submitButton' size="mini" form-type="submit">保存</button>
+  <button class='submitButton' size="mini" form-type="submit">取消</button>
+  </view> -->
+
+</form>

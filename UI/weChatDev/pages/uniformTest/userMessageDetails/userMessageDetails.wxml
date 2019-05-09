@@ -1,0 +1,12 @@
+<!--pages/uniformTest/userMessageDetails/userMessageDetails.wxml-->
+<view class="message">
+  <view class="message-title">
+    <!-- <image class="message-title-flg" src="{{message.flg}}"></image> -->
+    <text class="message-title-description">{{message.title}}</text>
+  </view>
+  <view class="message-title-date">{{message.date}}</view>
+  <view hidden="{{message.mainImg==''}}">
+    <image class="message-image" src="{{message.mainImg}}" mode='widthFix' bindtap="LookPhoto"></image>
+  </view>
+  <view class="message-description">{{message.description}}</view>
+</view>

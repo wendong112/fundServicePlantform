@@ -1,0 +1,14 @@
+/* pages/autoTest/upgradeDetail/upgradeLink.wxss */
+.link{
+  font-size:40rpx;
+  margin:5%;
+  padding: 2%
+}
+
+.link-url{
+  word-break: break-all
+}
+.title{
+  font-size:35rpx;
+  font-weight: bold
+}

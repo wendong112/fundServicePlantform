@@ -1,0 +1,6 @@
+/* pages/advertisement/advertisement.wxss */
+
+.con{
+  width:100%;
+  height:800px;
+}

@@ -1,0 +1,58 @@
+<!--pages/defectList/defectList.wxml-->
+<!-- 表格显示部分 -->
+
+<view class="filter-title">
+  <view class="filter">
+    <block wx:for="{{filterList}}" wx:key="">
+      <view class="filter-item" data-index="{{index}}">
+        <text class="filter-item-text">{{item}}</text>
+        <text class="filter-item-icon" data-index="{{index}}" bindtap='deleteFilter'>×</text>
+      </view>
+    </block>
+    <view class="defectCont">
+      <text>共{{defectCount}}条缺陷</text>
+    </view>
+  </view>
+</view>
+
+<view class="table">
+  <view class="tr bottomBorder">
+    <view class="bugTd th1 rightBorder" bindtap='sortById'>
+      <view class="sortTitle">序号</view>
+      <view wx:if="{{sortIdDesc}}" class="filter-flg">∨</view>
+      <view wx:else class="filter-flg">∧</view>
+    </view>
+    <view class="bugTd th2 rightBorder" bindtap='sortByBrief'>
+      <view class="sortTitle">缺陷概述</view>
+      <view wx:if="{{sortBriefDesc}}" class="filter-flg">∨</view>
+      <view wx:else class="filter-flg">∧</view>
+    </view>
+    <view class="bugTd th3 rightBorder" bindtap="sortByStatus">
+      <view class="sortTitle">状态</view>
+      <view wx:if="{{sortStatusDesc}}" class="filter-flg">∨</view>
+      <view wx:else class="filter-flg">∧</view>
+    </view>
+    <view class="bugTd th4" bindtap="sortByVersionName">
+      <view class="sortTitle">发现版本</view>
+      <view wx:if="{{sortVersionNameDesc}}" class="filter-flg">∨</view>
+      <view wx:else class="filter-flg">∧</view>
+    </view>
+  </view>
+  <block wx:for="{{bugList}}">
+    <view class="tr" id="{{index}}" bindtap='clickDetail'>
+      <view class="bugTd td1 rightBorder bottomBorder">
+        <view class='td-text'>{{item.id}}</view>
+      </view>
+      <view class="bugTd td2 rightBorder bottomBorder">
+        <view class="defect-description-manyLine">{{item.title}}</view>
+        <view class="link-flg">></view>
+      </view>
+      <view class="bugTd td3 rightBorder bottomBorder">
+        <view class='td-text'>{{item.statusName}}</view>
+      </view>
+      <view class="bugTd td4 bottomBorder defect-description-manyLine">
+        <view class='td-text'>{{item.versionName}}</view>
+      </view>
+    </view>
+  </block>
+</view>

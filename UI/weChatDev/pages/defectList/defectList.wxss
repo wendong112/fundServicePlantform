@@ -1,0 +1,132 @@
+/* pages/defectList/defectList.wxss */
+
+/**index.wxss**/
+@import "/common/navbarStyle.wxss";
+
+.filter-title{
+  display: flex;
+  width:100%;
+}
+
+.filter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-around;
+  margin-bottom: 20rpx;
+  font-size: 25rpx;
+  color: #757575;
+  margin-left: 20rpx;
+}
+
+.defectCont{
+  width: 190rpx;
+  color: #757575;
+  font-size: 25rpx;
+  text-align: center;
+  padding-top: 20rpx
+}
+
+.filter-item{
+  text-align: center;
+  width: 190rpx;
+  margin: 10rpx;
+  border: 1rpx #607D8B solid;
+  border-radius: 15rpx;
+  line-height: 50rpx;
+}
+
+.filter-item-text{
+  float:left;
+  margin-left: 10rpx;
+}
+
+.filter-item-icon{
+  margin-right: 10rpx;
+  float:right;
+  font-weight: bold;
+  font-size: 35rpx;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.td {
+  margin: 1%;
+  width: 100%;
+  word-break: break-all;
+  font-size: 30rpx;
+}
+
+.table {
+  font-size: 30rpx;
+  border: 1rpx solid #607D8B
+}
+
+.bugTd {
+  width: 100%;
+  word-break: break-all;
+  padding: 1% 1% 1% 1%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sortTitle {
+  font-size:30rpx;
+  font-weight: bold;
+  width: 100%;
+  text-align: center
+}
+
+.th1, .td1 {
+  width: 14%;
+  text-align: center
+}
+
+.th2, .td2 {
+  width: 47%;
+}
+
+.th3, .td3 {
+  width: 15%;
+  text-align: center
+}
+
+.th4, .td4 {
+  width: 24%;
+}
+
+.link-flg {
+  color:#2196F3;
+  padding: 5% 0;
+}
+
+.td-text{
+  width:100%;
+  text-align: center;
+  margin: auto;
+}
+
+.bottomBorder {
+  border-bottom: 1rpx solid #607D8B;
+}
+
+.rightBorder {
+  border-right: 1rpx solid #607D8B;
+}
+
+.defect-description-manyLine{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+}
+
+.filter-flg {
+  font-size: 30rpx;
+}

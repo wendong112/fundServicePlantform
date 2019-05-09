@@ -1,0 +1,38 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+} 
+
+.currency_font {
+  font-size:30rpx;
+}
+
+.currency_font_content {
+  color: #757575;
+}
+
+.contant_spase {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.contant_spase_2 {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+view{
+  word-break:break-all;
+}
+
+text{
+  word-break:break-all;
+}
+
+@import "dist/style/weui.wxss";

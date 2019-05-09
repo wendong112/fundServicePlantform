@@ -1,0 +1,89 @@
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.topBorder {
+  border-top: 1rpx solid #607D8B;
+}
+
+.bottomBorder {
+  border-bottom: 1rpx solid #607D8B;
+}
+
+.rightBorder {
+  border-right: 1rpx solid #607D8B;
+}
+
+/* 上面版本汇总信息区域 */
+.title {
+  font-size: 35rpx;
+  font-weight: bold;
+  text-align: center;
+  padding: 1% 0% 1% 0%;
+}
+
+.scoreTd {
+  font-size: 120%;
+  font-weight: 800;
+}
+
+.tableTd {
+  display: flex;
+  width: 80%;
+  word-break: break-all;
+  font-size: 70%;
+}
+
+.verCol {
+  width: 25%;
+}
+
+.verScoreTd {
+  width: 20%;
+  font-size: 70%;
+}
+
+.scoreCell {
+  margin-top: 80%;
+}
+
+.scoreCell-version {
+  margin-top: 40%;
+}
+
+.cell {
+  padding: 1%
+}
+
+/* 下面的图标详细部分 */
+.detailContainer {
+  width: 100%;
+}
+
+.detailTable {
+  font-size: 70%;
+  border: 1rpx 0 0 1rpx solid #607D8B;
+}
+
+.detailCol {
+  width: 100%;
+}
+
+.detailTitle {
+  font-size:30rpx;
+  font-weight: bold;
+  padding: 2%;
+}
+
+.canvas {
+  width: 100%;
+  border-bottom: 1rpx solid #607D8B;
+}
+
+.pointsInfo {
+  margin: 5% 3% 5% 3%;
+  font-size:20rpx;
+}

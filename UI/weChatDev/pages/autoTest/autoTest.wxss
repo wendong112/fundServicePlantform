@@ -1,0 +1,40 @@
+/* pages/autoTest/autoTest.wxss */
+
+page{
+  background-color: #F8F8F8;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.card{
+  margin: 3% 0;
+  padding:3% 3% 0 3%;
+  background-color: #fff
+}
+
+.card-content{
+  display: flex;
+}
+
+.card-left{
+  width:35%;
+  margin-right: 5%;
+}
+
+.card-right{
+  padding-top: 10rpx;
+  width:50%;
+  font-size:30rpx;
+  color: #757575;
+}
+
+.content-title{
+  font-weight: bold;
+  color:black
+}
+
+.message-description-oneLine{
+  font-size: 25rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

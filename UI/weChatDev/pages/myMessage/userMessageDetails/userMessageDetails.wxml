@@ -1,0 +1,12 @@
+<!--pages/myMessage/userMessageDetails/userMessageDetails.wxml-->
+<view class="message">
+  <view class="message-title">
+    <!-- <image class="message-title-flg" src="{{message.flg}}"></image> -->
+    <text class="message-title-description">{{message.title}}</text>
+    <text class="message-title-date">{{message.date}}</text>
+  </view>
+  <view class="message-image" hidden="{{message.mainImg==''}}">
+    <image src="{{message.mainImg}}" bindtap="LookPhoto"></image>
+  </view>
+  <view class="message-description">{{message.description}}</view>
+</view>

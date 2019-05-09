@@ -1,0 +1,27 @@
+<!--pages/userMessage/userMessage.wxml-->
+
+<view class="weui-cells weui-cells_after-title space">
+<navigator url="../collection/collection" open-type='switchTab' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">头像</view>
+    <view class="weui-cell__hd">
+            <image src="{{headPath}}" style="margin-right: 5px;vertical-align: middle;width:150rpx; height: 150rpx;"></image>
+            </view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="../collection/collection" open-type='switchTab' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">名字</view>
+    <view class="weui-cell__ft">{{userName}}</view>
+  </navigator>
+
+  <navigator url="../collection/collection" open-type='switchTab' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">基金公司</view>
+    <view class="weui-cell__ft">{{userCompany}}</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+
+  <navigator url="../collection/collection" open-type='switchTab' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">手机号</view>
+    <view class="weui-cell__ft">{{telephone}}</view>
+  </navigator>
+</view>

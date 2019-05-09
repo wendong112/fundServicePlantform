@@ -1,0 +1,4 @@
+<!--pages/advertisement/advertisement.wxml-->
+<view class="con">
+  <!-- <image style='width:100%;height:100%' src='http://www.fundserviceplatform.cn:8080/WeChat/advertisement/adtmnt_1.png'></image> -->
+</view>

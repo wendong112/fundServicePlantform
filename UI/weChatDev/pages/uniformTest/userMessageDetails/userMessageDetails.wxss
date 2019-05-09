@@ -1,0 +1,39 @@
+/* pages/uniformTest/userMessageDetails/userMessageDetails.wxss */
+
+.message{
+  background: white;
+  display: flex;
+  flex-direction:column;
+  border-radius: 15rpx;
+  margin: 10rpx;
+  font-size: 30rpx;
+}
+
+.message-title-flg{
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.message-title-description{
+  padding-top: 10rpx; 
+  font-weight:bolder;
+  margin-left: 10rpx;
+}
+
+.message-title-date{
+  font-size: 25rpx;
+  color: #757575;
+  margin-left: 10rpx;
+}
+
+.message-image{
+  width:100%;
+}
+
+.message-description{
+  color: #757575;
+  text-indent: 20rpx;
+  text-align: left;
+  margin:0 10rpx;
+}

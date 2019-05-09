@@ -1,0 +1,6 @@
+/* pages/userMessage/userMessage.wxss */
+
+.headImg{
+  width:25%;
+  padding: 25rpx;
+}

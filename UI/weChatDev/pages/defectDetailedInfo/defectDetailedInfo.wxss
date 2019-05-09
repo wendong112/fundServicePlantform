@@ -1,0 +1,152 @@
+/* title样式 */
+
+.titleGround{
+ padding-top: 2rpx;
+ padding-bottom: 2rpx;
+ margin-top:20rpx;
+ margin-bottom: 10rpx;
+}
+
+.redTitle{
+  position: relative;
+  font-size: 75%;
+  padding-left: 30rpx;
+  width: 30%;
+}
+
+.redTitle::before{
+  content: "";
+  position: absolute;
+  left: 10rpx;
+  display: inline-block;
+  width: 10rpx;
+  height: 40rpx;
+  background: #4CAF50;
+}
+
+/* 详情部分 */
+.detailContainer{
+  width:99%;
+  display: flex;
+  font-size: 70%;
+  margin-bottom: 3%;
+}
+
+.title {
+  margin: 1% 1% 1% 2%;
+}
+
+.startTitle {
+  margin-left: 3%;
+}
+
+.rightTitle {
+  margin-left: 5%;
+}
+
+.content {
+  color: #757575;
+  border:1rpx solid #607D8B;
+  border-radius: 10rpx;
+  padding-left: 1%;
+  max-width: 28%;
+  min-width: 28%
+}
+
+.longContent {
+  border:1rpx solid #607D8B;
+  border-radius: 10rpx;
+  padding-left: 1%;
+  width: 75%;
+  color: #757575;
+}
+
+.longContentView {
+  padding-top:2%;
+  padding-bottom:2%
+}
+
+scroll-view {
+  white-space: nowrap
+}
+
+.viewContent{
+  margin-top:3%
+}
+
+/* 问题部分 */
+.defectTextArea {
+  margin: 1% 1% 1% 4%;
+  font-size: 70%;
+  padding: 2%;
+  border:1rpx solid #607D8B; 
+  border-radius: 10rpx;
+  min-width: 88%;
+  max-width: 88%;
+  color: #757575
+}
+
+.shortArea {
+  height: 100rpx;
+}
+
+/* 评论部分 */
+.commentContainer {
+  margin: 1% 4% 1% 4%;
+  font-size: 70%;
+  padding: 2%;
+  border-radius: 10rpx;
+  height: 300rpx;
+  min-width: 88%;
+  max-width: 88%;
+  background-color: gainsboro;
+}
+
+.scrollView {
+  height: 90%;
+}
+
+.blueLink {
+  color: blue;
+  text-align: right;
+}
+
+.personComment {
+  margin-bottom: 3%;
+  padding-bottom: 1%
+}
+
+.personTitle {
+  color: gray;
+  font-size: 83%;
+}
+
+.viewImageLink {
+  color: blue;
+  margin-left: 5%;
+  margin-top: 3%;
+  padding-bottom: 3%;
+  font-size: 75%;
+}
+
+.line {
+  border-bottom: 2rpx blue solid;
+}
+
+.butns{
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/* 提交 */
+.submitButton {
+  background-color: gainsboro;
+  color: white;
+  font-size: 90%;
+}
+
+.defectImgs{
+  display: flex;
+  flex-wrap: wrap;
+}

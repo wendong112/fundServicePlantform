@@ -1,0 +1,75 @@
+<!--pages/login/login.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar" style='border-bottom:1rpx solid #607D8B'>
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            
+            <view class="weui-tab__panel">
+                <!-- 登录 -->
+                <view class="" hidden="{{activeIndex != 0}}">
+                  <view class="weui-cell weui-cell_input telephone">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label telephone-title">手机号：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input telephone-input" bindinput="loginTelInput" placeholder="请输入注册手机号"/>
+                    </view>
+                  </view>
+                  <view class="login">
+                    <button type="primary" bindtap="userLogin">登录</button>
+                  </view>
+                </view>
+
+                <!-- 注册 -->
+                <view class="" hidden="{{activeIndex != 1}}">
+                  <view class="weui-cell weui-cell_input telephone">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label telephone-title">姓名：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input telephone-input" bindinput="nameInput" placeholder="请输入真实姓名"/>
+
+                    </view>
+                  </view>
+
+                  <view class="register-telephon">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label telephone-title">公司：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input telephone-input" bindinput="companyInput" placeholder="请输入公司名称"/>
+                    <!-- <view class="weui-cell__bd register-company">
+                      <picker bindchange="bindPickerChange" value="{{index}}" range="{{companyList}}" range-key="companyName">
+                      <view class="selectPicker">
+                        <view class="content">{{companyList[index].companyName}}</view>
+                        <view class="downArrow">▼</view>
+                      </view>
+                        
+                      </picker> -->
+                    </view>
+                    
+                  </view>
+
+                  <view class="register-telephon">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label telephone-title">手机号：</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input telephone-input" bindinput="telInput" placeholder="请输入您的联系电话"/>
+                    </view>
+                  </view>
+                  <view class="login">
+                    <button type="primary" open-type="getUserInfo" bindgetuserinfo="register">注册</button>
+                  </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
