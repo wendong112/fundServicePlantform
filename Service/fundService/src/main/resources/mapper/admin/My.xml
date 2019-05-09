@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.MyMapper">
+    <!-- 插入新用户 -->
+    <insert id="addUserInfo" parameterType="com.tc.fundService.entity.admin.UserReq">
+        INSERT INTO user_information
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="telephone != null">
+                TELEPHONE,
+            </if>
+            <if test="wechatId != null">
+                WECHAT_ID,
+            </if>
+            <if test="wechatName != null">
+                WECHAT_NAME,
+            </if>
+            <if test="userName != null">
+                USER_NAME,
+            </if>
+            <if test="companyName != null">
+                COMPANY_NAME,
+            </if>
+            <if test="headPath != null">
+                HEAD_PATH,
+            </if>
+            <if test="authorizedFlag != null">
+                AUTHORIZED_FLAG,
+            </if>
+                `DATE`
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="telephone != null">
+                #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatId != null">
+                #{wechatId,jdbcType=VARCHAR},
+            </if>
+            <if test="wechatName != null">
+                #{wechatName,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=INTEGER},
+            </if>
+            <if test="headPath != null">
+                #{headPath,jdbcType=VARCHAR},
+            </if>
+            <if test="authorizedFlag != null">
+                #{authorizedFlag,jdbcType=CHAR},
+            </if>
+                NOW()
+        </trim>
+    </insert>
+
+    <!-- 获取用户信息 -->
+    <select id="getUserInfo" parameterType="com.tc.fundService.entity.admin.UserReq"
+            resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT *
+        FROM
+          user_information
+        <where>
+            <if test="wechatId != null">
+                AND WECHAT_ID = #{wechatId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 获取用户信息 -->
+    <select id="getUserInfoByTelephone" parameterType="com.tc.fundService.entity.admin.UserReq"
+            resultType="com.tc.fundService.entity.admin.UserReq">
+        SELECT *
+        FROM
+        user_information
+        <where>
+            <if test="telephone != null">
+                AND TELEPHONE = #{telephone}
+            </if>
+        </where>
+    </select>
+
+    <!-- 获取所有自动化测试升及信息 -->
+    <select id="getAllAutoTestUpgradeMessage" resultType="com.tc.fundService.entity.admin.AutoTestUpgrade">
+        SELECT * FROM auto_test
+    </select>
+</mapper>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.defect.MTFDefectDetailMapper">
+    <select id="getMTFDefectById" parameterType="com.tc.fundService.entity.admin.DefectBriefReq" resultType="com.tc.fundService.entity.admin.DefectDetail">
+        SELECT
+            bug.ID,
+            CASE WHEN bug.STATUS_ID = '1' THEN '审核中' ELSE sts.PROPERTY_VALUE_NAME END AS STATUS_NAME,
+            bug.TITLE,
+            <if test="platform == 0">
+                person.FULLNAME AS USER_NAME,
+            </if>
+            <if test="platform == 1">
+                person.USER_NAME AS USER_NAME,
+            </if>
+            DATE_FORMAT(bug.CREATED_DATE, '%Y-%m-%d') AS FORMAT_CREATED_DATE,
+            module.PROPERTY_VALUE_NAME AS PRIORITY_NAME,
+            substring(severity.PROPERTY_VALUE_NAME, INSTR(severity.PROPERTY_VALUE_NAME,'-') + 1) AS SEVERITY_NAME,
+            findVer.PROPERTY_VALUE_NAME AS FIND_VERSION_NAME,
+            PREPARE_PROPERTY_3 AS PLAN_RESOLVED_VERSION_NAME,
+            bug.DEFECT_DESCRIPTION AS DEFECT_DESCRIPTION,
+            '' AS EXPECT_DESCRIPTION,
+            bug.SOLUTION_DESCRIPTION AS SOLUTION_DESCRIPTION
+        FROM
+            defect_details AS bug
+                LEFT JOIN
+            mtf_project_database_9.property_value_list AS sts ON bug.STATUS_ID = sts.PROPERTY_VALUE_ID
+                LEFT JOIN
+            <if test="platform == 0">
+              testmgmtplatform_admin.users AS  person ON bug.created_user_id = person.ID
+            </if>
+            <if test="platform == 1">
+                testmgmtplatform_admin.user_information AS person ON bug.PREPARE_PROPERTY_11 = person.telephone
+            </if>
+                LEFT JOIN
+            mtf_project_database_9.property_value_list AS module ON bug.PRIORITY_ID = module.PROPERTY_VALUE_ID
+                LEFT JOIN
+            mtf_project_database_9.property_value_list AS severity ON bug.SEVERITY_ID = severity.PROPERTY_VALUE_ID
+                LEFT JOIN
+            mtf_project_database_9.property_value_list AS findVer ON bug.FIND_VERSION_ID = findVer.PROPERTY_VALUE_ID
+        WHERE bug.ID = #{id}
+    </select>
+
+    <insert id="addNewDefect" keyProperty="id" useGeneratedKeys="true" parameterType="com.tc.fundService.entity.admin.DefectDetail">
+        INSERT INTO defect_details
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                TITLE,
+            </if>
+            <if test="createdUserId != null">
+                CREATED_USER_ID,
+            </if>
+                CREATED_DATE,
+                FIND_DATE,
+            <if test="projectId != null">
+                PROJECT_ID,
+            </if>
+            <if test="statusId != null">
+                STATUS_ID,
+            </if>
+            <if test="reproducible != null">
+                REPRODUCIBLE,
+            </if>
+                STATUS_TIME,
+            <if test="priorityId != null">
+                PRIORITY_ID,
+            </if>
+            <if test="moduleId != null">
+                MODULE_ID,
+            </if>
+            <if test="findVersionId != null">
+                FIND_VERSION_ID,
+            </if>
+            <if test="userFlagMap != null">
+                USER_FLAG_MAP,
+            </if>
+                PREPARE_PROPERTY_9,
+            <if test="telephone != null">
+                PREPARE_PROPERTY_11,
+            </if>
+            <if test="patchNum != null">
+                PREPARE_PROPERTY_12
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="createdUserId != null">
+                #{createdUserId,jdbcType=INTEGER},
+            </if>
+            NOW(),
+            NOW(),
+            <if test="projectId != null">
+                #{projectId,jdbcType=INTEGER},
+            </if>
+            <if test="statusId != null">
+                #{statusId,jdbcType=INTEGER},
+            </if>
+            <if test="reproducible != null">
+                #{reproducible,jdbcType=VARCHAR},
+            </if>
+            NOW(),
+            <if test="priorityId != null">
+                #{priorityId,jdbcType=INTEGER},
+            </if>
+            <if test="moduleId != null">
+                #{moduleId,jdbcType=INTEGER},
+            </if>
+            <if test="findVersionId != null">
+                #{findVersionId,jdbcType=INTEGER},
+            </if>
+            <if test="userFlagMap != null">
+                #{userFlagMap,jdbcType=VARCHAR},
+            </if>
+            63,
+            <if test="telephone != null">
+                #{telephone,jdbcType=VARCHAR},
+            </if>
+            <if test="patchNum != null">
+                #{patchNum,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 查询个人提交缺陷 -->
+    <select id="getUserDefect" parameterType="com.tc.fundService.entity.admin.UserReq"
+            resultType="com.tc.fundService.entity.admin.DefectBriefReq">
+        SELECT
+        `dft`.`ID` AS `ID`,
+        `usr`.`USER_NAME` AS `USER_NAME`,
+        `dft`.`PREPARE_PROPERTY_11` AS `TELEPHONE`,
+        `usr`.`COMPANY_NAME` AS `COMPANY_NAME`,
+        `dft`.`TITLE` AS `TITLE`,
+        `dft`.`SEVERITY_ID` AS `SEVERITY_ID`,
+        `dft`.`FIND_VERSION_ID` AS `FIND_VERSION_ID`,
+        `vr`.`PROPERTY_VALUE_NAME` AS `VERSION_NAME`,
+        `dft`.`PREPARE_PROPERTY_3` AS `PLAN_RESOLVED_VERSION_ID`,
+        `dft`.`STATUS_ID` AS `STATUS_ID`,
+        CASE WHEN `dft`.`STATUS_ID` = '1' THEN '审核中' ELSE `vl`.`PROPERTY_VALUE_NAME` END AS `STATUS_NAME`,
+        `dft`.`PRIORITY_ID` AS `PRIORITY_ID`,
+        '1' AS `platform`
+        FROM
+            `mtf_project_database_9`.`defect_details` `dft`
+            LEFT JOIN `testmgmtplatform_admin`.`user_information` `usr` ON `dft`.`PREPARE_PROPERTY_11` = `usr`.`TELEPHONE`
+            LEFT JOIN `mtf_project_database_9`.`property_value_list` `vl` ON `dft`.`STATUS_ID` = `vl`.`PROPERTY_VALUE_ID`
+            LEFT JOIN `mtf_project_database_9`.`property_value_list` `vr` ON `dft`.`FIND_VERSION_ID` = `vr`.`PROPERTY_VALUE_ID`
+        WHERE
+            `dft`.`CREATED_USER_ID` = '74'
+                AND `dft`.`PREPARE_PROPERTY_9` = '63'
+                AND usr.WECHAT_ID = #{wechatId}
+    </select>
+</mapper>

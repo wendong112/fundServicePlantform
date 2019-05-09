@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.defect.PropertyValueMapper">
+    <select id="getAllVersion" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT DISTINCT LEFT(property_value_name,9) AS versionName
+        FROM property_value_list
+        WHERE property_list_name = 'ENVIRONMENT_VERSION'
+        GROUP BY property_value_name
+        ORDER BY versionName DESC
+    </select>
+
+    <select id="getMainVersion" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS FIND_VERSION_ID,
+            PROPERTY_VALUE_NAME AS VERSION_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = 'ENVIRONMENT_VERSION'
+        AND INSTR(PROPERTY_VALUE_NAME,'_') = 0
+        ORDER BY PROPERTY_VALUE_NAME DESC
+    </select>
+
+    <select id="getAllModule" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS PRIORITY_ID,
+            PROPERTY_VALUE_NAME AS PRIORITY_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = "MODULE_TYPE"
+        AND PROPERTY_VALUE_ID != '352'
+        ORDER BY PROPERTY_VALUE_ID ASC;
+    </select>
+
+    <select id="getHeavySeverity" resultType="com.tc.fundService.entity.defect.PropertyValue">
+        SELECT
+            PROPERTY_VALUE_ID AS SEVERITY_ID,
+            PROPERTY_VALUE_NAME AS SEVERITY_NAME
+        FROM
+            property_value_list
+        WHERE PROPERTY_LIST_NAME = "SEVERITY"
+        ORDER BY PROPERTY_VALUE_ID ASC;
+    </select>
+</mapper>

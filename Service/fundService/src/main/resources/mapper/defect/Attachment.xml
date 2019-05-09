@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.defect.AttachmentMapper">
+
+    <select id="listAllAttachmentsByNodeId" resultType="com.tc.fundService.entity.defect.Attachment" >
+        SELECT
+        att.id,
+        att.name,
+        att.project_id as projectId,
+        att.attachment_path as attachmentPath,
+        att.description as description,
+        att.node_id as nodeId,
+        att. module_id as moduleId,
+        DATE_FORMAT(att.UPLOAD_TIME, '%Y-%m-%d %T') as uploadTime,
+        att.FILE_SIZE as fileSize,
+        att.IS_MAIN as isMain,
+        att.UPLOAD_USER_ID as uploadUserId,
+        u.fullname as uploadUserName
+        FROM  attachment as att
+        left join testmgmtplatform_admin.users as u on u.ID = att.UPLOAD_USER_ID
+        <where>
+            <if test="projectId != null">
+                and att.PROJECT_ID = #{projectId}
+            </if>
+            <if test="moduleId != null">
+                and att.MODULE_ID = #{moduleId}
+            </if>
+            <if test="nodeId != null">
+                and att.NODE_ID = #{nodeId}
+            </if>
+            <if test="isMain != null">
+                and att.IS_MAIN = #{isMain}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectLastAttachmentId" resultType="java.lang.Integer" >
+        select ifnull(max(id), 0) from  attachment
+    </select>
+
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="com.tc.fundService.entity.defect.Attachment">
+        insert into attachment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="projectId != null">
+                PROJECT_ID,
+            </if>
+            <if test="attachmentPath != null">
+                ATTACHMENT_PATH,
+            </if>
+            <if test="description != null">
+                DESCRIPTION,
+            </if>
+            <if test="nodeId != null">
+                NODE_ID,
+            </if>
+            UPLOAD_TIME,
+            <if test="moduleId != null">
+                MODULE_ID,
+            </if>
+            <if test="fileSize != null">
+                FILE_SIZE,
+            </if>
+            <if test="isMain != null">
+                IS_MAIN,
+            </if>
+            <if test="uploadUserId != null">
+                UPLOAD_USER_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name},
+            </if>
+            <if test="projectId != null">
+                #{projectId},
+            </if>
+            <if test="attachmentPath != null">
+                #{attachmentPath},
+            </if>
+            <if test="description != null">
+                #{description},
+            </if>
+            <if test="nodeId != null">
+                #{nodeId},
+            </if>
+            <if test="uploadTime == null">
+                now(),
+            </if>
+            <if test="uploadTime != null">
+                str_to_date(#{uploadTime}, '%Y-%m-%d %H:%i:%S'),
+            </if>
+            <if test="moduleId != null">
+                #{moduleId},
+            </if>
+            <if test="fileSize != null">
+                #{fileSize},
+            </if>
+            <if test="isMain != null">
+                #{isMain},
+            </if>
+            <if test="uploadUserId != null">
+                #{uploadUserId},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteAttachmentById" >
+        delete from  attachment
+        where id = id
+    </delete>
+</mapper>

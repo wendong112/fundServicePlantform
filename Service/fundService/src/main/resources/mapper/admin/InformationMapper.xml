@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tc.fundService.mapper.admin.InformationMapper">
+
+    <!-- 获取所有测试进度信息 -->
+    <select id="getAllUniformTest" resultType="com.tc.fundService.entity.admin.Information">
+        SELECT * FROM uniform_test ORDER BY date DESC
+    </select>
+
+    <!-- 统计测试进度信息数量 -->
+    <select id="countUniformTest" resultType="java.lang.Integer">
+        SELECT count(*) FROM uniform_test
+    </select>
+
+    <!-- 获取所有消息 -->
+    <select id="getAllInformation" resultType="com.tc.fundService.entity.admin.Information">
+        SELECT * FROM information ORDER BY date DESC
+    </select>
+
+    <!-- 统计消息数量 -->
+    <select id="countInformation" resultType="java.lang.Integer">
+        SELECT count(*) FROM information
+    </select>
+
+    <!-- 获取素材列表 -->
+    <select id="getMaterialList" parameterType="com.tc.fundService.entity.admin.Information" resultType="String">
+        SELECT material_path FROM material_mapping
+        WHERE source_id = #{id}
+        AND source_type = #{sourceType}
+    </select>
+</mapper>
